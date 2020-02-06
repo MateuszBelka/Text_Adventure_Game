@@ -1,7 +1,9 @@
 # Assignment 1
+Maximum number of words for this document: 2500
+
 
 ## Introduction									
-Author(s): Taylor
+Author(s): `name of the team member(s) responsible for this section`
 
 Write a short description of your version of the system you are going to design and implement in this course. 
 Clearly specify which are the key aspects of your system, such as:
@@ -17,7 +19,7 @@ Don’t forget to use links to external URLs (e.g., the direct link to the Fanta
 Maximum number of words for this section: 1000
 
 ## Features
-Author(s): Valeriya and Mateusz
+Author(s): `name of the team member(s) responsible for this section`
 
 <When defining both functional features and quality requirements, remember that you will need to come back to them in Assignments 2 and 3 and explicitly state how specific parts of models/implementation satisfy them.>
 
@@ -28,12 +30,12 @@ As a preamble to the table, you can discuss the main line of reasoning you appli
 | ID  | Short name  | Description  |
 |---|---|---|
 | F1  | Tags | Code snippets can be tagged via freely-defined labels called tags  |
-| F2  | Commands  | The player can control the main character by issuing command-line commands following this syntax: `command-name [target-objects]*`. The available `command-names` are the following: <br/> - `move` <br/> - use <br/> - inspect <br/> |
+| F2  | Commands  | The player can control the main character by issuing command-line commands following this syntax: `command-name [target-objects]*`. The available `command-names` are the following: <br/> - move: ... <br/> - use: ... <br/> - inspect: ... <br/> |
 | F3  | Movements  | The main character shall move freely in the environment according  |
 | F4  | ... | ... |
 
 ### Quality requirements
-Author(s): Ece
+Author(s): `name of the team member(s) responsible for this section`
 
 As a preamble to the table, you can discuss the main line of reasoning you followed for coming up with the quality requirements listed below.
 
@@ -49,7 +51,7 @@ Each quality requirement must be tagged with the corresponding quality attribute
 Maximum number of words for this section: 1000
 
 ### Java libraries
-Author(s): Valeriya and Mateusz
+Author(s): `name of the team member(s) responsible for this section`
 
 | Name (with link) | Description  |
 |---|---|
