@@ -1,22 +1,15 @@
 # Assignment 1
-Maximum number of words for this document: 2500
-
-
-## Introduction									
+## Introduction
 Author: Taylor Doughty
 
-Write a short description of your version of the system you are going to design and implement in this course.
-Clearly specify which are the key aspects of your system, such as:
-- customizations/extensions w.r.t. the project track,
-- main type of user(s)
-- overall idea about how it works
-- ...
+In this course, Software Design, we are going to be designing a text-based adventure game coded with Java. We will be using GitHub in order to collaborate while writing code, which will be synched to IntelliJ. For this system, we will be implementing game features along with quality requirements. As a main idea for developing our system, we are focused on dividing implementation of the features from the game logic. In doing so, the features of the game can act as a "blueprint" for game developers to create a game of their own. Therefore, the users of this project will be not only players, but game developers, or students practicing software design.  
+As for features of the game, they are the following:  
+- For the first feature, for the beginning of the game, the player will be presented with a menu in which they will have the options of starting a new game or continuing an older one. The second feature involves the possible actions to be taken: the player will be offered to choose between multiple options within their current location and situation, in the form of a list of possible actions. These include movement and interaction, such as talking and inspection. The third feature states that concerning movement, the main character shall move freely in the environment. Next, the fourth feature is that the player shall see their current position with respect to the configuration of the other rooms in the story. The fifth feature concerns inventory contents: players have the ability to carry items, as well as the ability to check the contents of the inventory at any point in time and at any location. As for the seventh feature, there is a help button in which players can be reminded of the main rules and instructions of the game during gameplay.  
+- When thinking of the features and design of our project, we were influenced by the game Zork. Primarily, the idea is that the protagonist adventures and explores a world, in which they can interact with objects and the world around them. Because the project is to be a "minimal clone" of the game, we also designed the features of the gameplay taking inspiration from the game. As for the display/appearance of the game, we have taken inspiration from a tutorial. We have chosen to give the players the option to select possible actions (feature two).  
 
-Be creative here!
-
-Don’t forget to use links to external URLs (e.g., the direct link to the Fantasy soccer league you are getting inspiration from, the link to the original video game you are getting inspiration from, etc.), if applicable.
-
-Maximum number of words for this section: 1000
+Inspiration:  
+[Zork](https://en.wikipedia.org/wiki/Zork)  
+[How to Make Text Adventure Game with GUI in Java](https://www.youtube.com/watch?v=G5yr4sekAI0)
 
 ## Features
 Author: Valeriya Komarnitskaya
