@@ -25,7 +25,7 @@ Author: Valeriya Komarnitskaya
 
 ### Functional features
 
-#####Core Features Note:(use "shall" instead of "should")
+**Core Features** Note:(use "shall" instead of "should")
 
 | ID  | Short name  | Description  |  Rationale |
 |---|---|---|---|
@@ -40,7 +40,7 @@ Author: Valeriya Komarnitskaya
 | F9 | Automatic Save| The system shall automatically save the player's progress. The player shall automatically have access to the latest saved information by selecting "Continue" at the start menu. | Novice users tend to go to another extreme of never saving their progress and afterwards regret not saving. To avoid such issues, we decided to implement autosave feature as part of our quality of life improvements for users. |
 
 
-#####Bonus Features Note:(instead of "shall" use "should")
+**Bonus Features** Note:(instead of "shall" use "should")
 
 | ID  | Short name  | Description  |  Rationale |
 |---|---|---|---|
