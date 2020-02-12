@@ -53,7 +53,7 @@ Author: Valeriya Komarnitskaya, Mateusz Belka, Ece Doganer
 ### Quality requirements
 Author: Ece Doğaner
 
-Reasoning followed for the quality requirements is mostly grounded on user-friendly interaction through terminal, basic system expectancies for a good gaming experience, all while considering the extendability of the game. More detailed reasoning per quality requirement is given in the 'Rationale' section.
+Reasoning followed for the quality requirements is mostly grounded on user-friendly interaction through terminal, basic system expectancy for a good gaming experience, all while considering the extendability of the game. More detailed reasoning per quality requirement is given in the 'Rationale' section.
 
 |ID| Short name | Quality attribute | Description | Rationale | Alternatives |
 |---|---|---|---|---|---|
