@@ -353,7 +353,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5MiaAVP7EeqE4-4fi1pa4A"/>
       </children>
       <element xmi:type="uml:Class" href="Class%20Diagram.uml#_5MevkFP7EeqE4-4fi1pa4A"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Mhy4VP7EeqE4-4fi1pa4A" x="1520" y="560" width="281" height="261"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_5Mhy4VP7EeqE4-4fi1pa4A" x="1440" y="460" width="281" height="261"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_MqCdIFdtEeqB3o9Vz7QeMg" type="Class_Shape">
       <children xmi:type="notation:DecorationNode" xmi:id="_MqDrQFdtEeqB3o9Vz7QeMg" type="Class_NameLabel"/>
