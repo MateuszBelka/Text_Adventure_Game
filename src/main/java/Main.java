@@ -3,7 +3,7 @@ public class Main {
     public static void main (String[] args){
         Game game = new Game();
         Room room = new Room();
-        GameLoadStory gameLoadStory = new GameLoadStory();
+        Initialisation gameLoadStory = new Initialisation();
         StaticItem staticItem = new StaticItem();
         PickupableItem pickupableItem = new PickupableItem();
         Player player = new Player();
