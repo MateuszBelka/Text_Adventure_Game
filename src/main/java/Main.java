@@ -16,6 +16,7 @@ public class Main {
         Inventory inventory = new Inventory();
         InputHandler inputHandler = new InputHandler();
         Scanner scanner = new Scanner(System.in);
+        Boolean exitSwitch = false;
 
         //tmp code for compiler complaints
         initialisation.print();
@@ -23,7 +24,6 @@ public class Main {
         inventory.print();
         output.print();
         room2.print();
-        game.print();
 
         //tmp settings
         player.setCurrentRoom(room1);               //tmp
@@ -37,9 +37,10 @@ public class Main {
         player.getCurrentRoom().setListOfPickupableItems(pickupableItem);   //tmp
 
         //start of game
-        while (!game.isCompleted()) {
+        while (!game.isCompleted() && exitSwitch.equals(false)) {
             String input = scanner.nextLine();
-            inputHandler.inputValidator(input, player.getCurrentRoom());
+            if (input.equals("exit")) {exitSwitch = true;}
+            inputHandler.handleInput(input, player.getCurrentRoom());
         }
     }
 }
