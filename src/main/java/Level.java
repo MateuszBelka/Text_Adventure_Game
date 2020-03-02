@@ -1,18 +1,16 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Level {
 
-    private static List<Room> listOfRooms = new ArrayList<>();
-    private static int puzzlesLeftToSolve;
-    private int amountOfPuzzlesLeftToSolve;
-    private String nameOfTheFloor = "basic"; //not sure if this is the way to go for basic implementation.
+    private ArrayList<Room> listOfRooms;
+    private int puzzlesLeftToSolve;
     private String storyText;
     //Constructor
-    public void constructor(int amountOfPuzzlesLeftToSolve,
-                            String storyText) {
-        storyText = String.format("You are on the %s level.", nameOfTheFloor);
-        this.amountOfPuzzlesLeftToSolve = puzzlesLeftToSolve;
+    Level(ArrayList<Room> listOfRooms,
+          int amountOfPuzzlesLeftToSolve,
+          String storyText) {
+        this.listOfRooms = listOfRooms;
+        this.puzzlesLeftToSolve = amountOfPuzzlesLeftToSolve;
         this.storyText = storyText;
     }
 
@@ -30,8 +28,7 @@ public class Level {
         return storyText;
     }
     //tmp
-    public String print() {
-        return getTextAboutLevel();
+    void print() {
+        System.out.println("Level");
     }
-
 }
