@@ -14,6 +14,9 @@ public class Level {
         this.storyText = storyText;
     }
 
+    //tmp constructor
+    Level(){};
+
     public void addRoomToList(Room roomToAdd) {
         listOfRooms.add(roomToAdd);
     }

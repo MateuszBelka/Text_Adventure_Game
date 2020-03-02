@@ -18,19 +18,26 @@ public class Game {
         this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
+    //tmp constructor
+    public Game(){};
+
     //Get Methods
-    private ArrayList<Level> getListOfLevels() {
+    // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
+    // them from outside this class.
+    public ArrayList<Level> getListOfLevels() {
         return listOfLevels;
     }
-    private int getLevelsLeftToSolve() {
+    public int getLevelsLeftToSolve() {
         return levelsLeftToSolve;
     }
 
     //Set Methods
-    private void setListOfLevels(ArrayList<Level> listOfLevels) {
+    //@M I've changed these to public. We can check what needs to be private, after initialisation class is finished
+    // (otherwise we can't test code)
+    public void setListOfLevels(ArrayList<Level> listOfLevels) {
         this.listOfLevels = listOfLevels;
     }
-    private void setLevelsLeftToSolve(int levelsLeftToSolve) {
+    public void setLevelsLeftToSolve(int levelsLeftToSolve) {
         this.levelsLeftToSolve = levelsLeftToSolve;
     }
 

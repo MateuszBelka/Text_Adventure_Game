@@ -34,61 +34,68 @@ public class Room {
         this.textAboutRoom = textAboutRoom;
     }
 
+    //tmp constructor
+    public Room(){};
+
     //Get Methods
+    // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
+    // them from outside this class.
     public ArrayList<String> getListOfAvailableDirections() {
         return listOfAvailableDirections;
     }
-    private Room getNorth() {
+    public Room getNorth() {
         return north;
     }
-    private Room getEast() {
+    public Room getEast() {
         return east;
     }
-    private Room getSouth() {
+    public Room getSouth() {
         return south;
     }
-    private Room getWest() {
+    public Room getWest() {
         return west;
     }
-    private ArrayList<StaticItem> getListOfStaticItems() {
+    public ArrayList<StaticItem> getListOfStaticItems() {
         return listOfStaticItems;
     }
-    private ArrayList<PickupableItem> getListOfPickupableItems() {
+    public ArrayList<PickupableItem> getListOfPickupableItems() {
         return listOfPickupableItems;
     }
-    private Level getLevel() {
+    public Level getLevel() {
         return level;
     }
-    private String getTextAboutRoom() {
+    public String getTextAboutRoom() {
         return textAboutRoom;
     }
 
     //Set Methods
-    private void setListOfAvailableDirections(ArrayList<String> listOfAvailableDirections) {
+    //@M I've changed these to public. We can check what needs to be private, after initialisation class is finished
+    // (otherwise we can't test code)
+    public void setListOfAvailableDirections(ArrayList<String> listOfAvailableDirections) {
         this.listOfAvailableDirections = listOfAvailableDirections;
     }
-    private void setNorth(Room north) {
+    public void setNorth(Room north) {
         this.north = north;
     }
-    private void setEast(Room east) {
+    public void setEast(Room east) {
         this.east = east;
     }
-    private void setSouth(Room south) {
+    public void setSouth(Room south) {
         this.south = south;
     }
-    private void setWest(Room west) {
+    public void setWest(Room west) {
         this.west = west;
     }
-    private void setListOfStaticItems(ArrayList<StaticItem> listOfStaticItems) {
+    public void setListOfStaticItems(ArrayList<StaticItem> listOfStaticItems) {
         this.listOfStaticItems = listOfStaticItems;
     }
-    private void setListOfPickupableItems(ArrayList<PickupableItem> listOfPickupableItems) {
+    public void setListOfPickupableItems(ArrayList<PickupableItem> listOfPickupableItems) {
         this.listOfPickupableItems = listOfPickupableItems;
     }
-    private void setLevel(Level level) {
+    public void setLevel(Level level) {
         this.level = level;
     }
-    private void setTextAboutRoom(String textAboutRoom) {
+    public void setTextAboutRoom(String textAboutRoom) {
         this.textAboutRoom = textAboutRoom;
     }
 

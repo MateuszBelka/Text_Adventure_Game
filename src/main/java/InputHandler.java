@@ -9,10 +9,6 @@ public class InputHandler {
     private Room currentRoom;
     private int typeOfInput;
 
-    public void addValidWordToList (String word) {listOfValidInputtedWords.add(word);}
-
-    public ArrayList<String> getListOfValidInputtedWords() {return listOfValidInputtedWords;}
-
     private void resetInputHandlerVariables() {
         totalDirInInput = 0;
         totalPItemsInInput = 0;
@@ -28,11 +24,11 @@ public class InputHandler {
 
     //validate move and add to total amount of directional words in input
     private void isWordValidMove(String wordToCheck){
-        for (int j = 0; j < currentRoom.getListOfAvailableDir().size(); j++) {
-            String validDir = currentRoom.getListOfAvailableDir().get(j);
+        for (int j = 0; j < currentRoom.getListOfAvailableDirections().size(); j++) {
+            String validDir = currentRoom.getListOfAvailableDirections().get(j);
             if (wordToCheck.equals(validDir)) {
                 totalDirInInput++;
-                addValidWordToList(wordToCheck);
+                listOfValidInputtedWords.add(wordToCheck);
             }
         }
     }
@@ -43,7 +39,7 @@ public class InputHandler {
             String validStaticItemName = currentRoom.getListOfStaticItems().get(j).getName();
             if (wordToCheck.equals(validStaticItemName)){
                 totalSItemsInInput++;
-                addValidWordToList(wordToCheck);
+                listOfValidInputtedWords.add(wordToCheck);
             }
         }
     }
@@ -54,11 +50,13 @@ public class InputHandler {
             String validPickupableItemName = currentRoom.getListOfPickupableItems().get(j).getName();
             if (wordToCheck.equals(validPickupableItemName)){
                 totalPItemsInInput++;
-                addValidWordToList(wordToCheck);
+                listOfValidInputtedWords.add(wordToCheck);
             }
         }
     }
 
+    //todo: rename isInputValidPickupableItem/StaticItem to something that shows it is an action. isInputValidPickup? isInputValidUseSI?
+    //todo: isInputValidUsePIonSI is breaking naming convention
     private Boolean isInputValidMove(){
         return (totalDirInInput == 1 && totalPItemsInInput == 0 && totalSItemsInInput == 0);
     }
@@ -99,10 +97,15 @@ public class InputHandler {
         currentRoom = currRoom;
     }
 
+    private void movePlayer(){
+
+    }
+
+    //todo: better naming?
     private void doCommand(){
         switch (typeOfInput){
             case 1:
-                System.out.println("movePlayer");
+                movePlayer();
                 break;
             case 2:
                 System.out.println("pickupPickupableItem");
@@ -117,15 +120,13 @@ public class InputHandler {
         }
     }
 
-    public void handleInput(String receivedInput, Room currRoom){
+    public void handleInput(String receivedInput, Player player){
         resetInputHandlerVariables();
-        updateInputHandlerVariables(receivedInput, currRoom);
+        updateInputHandlerVariables(receivedInput, player.getCurrentRoom());
         inputValidator();
-//        doCommand();
         System.out.println(typeOfInput);
-        System.out.println(getListOfValidInputtedWords());
-
-
+        System.out.println(listOfValidInputtedWords);
+        doCommand();
     }
 
 }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,7 @@ public class Main {
         StaticItem staticItem2 = new StaticItem();      //for using with item testing
         PickupableItem pickupableItem = new PickupableItem();
         Player player = new Player();
-        Inventory inventory = new Inventory();
+//        Inventory inventory = new Inventory();
         InputHandler inputHandler = new InputHandler();
         Scanner scanner = new Scanner(System.in);
         Boolean exitSwitch = false;
@@ -21,26 +22,37 @@ public class Main {
         //tmp code for compiler complaints
         initialisation.print();
         level.print();
-        inventory.print();
         output.print();
         room2.print();
+//        inventory.print();
 
         //tmp settings
-        player.setCurrentRoom(room1);               //tmp
-        room1.setListOfAvailableDir("north");       //tmp
-        room1.setListOfAvailableDir("south");       //tmp
-        staticItem1.setName("button");      //tmp
-        staticItem2.setName("fridge");      //tmp
-        pickupableItem.setName("milk");     //tmp
-        player.getCurrentRoom().setListOfStaticItems(staticItem1);          //tmp
-        player.getCurrentRoom().setListOfStaticItems(staticItem2);          //tmp
-        player.getCurrentRoom().setListOfPickupableItems(pickupableItem);   //tmp
+        player.setCurrentRoom(room1);
+        ArrayList<String> dirlist = new ArrayList<>();
+        dirlist.add("north");
+        dirlist.add("south");
+        room1.setListOfAvailableDirections(dirlist);
+        room1.setNorth(room2);
+        dirlist.clear();
+        dirlist.add("south");
+        room2.setListOfAvailableDirections(dirlist);
+        room2.setSouth(room1);
+        staticItem1.setName("button");
+        staticItem2.setName("fridge");
+        pickupableItem.setName("milk");
+        ArrayList<StaticItem> siList = new ArrayList<>();
+        siList.add(staticItem1);
+        siList.add(staticItem2);
+        player.getCurrentRoom().setListOfStaticItems(siList);
+        ArrayList<PickupableItem> piList = new ArrayList<>();
+        piList.add(pickupableItem);
+        player.getCurrentRoom().setListOfPickupableItems(piList);
 
         //start of game
         while (!game.isCompleted() && exitSwitch.equals(false)) {
             String input = scanner.nextLine();
             if (input.equals("exit")) {exitSwitch = true;}
-            inputHandler.handleInput(input, player.getCurrentRoom());
+            inputHandler.handleInput(input, player);
         }
     }
 }
