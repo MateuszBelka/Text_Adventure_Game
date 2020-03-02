@@ -29,3 +29,7 @@ I
 src/main/java/Player.java,6\e\6e82b9511465c9772497936644008abf2f008450
 G
 src/main/java/Main.java,e\4\e44a8606ce010ad9b89aafdfcee2ab49afbf6d10
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
