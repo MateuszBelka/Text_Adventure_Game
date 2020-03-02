@@ -11,19 +11,18 @@ public class Game {
         this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
-    //GetSet Methods
+    //Get Methods
     private ArrayList<Level> getListOfLevels() {
         return listOfLevels;
     }
-
     private int getLevelsLeftToSolve() {
         return levelsLeftToSolve;
     }
 
+    //Set Methods
     private void setListOfLevels(ArrayList<Level> listOfLevels) {
         this.listOfLevels = listOfLevels;
     }
-
     private void setLevelsLeftToSolve(int levelsLeftToSolve) {
         this.levelsLeftToSolve = levelsLeftToSolve;
     }

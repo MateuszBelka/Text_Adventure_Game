@@ -13,35 +13,30 @@ public class StaticItem {
         this.name = name;
     }
 
-    //GetSet Methods
+    //Get Methods
     private PickupableItem getNeedsItem() {
         return needsItem;
     }
-
     private String getTextAboutThisItem() {
         return textAboutThisItem;
     }
-
     private String getTextForPuzzleSolved() {
         return textForPuzzleSolved;
     }
-
     private String getName() {
         return name;
     }
 
+    //Set Methods
     private void setNeedsItem(PickupableItem needsItem) {
         this.needsItem = needsItem;
     }
-
     private void setTextAboutThisItem(String textAboutThisItem) {
         this.textAboutThisItem = textAboutThisItem;
     }
-
     private void setTextForPuzzleSolved(String textForPuzzleSolved) {
         this.textForPuzzleSolved = textForPuzzleSolved;
     }
-
     private void setName(String name) {
         this.name = name;
     }
