@@ -2,30 +2,30 @@ import java.util.ArrayList;
 
 public class Game {
     //Variable Declarations
-    private ArrayList<Level> listOfLevels = new ArrayList<>();
+    private ArrayList<Level> listOfLevels;
     private int levelsLeftToSolve;
 
     //Constructor
-    public Game() {
-        //listOfLevels = ;
-        levelsLeftToSolve = 0;
+    public Game(ArrayList<Level> listOfLevels, int levelsLeftToSolve) {
+        this.listOfLevels = listOfLevels;
+        this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
     //GetSet Methods
     private ArrayList<Level> getListOfLevels() {
-        return this.listOfLevels;
+        return listOfLevels;
     }
 
     private int getLevelsLeftToSolve() {
-        return this.levelsLeftToSolve;
+        return levelsLeftToSolve;
     }
 
-    private void setListOfLevels(ArrayList<Level> updated_ListOfLevels) {
-        this.listOfLevels = updated_ListOfLevels;
+    private void setListOfLevels(ArrayList<Level> listOfLevels) {
+        this.listOfLevels = listOfLevels;
     }
 
-    private void setLevelsLeftToSolve(int updated_LevelsLeftToSolve) {
-        this.levelsLeftToSolve = updated_LevelsLeftToSolve;
+    private void setLevelsLeftToSolve(int levelsLeftToSolve) {
+        this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
 
