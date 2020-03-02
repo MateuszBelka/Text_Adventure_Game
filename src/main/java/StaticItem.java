@@ -1,3 +1,9 @@
+/*
+ * It should not be necessary to change any variable from private to public.
+ * The GetSet Methods provide this functionality.
+ * If you need one of them in your class, you can switch the specific method to public.
+ */
+
 public class StaticItem {
     //Variable Declaration
     private PickupableItem needsItem;
@@ -6,7 +12,10 @@ public class StaticItem {
     private String name;
 
     //Constructor
-    public StaticItem(PickupableItem needsItem, String textAboutThisItem, String textForPuzzleSolved, String name) {
+    public StaticItem(PickupableItem needsItem,
+                      String textAboutThisItem,
+                      String textForPuzzleSolved,
+                      String name) {
         this.needsItem = needsItem;
         this.textAboutThisItem = textAboutThisItem;
         this.textForPuzzleSolved = textForPuzzleSolved;
