@@ -129,10 +129,5 @@ public class Room {
     public void addStaticItemToList(StaticItem item) {
         getListOfStaticItems().add(item);
     }
-
-    //Temporary methods
-    public void print() {
-        System.out.println("room");
-    }
 }
 
