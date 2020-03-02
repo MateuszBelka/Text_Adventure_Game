@@ -50,9 +50,11 @@ public class Main {
 
         //start of game
         while (!game.isCompleted() && exitSwitch.equals(false)) {
+            System.out.println("A");
             String input = scanner.nextLine();
             if (input.equals("exit")) {exitSwitch = true;}
             inputHandler.handleInput(input, player);
         }
+        System.out.println("AAA");
     }
 }
