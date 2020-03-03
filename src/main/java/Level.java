@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
 public class Level {
-
+    //Variable Declaration
     private ArrayList<Room> listOfRooms;
     private int puzzlesLeftToSolve;
     private String storyText;
+
     //Constructor
-    Level(ArrayList<Room> listOfRooms,
+    public Level(){}
+    public Level(ArrayList<Room> listOfRooms,
           int amountOfPuzzlesLeftToSolve,
           String storyText) {
         this.listOfRooms = listOfRooms;
@@ -14,24 +16,41 @@ public class Level {
         this.storyText = storyText;
     }
 
-    //tmp constructor
-    Level(){};
+    //Get Methods
+    public ArrayList<Room> getListOfRooms() {
+        return listOfRooms;
+    }
+    public int getPuzzlesLeftToSolve() {
+        return puzzlesLeftToSolve;
+    }
+    public String getTextAboutLevel() {
+        return storyText;
+    }
 
+    //Set Methods
+    public void setListOfRooms(ArrayList<Room> listOfRooms) {
+        this.listOfRooms = listOfRooms;
+    }
+    public void setPuzzlesLeftToSolve() {
+        int puzzlesLeftToSolve = 0;
+        for (Room room : getListOfRooms()) {
+            puzzlesLeftToSolve += room.getListOfStaticItems().size();
+        }
+        this.puzzlesLeftToSolve = puzzlesLeftToSolve;
+    }
+    public void setStoryText(String storyText) {
+        this.storyText = storyText;
+    }
+
+    //Main Methods
     public void addRoomToList(Room roomToAdd) {
         listOfRooms.add(roomToAdd);
     }
-
     public void decreasePuzzlesLeftToSolve() {
         puzzlesLeftToSolve -= 1;
     }
     public boolean isCompleted() {
         return puzzlesLeftToSolve == 0;
     }
-    public String getTextAboutLevel() {
-        return storyText;
-    }
-    //tmp
-    void print() {
-        System.out.println("");
-    }
+
 }

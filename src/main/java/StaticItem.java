@@ -12,6 +12,7 @@ public class StaticItem {
     private String name;
 
     //Constructor
+    public StaticItem(){}
     public StaticItem(PickupableItem needsItem,
                       String textAboutThisItem,
                       String textForPuzzleSolved,
@@ -23,8 +24,6 @@ public class StaticItem {
     }
 
     //Get Methods
-    // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
-    // them from outside this class.
     public PickupableItem getNeedsItem() {
         return needsItem;
     }
@@ -39,20 +38,21 @@ public class StaticItem {
     }
 
     //Set Methods
-    //@M I've changed these to public. We can check what needs to be private, after initialisation class is finished
-    // (otherwise we can't test code)
-    public void setNeedsItem(PickupableItem needsItem) { this.needsItem = needsItem; }
+    public void setNeedsItem(PickupableItem needsItem) {
+        this.needsItem = needsItem;
+    }
     public void setTextAboutThisItem(String textAboutThisItem) {
         this.textAboutThisItem = textAboutThisItem;
     }
     public void setTextForPuzzleSolved(String textForPuzzleSolved) {
         this.textForPuzzleSolved = textForPuzzleSolved;
     }
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
     //Boolean Methods
-    public boolean isActionable(){ return getNeedsItem() == null; }
-
-    //tmp
-    StaticItem(){}
+    public boolean isActionable(){
+        return getNeedsItem() == null;
+    }
 }

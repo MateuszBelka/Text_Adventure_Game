@@ -3,21 +3,35 @@ public class PickupableItem {
     private String name;
     private StaticItem staticItemToUseOn;
     private String textAboutThisItem;
-    private String location;
 
-    void setName(String newName){ name = newName; }
-    String getName(){ return name; }
-
-    PickupableItem(String name,
-                   String location,
+    public PickupableItem(){}
+    public PickupableItem(String name,
                    StaticItem staticItemToUseOn,
                    String textAboutThisItem) {
         this.name = name;
-        this.location = location;
         this.staticItemToUseOn = staticItemToUseOn;
         this.textAboutThisItem = textAboutThisItem;
     }
-    public void nullifyLocation() { location = null; }
-    public String getTextAboutThisItem() { return textAboutThisItem; }
-}
 
+    //Get Methods
+    public String getName() {
+        return name;
+    }
+    public StaticItem getStaticItemToUseOn() {
+        return staticItemToUseOn;
+    }
+    public String getTextAboutThisItem() {
+        return textAboutThisItem;
+    }
+
+    //Set Methods
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setStaticItemToUseOn(StaticItem staticItemToUseOn) {
+        this.staticItemToUseOn = staticItemToUseOn;
+    }
+    public void setTextAboutThisItem(String textAboutThisItem) {
+        this.textAboutThisItem = textAboutThisItem;
+    }
+}

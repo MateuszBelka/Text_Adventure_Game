@@ -14,6 +14,10 @@ public class Room {
     private String textAboutRoom;
 
     //Constructor
+    public Room(){
+        this.listOfPickupableItems = new ArrayList<>();
+        this.listOfStaticItems = new ArrayList<>();
+    }
     public Room(ArrayList<String> listOfAvailableDirections,
                 Room north,
                 Room east,
@@ -34,12 +38,8 @@ public class Room {
         this.textAboutRoom = textAboutRoom;
     }
 
-    //tmp constructor
-    public Room(){}
 
     //Get Methods
-    // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
-    // them from outside this class.
     public ArrayList<String> getListOfAvailableDirections() {
         return listOfAvailableDirections;
     }
@@ -69,8 +69,6 @@ public class Room {
     }
 
     //Set Methods
-    //@M I've changed these to public. We can check what needs to be private, after initialisation class is finished
-    // (otherwise we can't test code)
     public void setListOfAvailableDirections(ArrayList<String> listOfAvailableDirections) {
         this.listOfAvailableDirections = listOfAvailableDirections;
     }
@@ -110,6 +108,17 @@ public class Room {
         setWest(west);
     }
 
+    public void updateListOfAvailableDirectionsUsingRooms() {
+        ArrayList<String> listOfAvailableDirections = new ArrayList<>();
+
+        if (getNorth() != null) listOfAvailableDirections.add("north");
+        if (getEast() != null) listOfAvailableDirections.add("east");
+        if (getSouth() != null) listOfAvailableDirections.add("south");
+        if (getWest() != null) listOfAvailableDirections.add("west");
+
+        this.listOfAvailableDirections = listOfAvailableDirections;
+    }
+
     public Room getRoomInDirection(String direction) {
         switch(direction) {
             case "north":
@@ -143,16 +152,17 @@ public class Room {
         return null; //not very elegant, but it will not be called.
     }
 
-    public void deletePickupableItemFromList(PickupableItem item) {listOfPickupableItems.remove(item);}
-
-    public void deleteStaticItemFromList(StaticItem item) {listOfStaticItems.remove(item);}
-
-    public void addPickupableItemToList(PickupableItem item) {
-        listOfPickupableItems.add(item);
+    public void deletePickupableItemFromList(PickupableItem item) {
+        getListOfPickupableItems().remove(item);
     }
-
+    public void deleteStaticItemFromList(StaticItem item) {
+        getListOfStaticItems().remove(item);
+    }
+    public void addPickupableItemToList(PickupableItem item) {
+        getListOfPickupableItems().add(item);
+    }
     public void addStaticItemToList(StaticItem item) {
-        listOfStaticItems.add(item);
+        getListOfStaticItems().add(item);
     }
 }
 
