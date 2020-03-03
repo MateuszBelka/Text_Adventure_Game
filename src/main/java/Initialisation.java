@@ -1,4 +1,3 @@
-import jdk.internal.util.xml.impl.Input;
 import java.util.ArrayList;
 
 /* Potential issue:
@@ -88,6 +87,10 @@ public class Initialisation {
 
     /* The following function is responsible for starting the entire game
      * and as such overlooks class specific initialization functions.
+     *
+     * Dev note (delete later):
+     * We firstly have to init all classses in order to be
+     * able to access them while configuring objects.
      */
     public void initializeEntireStory() {
         //initialise classes
@@ -107,6 +110,7 @@ public class Initialisation {
         configureRooms();
         configureLevels();
         configureOutputs();
+        //configureInventories();
         configureInputHandlers();
         configurePlayers();
         configureGames();
@@ -220,7 +224,8 @@ public class Initialisation {
         getLevels().get(0).setStoryText(storyText);
     }
     private void configureRooms() {
-        PickupableItem item1 = getPickupableItems().get(0);
+        PickupableItem pickupableItem1 = getPickupableItems().get(0);
+        StaticItem staticItem1 = getStaticItems().get(0);
         Room room1 = getRooms().get(0);
         Room room2 = getRooms().get(1);
         String textAboutRoom1= "temporary text about room 1.";
@@ -228,7 +233,8 @@ public class Initialisation {
 
         room1.updateRoomDirections(room2,null,null,null);
         room1.updateListOfAvailableDirectionsUsingRooms();
-        room1.addPickupableItemToList(item1); //possible error if ArrayList is not initialized
+        room1.addPickupableItemToList(pickupableItem1); //possible error if ArrayList is not initialized
+        room1.addStaticItemToList(staticItem1);
         room1.setLevel(getLevels().get(0));
         room1.setTextAboutRoom(textAboutRoom1);
 
@@ -238,36 +244,25 @@ public class Initialisation {
         room2.setTextAboutRoom(textAboutRoom2);
     }
     private void configureStaticItems() {
+        StaticItem staticItem1 = getStaticItems().get(0);
+        PickupableItem pickupableItem1 = getPickupableItems().get(0);
+        String textAboutThisItem = "temporary text about this static item1.";
+        String textForPuzzleSolved = "temporary text for puzzle solved1.";
+        String name = "temporary name for static item1.";
 
+        staticItem1.setNeedsItem(pickupableItem1);
+        staticItem1.setTextAboutThisItem(textAboutThisItem);
+        staticItem1.setTextForPuzzleSolved(textForPuzzleSolved);
+        staticItem1.setName(name);
     }
     private void configurePickupableItems() {
+        PickupableItem pickupableItem1 = getPickupableItems().get(0);
+        StaticItem staticItem1 = getStaticItems().get(0);
+        String name = "temporary name for pickupable item1.";
+        String textAboutThisItem = "temporary text about this pickupable item1.";
 
+        pickupableItem1.setName(name);
+        pickupableItem1.setStaticItemToUseOn(staticItem1);
+        pickupableItem1.setTextAboutThisItem(textAboutThisItem);
     }
 }
-
-//    //game creation
-//    Game game = new Game();
-//    Level level = new Level();
-//    Room room1 = new Room();
-//    Room room2 = new Room();
-//    Output output = new Output();
-//    Initialisation initialisation = new Initialisation();
-//    StaticItem staticItem1 = new StaticItem();      //for actioning testing
-//    StaticItem staticItem2 = new StaticItem();      //for using with item testing
-//    PickupableItem pickupableItem = new PickupableItem();
-//    Player player = new Player();
-//    Inventory inventory = new Inventory();
-//    InputHandler inputHandler = new InputHandler();
-//    Scanner scanner = new Scanner(System.in);
-//    Boolean exitSwitch = false;
-
-//    //tmp settings
-//    player.setCurrentRoom(room1);               //tmp
-//    room1.setListOfAvailableDir("north");       //tmp
-//    room1.setListOfAvailableDir("south");       //tmp
-//    staticItem1.setName("button");      //tmp
-//    staticItem2.setName("fridge");      //tmp
-//    pickupableItem.setName("milk");     //tmp
-//    player.getCurrentRoom().setListOfStaticItems(staticItem1);          //tmp
-//    player.getCurrentRoom().setListOfStaticItems(staticItem2);          //tmp
-//    player.getCurrentRoom().setListOfPickupableItems(pickupableItem);   //tmp
