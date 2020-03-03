@@ -32,6 +32,6 @@ public class Level {
     }
     //tmp
     void print() {
-        System.out.println("Level");
+        System.out.println("");
     }
 }

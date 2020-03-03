@@ -125,9 +125,27 @@ public class Room {
         }
     }
 
-    public void deletePickupableItemFromList(PickupableItem item) {
-        getListOfPickupableItems().remove(item);
+    public PickupableItem getPickupableItemByName(String name) {
+        for (int i = 0; i < getListOfPickupableItems().size(); i++){
+            if (getListOfPickupableItems().get(i).getName().equals(name)){
+                return getListOfPickupableItems().get(i);
+            }
+        }
+        return null; //not very elegant, but it will not be called.
     }
+
+    public StaticItem getStaticItemByName(String name) {
+        for (int i = 0; i < getListOfStaticItems().size(); i++){
+            if (getListOfStaticItems().get(i).getName().equals(name)){
+                return getListOfStaticItems().get(i);
+            }
+        }
+        return null; //not very elegant, but it will not be called.
+    }
+
+    public void deletePickupableItemFromList(PickupableItem item) {listOfPickupableItems.remove(item);}
+
+    public void deleteStaticItemFromList(StaticItem item) {listOfStaticItems.remove(item);}
 
     public void addPickupableItemToList(PickupableItem item) {
         getListOfPickupableItems().add(item);

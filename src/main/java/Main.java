@@ -8,6 +8,7 @@ public class Main {
         Level level = new Level();
         Room room1 = new Room();
         Room room2 = new Room();
+        Room room3 = new Room();
         Output output = new Output();
         Initialisation initialisation = new Initialisation();
         StaticItem staticItem1 = new StaticItem();      //for actioning testing
@@ -23,22 +24,32 @@ public class Main {
         initialisation.print();
         level.print();
         output.print();
-        room2.print();
 //        inventory.print();
 
-        //tmp settings
+        //Tmp Settings
         player.setCurrentRoom(room1);
-        ArrayList<String> dirlist = new ArrayList<>();
-        dirlist.add("north");
-        dirlist.add("south");
-        room1.setListOfAvailableDirections(dirlist);
+        //room1:
+        ArrayList<String> dirlist1 = new ArrayList<>();
+        dirlist1.add("north");
         room1.setNorth(room2);
-        dirlist.clear();
-        dirlist.add("south");
-        room2.setListOfAvailableDirections(dirlist);
+        dirlist1.add("south");
+        room1.setSouth(room3);
+        room1.setListOfAvailableDirections(dirlist1);
+        //room2:
+        ArrayList<String> dirlist2 = new ArrayList<>();
+        dirlist2.add("south");
         room2.setSouth(room1);
+        room2.setListOfAvailableDirections(dirlist2);
+        //todo: if room has no staticitems or pickupable items, the list should still be iterable...
+        //room3:
+        ArrayList<String> dirlist3 = new ArrayList<>();
+        dirlist3.add("north");
+        room3.setNorth(room1);
+        room3.setListOfAvailableDirections(dirlist3);
+        //Stuff in room1:
         staticItem1.setName("button");
         staticItem2.setName("fridge");
+        staticItem2.setNeedsItem(pickupableItem);
         pickupableItem.setName("milk");
         ArrayList<StaticItem> siList = new ArrayList<>();
         siList.add(staticItem1);
@@ -50,11 +61,18 @@ public class Main {
 
         //start of game
         while (!game.isCompleted() && exitSwitch.equals(false)) {
-            System.out.println("A");
+            System.out.println("*************MAP:************");
+            System.out.println("room1 dirs: " + room1.getListOfAvailableDirections());
+            System.out.println("room2 dirs: " + room2.getListOfAvailableDirections());
+            System.out.println("room3 dirs: " + room3.getListOfAvailableDirections());
+            System.out.println("******INFO FOR TESTING:******");
+            System.out.println("current room: " + player.getCurrentRoom());
+            System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
+            System.out.println("pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
+            System.out.println("static items: " + player.getCurrentRoom().getListOfStaticItems());
             String input = scanner.nextLine();
             if (input.equals("exit")) {exitSwitch = true;}
             inputHandler.handleInput(input, player);
         }
-        System.out.println("AAA");
     }
 }

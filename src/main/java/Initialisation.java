@@ -1,3 +1,3 @@
 public class Initialisation {
-    public void print() {System.out.println("Initialisation");} //delete this (also in main) when populating this class
+    public void print() {System.out.println("");} //delete this (also in main) when populating this class
 }
