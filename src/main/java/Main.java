@@ -6,18 +6,23 @@ public class Main {
         Initialisation init = new Initialisation();
         init.initializeEntireStory();
 
+        Player player = init.getPlayers().get(0);
+        Game game = init.getGames().get(0);
+        Boolean exitSwitch = init.getExitSwitch();
+        InputHandler inputHandler = init.getInputHandlers().get(0);
+
         //main game loop
-        while (!init.getGames().get(0).isCompleted() && init.getExitSwitch().equals(false)) {
+        while (!game.isCompleted() && exitSwitch.equals(false)) {
             System.out.println("******INFO FOR TESTING:******");
-            System.out.println("current room: " + init.getPlayers().get(0).getCurrentRoom());
-            System.out.println("current room directions: " + init.getPlayers().get(0).getCurrentRoom().getListOfAvailableDirections());
-            System.out.println("pickupable items: " + init.getPlayers().get(0).getCurrentRoom().getListOfPickupableItems());
-            System.out.println("static items: " + init.getPlayers().get(0).getCurrentRoom().getListOfStaticItems());
-            System.out.println("current room pickupable items: " + init.getPlayers().get(0).getCurrentRoom().getListOfPickupableItems());
-            System.out.println("current room static items: " + init.getPlayers().get(0).getCurrentRoom().getListOfStaticItems());
+            System.out.println("current room: " + player.getCurrentRoom());
+            System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
+            System.out.println("pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
+            System.out.println("static items: " + player.getCurrentRoom().getListOfStaticItems());
+            System.out.println("current room pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
+            System.out.println("current room static items: " + player.getCurrentRoom().getListOfStaticItems());
             String input = scanner.nextLine();
             if (input.equals("exit")) {init.setExitSwitch(true);}
-            init.getInputHandlers().get(0).handleInput(input, init.getPlayers().get(0));
+            inputHandler.handleInput(input, player);
         }
     }
 }
