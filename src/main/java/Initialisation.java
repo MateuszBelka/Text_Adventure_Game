@@ -181,10 +181,14 @@ public class Initialisation {
     //Configure object
     private void configureGames() {
         getGames().get(0).setListOfLevels(getLevels());
-        //setup levelsLeftToSolve
+        //set levelsLeftToSolve
     }
     private void configurePlayers() {
+        Level currentLevel = getGames().get(0).getListOfLevels().get(0);
+        getPlayers().get(0).setCurrentLevel(currentLevel);
 
+        Room currentRoom = getPlayers().get(0).getCurrentLevel().getListOfRooms().get(0);
+        getPlayers().get(0).setCurrentRoom(currentRoom);
     }
     private void configureInputHandlers() {
 

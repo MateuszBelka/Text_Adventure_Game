@@ -15,6 +15,11 @@ public class Level {
         this.storyText = storyText;
     }
 
+    //Get Methods
+    public ArrayList<Room> getListOfRooms() {
+        return listOfRooms;
+    }
+
     public void addRoomToList(Room roomToAdd) {
         listOfRooms.add(roomToAdd);
     }
