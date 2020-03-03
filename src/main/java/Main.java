@@ -27,6 +27,7 @@ public class Main {
 //        inventory.print();
 
         //Tmp Settings
+        player.setCurrentLevel(level);
         player.setCurrentRoom(room1);
         //room1:
         ArrayList<String> dirlist1 = new ArrayList<>();
@@ -68,8 +69,8 @@ public class Main {
             System.out.println("******INFO FOR TESTING:******");
             System.out.println("current room: " + player.getCurrentRoom());
             System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
-            System.out.println("pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
-            System.out.println("static items: " + player.getCurrentRoom().getListOfStaticItems());
+            System.out.println("current room pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
+            System.out.println("current room static items: " + player.getCurrentRoom().getListOfStaticItems());
             String input = scanner.nextLine();
             if (input.equals("exit")) {exitSwitch = true;}
             inputHandler.handleInput(input, player);

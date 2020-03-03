@@ -121,7 +121,7 @@ public class InputHandler {
         StaticItem staticItemToAction = currentRoom.getStaticItemByName(nameOfStaticItemToAction);
         if (staticItemToAction.isActionable()){
             currentRoom.deleteStaticItemFromList(staticItemToAction);
-            //todo: decrease puzzles left to solve
+            player.getCurrentLevel().decreasePuzzlesLeftToSolve();
             //todo: how to get to item, for reading its puzzle solved story text?.......
         }
         else{System.out.println("HINT : This item needs another item.");}
@@ -133,6 +133,8 @@ public class InputHandler {
         //todo: check if S item is in current room
         //todo: deal with error messages
         //todo: if all is correct: delete P item from inventory, delete S item from current room S list.
+        //todo: decrease puzzles left to solve
+        //todo: how to get to item, for reading its puzzle solved story text?.......
     }
 
     private void doInput(){

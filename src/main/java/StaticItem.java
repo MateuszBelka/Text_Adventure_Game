@@ -50,9 +50,9 @@ public class StaticItem {
     }
     public void setName(String name) { this.name = name; }
 
-    //Read-Only Methods
+    //Boolean Methods
     public boolean isActionable(){ return getNeedsItem() == null; }
 
     //tmp
-    StaticItem(){};
+    StaticItem(){}
 }

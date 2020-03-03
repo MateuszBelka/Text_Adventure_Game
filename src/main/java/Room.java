@@ -35,7 +35,7 @@ public class Room {
     }
 
     //tmp constructor
-    public Room(){};
+    public Room(){}
 
     //Get Methods
     // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
@@ -148,16 +148,11 @@ public class Room {
     public void deleteStaticItemFromList(StaticItem item) {listOfStaticItems.remove(item);}
 
     public void addPickupableItemToList(PickupableItem item) {
-        getListOfPickupableItems().add(item);
+        listOfPickupableItems.add(item);
     }
 
     public void addStaticItemToList(StaticItem item) {
-        getListOfStaticItems().add(item);
-    }
-
-    //Temporary methods
-    public void print() {
-        System.out.println("room");
+        listOfStaticItems.add(item);
     }
 }
 
