@@ -4,6 +4,7 @@ public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
         Initialisation init = new Initialisation();
+        init.initializeEntireStory();
 
         //main game loop
         while (!init.getGames().get(0).isCompleted() && init.getExitSwitch().equals(false)) {
