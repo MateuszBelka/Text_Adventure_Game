@@ -14,7 +14,10 @@ public class Room {
     private String textAboutRoom;
 
     //Constructor
-    public Room(){}
+    public Room(){
+        this.listOfPickupableItems = new ArrayList<>();
+        this.listOfStaticItems = new ArrayList<>();
+    }
     public Room(ArrayList<String> listOfAvailableDirections,
                 Room north,
                 Room east,
@@ -34,6 +37,7 @@ public class Room {
         this.level = level;
         this.textAboutRoom = textAboutRoom;
     }
+
 
     //Get Methods
     public ArrayList<String> getListOfAvailableDirections() {
@@ -103,6 +107,18 @@ public class Room {
         setSouth(south);
         setWest(west);
     }
+
+    public void updateListOfAvailableDirectionsUsingRooms() {
+        ArrayList<String> listOfAvailableDirections = new ArrayList<>();
+
+        if (getNorth() != null) listOfAvailableDirections.add("north");
+        if (getEast() != null) listOfAvailableDirections.add("east");
+        if (getSouth() != null) listOfAvailableDirections.add("south");
+        if (getWest() != null) listOfAvailableDirections.add("west");
+
+        this.listOfAvailableDirections = listOfAvailableDirections;
+    }
+
     public Room getRoomInDirection(String direction) {
         switch(direction) {
             case "north":
@@ -117,8 +133,30 @@ public class Room {
                 return null;
         }
     }
+
+    public PickupableItem getPickupableItemByName(String name) {
+        for (int i = 0; i < getListOfPickupableItems().size(); i++){
+            if (getListOfPickupableItems().get(i).getName().equals(name)){
+                return getListOfPickupableItems().get(i);
+            }
+        }
+        return null; //not very elegant, but it will not be called.
+    }
+
+    public StaticItem getStaticItemByName(String name) {
+        for (int i = 0; i < getListOfStaticItems().size(); i++){
+            if (getListOfStaticItems().get(i).getName().equals(name)){
+                return getListOfStaticItems().get(i);
+            }
+        }
+        return null; //not very elegant, but it will not be called.
+    }
+
     public void deletePickupableItemFromList(PickupableItem item) {
         getListOfPickupableItems().remove(item);
+    }
+    public void deleteStaticItemFromList(StaticItem item) {
+        getListOfStaticItems().remove(item);
     }
     public void addPickupableItemToList(PickupableItem item) {
         getListOfPickupableItems().add(item);

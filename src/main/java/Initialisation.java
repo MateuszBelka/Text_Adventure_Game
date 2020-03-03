@@ -1,6 +1,11 @@
 import jdk.internal.util.xml.impl.Input;
-
 import java.util.ArrayList;
+
+/* Potential issue:
+ * Make sure all ArrayList are initialized,
+ * otherwise you might end up trying to add item to
+ * a list that doesn't exist yet.
+ */
 
 public class Initialisation {
     //Variable Declaration
@@ -155,9 +160,11 @@ public class Initialisation {
     }
     private ArrayList<Room> initializeRooms() {
         ArrayList<Room> rooms = new ArrayList<>();
-        Room room = new Room();
+        Room room1 = new Room();
+        Room room2 = new Room();
 
-        rooms.add(room);
+        rooms.add(room1);
+        rooms.add(room2);
 
         return rooms;
     }
@@ -205,8 +212,7 @@ public class Initialisation {
     }
     */
     private void configureLevels() {
-        ArrayList<Room> listOfRooms = rooms;
-        getLevels().get(0).setListOfRooms(listOfRooms);
+        getLevels().get(0).setListOfRooms(getRooms());
 
         //set puzzlesLeftToSolve
 
@@ -214,8 +220,22 @@ public class Initialisation {
         getLevels().get(0).setStoryText(storyText);
     }
     private void configureRooms() {
+        PickupableItem item1 = getPickupableItems().get(0);
+        Room room1 = getRooms().get(0);
+        Room room2 = getRooms().get(1);
+        String textAboutRoom1= "temporary text about room 1.";
+        String textAboutRoom2= "temporary text about room 2.";
 
+        room1.updateRoomDirections(room2,null,null,null);
+        room1.updateListOfAvailableDirectionsUsingRooms();
+        room1.addPickupableItemToList(item1); //possible error if ArrayList is not initialized
+        room1.setLevel(getLevels().get(0));
+        room1.setTextAboutRoom(textAboutRoom1);
 
+        room2.updateRoomDirections(null,null,room1,null);
+        room2.updateListOfAvailableDirectionsUsingRooms();
+        room2.setLevel(getLevels().get(0));
+        room2.setTextAboutRoom(textAboutRoom2);
     }
     private void configureStaticItems() {
 
