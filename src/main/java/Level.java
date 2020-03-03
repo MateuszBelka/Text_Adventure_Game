@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Level {
-
+    //Variable Declaration
     private ArrayList<Room> listOfRooms;
     private int puzzlesLeftToSolve;
     private String storyText;
+
     //Constructor
     public Level(){}
     public Level(ArrayList<Room> listOfRooms,

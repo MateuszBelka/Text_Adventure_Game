@@ -215,6 +215,7 @@ public class Initialisation {
     }
     private void configureRooms() {
 
+
     }
     private void configureStaticItems() {
 
