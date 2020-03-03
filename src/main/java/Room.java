@@ -14,6 +14,7 @@ public class Room {
     private String textAboutRoom;
 
     //Constructor
+    public Room(){}
     public Room(ArrayList<String> listOfAvailableDirections,
                 Room north,
                 Room east,
@@ -34,12 +35,7 @@ public class Room {
         this.textAboutRoom = textAboutRoom;
     }
 
-    //tmp constructor
-    public Room(){};
-
     //Get Methods
-    // @M get methods are always public. They are read-only, and their reason of existence is so that we can call
-    // them from outside this class.
     public ArrayList<String> getListOfAvailableDirections() {
         return listOfAvailableDirections;
     }
@@ -69,8 +65,6 @@ public class Room {
     }
 
     //Set Methods
-    //@M I've changed these to public. We can check what needs to be private, after initialisation class is finished
-    // (otherwise we can't test code)
     public void setListOfAvailableDirections(ArrayList<String> listOfAvailableDirections) {
         this.listOfAvailableDirections = listOfAvailableDirections;
     }
@@ -109,7 +103,6 @@ public class Room {
         setSouth(south);
         setWest(west);
     }
-
     public Room getRoomInDirection(String direction) {
         switch(direction) {
             case "north":
@@ -124,15 +117,12 @@ public class Room {
                 return null;
         }
     }
-
     public void deletePickupableItemFromList(PickupableItem item) {
         getListOfPickupableItems().remove(item);
     }
-
     public void addPickupableItemToList(PickupableItem item) {
         getListOfPickupableItems().add(item);
     }
-
     public void addStaticItemToList(StaticItem item) {
         getListOfStaticItems().add(item);
     }

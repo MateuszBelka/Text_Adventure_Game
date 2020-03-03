@@ -6,7 +6,8 @@ public class Level {
     private int puzzlesLeftToSolve;
     private String storyText;
     //Constructor
-    Level(ArrayList<Room> listOfRooms,
+    public Level(){}
+    public Level(ArrayList<Room> listOfRooms,
           int amountOfPuzzlesLeftToSolve,
           String storyText) {
         this.listOfRooms = listOfRooms;
@@ -14,13 +15,9 @@ public class Level {
         this.storyText = storyText;
     }
 
-    //tmp constructor
-    Level(){};
-
     public void addRoomToList(Room roomToAdd) {
         listOfRooms.add(roomToAdd);
     }
-
     public void decreasePuzzlesLeftToSolve() {
         puzzlesLeftToSolve -= 1;
     }
@@ -29,9 +26,5 @@ public class Level {
     }
     public String getTextAboutLevel() {
         return storyText;
-    }
-    //tmp
-    void print() {
-        System.out.println("Level");
     }
 }

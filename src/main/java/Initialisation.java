@@ -33,7 +33,7 @@ public class Initialisation {
         return outputs;
     }
     /*
-    public ArrayList<Inventory> getInventories() {
+    private ArrayList<Inventory> getInventories() {
 
     }
     */
@@ -53,33 +53,34 @@ public class Initialisation {
         return exitSwitch;
     }
     //Set Methods
-    public void setGames(ArrayList<Game> games) {
+    private void setGames(ArrayList<Game> games) {
         this.games = games;
     }
-    public void setPlayers(ArrayList<Player> players) {
+    private void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
-    public void setInputHandlers(ArrayList<InputHandler> inputHandlers) {
+    private void setInputHandlers(ArrayList<InputHandler> inputHandlers) {
         this.inputHandlers = inputHandlers;
     }
-    public void setOutputs(ArrayList<Output> outputs) {
+    private void setOutputs(ArrayList<Output> outputs) {
         this.outputs = outputs;
     }
-    public void setLevels(ArrayList<Level> levels) {
+    private void setLevels(ArrayList<Level> levels) {
         this.levels = levels;
     }
-    public void setRooms(ArrayList<Room> rooms) {
+    private void setRooms(ArrayList<Room> rooms) {
         this.rooms = rooms;
     }
-    public void setStaticItems(ArrayList<StaticItem> staticItems) {
+    private void setStaticItems(ArrayList<StaticItem> staticItems) {
         this.staticItems = staticItems;
     }
-    public void setPickupableItems(ArrayList<PickupableItem> pickupableItems) {
+    private void setPickupableItems(ArrayList<PickupableItem> pickupableItems) {
         this.pickupableItems = pickupableItems;
     }
     public void setExitSwitch(Boolean exitSwitch) {
         this.exitSwitch = exitSwitch;
     }
+
     /* The following function is responsible for starting the entire game
      * and as such overlooks class specific initialization functions.
      */
@@ -96,8 +97,17 @@ public class Initialisation {
         setPickupableItems(initializePickupableItems());
 
         //configure classes
+        configurePickupableItems();
+        configureStaticItems();
+        configureRooms();
+        configureLevels();
+        configureOutputs();
+        configureInputHandlers();
+        configurePlayers();
+        configureGames();
     }
 
+    //Initialise class
     private ArrayList<Game> initializeGames() {
         ArrayList<Game> games = new ArrayList<>();
         Game game = new Game();
@@ -106,7 +116,6 @@ public class Initialisation {
 
         return games;
     }
-
     private ArrayList<Player> initializePlayers() {
         ArrayList<Player> players = new ArrayList<>();
         Player player = new Player();
@@ -115,7 +124,6 @@ public class Initialisation {
 
         return players;
     }
-
     private ArrayList<InputHandler> initializeInputHandlers() {
         ArrayList<InputHandler> inputHandlers = new ArrayList<>();
         InputHandler inputHandler = new InputHandler();
@@ -124,7 +132,6 @@ public class Initialisation {
 
         return inputHandlers;
     }
-
     private ArrayList<Output> initializeOutputs() {
         ArrayList<Output> outputs = new ArrayList<>();
         Output output = new Output();
@@ -133,13 +140,11 @@ public class Initialisation {
 
         return outputs;
     }
-
     /*
     private ArrayList<Inventory> initializeInventories() {
 
     }
     */
-
     private ArrayList<Level> initializeLevels() {
         ArrayList<Level> levels = new ArrayList<>();
         Level level = new Level();
@@ -148,7 +153,6 @@ public class Initialisation {
 
         return levels;
     }
-
     private ArrayList<Room> initializeRooms() {
         ArrayList<Room> rooms = new ArrayList<>();
         Room room = new Room();
@@ -157,7 +161,6 @@ public class Initialisation {
 
         return rooms;
     }
-
     private ArrayList<StaticItem> initializeStaticItems() {
         ArrayList<StaticItem> staticItems = new ArrayList<>();
         StaticItem staticItem = new StaticItem();
@@ -166,7 +169,6 @@ public class Initialisation {
 
         return staticItems;
     }
-
     private ArrayList<PickupableItem> initializePickupableItems() {
         ArrayList<PickupableItem> pickupableItems = new ArrayList<>();
         PickupableItem pickupableItem = new PickupableItem();
@@ -174,6 +176,37 @@ public class Initialisation {
         pickupableItems.add(pickupableItem);
 
         return pickupableItems;
+    }
+
+    //Configure object
+    private void configureGames() {
+        getGames().get(0).setListOfLevels(getLevels());
+    }
+    private void configurePlayers() {
+
+    }
+    private void configureInputHandlers() {
+
+    }
+    private void configureOutputs() {
+
+    }
+    /*
+    private void configureInventories() {
+
+    }
+    */
+    private void configureLevels() {
+
+    }
+    private void configureRooms() {
+
+    }
+    private void configureStaticItems() {
+
+    }
+    private void configurePickupableItems() {
+
     }
 }
 
