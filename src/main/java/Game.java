@@ -49,8 +49,6 @@ public class Game {
 
     //Game is completed if there are no more levels left to solve.
     public boolean isCompleted() {
-        //return getLevelsLeftToSolve() == 0;
-        //tmp for testing!
-        return false;
+        return getLevelsLeftToSolve() == 0;
     }
 }
