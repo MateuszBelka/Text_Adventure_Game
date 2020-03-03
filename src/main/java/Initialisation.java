@@ -174,9 +174,11 @@ public class Initialisation {
     }
     private ArrayList<StaticItem> initializeStaticItems() {
         ArrayList<StaticItem> staticItems = new ArrayList<>();
-        StaticItem staticItem = new StaticItem();
+        StaticItem staticItem1 = new StaticItem();
+        StaticItem staticItem2 = new StaticItem();
 
-        staticItems.add(staticItem);
+        staticItems.add(staticItem1);
+        staticItems.add(staticItem2);
 
         return staticItems;
     }
@@ -250,20 +252,29 @@ public class Initialisation {
     }
     private void configureStaticItems() {
         StaticItem staticItem1 = getStaticItems().get(0);
+        StaticItem staticItem2 = getStaticItems().get(1);
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
-        String textAboutThisItem = "temporary text about this static item1.";
-        String textForPuzzleSolved = "temporary text for puzzle solved1.";
-        String name = "temporary name for static item1.";
+
+        String textAboutThisItem1 = "temporary text about this static item1.";
+        String textForPuzzleSolvedOfItem1 = "temporary text for puzzle solved1.";
+        String nameItem1 = "fridge.";
+        String textAboutThisItem2 = "temporary text about this static item2.";
+        String textForPuzzleSolvedOfItem2 = "temporary text for puzzle solved2.";
+        String nameItem2 = "button";
 
         staticItem1.setNeedsItem(pickupableItem1);
-        staticItem1.setTextAboutThisItem(textAboutThisItem);
-        staticItem1.setTextForPuzzleSolved(textForPuzzleSolved);
-        staticItem1.setName(name);
+        staticItem1.setTextAboutThisItem(textAboutThisItem1);
+        staticItem1.setTextForPuzzleSolved(textForPuzzleSolvedOfItem1);
+        staticItem1.setName(nameItem1);
+
+        staticItem2.setTextAboutThisItem(textAboutThisItem2);
+        staticItem2.setTextForPuzzleSolved(textForPuzzleSolvedOfItem2);
+        staticItem2.setName(nameItem2);
     }
     private void configurePickupableItems() {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
         StaticItem staticItem1 = getStaticItems().get(0);
-        String name = "temporary name for pickupable item1.";
+        String name = "milk";
         String textAboutThisItem = "temporary text about this pickupable item1.";
 
         pickupableItem1.setName(name);
