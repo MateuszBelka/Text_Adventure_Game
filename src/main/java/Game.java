@@ -31,7 +31,11 @@ public class Game {
     public void setListOfLevels(ArrayList<Level> listOfLevels) {
         this.listOfLevels = listOfLevels;
     }
-    public void setLevelsLeftToSolve(int levelsLeftToSolve) {
+    public void setLevelsLeftToSolve() {
+        int levelsLeftToSolve = 0;
+        for (Level level : getListOfLevels()) {
+            if (level.getPuzzlesLeftToSolve() != 0) levelsLeftToSolve += 1;
+        }
         this.levelsLeftToSolve = levelsLeftToSolve;
     }
 

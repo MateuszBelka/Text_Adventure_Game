@@ -191,15 +191,18 @@ public class Initialisation {
 
     //Configure object
     private void configureGames() {
-        getGames().get(0).setListOfLevels(getLevels());
-        //set levelsLeftToSolve
+        Game game0 = getGames().get(0);
+
+        game0.setListOfLevels(getLevels());
+        game0.setLevelsLeftToSolve();
     }
     private void configurePlayers() {
+        Player player0 = getPlayers().get(0);
         Level currentLevel = getGames().get(0).getListOfLevels().get(0);
-        getPlayers().get(0).setCurrentLevel(currentLevel);
+        Room currentRoom = player0.getCurrentLevel().getListOfRooms().get(0);
 
-        Room currentRoom = getPlayers().get(0).getCurrentLevel().getListOfRooms().get(0);
-        getPlayers().get(0).setCurrentRoom(currentRoom);
+        player0.setCurrentLevel(currentLevel);
+        player0.setCurrentRoom(currentRoom);
     }
     private void configureInputHandlers() {
         /* Dunno if anything has to be here
@@ -216,12 +219,12 @@ public class Initialisation {
     }
     */
     private void configureLevels() {
-        getLevels().get(0).setListOfRooms(getRooms());
-
-        //set puzzlesLeftToSolve
-
+        Level level0 = getLevels().get(0);
         String storyText = "temporary story text for 1st Level.";
-        getLevels().get(0).setStoryText(storyText);
+
+        level0.setListOfRooms(getRooms());
+        level0.setPuzzlesLeftToSolve();
+        level0.setStoryText(storyText);
     }
     private void configureRooms() {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
