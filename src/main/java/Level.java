@@ -20,6 +20,14 @@ public class Level {
         return listOfRooms;
     }
 
+    //Set Methods
+    public void setListOfRooms(ArrayList<Room> listOfRooms) {
+        this.listOfRooms = listOfRooms;
+    }
+    public void setStoryText(String storyText) {
+        this.storyText = storyText;
+    }
+
     public void addRoomToList(Room roomToAdd) {
         listOfRooms.add(roomToAdd);
     }

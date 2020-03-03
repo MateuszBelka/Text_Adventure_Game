@@ -191,10 +191,13 @@ public class Initialisation {
         getPlayers().get(0).setCurrentRoom(currentRoom);
     }
     private void configureInputHandlers() {
-
+        /* Dunno if anything has to be here
+         * and if there is I don't know what it is
+         */
     }
     private void configureOutputs() {
-
+        /* Class is empty
+         */
     }
     /*
     private void configureInventories() {
@@ -202,7 +205,13 @@ public class Initialisation {
     }
     */
     private void configureLevels() {
+        ArrayList<Room> listOfRooms = rooms;
+        getLevels().get(0).setListOfRooms(listOfRooms);
 
+        //set puzzlesLeftToSolve
+
+        String storyText = "temporary story text for 1st Level.";
+        getLevels().get(0).setStoryText(storyText);
     }
     private void configureRooms() {
 
