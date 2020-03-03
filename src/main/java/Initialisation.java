@@ -112,8 +112,8 @@ public class Initialisation {
         configureOutputs();
         //configureInventories();
         configureInputHandlers();
-        configurePlayers();
         configureGames();
+        configurePlayers();
     }
 
     //Initialise class
@@ -198,10 +198,12 @@ public class Initialisation {
     }
     private void configurePlayers() {
         Player player0 = getPlayers().get(0);
-        Level currentLevel = getGames().get(0).getListOfLevels().get(0);
-        Room currentRoom = player0.getCurrentLevel().getListOfRooms().get(0);
+        Game game0 = getGames().get(0);
 
+        Level currentLevel = game0.getListOfLevels().get(0);
         player0.setCurrentLevel(currentLevel);
+
+        Room currentRoom = player0.getCurrentLevel().getListOfRooms().get(0);
         player0.setCurrentRoom(currentRoom);
     }
     private void configureInputHandlers() {
