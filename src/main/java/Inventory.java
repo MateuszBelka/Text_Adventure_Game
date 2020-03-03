@@ -5,7 +5,7 @@
 //
 //public class Inventory{
 //
-//    private Hashmap<PickupableItem, int> listOfItems;
+//    private Hashmap<PickupableItem, Integer> listOfItems;
 //
 //    Inventory(){
 //        listOfItems = new HashMap<PickupableItem, int>();
