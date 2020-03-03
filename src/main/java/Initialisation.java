@@ -181,6 +181,7 @@ public class Initialisation {
     //Configure object
     private void configureGames() {
         getGames().get(0).setListOfLevels(getLevels());
+        //setup levelsLeftToSolve
     }
     private void configurePlayers() {
 
