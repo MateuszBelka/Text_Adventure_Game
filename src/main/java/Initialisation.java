@@ -194,7 +194,9 @@ public class Initialisation {
     //Configure object
     private void configureGames() {
         Game game0 = getGames().get(0);
+        Player player0 = getPlayers().get(0);
 
+        game0.setPlayer(player0);
         game0.setListOfLevels(getLevels());
         game0.setLevelsLeftToSolve();
     }

@@ -8,18 +8,24 @@ import java.util.ArrayList;
 
 public class Game {
     //Variable Declarations
+    private Player player;
     private ArrayList<Level> listOfLevels;
     private int levelsLeftToSolve;
 
     //Constructors
     public Game(){}
-    public Game(ArrayList<Level> listOfLevels,
+    public Game(Player player,
+                ArrayList<Level> listOfLevels,
                 int levelsLeftToSolve) {
+        this.player = player;
         this.listOfLevels = listOfLevels;
         this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
     //Get Methods
+    public Player getPlayer() {
+        return player;
+    }
     public ArrayList<Level> getListOfLevels() {
         return listOfLevels;
     }
@@ -28,6 +34,9 @@ public class Game {
     }
 
     //Set Methods
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
     public void setListOfLevels(ArrayList<Level> listOfLevels) {
         this.listOfLevels = listOfLevels;
     }

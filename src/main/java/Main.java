@@ -6,8 +6,8 @@ public class Main {
         Initialisation init = new Initialisation();
         init.initializeEntireStory();
 
-        Player player = init.getPlayers().get(0);
         Game game = init.getGames().get(0);
+        Player player = game.getPlayer();
         InputHandler inputHandler = init.getInputHandlers().get(0);
 
         //main game loop
