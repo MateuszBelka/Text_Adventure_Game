@@ -5,6 +5,7 @@ public class Level {
     private ArrayList<Room> listOfRooms;
     private int puzzlesLeftToSolve;
     private String storyText;
+    private Boolean enterLevel = true;
 
     //Constructor
     public Level(){}
@@ -33,6 +34,13 @@ public class Level {
     }
     public void setStoryText(String storyText) {
         this.storyText = storyText;
+    }
+    public boolean switchEnterLevel(){
+        if (enterLevel.equals(true)){
+            enterLevel = false;
+            return true;
+        }
+        return enterLevel;
     }
 
     //Main Methods

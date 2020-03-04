@@ -8,10 +8,14 @@ public class Main {
 
         Player player = init.getPlayers().get(0);
         Game game = init.getGames().get(0);
-        InputValidator inputHandler = init.getInputValidators().get(0);
+        InputValidator inputValidator = init.getInputValidators().get(0);
+        StoryTextOutput storyTextOutput = init.getStoryTextOutputs().get(0);
+
 
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
+            System.out.println("******StoryText:******");
+            storyTextOutput.printStoryText(player);
             System.out.println("******INFO FOR TESTING:******");
             System.out.println("current room: " + player.getCurrentRoom());
             System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
@@ -20,7 +24,7 @@ public class Main {
             System.out.println("player inventory: " + player.getInventory().getItemsInInventory());
             String input = scanner.nextLine();
             if (input.equals("exit")) {init.setExitSwitch(true);}
-            inputHandler.handleInput(input, player);
+            inputValidator.validateInput(input, player);
         }
     }
 }

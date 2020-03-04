@@ -11,7 +11,7 @@ public class Initialisation {
     ArrayList<Game> games;
     ArrayList<Player> players;
     ArrayList<InputValidator> inputValidators;
-    ArrayList<Output> outputs;
+    ArrayList<StoryTextOutput> storyTextOutputs;
     ArrayList<Inventory> inventories;
     ArrayList<Level> levels;
     ArrayList<Room> rooms;
@@ -25,7 +25,7 @@ public class Initialisation {
     public ArrayList<Game> getGames() { return games; }
     public ArrayList<Player> getPlayers() { return players; }
     public ArrayList<InputValidator> getInputValidators() { return inputValidators;}
-    public ArrayList<Output> getOutputs() { return outputs; }
+    public ArrayList<StoryTextOutput> getStoryTextOutputs() { return storyTextOutputs; }
     public ArrayList<Inventory> getInventories() {return inventories;}
     public ArrayList<Level> getLevels() { return levels; }
     public ArrayList<Room> getRooms() { return rooms; }
@@ -37,7 +37,7 @@ public class Initialisation {
     private void setGames(ArrayList<Game> games) { this.games = games; }
     private void setPlayers(ArrayList<Player> players) { this.players = players; }
     private void setInputValidators(ArrayList<InputValidator> inputValidators) { this.inputValidators = inputValidators; }
-    private void setOutputs(ArrayList<Output> outputs) { this.outputs = outputs; }
+    private void setOutputs(ArrayList<StoryTextOutput> outputs) { this.storyTextOutputs = outputs; }
     private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
     private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
     private void setStaticItems(ArrayList<StaticItem> staticItems) { this.staticItems = staticItems; }
@@ -101,11 +101,11 @@ public class Initialisation {
 
         return inputValidators;
     }
-    private ArrayList<Output> initializeOutputs() {
-        ArrayList<Output> outputs = new ArrayList<>();
-        Output output = new Output();
+    private ArrayList<StoryTextOutput> initializeOutputs() {
+        ArrayList<StoryTextOutput> outputs = new ArrayList<>();
+        StoryTextOutput storyTextOutput = new StoryTextOutput();
 
-        outputs.add(output);
+        outputs.add(storyTextOutput);
 
         return outputs;
     }

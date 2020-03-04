@@ -11,7 +11,7 @@ public class InputValidator {
     private Player player;
 
     //Main Method
-    public void handleInput(String input, Player player) {
+    public void validateInput(String input, Player player) {
         resetInputHandlerVariables();
         updateInputHandlerVariables(input, player);
         inputValidator();
@@ -154,5 +154,3 @@ public class InputValidator {
         }
     }
 }
-
-//todo: debug "multiple milk"

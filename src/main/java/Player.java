@@ -24,6 +24,7 @@ public class Player {
         if (staticItemToAction.isActionable()){
             currentRoom.deleteStaticItemFromList(staticItemToAction);
             getCurrentLevel().decreasePuzzlesLeftToSolve();
+            System.out.println(staticItemToAction.getTextForPuzzleSolved());
         }
         else{ System.out.println("HINT : This item needs another item."); }
     }
