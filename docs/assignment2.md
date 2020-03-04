@@ -43,7 +43,7 @@ This chapter contains the description of a "snapshot" of the status of your syst
 This chapter is composed of a UML object diagram of your system, together with a textual description of its key elements.
 
 <div align="center">
-    <img src="visual/ObjectDiagram.png" width="65%"</img>
+    <img src="visual/ObjectDiagram.png" width="65%">
 </div>
   
 `Textual description`
