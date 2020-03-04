@@ -1,16 +1,4 @@
 
-]	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(­Ëáê8ºäÑ‰.
-O
-java:S1144;"-Remove this unused private "getLevel" method.(ÛšğŠıÿÿÿÿ8ºäÑ‰.
-R
-java:S1144>"5Remove this unused private "getTextAboutRoom" method.(ñî„Ì8ºäÑ‰.
-c
-java:S1144C"ARemove this unused private "setListOfAvailableDirections" method.(ıãúôÿÿÿÿÿ8ºäÑ‰.
-[
-java:S1144R"9Remove this unused private "setListOfStaticItems" method.(€ñ¶Òüÿÿÿÿ8ºäÑ‰.
-Z
-java:S1144U"=Remove this unused private "setListOfPickupableItems" method.(Œ½€£8ºäÑ‰.
-J
-java:S1144X"-Remove this unused private "setLevel" method.(ó¼¢¿8ºäÑ‰.
-W
-java:S1144["5Remove this unused private "setTextAboutRoom" method.(ÚÜªŞşÿÿÿÿ8ºäÑ‰.
+[	java:S107"AConstructor has 9 parameters, which is greater than 7 authorized.(­Ëáê8ºäÑ‰.
+l
+java:S1117"LRename "listOfAvailableDirections" which hides the field declared at line 5.(·Ã•øÿÿÿÿ8İ©šŠ.

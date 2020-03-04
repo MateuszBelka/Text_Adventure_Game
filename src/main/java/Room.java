@@ -18,26 +18,6 @@ public class Room {
         this.listOfPickupableItems = new ArrayList<>();
         this.listOfStaticItems = new ArrayList<>();
     }
-    public Room(ArrayList<String> listOfAvailableDirections,
-                Room north,
-                Room east,
-                Room south,
-                Room west,
-                ArrayList<StaticItem> listOfStaticItems,
-                ArrayList<PickupableItem> listOfPickupableItems,
-                Level level,
-                String textAboutRoom) {
-        this.listOfAvailableDirections = listOfAvailableDirections;
-        this.north = north;
-        this.east = east;
-        this.south = south;
-        this.west = west;
-        this.listOfStaticItems = listOfStaticItems;
-        this.listOfPickupableItems = listOfPickupableItems;
-        this.level = level;
-        this.textAboutRoom = textAboutRoom;
-    }
-
 
     //Get Methods
     public ArrayList<String> getListOfAvailableDirections() {

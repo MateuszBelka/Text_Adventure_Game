@@ -4,24 +4,26 @@ public class Main {
     public static void main (String[] args) {
         Scanner scanner = new Scanner(System.in);
         Initialisation init = new Initialisation();
-        init.initializeEntireStory();
+        init.initializeEntireSystem();
 
         Game game = init.getGames().get(0);
         Player player = game.getPlayer();
-        InputHandler inputHandler = init.getInputHandlers().get(0);
+        InputValidator inputValidator = init.getInputValidators().get(0);
+        StoryTextOutput storyTextOutput = init.getStoryTextOutputs().get(0);
 
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
+            System.out.println("******StoryText:******");
+            storyTextOutput.printStoryText(player);
             System.out.println("******INFO FOR TESTING:******");
             System.out.println("current room: " + player.getCurrentRoom());
             System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
-            System.out.println("pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
-            System.out.println("static items: " + player.getCurrentRoom().getListOfStaticItems());
             System.out.println("current room pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
             System.out.println("current room static items: " + player.getCurrentRoom().getListOfStaticItems());
+            System.out.println("player inventory: " + player.getInventory().getItemsInInventory());
             String input = scanner.nextLine();
             if (input.equals("exit")) {init.setExitSwitch(true);}
-            inputHandler.handleInput(input, player);
+            inputValidator.validateInput(input, player);
         }
     }
 }

@@ -14,13 +14,6 @@ public class Game {
 
     //Constructors
     public Game(){}
-    public Game(Player player,
-                ArrayList<Level> listOfLevels,
-                int levelsLeftToSolve) {
-        this.player = player;
-        this.listOfLevels = listOfLevels;
-        this.levelsLeftToSolve = levelsLeftToSolve;
-    }
 
     //Get Methods
     public Player getPlayer() {
@@ -49,15 +42,9 @@ public class Game {
     }
 
     //Main Methods
-    public void addLevelToList(Level level) {
-        getListOfLevels().add(level);
-    }
-    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) {
-        this.levelsLeftToSolve -= valueToDecreaseBy;
-    }
+    public void addLevelToList(Level level) {getListOfLevels().add(level); }
+    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; }
 
     //Game is completed if there are no more levels left to solve.
-    public boolean isCompleted() {
-        return getLevelsLeftToSolve() == 0;
-    }
+    public boolean isCompleted() { return getLevelsLeftToSolve() == 0; }
 }
