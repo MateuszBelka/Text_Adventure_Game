@@ -10,7 +10,7 @@ public class Initialisation {
     //Variable Declaration
     ArrayList<Game> games;
     ArrayList<Player> players;
-    ArrayList<InputValidator> inputHandlers;
+    ArrayList<InputValidator> inputValidators;
     ArrayList<Output> outputs;
     ArrayList<Inventory> inventories;
     ArrayList<Level> levels;
@@ -24,7 +24,7 @@ public class Initialisation {
     //Get Methods
     public ArrayList<Game> getGames() { return games; }
     public ArrayList<Player> getPlayers() { return players; }
-    public ArrayList<InputValidator> getInputHandlers() { return inputHandlers;}
+    public ArrayList<InputValidator> getInputValidators() { return inputValidators;}
     public ArrayList<Output> getOutputs() { return outputs; }
     public ArrayList<Inventory> getInventories() {return inventories;}
     public ArrayList<Level> getLevels() { return levels; }
@@ -36,7 +36,7 @@ public class Initialisation {
     //Set Methods
     private void setGames(ArrayList<Game> games) { this.games = games; }
     private void setPlayers(ArrayList<Player> players) { this.players = players; }
-    private void setInputHandlers(ArrayList<InputValidator> inputHandlers) { this.inputHandlers = inputHandlers; }
+    private void setInputValidators(ArrayList<InputValidator> inputValidators) { this.inputValidators = inputValidators; }
     private void setOutputs(ArrayList<Output> outputs) { this.outputs = outputs; }
     private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
     private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
@@ -56,7 +56,7 @@ public class Initialisation {
         //initialise classes
         setGames(initializeGames());
         setPlayers(initializePlayers());
-        setInputHandlers(initializeInputHandlers());
+        setInputValidators(initializeInputHandlers());
         setOutputs(initializeOutputs());
         setInventories(initializeInventories());
         setLevels(initializeLevels());
@@ -71,7 +71,7 @@ public class Initialisation {
         configureLevels();
         configureOutputs();
         configureInventories();
-        configureInputHandlers();
+        configureInputValidators();
         configureGames();
         configurePlayers();
     }
@@ -94,12 +94,12 @@ public class Initialisation {
         return players;
     }
     private ArrayList<InputValidator> initializeInputHandlers() {
-        ArrayList<InputValidator> inputHandlers = new ArrayList<>();
+        ArrayList<InputValidator> inputValidators = new ArrayList<>();
         InputValidator inputHandler = new InputValidator();
 
-        inputHandlers.add(inputHandler);
+        inputValidators.add(inputHandler);
 
-        return inputHandlers;
+        return inputValidators;
     }
     private ArrayList<Output> initializeOutputs() {
         ArrayList<Output> outputs = new ArrayList<>();
@@ -174,7 +174,7 @@ public class Initialisation {
         Inventory inventory = getInventories().get(0);
         player0.setInventory(inventory);
     }
-    private void configureInputHandlers() {
+    private void configureInputValidators() {
 
         /* Dunno if anything has to be here
          * and if there is I don't know what it is

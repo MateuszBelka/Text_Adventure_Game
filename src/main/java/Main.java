@@ -8,7 +8,7 @@ public class Main {
 
         Player player = init.getPlayers().get(0);
         Game game = init.getGames().get(0);
-        InputValidator inputHandler = init.getInputHandlers().get(0);
+        InputValidator inputHandler = init.getInputValidators().get(0);
 
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
