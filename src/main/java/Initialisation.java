@@ -10,80 +10,40 @@ public class Initialisation {
     //Variable Declaration
     ArrayList<Game> games;
     ArrayList<Player> players;
-    ArrayList<InputHandler> inputHandlers;
+    ArrayList<InputValidator> inputHandlers;
     ArrayList<Output> outputs;
-    //ArrayList<Inventory> inventories;
+    ArrayList<Inventory> inventories;
     ArrayList<Level> levels;
     ArrayList<Room> rooms;
     ArrayList<StaticItem> staticItems;
     ArrayList<PickupableItem> pickupableItems;
     Boolean exitSwitch;
 
-    public Initialisation() {
-        this.exitSwitch = false;
-    }
+    public Initialisation() { this.exitSwitch = false; }
 
     //Get Methods
-    public ArrayList<Game> getGames() {
-        return games;
-    }
-    public ArrayList<Player> getPlayers() {
-        return players;
-    }
-    public ArrayList<InputHandler> getInputHandlers() {
-        return inputHandlers;
-    }
-    public ArrayList<Output> getOutputs() {
-        return outputs;
-    }
-    /*
-    private ArrayList<Inventory> getInventories() {
+    public ArrayList<Game> getGames() { return games; }
+    public ArrayList<Player> getPlayers() { return players; }
+    public ArrayList<InputValidator> getInputHandlers() { return inputHandlers;}
+    public ArrayList<Output> getOutputs() { return outputs; }
+    public ArrayList<Inventory> getInventories() {return inventories;}
+    public ArrayList<Level> getLevels() { return levels; }
+    public ArrayList<Room> getRooms() { return rooms; }
+    public ArrayList<StaticItem> getStaticItems() { return staticItems; }
+    public ArrayList<PickupableItem> getPickupableItems() { return pickupableItems; }
+    public Boolean getExitSwitch() { return exitSwitch; }
 
-    }
-    */
-    public ArrayList<Level> getLevels() {
-        return levels;
-    }
-    public ArrayList<Room> getRooms() {
-        return rooms;
-    }
-    public ArrayList<StaticItem> getStaticItems() {
-        return staticItems;
-    }
-    public ArrayList<PickupableItem> getPickupableItems() {
-        return pickupableItems;
-    }
-    public Boolean getExitSwitch() {
-        return exitSwitch;
-    }
     //Set Methods
-    private void setGames(ArrayList<Game> games) {
-        this.games = games;
-    }
-    private void setPlayers(ArrayList<Player> players) {
-        this.players = players;
-    }
-    private void setInputHandlers(ArrayList<InputHandler> inputHandlers) {
-        this.inputHandlers = inputHandlers;
-    }
-    private void setOutputs(ArrayList<Output> outputs) {
-        this.outputs = outputs;
-    }
-    private void setLevels(ArrayList<Level> levels) {
-        this.levels = levels;
-    }
-    private void setRooms(ArrayList<Room> rooms) {
-        this.rooms = rooms;
-    }
-    private void setStaticItems(ArrayList<StaticItem> staticItems) {
-        this.staticItems = staticItems;
-    }
-    private void setPickupableItems(ArrayList<PickupableItem> pickupableItems) {
-        this.pickupableItems = pickupableItems;
-    }
-    public void setExitSwitch(Boolean exitSwitch) {
-        this.exitSwitch = exitSwitch;
-    }
+    private void setGames(ArrayList<Game> games) { this.games = games; }
+    private void setPlayers(ArrayList<Player> players) { this.players = players; }
+    private void setInputHandlers(ArrayList<InputValidator> inputHandlers) { this.inputHandlers = inputHandlers; }
+    private void setOutputs(ArrayList<Output> outputs) { this.outputs = outputs; }
+    private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
+    private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
+    private void setStaticItems(ArrayList<StaticItem> staticItems) { this.staticItems = staticItems; }
+    private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){this.pickupableItems = pickupableItems;}
+    public void setExitSwitch(Boolean exitSwitch) { this.exitSwitch = exitSwitch; }
+    public void setInventories(ArrayList<Inventory> inventories) { this.inventories = inventories; }
 
     /* The following function is responsible for starting the entire game
      * and as such overlooks class specific initialization functions.
@@ -92,13 +52,13 @@ public class Initialisation {
      * We firstly have to init all classses in order to be
      * able to access them while configuring objects.
      */
-    public void initializeEntireStory() {
+    public void initializeEntireSystem() {
         //initialise classes
         setGames(initializeGames());
         setPlayers(initializePlayers());
         setInputHandlers(initializeInputHandlers());
         setOutputs(initializeOutputs());
-        //setInventories(initializeInventories());
+        setInventories(initializeInventories());
         setLevels(initializeLevels());
         setRooms(initializeRooms());
         setStaticItems(initializeStaticItems());
@@ -110,7 +70,7 @@ public class Initialisation {
         configureRooms();
         configureLevels();
         configureOutputs();
-        //configureInventories();
+        configureInventories();
         configureInputHandlers();
         configureGames();
         configurePlayers();
@@ -133,9 +93,9 @@ public class Initialisation {
 
         return players;
     }
-    private ArrayList<InputHandler> initializeInputHandlers() {
-        ArrayList<InputHandler> inputHandlers = new ArrayList<>();
-        InputHandler inputHandler = new InputHandler();
+    private ArrayList<InputValidator> initializeInputHandlers() {
+        ArrayList<InputValidator> inputHandlers = new ArrayList<>();
+        InputValidator inputHandler = new InputValidator();
 
         inputHandlers.add(inputHandler);
 
@@ -149,11 +109,14 @@ public class Initialisation {
 
         return outputs;
     }
-    /*
     private ArrayList<Inventory> initializeInventories() {
+        ArrayList<Inventory> inventories = new ArrayList<>();
+        Inventory inventory = new Inventory();
 
+        inventories.add(inventory);
+
+        return inventories;
     }
-    */
     private ArrayList<Level> initializeLevels() {
         ArrayList<Level> levels = new ArrayList<>();
         Level level = new Level();
@@ -207,21 +170,25 @@ public class Initialisation {
 
         Room currentRoom = player0.getCurrentLevel().getListOfRooms().get(0);
         player0.setCurrentRoom(currentRoom);
+
+        Inventory inventory = getInventories().get(0);
+        player0.setInventory(inventory);
     }
     private void configureInputHandlers() {
+
         /* Dunno if anything has to be here
          * and if there is I don't know what it is
-         */
+         */  //todo:nothing needs to be here.
     }
     private void configureOutputs() {
         /* Class is empty
          */
     }
-    /*
     private void configureInventories() {
-
+        Inventory inventory = getInventories().get(0);
+        Player player0 = getPlayers().get(0);
+        player0.setInventory(inventory);
     }
-    */
     private void configureLevels() {
         Level level0 = getLevels().get(0);
         String storyText = "temporary story text for 1st Level.";
@@ -233,6 +200,7 @@ public class Initialisation {
     private void configureRooms() {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
         StaticItem staticItem1 = getStaticItems().get(0);
+        StaticItem staticItem2 = getStaticItems().get(1);
         Room room1 = getRooms().get(0);
         Room room2 = getRooms().get(1);
         String textAboutRoom1= "temporary text about room 1.";
@@ -247,6 +215,7 @@ public class Initialisation {
 
         room2.updateRoomDirections(null,null,room1,null);
         room2.updateListOfAvailableDirectionsUsingRooms();
+        room2.addStaticItemToList(staticItem2);
         room2.setLevel(getLevels().get(0));
         room2.setTextAboutRoom(textAboutRoom2);
     }

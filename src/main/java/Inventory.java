@@ -1,73 +1,25 @@
-//import java.util.ArrayList;
-//import java.util.Iterator;
-//import java.util.HashMap;
-//import java.util.Set;
-//
-//public class Inventory{
-//
-//    private Hashmap<PickupableItem, Integer> listOfItems;
-//
-//    Inventory(){
-//        listOfItems = new HashMap<PickupableItem, int>();
-//    }
-//
-//    public HashMap<PickupableItem, int> getList(){
-//        return listOfItems;
-//    }
-//
-//    private boolean contains(PickupableItem item){
-//        Iterator it = listOfItems.entrySet().iterator();
-//        while(it.hasNext()) {
-//            Map.Entry mentry = (Map.Entry)it.next();
-//            if mentry.getKey().getName().equals(item.getName()) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//
-//    private void addOne(PickupableItem item){
-//        Map.Entry mentry = find(item);
-//        listOfItems.put(mentry.getKey(), mentry.getValue()+1);
-//    }
-//
-//    public void addItemToInventory(PickupableItem item){
-//        if contains(item){
-//            addOne(item);
-//        } else{
-//            listOfItems.put(item, 1);
-//        }
-//    }
-//
-//    public void deleteItemFromInventory(PickupableItem item){
-//        if !contains(item){
-//            return;
-//        } else {
-//            Map.Entry mentry = find(item);
-//            if (mentry.getValue() == 1) {
-//                    listOfITems.remove(mentry.getKey());
-//            } else {
-//                listOfItems.put(mentry.getKey(), mentry.getValue() - 1);
-//            }
-//        }
-//    }
-//    public String getStoryTextByItem(PickupableItem item){
-//        if contains(item){
-//            Map.Entry mentry = find(item);
-//            return mentry.getKey().getTextAboutItem();
-//        }
-//        return "";
-//    }
-//
-//    private Map.Entry find(PickupableItem item){
-//        Iterator it = listOfItems.entrySet().iterator();
-//        while(it.hasNext()) {
-//            Map.Entry mentry = (Map.Entry)iterator.next();
-//            if mentry.getKey().getName().equals(item.getName()) {
-//                return mentry;
-//            }
-//        }
-//    }
-//
-//    public void print(){System.out.println("inventory");} //please keep this for now. It helps with testing.
-//}
+import java.util.ArrayList;
+
+public class Inventory{
+    private ArrayList<PickupableItem> listOfPickupableItems = new ArrayList<>();
+
+    //Get Methods
+    public ArrayList<PickupableItem> getItemsInInventory() {return listOfPickupableItems;}
+    public PickupableItem getItemByName (String name){
+        if (getItemsInInventory() != null){
+            for (int i = 0; i < getItemsInInventory().size(); i++){
+                if (name.equals(getItemsInInventory().get(i).getName())){
+                    return getItemsInInventory().get(i);
+                }
+                else {System.out.println("No such item in inventory"); return null;}
+            }
+        }
+        return null;
+    }
+
+    //Set Methods
+    public void addToInventory(PickupableItem item){
+        getItemsInInventory().add(item);}
+    public void deleteItemFromInventory(PickupableItem item){
+        getItemsInInventory().remove(item);}
+}

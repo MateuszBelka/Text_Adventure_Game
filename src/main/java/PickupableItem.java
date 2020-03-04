@@ -1,9 +1,11 @@
+
 public class PickupableItem {
 
     private String name;
     private StaticItem staticItemToUseOn;
     private String textAboutThisItem;
 
+    //Constructors
     public PickupableItem(){}
     public PickupableItem(String name,
                    StaticItem staticItemToUseOn,
@@ -14,20 +16,12 @@ public class PickupableItem {
     }
 
     //Get Methods
-    public String getName() {
-        return name;
-    }
-    public StaticItem getStaticItemToUseOn() {
-        return staticItemToUseOn;
-    }
-    public String getTextAboutThisItem() {
-        return textAboutThisItem;
-    }
+    public String getName() { return name; }
+    public StaticItem getStaticItemToUseOn() { return staticItemToUseOn; }
+    public String getTextAboutThisItem() { return textAboutThisItem; }
 
     //Set Methods
-    public void setName(String name){
-        this.name = name;
-    }
+    public void setName(String name){ this.name = name; }
     public void setStaticItemToUseOn(StaticItem staticItemToUseOn) {
         this.staticItemToUseOn = staticItemToUseOn;
     }

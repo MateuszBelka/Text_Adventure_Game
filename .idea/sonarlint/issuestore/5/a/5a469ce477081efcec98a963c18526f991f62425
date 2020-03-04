@@ -1,5 +1,3 @@
 
-Q
-java:S1144"4Remove this unused private "setListOfLevels" method.(¼èıø8ÌÏéÑ‰.
-[
-java:S1144!"9Remove this unused private "setLevelsLeftToSolve" method.(õ’–ÿÿÿÿÿ8ÌÏéÑ‰.
+e
+java:S1117"ERename "levelsLeftToSolve" which hides the field declared at line 12.(¼Û’ÿÿÿÿÿ8›İ©šŠ.

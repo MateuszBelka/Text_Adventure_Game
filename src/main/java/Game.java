@@ -20,17 +20,11 @@ public class Game {
     }
 
     //Get Methods
-    public ArrayList<Level> getListOfLevels() {
-        return listOfLevels;
-    }
-    public int getLevelsLeftToSolve() {
-        return levelsLeftToSolve;
-    }
+    public ArrayList<Level> getListOfLevels() { return listOfLevels; }
+    public int getLevelsLeftToSolve() { return levelsLeftToSolve; }
 
     //Set Methods
-    public void setListOfLevels(ArrayList<Level> listOfLevels) {
-        this.listOfLevels = listOfLevels;
-    }
+    public void setListOfLevels(ArrayList<Level> listOfLevels) { this.listOfLevels = listOfLevels; }
     public void setLevelsLeftToSolve() {
         int levelsLeftToSolve = 0;
         for (Level level : getListOfLevels()) {
@@ -40,15 +34,9 @@ public class Game {
     }
 
     //Main Methods
-    public void addLevelToList(Level level) {
-        getListOfLevels().add(level);
-    }
-    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) {
-        this.levelsLeftToSolve -= valueToDecreaseBy;
-    }
+    public void addLevelToList(Level level) {getListOfLevels().add(level); }
+    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; }
 
     //Game is completed if there are no more levels left to solve.
-    public boolean isCompleted() {
-        return getLevelsLeftToSolve() == 0;
-    }
+    public boolean isCompleted() { return getLevelsLeftToSolve() == 0; }
 }
