@@ -42,7 +42,9 @@ Author(s): `name of the team member(s) responsible for this section`
 This chapter contains the description of a "snapshot" of the status of your system during its execution. 
 This chapter is composed of a UML object diagram of your system, together with a textual description of its key elements.
 
-`Figure representing the UML class diagram`
+<div align="center">
+    <img src="visual/ObjectDiagram.png" width="65%"</img>
+</div>
   
 `Textual description`
 
