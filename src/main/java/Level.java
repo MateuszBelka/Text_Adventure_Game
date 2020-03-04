@@ -8,13 +8,6 @@ public class Level {
 
     //Constructor
     public Level(){}
-    public Level(ArrayList<Room> listOfRooms,
-          int amountOfPuzzlesLeftToSolve,
-          String storyText) {
-        this.listOfRooms = listOfRooms;
-        this.puzzlesLeftToSolve = amountOfPuzzlesLeftToSolve;
-        this.storyText = storyText;
-    }
 
     //Get Methods
     public ArrayList<Room> getListOfRooms() {

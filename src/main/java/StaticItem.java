@@ -13,15 +13,6 @@ public class StaticItem {
 
     //Constructor
     public StaticItem(){}
-    public StaticItem(PickupableItem needsItem,
-                      String textAboutThisItem,
-                      String textForPuzzleSolved,
-                      String name) {
-        this.needsItem = needsItem;
-        this.textAboutThisItem = textAboutThisItem;
-        this.textForPuzzleSolved = textForPuzzleSolved;
-        this.name = name;
-    }
 
     //Get Methods
     public PickupableItem getNeedsItem() {

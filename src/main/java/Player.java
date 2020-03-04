@@ -14,8 +14,10 @@ public class Player {
     }
     public void pickUpPickupableItem(String nameOfItemToPickUp){
         PickupableItem itemToPickUp = currentRoom.getPickupableItemByName(nameOfItemToPickUp);
-        currentRoom.deletePickupableItemFromList(itemToPickUp);
-        getInventory().addToInventory(itemToPickUp);
+        if (itemToPickUp != null){
+            currentRoom.deletePickupableItemFromList(itemToPickUp);
+            getInventory().addToInventory(itemToPickUp);
+        }
     }
     public void actionStaticItem(String nameOfStaticItemToAction){
         StaticItem staticItemToAction = currentRoom.getStaticItemByName(nameOfStaticItemToAction);

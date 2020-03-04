@@ -13,11 +13,6 @@ public class Game {
 
     //Constructors
     public Game(){}
-    public Game(ArrayList<Level> listOfLevels,
-                int levelsLeftToSolve) {
-        this.listOfLevels = listOfLevels;
-        this.levelsLeftToSolve = levelsLeftToSolve;
-    }
 
     //Get Methods
     public ArrayList<Level> getListOfLevels() { return listOfLevels; }

@@ -7,13 +7,6 @@ public class PickupableItem {
 
     //Constructors
     public PickupableItem(){}
-    public PickupableItem(String name,
-                   StaticItem staticItemToUseOn,
-                   String textAboutThisItem) {
-        this.name = name;
-        this.staticItemToUseOn = staticItemToUseOn;
-        this.textAboutThisItem = textAboutThisItem;
-    }
 
     //Get Methods
     public String getName() { return name; }
