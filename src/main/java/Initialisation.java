@@ -228,7 +228,7 @@ public class Initialisation {
 
         String textAboutThisItem1 = "temporary text about this static item1.";
         String textForPuzzleSolvedOfItem1 = "temporary text for puzzle solved1.";
-        String nameItem1 = "fridge.";
+        String nameItem1 = "fridge";
         String textAboutThisItem2 = "temporary text about this static item2.";
         String textForPuzzleSolvedOfItem2 = "temporary text for puzzle solved2.";
         String nameItem2 = "button";
