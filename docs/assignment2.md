@@ -37,16 +37,17 @@ In this document you have to adhere to the following formatting conventions:
 Maximum number of words for this section: 3000
 
 ## Object diagrams								
-Author(s): `name of the team member(s) responsible for this section`
+Author: Mateusz Belka
 
-This chapter contains the description of a "snapshot" of the status of your system during its execution. 
-This chapter is composed of a UML object diagram of your system, together with a textual description of its key elements.
-
-`Figure representing the UML class diagram`
+<div align="center">
+    <img src="visual/ObjectDiagram.png" width="90%">
+</div>
   
-`Textual description`
+The object diagram seen here presents the structure of a specific state of our system through the lens of UML. The aim of this diagram is, as opposed to class diagram, to allow the reader to understand the functional purpose of all classes quickly as well as to see the relationships between classes play out in action. The initial idea behind the structure of relationships between our classes was to maintain a tree-like structure in which the flow of information usually would go through some mediator instead of directly accessing the data from the desired class. Of course, such an approach has limitations as it's at times very troublesome to maintain such structure. Hence, our diagram aims to maintain such structure; however, it someone deviates from it.  
 
-Maximum number of words for this section: 1000
+One shall start examining the diagram by noticing the instance of the game class. The purpose of its existence is to allow multiple games to be played at the same time. This allows for future expansions of the system, such as multiplayer. Implementing this structure now allows us, developers, to continuously maintain a lack of shared attributes between different instances of the game class. From the information flow point of view, the instance of the player class is the crucial point of the diagram. As we chose player class to be responsible for the majority of player-related activities, hence most events overall, most of the method calls either start or end in that class. As a result of our approach, the instance of player class also has the most direct accesses to instances of other classes to ease the need to talk to them continually. The instance of the player class is most notably connected to its inventories instance, and that object is connected to all of the items currently in it. On the left side from the instance of the game class, we can see the entire structure of areas player can reside in as well as the structures that support the existence of those areas. As standard game vocabulary etiquette suggests, we firstly split location into levels, which there can be multiple instances of, however, they are independent, and player can only have access to one at a time. Each level can be connected to multiple instances of room. Those object of room class represents a singular, specific location a player can reside in. Rooms can have a multitude of items, both static items and pickupable items, connected to them or they can have no items. Pickupable items have unique one-to-one connection with static items which can be seen in the instances of both of those classes on the diagram.
+
+Word Count: 439/1000
 
 ## State machine diagrams									
 Author(s): `name of the team member(s) responsible for this section`
