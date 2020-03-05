@@ -15,8 +15,8 @@ public class InputValidator {
         resetInputHandlerVariables();
         updateInputHandlerVariables(input, player);
         inputValidator();
-        System.out.println("type: " + typeOfInput + ", valid: " + listOfValidInputtedWords);
-        System.out.println("INPUT: dirs: " + totalDirInInput + " p: " + totalPItemsInInput + " s: " + totalSItemsInInput) ;
+//        System.out.println("type: " + typeOfInput + ", valid: " + listOfValidInputtedWords);
+//        System.out.println("INPUT: dirs: " + totalDirInInput + " p: " + totalPItemsInInput + " s: " + totalSItemsInInput) ;
         passInput();
     }
 

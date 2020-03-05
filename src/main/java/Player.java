@@ -17,6 +17,7 @@ public class Player {
         if (itemToPickUp != null){
             currentRoom.deletePickupableItemFromList(itemToPickUp);
             getInventory().addToInventory(itemToPickUp);
+            System.out.println(itemToPickUp.getTextForItemPickedUp());
         }
     }
     public void actionStaticItem(String nameOfStaticItemToAction){
@@ -37,6 +38,7 @@ public class Player {
                 getCurrentRoom().deleteStaticItemFromList(staticItem);
                 inventory.deleteItemFromInventory(pickupableItem);
                 getCurrentLevel().decreasePuzzlesLeftToSolve();
+                System.out.println(staticItem.getTextForPuzzleSolved());
             }
             else{
                 System.out.println("Wrong item used on item.");

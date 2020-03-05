@@ -71,7 +71,6 @@ public class Initialisation {
         configureLevels();
         configureOutputs();
         configureInventories();
-        configureInputValidators();
         configureGames();
         configurePlayers();
     }
@@ -176,12 +175,12 @@ public class Initialisation {
         Inventory inventory = getInventories().get(0);
         player0.setInventory(inventory);
     }
-    private void configureInputValidators() {
-
-        /* Dunno if anything has to be here
-         * and if there is I don't know what it is
-         */  //todo:nothing needs to be here.
-    }
+//    private void configureInputValidators() {
+//
+//        /* Dunno if anything has to be here
+//         * and if there is I don't know what it is
+//         */  //todo:nothing needs to be here.
+//    }
     private void configureOutputs() {
         /* Class is empty
          */
@@ -193,7 +192,9 @@ public class Initialisation {
     }
     private void configureLevels() {
         Level level0 = getLevels().get(0);
-        String storyText = "temporary story text for 1st Level.";
+        String storyText = "(LEVEL 1)     From the outside, you see that the house has two floors, " +
+                "an attic, and a basement. You enter through the front door, and strangely enough, " +
+                "find yourself in the kitchen? 'What a peculiar design...', you think to yourself.";
 
         level0.setListOfRooms(getRooms());
         level0.setPuzzlesLeftToSolve();
@@ -205,8 +206,13 @@ public class Initialisation {
         StaticItem staticItem2 = getStaticItems().get(1);
         Room room1 = getRooms().get(0);
         Room room2 = getRooms().get(1);
-        String textAboutRoom1= "temporary text about room 1.";
-        String textAboutRoom2= "temporary text about room 2.";
+        String textAboutRoom1= "(KITCHEN)     The kitchen looks nice with its black and white tiles. " +
+                "There's a *fridge*, a stove, a counter... To the *north*, there is an open door, " +
+                "leading to the hallway.";
+        String textAboutRoom2= "(HALLWAY)     You find yourself in the hallway. There are multiple doors here, " +
+                "but all of them are barricaded. For a moment, you wonder why, but then quickly just accept this and" +
+                " move on. " +
+                "Behind you to the *south*, is the open door leading to the kitchen.";
 
         room1.updateRoomDirections(room2,null,null,null);
         room1.updateListOfAvailableDirectionsUsingRooms();
@@ -226,11 +232,14 @@ public class Initialisation {
         StaticItem staticItem2 = getStaticItems().get(1);
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
 
-        String textAboutThisItem1 = "temporary text about this static item1.";
-        String textForPuzzleSolvedOfItem1 = "temporary text for puzzle solved1.";
+        String textAboutThisItem1 = "The *fridge* is buzzing with sound. " +
+                "Out of curiosity you look inside it, but it is empty.";
+        String textForPuzzleSolvedOfItem1 = "You place the carton of milk inside the fridge." +
+                " Nice! The owners of this house will surely be glad!";
         String nameItem1 = "fridge";
-        String textAboutThisItem2 = "temporary text about this static item2.";
-        String textForPuzzleSolvedOfItem2 = "temporary text for puzzle solved2.";
+        String textAboutThisItem2 = "Also, there is this *red button* here that just screams for you to press it.";
+        String textForPuzzleSolvedOfItem2 = "Although nothing seems to happen, you feel slightly more satisfied, " +
+                "after pressing it.";
         String nameItem2 = "button";
 
         staticItem1.setNeedsItem(pickupableItem1);
@@ -246,10 +255,13 @@ public class Initialisation {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
         StaticItem staticItem1 = getStaticItems().get(0);
         String name = "milk";
-        String textAboutThisItem = "temporary text about this pickupable item1.";
+        String textAboutThisItem = "There is a *carton of milk* on the kitchen counter.";
+        String textForItemPickedUp = "You pick up the carton of milk, and place it in your inventory. " +
+                "Now what to do with it..?";
 
         pickupableItem1.setName(name);
         pickupableItem1.setStaticItemToUseOn(staticItem1);
         pickupableItem1.setTextAboutThisItem(textAboutThisItem);
+        pickupableItem1.setTextForItemPickedUp(textForItemPickedUp);
     }
 }
