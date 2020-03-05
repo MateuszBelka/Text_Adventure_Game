@@ -207,7 +207,7 @@ public class Initialisation {
         Room room1 = getRooms().get(0);
         Room room2 = getRooms().get(1);
         String textAboutRoom1= "(KITCHEN)     The kitchen looks nice with its black and white tiles. " +
-                "There's a *fridge*, a stove, a counter... To the *north*, there is an open door, " +
+                "There's a fridge, a stove, a counter... To the *north*, there is an open door, " +
                 "leading to the hallway.";
         String textAboutRoom2= "(HALLWAY)     You find yourself in the hallway. There are multiple doors here, " +
                 "but all of them are barricaded. For a moment, you wonder why, but then quickly just accept this and" +
