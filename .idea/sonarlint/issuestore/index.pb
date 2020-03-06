@@ -33,3 +33,5 @@ Q
 !src/main/java/InputValidator.java,2\0\2010f5d2e253f2758ede25c0b4e01816a16bc605
 R
 "src/main/java/StoryTextOutput.java,b\9\b988322ba5d9a6eed7555ea24ebf8cf172254320
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
