@@ -60,10 +60,9 @@ One shall start examining the diagram by noticing the instance of the game class
 >total words: 439/1000
 
 ## State machine diagrams									
-Author(s): Valeriya Komarnitskaya and Taylor Doughty 
+Author(s): Valeriya Komarnitskaya, Taylor Doughty 
 
 [ Events and states from the moment a player enters the starting screen until loading the game world.](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_final.jpg)
- Class Game.
  
 State machine diagram represents states and events that are happening from the moment a player enters the starting screen until the actual start of the game. The decision to implement this part of the process in the diagram was made because, in our opinion, it is crucial to show what happens as a very first thing when the player enters the game and through which states do the game go through to load the game. The state machine diagram consists of 3 parts: the error-free part with input “start new game” or “continue”, the part with error handling and the part with different input than “start new game” or “continue”.
 
@@ -74,12 +73,11 @@ The part that is responsible for error handling is happening when loading the ga
 There are currently four possible inputs: “new game”, “continue”, “help”, “exit”. A new game we have already discussed. If a user types something else than “new game”/”continue”, there are three possible outcomes. In order to determine which one is the best for the user’s input, the check has to be completed. If the user has typed “help”, then new information about possible commands and environment will appear and the console will be ready for input again. If a player typed “exit”, then the console will stop waiting for the input and will exit to the desktop. If a user has typed none of these, then a user will receive a message stating that the input is invalid. A terminal will be waiting for new input. In this state machine diagram, in order to implement this check, we decided to use synchronization in order to have multiple options for an input and guards that would actually check the input and proceed to the next step depending on the input. 
 >total words: 624
 
- ####Taylor's Diagram: 
- [Completing a level]()
+ ####Completing a level
+ [Completing a level](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_level.png)
  
   The second state machine diagram represents the state changes class Level should go through in the event that a level is completed, once the functionality is implemented. To make it clear, in order for a level to be completed, players must successfully action and use items which then leads to the completion of puzzles, earning themselves puzzle points. Once the target amount of puzzle pieces have been earned, the level is then complete. However, the description of the diagram itself is as follows: After the start of the game, the transition containing event Level is constructed fires, in which the level is constructed and the class transitions to the Idle state. While in this state, the state waits for commands. Once a command is received, one of the three guards to the transitions leading to Active are checked, then a transition takes place to the Active state. There are three possible transitions: [command: “pick up PickupAbleItem” is used], [command: “use staticItem” is used], or [other command is used]. One of three options is necessary to be checked in order for state Active to verify within Level if the command is valid. Once this state is entered, upon entry the state validates if the command is correct. What this means, is that it checks whether the issued command can be successful or not in terms of puzzle completion. After this Entry/ action, if the command was deemed invalid, the guard is immediately checked for transition [command is incorrect], and the class then transitions back to the idle state in which it then waits for a command. However, if the command is valid, the active state performs its activity in which puzzlesLeftToSolve are decreased by 1. If there are more than 0 puzzles remaining for the level after puzzlesLeftToSolve has decreased, the guard is checked for the transition that leads the class back to the idle state in which it waits for a command. But if puzzlesLeftToSolve are then 0, the transition with the guard [puzzlesLeftToSolve = 0] is checked, which leads to Level Completed, thus the end and the completion of the level.
-
-Maximum number of words for this section: 3000
+>total words: 352
 
 ## Sequence diagrams									
 Authors(in sequence): Ece Doganer, Valeriya Komarnitskaya
@@ -123,8 +121,7 @@ This concludes the description of User Input Validation.
 
 >total words: 760
 
-####Valeriya's awesome diagram and text
-
+####Movement Diagram
 [Movement diagram](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/Sequence%20Diagram_final.jpg)
 
 Sequence Diagram represents states and events that are arranged in time sequence. The following sequence diagram describes processes from the moment a player enters the direction he/she wants to move in till the moment when the message about the successful movement and item list will appear on the screen. 
