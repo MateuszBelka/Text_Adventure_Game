@@ -12,11 +12,11 @@ public class Player {
     public void setInventory(Inventory inventory) { this.inventory = inventory;}
 
     //Player actions
-    public void movePlayer(String dirToMove){
+    public void movePlayer(String dirToMove){ //function to move player in inputted direction
         Room roomToMove = currentRoom.getRoomInDirection(dirToMove);
         setCurrentRoom(roomToMove);
     }
-    public void pickUpPickupableItem(String nameOfItemToPickUp, TextTerminal terminal){
+    public void pickUpPickupableItem(String nameOfItemToPickUp, TextTerminal terminal){ //picking up pickupable item and storing in inventory
         PickupableItem itemToPickUp = currentRoom.getPickupableItemByName(nameOfItemToPickUp);
         if (itemToPickUp != null){
             currentRoom.deletePickupableItemFromList(itemToPickUp);
@@ -24,7 +24,7 @@ public class Player {
             terminal.printf("%s\n", itemToPickUp.getTextForItemPickedUp());
         }
     }
-    public void actionStaticItem(String nameOfStaticItemToAction, TextTerminal terminal){
+    public void actionStaticItem(String nameOfStaticItemToAction, TextTerminal terminal){ //actioning of the static item
         StaticItem staticItemToAction = currentRoom.getStaticItemByName(nameOfStaticItemToAction);
         if (staticItemToAction.isActionable()){
             currentRoom.deleteStaticItemFromList(staticItemToAction);
@@ -33,8 +33,8 @@ public class Player {
         }
         else{ terminal.printf("HINT : This item needs another item.\n"); }
     }
-    public void usePickupableItemOnStaticItem(String pItem, String sItem, TextTerminal terminal){
-        StaticItem staticItem = getCurrentRoom().getStaticItemByName(sItem);
+    public void usePickupableItemOnStaticItem(String pItem, String sItem, TextTerminal terminal){ //using pickupable itemon static item and removing
+        StaticItem staticItem = getCurrentRoom().getStaticItemByName(sItem);                      //pickupable item from the inventory
         PickupableItem pickupableItem = getInventory().getItemByName(pItem);
 
         if (staticItem.getNeedsItem() != null){

@@ -24,7 +24,7 @@ public class Game {
     public void setListOfLevels(ArrayList<Level> listOfLevels) {
         this.listOfLevels = listOfLevels;
     }
-    public void setLevelsLeftToSolve() {
+    public void setLevelsLeftToSolve() { //determining how many levels are left to solve in order to complete the game
         int levelsLeftToSolve = 0;
         for (Level level : getListOfLevels()) {
             if (level.getPuzzlesLeftToSolve() != 0) levelsLeftToSolve += 1;
@@ -33,8 +33,9 @@ public class Game {
     }
 
     //Main Methods
-    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; }
+    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; } //decreasing number of levels
+                                                                                                                  // left to solve
 
-    //Game is completed if there are no more levels left to solve.
+    //Game is completed if there are no more levels left to solve
     public boolean isCompleted() { return getLevelsLeftToSolve() == 0; }
 }
