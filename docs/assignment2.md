@@ -27,9 +27,65 @@ Maximum number of words for this document: 12000
 ## Class diagram									
 Author: Ece Doganer
 
-This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
+>todo: add diagram!
 
-`Figure representing the UML class diagram`
+####**Initialisation**
+This class is a group of methods and attributes which cause the system to be fully initialised, by creating and configuring the needed instances of all other classes, in order to be able to play the game.
+- Each attribute is a collection of instances of all classes, used to store and manipulate the instances created.
+- An extra attribute is the *exitSwitch*, which is a boolean, and will be used to exiting the game through the input 'exit'.
+- *Initialisation* is a constructor of this class.
+- All attributes have a get method. These return the list of items in the according data type.
+- All attributes have a set method. These set a list of items of the according data type, to the designated attribute.
+- All attributes have a method which initializes the list of instances of its data type. This method returns the list of items of the according data type.
+- With the exception of *storyTextOutputs* and *inputValidators*, all attributes have a configuration method. This method configures the necessary attributes of the instances of each class type. (Except *inputValidators* and *storyTextOutputs*.)
+- The **Initialisation** class has a shared aggregation association, where the *initialisation* instance is 1, and all other classes are 1 to unlimited. As this class constructs and updates all other classes, it is a binary association from **Initialisation** class to all other classes. 
+
+####Game
+This class is meant to be a container of *level* and *player* instances, as well as a class that will deal with the functionality around completing the game. Quick note: we have set *player* attribute to 1. If we decide on implementing multiplayer, this will become a list of **Player** instances.
+- *player* keeps track of the player in this singleplayer version of the system.
+- *listOfLevels* is a list of at least 1 **Level** instance. We use this to calculate if the game has or hasn't been completed.
+- *levelsLeftToSolve* is an integer, for previously stated calculation.
+- *setPlayer* is a method that needs a **Player** instance, which will be set to the player attribute. 
+- *setListOfLevels* is a method that sets a list of **Level** instances, to make previously stated calculation possible.
+- *isCompleted* is a method returning a boolean. This is where previously stated calculation should happen.
+- *decreaseLevelsLeftToSolve* is a self-explanatory method, which should be called when a **Level** instance is completed.
+- There is a shared aggregation association between 1 **Game** instance and 1 to many **Level** instances. It is a binary association, meaning **Game** can call methods of **Level**, but not vice versa. 
+- There is a shared aggregation bidirectional association between 1 **Game** instance and 1 **Player** instance.
+
+####Level
+This is a class that keeps a collection of **Room** instances. It has an amount of puzzles to solve, in order to finish the **Level** instance, which is needed to finish the game.
+- *listOfRooms* keeps one or many Rooms.
+- *puzzlesLeftToSolve* is an attribute that holds an integer. We keep track of it, in order to be able to calculate when a **Level** instance is completed.
+- *storyText* is a String, which gets a value at the initialisation phase of the system. Every time a user starts a new level, this string should be printed once.
+- *enterLevel* is a boolean, which will will keep track of a level being entered for the first time.
+- *getListOfRooms* retrieves the list of **Room** instances.
+- *getPuzzlesLeftToSolve* returns puzzlesLeftToSolve attribute.
+- *getTextAboutLevel* returns *storyText* attribute.
+- *addRoomToList* is used by **Initialisation** instance to add *rooms* to a *level*.
+- *decreasePuzzlesLeftToSolve* should be used to decrease said attribute.
+- *isCompleted* returns boolean according to having finished a level.
+- *setListOfRooms* needs a list of **Room** instances, and sets this to the *listOfRooms* attribute.
+- *updatePuzzlesLeftToSolve* updates the stated attribute. This should decrease attribute by 1.
+- *setStoryText* needs a string and sets the stated attribute.
+- *switchEnterLevel* is a switch, that causes *enterLevel* to the true only the first time it is checked. The switch will permanently return false after this.
+- *isCompleted* is a boolean returning true if **Level** instance is completed. 
+- There is a shared aggregation bidirectional association between 1 **Level** instance and 1 or more **Room** instances.
+
+####Room
+- *listofAvailableDirections* is a list of strings that might or might not have elements. One level could consist of one room, hence no directions would be available.
+- *north*, *east*, *south*, *west* all could have one or zero **Room** instances attached.
+- *listOfStaticItems* has one or more instances of **StaticItem** that 'exist' within the room. We need one element to be able to solve the game. (We can "action" it, which is a puzzle solved.)
+- *listOfPickupableItems* has zero or more instances of **PickupableItem** that 'exist' within the room.
+- *level* has the *level* instance which the *room* instance belongs in.
+- *textAboutRoom* is a string that will be printed every time user issues an input. 
+- *Room* is a constructor.
+- *getListOfAvailableDirections* has a list of strings, which could include north east south and/or west.
+- *getNorth*, *getSouth*, *getEast*, *getWest* all return the value of the stated attribute. 
+- The set method version of the previously mentioned method, sets a *Room* instance as value to the stated attribute.
+- *getListOfStaticItems* retrieves stated attribute.
+- *getListOfPickupableItems* retrieves stated attribute.
+- *getTextAboutRoom* retrieves *textAboutRoom* attribute.
+- 
 
 For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
 - Brief description about what it represents
@@ -53,17 +109,14 @@ Author: Mateusz Belka
 </div>
   
 The object diagram seen here presents the structure of a specific state of our system through the lens of UML. The aim of this diagram is, as opposed to class diagram, to allow the reader to understand the functional purpose of all classes quickly as well as to see the relationships between classes play out in action. The initial idea behind the structure of relationships between our classes was to maintain a tree-like structure in which the flow of information usually would go through some mediator instead of directly accessing the data from the desired class. Of course, such an approach has limitations as it's at times very troublesome to maintain such structure. Hence, our diagram aims to maintain such structure; however, it someone deviates from it.  
+One shall start examining the diagram by noticing the instance of the **initialization** class. It is the most crucial aspect of our diagram since it connected to all other instances of all classes. That is because **initialization** class is responsible for creating instances of all other classes. Outside of initializing, the instance of **game** class is the most integral part of our object structure. The purpose of its existence is to be a container for maintaining information about levels and player. It also allows information flow between those two sides of our tree structure. From the information flow point of view, the instance of the **player** class is the crucial point of the diagram. As we chose **player** class to be responsible for the majority of player-related activities, hence most events overall, most of the method calls either start or end in that class. As a result of our approach, the instance of **player** class also has the most direct accesses to instances of other classes to ease the need to talk to them continually. The instance of the **player** class is most notably connected to its inventories instance, and that object is connected to all of the items currently in it. On the left side from the instance of the **game** class, we can see the entire structure of areas player can reside in as well as the structures that support the existence of those areas. As standard game vocabulary etiquette suggests, we firstly split location into levels, which there can be multiple instances of, however, they are independent, and a player can only have access to one at a time. Each level can be connected to numerous instances of room. Those object of **room** class represents a singular, specific location a player can reside in. Rooms can have a multitude of items, both static items and pickupable items, connected to them or they can have no items. Pickupable items have a unique one-to-one connection with static items which can be seen in the instances of both of those classes on the diagram.
 
-One shall start examining the diagram by noticing the instance of the game class. The purpose of its existence is to be a container for maintaining information about levels and player. It also allows information flow between those two sides of our tree structure. From the information flow point of view, the instance of the **player** class is the crucial point of the diagram. As we chose **player** class to be responsible for the majority of player-related activities, hence most events overall, most of the method calls either start or end in that class. As a result of our approach, the instance of **player** class also has the most direct accesses to instances of other classes to ease the need to talk to them continually. The instance of the **player** class is most notably connected to its inventories instance, and that object is connected to all of the items currently in it. On the left side from the instance of the **game** class, we can see the entire structure of areas player can reside in as well as the structures that support the existence of those areas. As standard game vocabulary etiquette suggests, we firstly split location into levels, which there can be multiple instances of, however, they are independent, and a player can only have access to one at a time. Each level can be connected to numerous instances of room. Those object of **room** class represents a singular, specific location a player can reside in. Rooms can have a multitude of items, both static items and pickupable items, connected to them or they can have no items. Pickupable items have a unique one-to-one connection with static items which can be seen in the instances of both of those classes on the diagram.
-
-
->total words: 439/1000
+>total words: 471
 
 ## State machine diagrams									
-Author(s): Valeriya Komarnitskaya and Taylor Doughty 
+Author(s): Valeriya Komarnitskaya, Taylor Doughty 
 
 [ Events and states from the moment a player enters the starting screen until loading the game world.](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_final.jpg)
- Class Game.
  
 State machine diagram represents states and events that are happening from the moment a player enters the starting screen until the actual start of the game. The decision to implement this part of the process in the diagram was made because, in our opinion, it is crucial to show what happens as a very first thing when the player enters the game and through which states do the game go through to load the game. The state machine diagram consists of 3 parts: the error-free part with input “start new game” or “continue”, the part with error handling and the part with different input than “start new game” or “continue”.
 
@@ -74,9 +127,10 @@ The part that is responsible for error handling is happening when loading the ga
 There are currently four possible inputs: “new game”, “continue”, “help”, “exit”. A new game we have already discussed. If a user types something else than “new game”/”continue”, there are three possible outcomes. In order to determine which one is the best for the user’s input, the check has to be completed. If the user has typed “help”, then new information about possible commands and environment will appear and the console will be ready for input again. If a player typed “exit”, then the console will stop waiting for the input and will exit to the desktop. If a user has typed none of these, then a user will receive a message stating that the input is invalid. A terminal will be waiting for new input. In this state machine diagram, in order to implement this check, we decided to use synchronization in order to have multiple options for an input and guards that would actually check the input and proceed to the next step depending on the input. 
 >total words: 624
 
- ####Taylor's Diagram: 
- [Completing a level]()
+ ####Completing a level
+ [Completing a level](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_level.png)
  
+
 The second state machine diagram represents the state changes class Level should go through in the event that a level is completed, once the functionality is implemented. To make it clear, in order for a level to be completed, players must successfully action and use items which then leads to the completion of puzzles, earning themselves puzzle points. Once the target amount of puzzle pieces have been earned, the level is then complete.  
 
 However, the description of the diagram itself is as follows: After the start of the game, the transition containing event "Level is constructed" fires, in which the level is constructed and the class transitions to the Idle state. While in this state, the state waits for commands. Once a command is received, one of the three guards to the transitions leading to Active are checked, then a transition takes place to the Active state. There are three possible transitions: [command: “pick up PickupAbleItem” is used], [command: “use staticItem” is used], or [other command is used]. It is necessary for one of these three guards to be checked in order for state Active to verify within Level if the command is valid.
@@ -130,8 +184,7 @@ This concludes the description of User Input Validation.
 
 >total words: 760
 
-####Valeriya's awesome diagram and text
-
+####Movement Diagram
 [Movement diagram](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/Sequence%20Diagram_final.jpg)
 
 Sequence Diagram represents states and events that are arranged in time sequence. The following sequence diagram describes processes from the moment a player enters the direction he/she wants to move in till the moment when the message about the successful movement and item list will appear on the screen. 
@@ -152,7 +205,7 @@ The location of the **main** Java class needed for executing our system is "\src
 Click image to watch 30 seconds video of our game!
 [![30sec Video Presentation](https://i.imgur.com/NtBIUrW.png)](https://youtu.be/dnpt9YXNlYQ)
 
-Word Count: 651
+>total words: 651
 
 ## References
 
