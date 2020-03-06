@@ -130,6 +130,13 @@ The process starts with the user typing the input to the terminal. For movement,
 >total words: 451
 
 Maximum number of words for this section: 3000
+##Bonus diagram
+Author: Taylor Doughty
+
+####Communication Diagram
+[Actioning a static item](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/Communication_diagram.png)
+
+PLACEHOLDER
 
 ## Implementation									
 Author: Mateusz Belka
