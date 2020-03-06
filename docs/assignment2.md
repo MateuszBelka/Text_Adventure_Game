@@ -60,7 +60,8 @@ One shall start examining the diagram by noticing the instance of the game class
 Word Count: 439/1000
 
 ## State machine diagrams									
-Author(s): `name of the team member(s) responsible for this section`
+Author(s): Taylor Doughty and Valeriya Komarnitskaya
+
 
 This chapter contains the specification of at least 2 UML state machines of your system, together with a textual description of all their elements. Also, remember that classes the describe only data structures (e.g., Coordinate, Position) do not need to have an associated state machine since they can be seen as simple "data containers" without behaviour (they have only stateless objects).
 
