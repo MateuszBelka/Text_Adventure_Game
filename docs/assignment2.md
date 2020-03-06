@@ -27,9 +27,65 @@ Maximum number of words for this document: 12000
 ## Class diagram									
 Author: Ece Doganer
 
-This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
+>todo: add diagram!
 
-`Figure representing the UML class diagram`
+####**Initialisation**
+This class is a group of methods and attributes which cause the system to be fully initialised, by creating and configuring the needed instances of all other classes, in order to be able to play the game.
+- Each attribute is a collection of instances of all classes, used to store and manipulate the instances created.
+- An extra attribute is the *exitSwitch*, which is a boolean, and will be used to exiting the game through the input 'exit'.
+- *Initialisation* is a constructor of this class.
+- All attributes have a get method. These return the list of items in the according data type.
+- All attributes have a set method. These set a list of items of the according data type, to the designated attribute.
+- All attributes have a method which initializes the list of instances of its data type. This method returns the list of items of the according data type.
+- With the exception of *storyTextOutputs* and *inputValidators*, all attributes have a configuration method. This method configures the necessary attributes of the instances of each class type. (Except *inputValidators* and *storyTextOutputs*.)
+- The **Initialisation** class has a shared aggregation association, where the *initialisation* instance is 1, and all other classes are 1 to unlimited. As this class constructs and updates all other classes, it is a binary association from **Initialisation** class to all other classes. 
+
+####Game
+This class is meant to be a container of *level* and *player* instances, as well as a class that will deal with the functionality around completing the game. Quick note: we have set *player* attribute to 1. If we decide on implementing multiplayer, this will become a list of **Player** instances.
+- *player* keeps track of the player in this singleplayer version of the system.
+- *listOfLevels* is a list of at least 1 **Level** instance. We use this to calculate if the game has or hasn't been completed.
+- *levelsLeftToSolve* is an integer, for previously stated calculation.
+- *setPlayer* is a method that needs a **Player** instance, which will be set to the player attribute. 
+- *setListOfLevels* is a method that sets a list of **Level** instances, to make previously stated calculation possible.
+- *isCompleted* is a method returning a boolean. This is where previously stated calculation should happen.
+- *decreaseLevelsLeftToSolve* is a self-explanatory method, which should be called when a **Level** instance is completed.
+- There is a shared aggregation association between 1 **Game** instance and 1 to many **Level** instances. It is a binary association, meaning **Game** can call methods of **Level**, but not vice versa. 
+- There is a shared aggregation bidirectional association between 1 **Game** instance and 1 **Player** instance.
+
+####Level
+This is a class that keeps a collection of **Room** instances. It has an amount of puzzles to solve, in order to finish the **Level** instance, which is needed to finish the game.
+- *listOfRooms* keeps one or many Rooms.
+- *puzzlesLeftToSolve* is an attribute that holds an integer. We keep track of it, in order to be able to calculate when a **Level** instance is completed.
+- *storyText* is a String, which gets a value at the initialisation phase of the system. Every time a user starts a new level, this string should be printed once.
+- *enterLevel* is a boolean, which will will keep track of a level being entered for the first time.
+- *getListOfRooms* retrieves the list of **Room** instances.
+- *getPuzzlesLeftToSolve* returns puzzlesLeftToSolve attribute.
+- *getTextAboutLevel* returns *storyText* attribute.
+- *addRoomToList* is used by **Initialisation** instance to add *rooms* to a *level*.
+- *decreasePuzzlesLeftToSolve* should be used to decrease said attribute.
+- *isCompleted* returns boolean according to having finished a level.
+- *setListOfRooms* needs a list of **Room** instances, and sets this to the *listOfRooms* attribute.
+- *updatePuzzlesLeftToSolve* updates the stated attribute. This should decrease attribute by 1.
+- *setStoryText* needs a string and sets the stated attribute.
+- *switchEnterLevel* is a switch, that causes *enterLevel* to the true only the first time it is checked. The switch will permanently return false after this.
+- *isCompleted* is a boolean returning true if **Level** instance is completed. 
+- There is a shared aggregation bidirectional association between 1 **Level** instance and 1 or more **Room** instances.
+
+####Room
+- *listofAvailableDirections* is a list of strings that might or might not have elements. One level could consist of one room, hence no directions would be available.
+- *north*, *east*, *south*, *west* all could have one or zero **Room** instances attached.
+- *listOfStaticItems* has one or more instances of **StaticItem** that 'exist' within the room. We need one element to be able to solve the game. (We can "action" it, which is a puzzle solved.)
+- *listOfPickupableItems* has zero or more instances of **PickupableItem** that 'exist' within the room.
+- *level* has the *level* instance which the *room* instance belongs in.
+- *textAboutRoom* is a string that will be printed every time user issues an input. 
+- *Room* is a constructor.
+- *getListOfAvailableDirections* has a list of strings, which could include north east south and/or west.
+- *getNorth*, *getSouth*, *getEast*, *getWest* all return the value of the stated attribute. 
+- The set method version of the previously mentioned method, sets a *Room* instance as value to the stated attribute.
+- *getListOfStaticItems* retrieves stated attribute.
+- *getListOfPickupableItems* retrieves stated attribute.
+- *getTextAboutRoom* retrieves *textAboutRoom* attribute.
+- 
 
 For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
 - Brief description about what it represents
