@@ -81,13 +81,12 @@ public class Initialisation {
         configureStaticItems();
         configureRooms();
         configureLevels();
-        configureOutputs();
         configureInventories();
         configureGames();
         configurePlayers();
     }
 
-    private void initTextIO() {
+    private void initTextIO() { //allows us to have input/output without terminal
         setTextIO(TextIoFactory.getTextIO());
         setTerminal(textIO.getTextTerminal());
     }
@@ -191,16 +190,6 @@ public class Initialisation {
 
         Inventory inventory = getInventories().get(0);
         player0.setInventory(inventory);
-    }
-//    private void configureInputValidators() {
-//
-//        /* Dunno if anything has to be here
-//         * and if there is I don't know what it is
-//         */  //todo:nothing needs to be here.
-//    }
-    private void configureOutputs() {
-        /* Class is empty
-         */
     }
     private void configureInventories() {
         Inventory inventory = getInventories().get(0);
