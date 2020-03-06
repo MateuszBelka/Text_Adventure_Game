@@ -25,7 +25,7 @@ public class Level {
     public void setListOfRooms(ArrayList<Room> listOfRooms) {
         this.listOfRooms = listOfRooms;
     }
-    public void updatePuzzlesLeftToSolve() {
+    public void updatePuzzlesLeftToSolve() { //puzzles left to solve in the room
         int puzzlesLeftToSolve = 0;
         for (Room room : getListOfRooms()) {
             puzzlesLeftToSolve += room.getListOfStaticItems().size();
@@ -35,7 +35,7 @@ public class Level {
     public void setStoryText(String storyText) {
         this.storyText = storyText;
     }
-    public boolean switchEnterLevel(){
+    public boolean switchEnterLevel(){ //entering a new level
         if (enterLevel.equals(true)){
             enterLevel = false;
             return true;

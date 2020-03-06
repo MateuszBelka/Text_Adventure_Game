@@ -5,7 +5,7 @@ public class Inventory{
 
     //Get Methods
     public ArrayList<PickupableItem> getItemsInInventory() {return listOfPickupableItems;}
-    public PickupableItem getItemByName (String name){
+    public PickupableItem getItemByName (String name){ //retrieving item by name
         if (getItemsInInventory() != null){
             for (int i = 0; i < getItemsInInventory().size(); i++){
                 if (name.equals(getItemsInInventory().get(i).getName())){
