@@ -1,3 +1,5 @@
+import org.beryx.textio.TextTerminal;
+
 import java.util.ArrayList;
 
 public class InputValidator {
@@ -11,13 +13,13 @@ public class InputValidator {
     private Player player;
 
     //Main Method
-    public void validateInput(String input, Player player) {
+    public void validateInput(String input, Player player, TextTerminal terminal) {
         resetInputHandlerVariables();
         updateInputHandlerVariables(input, player);
         inputValidator();
 //        System.out.println("type: " + typeOfInput + ", valid: " + listOfValidInputtedWords);
 //        System.out.println("INPUT: dirs: " + totalDirInInput + " p: " + totalPItemsInInput + " s: " + totalSItemsInInput) ;
-        passInput();
+        passInput(terminal);
     }
 
     //Class Variable Methods
@@ -135,20 +137,20 @@ public class InputValidator {
         }
     }
 
-    private void passInput(){
+    private void passInput(TextTerminal terminal){
         switch (typeOfInput){
             case 1:
                 player.movePlayer(listOfValidInputtedWords.get(0));
                 break;
             case 2:
-                player.pickUpPickupableItem(listOfValidInputtedWords.get(0));
+                player.pickUpPickupableItem(listOfValidInputtedWords.get(0), terminal);
                 break;
             case 3:
-                player.actionStaticItem(listOfValidInputtedWords.get(0));
+                player.actionStaticItem(listOfValidInputtedWords.get(0), terminal);
                 break;
             case 4:
                 orderItems(listOfValidInputtedWords.get(0), listOfValidInputtedWords.get(1));
-                player.usePickupableItemOnStaticItem(listOfValidInputtedWords.get(0), listOfValidInputtedWords.get(1));
+                player.usePickupableItemOnStaticItem(listOfValidInputtedWords.get(0), listOfValidInputtedWords.get(1), terminal);
                 break;
             default:
         }

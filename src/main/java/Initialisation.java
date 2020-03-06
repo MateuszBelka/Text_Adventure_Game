@@ -1,3 +1,7 @@
+import org.beryx.textio.TextIO;
+import org.beryx.textio.TextIoFactory;
+import org.beryx.textio.TextTerminal;
+
 import java.util.ArrayList;
 
 /* Potential issue:
@@ -18,6 +22,8 @@ public class Initialisation {
     private ArrayList<StaticItem> staticItems;
     private ArrayList<PickupableItem> pickupableItems;
     private Boolean exitSwitch;
+    public TextIO textIO;
+    public TextTerminal terminal;
 
     public Initialisation() { this.exitSwitch = false; }
 
@@ -32,18 +38,23 @@ public class Initialisation {
     public ArrayList<StaticItem> getStaticItems() { return staticItems; }
     public ArrayList<PickupableItem> getPickupableItems() { return pickupableItems; }
     public Boolean getExitSwitch() { return exitSwitch; }
+    public TextIO getTextIO() { return textIO; }
+    public TextTerminal getTerminal() { return terminal; }
 
     //Set Methods
     private void setGames(ArrayList<Game> games) { this.games = games; }
     private void setPlayers(ArrayList<Player> players) { this.players = players; }
     private void setInputValidators(ArrayList<InputValidator> inputValidators) { this.inputValidators = inputValidators; }
     private void setStoryTextOutputs(ArrayList<StoryTextOutput> outputs) { this.storyTextOutputs = outputs; }
+    public void setInventories(ArrayList<Inventory> inventories) { this.inventories = inventories; }
     private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
     private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
     private void setStaticItems(ArrayList<StaticItem> staticItems) { this.staticItems = staticItems; }
     private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){this.pickupableItems = pickupableItems;}
     public void setExitSwitch(Boolean exitSwitch) { this.exitSwitch = exitSwitch; }
-    public void setInventories(ArrayList<Inventory> inventories) { this.inventories = inventories; }
+    private void setTextIO(TextIO textIO) { this.textIO = textIO; }
+    private void setTerminal(TextTerminal terminal) { this.terminal = terminal; }
+
 
     /* The following function is responsible for starting the entire game
      * and as such overlooks class specific initialization functions.
@@ -53,6 +64,7 @@ public class Initialisation {
      * able to access them while configuring objects.
      */
     public void initializeEntireSystem() {
+        initTextIO();
         //initialise classes
         setGames(initializeGames());
         setPlayers(initializePlayers());
@@ -73,6 +85,11 @@ public class Initialisation {
         configureInventories();
         configureGames();
         configurePlayers();
+    }
+
+    private void initTextIO() {
+        setTextIO(TextIoFactory.getTextIO());
+        setTerminal(textIO.getTextTerminal());
     }
 
     //Initialise class
