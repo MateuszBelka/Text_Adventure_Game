@@ -141,14 +141,6 @@ The process starts with the user typing the input to the terminal. For movement,
 
 Maximum number of words for this section: 3000
 
-##Communication Diagram 
-
-Author: Taylor Doughty
-
-[Communication diagram](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/BonusCommunicationDiagram.png)
-
-This communication diagram shows the ways in which classes communicate when a static item is used, or "actioned." To begin, the class Player inputs a string in which is processed through class Input. Then, Player receives that the input was in fact valid. Player then gets the list of static items available to use in the current room from class Room, in which Room communicates back that there is in fact an item. After that, Player communicates with Static Item to action the item, in the event that the item needs action, in which the guard is checked. Finally, Player communicates to Output to output a string: "That action was successful."
-
 ## Implementation									
 Author: Mateusz Belka
 
