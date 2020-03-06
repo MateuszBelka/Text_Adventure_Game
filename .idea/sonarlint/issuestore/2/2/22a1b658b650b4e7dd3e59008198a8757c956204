@@ -1,21 +1,7 @@
 
-\
-java:S1117y":Rename "levels" which hides the field declared at line 16.(Ó”“¬ûÿÿÿÿ8Î¤ÎšŠ.
-a
-java:S1117q"?Rename "inventories" which hides the field declared at line 15.(‡Ò‚ùùÿÿÿÿ8Î¤ÎšŠ.
-\
-java:S1117"9Rename "rooms" which hides the field declared at line 17.(¹’úÿÿÿÿÿ8Î¤ÎšŠ.
-f
-java:S1117•"CRename "pickupableItems" which hides the field declared at line 19.(¼«ë¤şÿÿÿÿ8Î¤ÎšŠ.
-X
-java:S1117i";Rename "outputs" which hides the field declared at line 14.(å›ˆ“8Î¤ÎšŠ.
-b
-java:S1117‹"?Rename "staticItems" which hides the field declared at line 18.(íøàÍûÿÿÿÿ8Î¤ÎšŠ.
-X
-java:S1117Y";Rename "players" which hides the field declared at line 12.(‰º»Ñ8Î¤ÎšŠ.
-^
-java:S1117a"ARename "inputHandlers" which hides the field declared at line 13.(œä›‡8Î¤ÎšŠ.
-P
-java:S1135µ"2Complete the task associated to this TODO comment.(ÛÜÛ’8§îšŠ.
-[
-java:S1117Q"9Rename "games" which hides the field declared at line 11.(ÖËÚôûÿÿÿÿ8Î¤ÎšŠ.
+q
+java:S1104"TMake terminal a static final constant or non-public and provide accessors if needed.(Éêœê8Ä¦‹‹.
+t
+java:S1104"RMake textIO a static final constant or non-public and provide accessors if needed.(£¶â¹üÿÿÿÿ8¸ï‹‹.
+U
+java:S1135Ç"2Complete the task associated to this TODO comment.(ÖÒÓÇùÿÿÿÿ8¸íŒ‹‹.

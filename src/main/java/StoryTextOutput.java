@@ -1,3 +1,5 @@
+import org.beryx.textio.TextTerminal;
+
 import java.util.ArrayList;
 
 public class StoryTextOutput {
@@ -5,13 +7,13 @@ public class StoryTextOutput {
 
     public void addLineToStoryText(String text){ storyText.add(text);}
 
-    public void printStoryText(Player player){
+    public void printStoryText(Player player, TextTerminal terminal){
         if (player.getCurrentLevel().switchEnterLevel()){
             loadTextForStartOfLevel(player);
         }
         else loadTextForRoomAndItems(player);
         for(String line : storyText){
-            System.out.println(line);
+            terminal.printf("%s\n", line);
         }
         resetStoryText();
     }

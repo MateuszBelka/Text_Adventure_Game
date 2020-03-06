@@ -1,3 +1,5 @@
+import org.beryx.textio.TextTerminal;
+
 import java.util.Scanner;
 
 public class Main {
@@ -10,13 +12,14 @@ public class Main {
         Player player = game.getPlayer();
         InputValidator inputValidator = init.getInputValidators().get(0);
         StoryTextOutput storyTextOutput = init.getStoryTextOutputs().get(0);
-        System.out.println("(GAME DEMO) (tip: you can type 'exit' at any time)");
-        System.out.println();
+        TextTerminal terminal = init.getTerminal();
+
+        terminal.printf("(GAME DEMO) (tip: you can type 'exit' at any time)\n\n");
 
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
 //            System.out.println("******StoryText:******");
-            storyTextOutput.printStoryText(player);
+            storyTextOutput.printStoryText(player, terminal);
 //            System.out.println("******INFO FOR TESTING:******");
 //            System.out.println("current room: " + player.getCurrentRoom());
 //            System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
@@ -25,7 +28,7 @@ public class Main {
 //            System.out.println("player inventory: " + player.getInventory().getItemsInInventory());
             String input = scanner.nextLine();
             if (input.equals("exit")) {init.setExitSwitch(true);}
-            inputValidator.validateInput(input, player);
+            inputValidator.validateInput(input, player, terminal);
         }
     }
 }
