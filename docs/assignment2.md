@@ -5,6 +5,10 @@ Maximum number of words for this document: 12000
 **IMPORTANT**: In this assignment you will model the whole system. Within each of your models, you will have a *prescriptive intent* when representing the elements related to the feature you are implementing in this assignment, whereas the rest of the elements are used with a *descriptive intent*. In all your diagrams it is strongly suggested to used different colors for the prescriptive and descriptive parts of your models (this helps you in better reasoning on the level of detail needed in each part of the models and the instructors in knowing how to assess your models).   
 
 **Format**: establish formatting conventions when describing your models in this document. For example, you style the name of each class in bold, whereas the attributes, operations, and associations as underlined text, objects are in italic, etc.
+> IN THIS DOCUMENT
+>todo: Each class in this document in bold.
+>todo: Each attribution, association, operation, with underline.
+>todo: Objects (instances)  in italic.
 
 ### Implemented feature
 
@@ -15,7 +19,7 @@ Maximum number of words for this document: 12000
 | F3  | "actioning" item | Performing some action on a static item in a room. This completes a puzzle. |
 | F4  | use item on item | Use a picked up item in inventory, on a static item in the room. This completes a puzzle.  |
 | F5  | inventory | Picked up items are deleted from the room, and added to the inventory. |
-| F1  | input validation | User can write any input. Trigger words are directions, names of static items and pickupable items. With the right combination of trigger words, the system processes changes for player, changes for player's current room, and updates puzzles solved. |
+| F6  | input validation | User can write any input. Trigger words are directions, names of static items and pickupable items. With the right combination of trigger words, the system processes changes for player's attributes, and updates puzzles solved. |
 
 ### Used modeling tool
 [draw.io](https://www.draw.io)

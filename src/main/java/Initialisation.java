@@ -8,16 +8,16 @@ import java.util.ArrayList;
 
 public class Initialisation {
     //Variable Declaration
-    ArrayList<Game> games;
-    ArrayList<Player> players;
-    ArrayList<InputValidator> inputValidators;
-    ArrayList<StoryTextOutput> storyTextOutputs;
-    ArrayList<Inventory> inventories;
-    ArrayList<Level> levels;
-    ArrayList<Room> rooms;
-    ArrayList<StaticItem> staticItems;
-    ArrayList<PickupableItem> pickupableItems;
-    Boolean exitSwitch;
+    private ArrayList<Game> games;
+    private ArrayList<Player> players;
+    private ArrayList<InputValidator> inputValidators;
+    private ArrayList<StoryTextOutput> storyTextOutputs;
+    private ArrayList<Inventory> inventories;
+    private ArrayList<Level> levels;
+    private ArrayList<Room> rooms;
+    private ArrayList<StaticItem> staticItems;
+    private ArrayList<PickupableItem> pickupableItems;
+    private Boolean exitSwitch;
 
     public Initialisation() { this.exitSwitch = false; }
 
@@ -37,7 +37,7 @@ public class Initialisation {
     private void setGames(ArrayList<Game> games) { this.games = games; }
     private void setPlayers(ArrayList<Player> players) { this.players = players; }
     private void setInputValidators(ArrayList<InputValidator> inputValidators) { this.inputValidators = inputValidators; }
-    private void setOutputs(ArrayList<StoryTextOutput> outputs) { this.storyTextOutputs = outputs; }
+    private void setStoryTextOutputs(ArrayList<StoryTextOutput> outputs) { this.storyTextOutputs = outputs; }
     private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
     private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
     private void setStaticItems(ArrayList<StaticItem> staticItems) { this.staticItems = staticItems; }
@@ -56,8 +56,8 @@ public class Initialisation {
         //initialise classes
         setGames(initializeGames());
         setPlayers(initializePlayers());
-        setInputValidators(initializeInputHandlers());
-        setOutputs(initializeOutputs());
+        setInputValidators(initializeInputValidators());
+        setStoryTextOutputs(initializeStoryTextOutputs());
         setInventories(initializeInventories());
         setLevels(initializeLevels());
         setRooms(initializeRooms());
@@ -92,7 +92,7 @@ public class Initialisation {
 
         return players;
     }
-    private ArrayList<InputValidator> initializeInputHandlers() {
+    private ArrayList<InputValidator> initializeInputValidators() {
         ArrayList<InputValidator> inputValidators = new ArrayList<>();
         InputValidator inputHandler = new InputValidator();
 
@@ -100,7 +100,7 @@ public class Initialisation {
 
         return inputValidators;
     }
-    private ArrayList<StoryTextOutput> initializeOutputs() {
+    private ArrayList<StoryTextOutput> initializeStoryTextOutputs() {
         ArrayList<StoryTextOutput> outputs = new ArrayList<>();
         StoryTextOutput storyTextOutput = new StoryTextOutput();
 
@@ -197,7 +197,7 @@ public class Initialisation {
                 "find yourself in the kitchen? 'What a peculiar design...', you think to yourself.";
 
         level0.setListOfRooms(getRooms());
-        level0.setPuzzlesLeftToSolve();
+        level0.updatePuzzlesLeftToSolve();
         level0.setStoryText(storyText);
     }
     private void configureRooms() {

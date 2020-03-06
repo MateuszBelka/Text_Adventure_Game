@@ -25,7 +25,7 @@ public class Level {
     public void setListOfRooms(ArrayList<Room> listOfRooms) {
         this.listOfRooms = listOfRooms;
     }
-    public void setPuzzlesLeftToSolve() {
+    public void updatePuzzlesLeftToSolve() {
         int puzzlesLeftToSolve = 0;
         for (Room room : getListOfRooms()) {
             puzzlesLeftToSolve += room.getListOfStaticItems().size();
