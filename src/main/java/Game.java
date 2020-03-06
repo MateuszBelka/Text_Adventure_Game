@@ -36,6 +36,6 @@ public class Game {
     public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; } //decreasing number of levels
                                                                                                                   // left to solve
 
-    //Game is completed if there are no more levels left to solve.
+    //Game is completed if there are no more levels left to solve
     public boolean isCompleted() { return getLevelsLeftToSolve() == 0; }
 }
