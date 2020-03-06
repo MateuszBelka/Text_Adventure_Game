@@ -129,7 +129,7 @@ The goal of your sequence diagrams is both descriptive and prescriptive, so put 
 Maximum number of words for this section: 3000
 
 ## Implementation									
-Author(s): `name of the team member(s) responsible for this section`
+Author: Mateusz Belka
 
 In this chapter you will describe the following aspects of your project:
 - the strategy that you followed when moving from the UML models to the implementation code;
@@ -139,6 +139,12 @@ In this chapter you will describe the following aspects of your project:
 - the 30-seconds video showing the execution of your system (you can embed the video directly in your md file on GitHub).
 
 IMPORTANT: remember that your implementation must be consistent with your UML models. Also, your implementation must run without the need from any other external software or tool. Failing to meet this requirement means 0 points for the implementation part of your project.
+
+
+
+From the very beginning the overarching mentality when constructing the skeleton of our project was to implement it in such a way that it would be easily expandable. Both from the perspective of infinitely complex story and adding code for additional features or expanding on existing features without redesigning existing implementation. We started following such approach since we began work on our first UML diagram and it followed through to when we executed those ideas in java. With that in mind we quickly realized the crucial part of our implementation was to have independent, easily expandable class system. In order to achieve this we chose to focus on coming up with small classes which contain many but straightforward methods and manageable number of attributes.  
+We believed this approach to be pivotal as we quickly realized while working on class diagram that there is only so much that we can implement on paper and the more complex our diagram is before we start implementation, the more prone we are to accidentally disregard or bypass certain element needed for our system to function adequately. As such we had to began our implementation with the idea of updating our diagrams along the way. At first we started with creating skeleton classes for all of the classes as they were described in our class diagram. In the scenario when a method would require a function call from another class which has not yet been implemented, we commented that part out and revisited it at a later time. In our initial version of class diagram, we didn't have a method of constructing our story, i.e. initializing our classes with story-dependent information such as item names, room configurations etc.  
+The first major stopping point, which required unique solution, arose amid creation of initialization class. The critical objective we had to keep in mind while designing initialization class was that our goal in the final version of our project was to remove all possible hardcoding on story elements. As such the user would be capable of creating the entire story through in-game means and we wanted to initial version of initialization class no to hinder our ability to accomplish that in the future while at the same time providing temporary solution of hardcoded storyline. The key aspect of our deployed version of initialization class is to firstly initialize all instances of classes and afterwards to populate their attributes. We aim to provide the functionality of creating your own story through the redesign of the above mentioned methods at a later point in development. From the expandability standpoint the significant milestone we managed to reach was to develop our system such that we can pinpoint the exact location of methods that need to be updated to provide new functionality without implementing changes to any other aspect of the system. The second unique issue we had to resolve regards processing user input and providing user with output. The initial dispute was over the location in our class system in which the methods responsible for handling input and output belong to. Should they be part of existing class or be a class on their own?
 
 Maximum number of words for this section: 2000
 
