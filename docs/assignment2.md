@@ -10,13 +10,18 @@ Maximum number of words for this document: 12000
 
 | ID  | Short name  | Description  |
 |---|---|---|
-| F1  | Tags | Code snippets can be tagged via freely-defined labels called tags  |
+| F1  | move | Moving player through rooms. |
+| F2  | pick up item | Picking up pickupable items in rooms, and placing them in inventory. |
+| F3  | "actioning" item | Performing some action on a static item in a room. This completes a puzzle. |
+| F4  | use item on item | Use a picked up item in inventory, on a static item in the room. This completes a puzzle.  |
+| F5  | inventory | Picked up items are deleted from the room, and added to the inventory. |
+| F1  | input validation | User can write any input. Trigger words are directions, names of static items and pickupable items. With the right combination of trigger words, the system processes changes for player, changes for player's current room, and updates puzzles solved. |
 
 ### Used modeling tool
-Add here the name of the modeling tool you are using for your project.
+[draw.io](https://www.draw.io)
 
 ## Class diagram									
-Author(s): `name of the team member(s) responsible for this section`
+Author: Ece Doganer
 
 This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
 
@@ -64,7 +69,48 @@ The goal of your state machine diagrams is both descriptive and prescriptive, so
 Maximum number of words for this section: 3000
 
 ## Sequence diagrams									
-Author(s): `name of the team member(s) responsible for this section`
+Authors(in sequence): Ece Doganer, Valeriya Komarnitskaya
+
+####User Input Validation
+
+[User Input Validation Diagram](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/UserInputValidation.jpg)
+
+>Prefix: Main object will already have saved a Player Object, in a variable called player. This will happen in the initialisation phase, which will not be covered now. On to the explanation.
+
+Main object will receive a sentence of string input from user. This input will be sent to object inputValidator for validation. The sequence is as follows:
+Inputvalidator will parse the input sentence into words. On these words, a number of functions will be issued. The functions are as follows:
+1. First, a word is checked if it is a valid direction. To do this, inputValidator retrieves listOfAvailableDirections from the current room attribute of player. For each direction in this list, inputValidator checks if it equals the word. If so, inputValidator will increase its attribute totalDirectionsInInput, and add the word to its attribute list listOfValidInputtedWords.
+2. Second, a word is checked if it is a valid static item. To do this, inputValidator retrieves listOfStaticItems from the current room attribute of player. For each static item in this list, inputValidator checks if it equals the word. If so, inputValidator will increase its attribute totalStaticItemsInInput, and add the word to its attribute list listOfValidInputtedWords.
+3. Third, a word is checked if it is a valid pickup-able item. To do this, inputValidator retrieves listOfPickupableItems from the current room attribute of the player. 
+A word is also a valid pickup-able item if it exists in player's inventory. Thus, inputValidator also retrieves listOfPickupableItems from player's inventory attribute. 
+For each pickup-able item in both of these lists, inputValidator checks if it equals the word. If so, inputValidator will increase its attribute totalPickupableItemsInInput, and add the word to its attribute list listOfValidInputtedWords.
+
+This concludes all functions that check words.
+
+After having checked words, inputValidator checks the combination of the total of valid types of words in a sentence. Explanation is as follows:  
+1. If totalDirectionsInInput is 1, and both totalStaticItemsInInput and totalPickupableItemsInInput are 0, then inputValidator's attribute typeOfInput is issued to be 1.
+2. If both totalDirectionsInInput and totalStaticItemsInInput are 0, and totalPickupableItemsInInput is 1, then inputValidator's attribute typeOfInput is issued to be 2.
+3. If totalDirectionsInInput is 0, totalStaticItemsInInput is 1, and totalPickupableItemsInInput is 0, then inputValidator's attribute typeOfInput is issued to be 3.
+4. If totalDirectionsInInput is 0, and both totalStaticItemsInInput and totalPickupableItemsInInput are 1, then inputValidator's attribute typeOfInput is issued to be 4.
+5. If there are any other value combinations for totalDirectionsInInput, totalStaticItemsInInput and totalPickupableItemsInInput, then inputValidator's attribute typeOfInput is issued to be 0.  
+
+This concludes validation of the type of the input, which has been validated through looking at the combination of the valid words.
+
+After finding out the value of inputValidator's attribute typeOfInput (and with it, the input sentence's validity), we call the method passInput in inputValidator. This method issues an ensuing method to the player object, depending on the value of typeOfInput. The explanation is as follows:
+1. If typeOfInput is 1, movePlayer method is called in the object Player, passing the first and only element in the listOfValidInputtedWords.
+2. If typeOfInput is 2, pickUpPickupableItem method is called in the object Player, passing the first and only element in the listOfValidInputtedWords.
+3. If typeOfInput is 3, actionStaticItem method is called in the object Player, passing the first and only element in the listOfValidInputtedWords.
+4. If typeOfInput is 4, inputValidator first issues a small method, named orderInput. This method checks if the first element of listOfValidInputtedWords is a static item. If so, the first and second element of listOfValidInputtedWords is swapped. Hence the elements are ordered correctly for the next function. InputValidator then calls the actionStaticItem method in the object Player, passing the first and second elements in the listOfValidInputtedWords.
+
+This concludes passing the input to the right method in object Player.
+
+InputValidator has finished: it has parsed the input sentence into words, has compared all the words to the trigger words "north", "east", "south", "west", and names of static and pickup-able items. It has counted the amount of comparisons. Then it has checked the combinations of those valid comparisons, and has issued the right method according to those combinations.
+Quick note: InputValidator checks only if input would be a valid statement. InputValidator does not check logical content, for example, if a pickup-able item is the right item to be used on a static item. For now, this happens elsewhere. The reasoning is that the class would get more complex, especially when further bonus features would be implemented. We might congregate or deal with this in another way, in a next iteration.
+This concludes the description of User Input Validation.
+
+>total words: 760
+
+####Valeriya's awesome diagram and text
 
 This chapter contains the specification of at least 2 UML sequence diagrams of your system, together with a textual description of all its elements. Here you have to focus on specific situations you want to describe. For example, you can describe the interaction of player when performing a key part of the videogame, during a typical execution scenario, in a special case that may happen (e.g., an error situation), when finalizing a fantasy soccer game, etc.
 
