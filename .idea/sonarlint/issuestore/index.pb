@@ -19,12 +19,8 @@ M
 src/main/java/StaticItem.java,b\3\b39ef2d9e0806964f4598762a8132e7a2089038c
 Q
 !src/main/java/PickupableItem.java,5\8\5872b45eb9a4e1e385953f5e8ee53c05c0c47fc7
-I
-src/main/java/Output.java,6\d\6d548deba71215104f1d47d16ce4daf9878773da
 G
 src/main/java/Room.java,3\8\3817c3225f50688ddfb109d4ffbc81b4500369bd
-O
-src/main/java/InputHandler.java,0\f\0fc1a8ef673dd3974e9b9e3a27bbed65e3158e07
 I
 src/main/java/Player.java,6\e\6e82b9511465c9772497936644008abf2f008450
 G
@@ -33,3 +29,7 @@ G
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+Q
+!src/main/java/InputValidator.java,2\0\2010f5d2e253f2758ede25c0b4e01816a16bc605
+R
+"src/main/java/StoryTextOutput.java,b\9\b988322ba5d9a6eed7555ea24ebf8cf172254320

@@ -1,3 +1,4 @@
+import org.beryx.textio.TextTerminal;
 
 public class Player {
     private Room currentRoom;
@@ -11,29 +12,29 @@ public class Player {
     public void setInventory(Inventory inventory) { this.inventory = inventory;}
 
     //Player actions
-    public void movePlayer(String dirToMove){
+    public void movePlayer(String dirToMove){ //function to move player in inputted direction
         Room roomToMove = currentRoom.getRoomInDirection(dirToMove);
         setCurrentRoom(roomToMove);
     }
-    public void pickUpPickupableItem(String nameOfItemToPickUp){
+    public void pickUpPickupableItem(String nameOfItemToPickUp, TextTerminal terminal){ //picking up pickupable item and storing in inventory
         PickupableItem itemToPickUp = currentRoom.getPickupableItemByName(nameOfItemToPickUp);
         if (itemToPickUp != null){
             currentRoom.deletePickupableItemFromList(itemToPickUp);
             getInventory().addToInventory(itemToPickUp);
-            System.out.println(itemToPickUp.getTextForItemPickedUp());
+            terminal.printf("%s\n", itemToPickUp.getTextForItemPickedUp());
         }
     }
-    public void actionStaticItem(String nameOfStaticItemToAction){
+    public void actionStaticItem(String nameOfStaticItemToAction, TextTerminal terminal){ //actioning of the static item
         StaticItem staticItemToAction = currentRoom.getStaticItemByName(nameOfStaticItemToAction);
         if (staticItemToAction.isActionable()){
             currentRoom.deleteStaticItemFromList(staticItemToAction);
             getCurrentLevel().decreasePuzzlesLeftToSolve();
-            System.out.println(staticItemToAction.getTextForPuzzleSolved());
+            terminal.printf("%s\n", staticItemToAction.getTextForPuzzleSolved());
         }
-        else{ System.out.println("HINT : This item needs another item."); }
+        else{ terminal.printf("HINT : This item needs another item.\n"); }
     }
-    public void usePickupableItemOnStaticItem(String pItem, String sItem){
-        StaticItem staticItem = getCurrentRoom().getStaticItemByName(sItem);
+    public void usePickupableItemOnStaticItem(String pItem, String sItem, TextTerminal terminal){ //using pickupable itemon static item and removing
+        StaticItem staticItem = getCurrentRoom().getStaticItemByName(sItem);                      //pickupable item from the inventory
         PickupableItem pickupableItem = getInventory().getItemByName(pItem);
 
         if (staticItem.getNeedsItem() != null){
@@ -41,14 +42,14 @@ public class Player {
                 getCurrentRoom().deleteStaticItemFromList(staticItem);
                 inventory.deleteItemFromInventory(pickupableItem);
                 getCurrentLevel().decreasePuzzlesLeftToSolve();
-                System.out.println(staticItem.getTextForPuzzleSolved());
+                terminal.printf("%s\n", staticItem.getTextForPuzzleSolved());
             }
             else{
-                System.out.println("Wrong item used on item.");
+                terminal.printf("Wrong item used on item.\n");
             }
         }
         else{
-            System.out.println("This item needs no other item.");
+            terminal.printf("This item needs no other item.\n");
         }
     }
 

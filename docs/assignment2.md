@@ -27,9 +27,65 @@ Maximum number of words for this document: 12000
 ## Class diagram									
 Author: Ece Doganer
 
-This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
+>todo: add diagram!
 
-`Figure representing the UML class diagram`
+####**Initialisation**
+This class is a group of methods and attributes which cause the system to be fully initialised, by creating and configuring the needed instances of all other classes, in order to be able to play the game.
+- Each attribute is a collection of instances of all classes, used to store and manipulate the instances created.
+- An extra attribute is the *exitSwitch*, which is a boolean, and will be used to exiting the game through the input 'exit'.
+- *Initialisation* is a constructor of this class.
+- All attributes have a get method. These return the list of items in the according data type.
+- All attributes have a set method. These set a list of items of the according data type, to the designated attribute.
+- All attributes have a method which initializes the list of instances of its data type. This method returns the list of items of the according data type.
+- With the exception of *storyTextOutputs* and *inputValidators*, all attributes have a configuration method. This method configures the necessary attributes of the instances of each class type. (Except *inputValidators* and *storyTextOutputs*.)
+- The **Initialisation** class has a shared aggregation association, where the *initialisation* instance is 1, and all other classes are 1 to unlimited. As this class constructs and updates all other classes, it is a binary association from **Initialisation** class to all other classes. 
+
+####Game
+This class is meant to be a container of *level* and *player* instances, as well as a class that will deal with the functionality around completing the game. Quick note: we have set *player* attribute to 1. If we decide on implementing multiplayer, this will become a list of **Player** instances.
+- *player* keeps track of the player in this singleplayer version of the system.
+- *listOfLevels* is a list of at least 1 **Level** instance. We use this to calculate if the game has or hasn't been completed.
+- *levelsLeftToSolve* is an integer, for previously stated calculation.
+- *setPlayer* is a method that needs a **Player** instance, which will be set to the player attribute. 
+- *setListOfLevels* is a method that sets a list of **Level** instances, to make previously stated calculation possible.
+- *isCompleted* is a method returning a boolean. This is where previously stated calculation should happen.
+- *decreaseLevelsLeftToSolve* is a self-explanatory method, which should be called when a **Level** instance is completed.
+- There is a shared aggregation association between 1 **Game** instance and 1 to many **Level** instances. It is a binary association, meaning **Game** can call methods of **Level**, but not vice versa. 
+- There is a shared aggregation bidirectional association between 1 **Game** instance and 1 **Player** instance.
+
+####Level
+This is a class that keeps a collection of **Room** instances. It has an amount of puzzles to solve, in order to finish the **Level** instance, which is needed to finish the game.
+- *listOfRooms* keeps one or many Rooms.
+- *puzzlesLeftToSolve* is an attribute that holds an integer. We keep track of it, in order to be able to calculate when a **Level** instance is completed.
+- *storyText* is a String, which gets a value at the initialisation phase of the system. Every time a user starts a new level, this string should be printed once.
+- *enterLevel* is a boolean, which will will keep track of a level being entered for the first time.
+- *getListOfRooms* retrieves the list of **Room** instances.
+- *getPuzzlesLeftToSolve* returns puzzlesLeftToSolve attribute.
+- *getTextAboutLevel* returns *storyText* attribute.
+- *addRoomToList* is used by **Initialisation** instance to add *rooms* to a *level*.
+- *decreasePuzzlesLeftToSolve* should be used to decrease said attribute.
+- *isCompleted* returns boolean according to having finished a level.
+- *setListOfRooms* needs a list of **Room** instances, and sets this to the *listOfRooms* attribute.
+- *updatePuzzlesLeftToSolve* updates the stated attribute. This should decrease attribute by 1.
+- *setStoryText* needs a string and sets the stated attribute.
+- *switchEnterLevel* is a switch, that causes *enterLevel* to the true only the first time it is checked. The switch will permanently return false after this.
+- *isCompleted* is a boolean returning true if **Level** instance is completed. 
+- There is a shared aggregation bidirectional association between 1 **Level** instance and 1 or more **Room** instances.
+
+####Room
+- *listofAvailableDirections* is a list of strings that might or might not have elements. One level could consist of one room, hence no directions would be available.
+- *north*, *east*, *south*, *west* all could have one or zero **Room** instances attached.
+- *listOfStaticItems* has one or more instances of **StaticItem** that 'exist' within the room. We need one element to be able to solve the game. (We can "action" it, which is a puzzle solved.)
+- *listOfPickupableItems* has zero or more instances of **PickupableItem** that 'exist' within the room.
+- *level* has the *level* instance which the *room* instance belongs in.
+- *textAboutRoom* is a string that will be printed every time user issues an input. 
+- *Room* is a constructor.
+- *getListOfAvailableDirections* has a list of strings, which could include north east south and/or west.
+- *getNorth*, *getSouth*, *getEast*, *getWest* all return the value of the stated attribute. 
+- The set method version of the previously mentioned method, sets a *Room* instance as value to the stated attribute.
+- *getListOfStaticItems* retrieves stated attribute.
+- *getListOfPickupableItems* retrieves stated attribute.
+- *getTextAboutRoom* retrieves *textAboutRoom* attribute.
+- 
 
 For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
 - Brief description about what it represents
@@ -76,8 +132,17 @@ There are currently four possible inputs: “new game”, “continue”, “hel
  ####Completing a level
  [Completing a level](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_level.png)
  
-  The second state machine diagram represents the state changes class Level should go through in the event that a level is completed, once the functionality is implemented. To make it clear, in order for a level to be completed, players must successfully action and use items which then leads to the completion of puzzles, earning themselves puzzle points. Once the target amount of puzzle pieces have been earned, the level is then complete. However, the description of the diagram itself is as follows: After the start of the game, the transition containing event Level is constructed fires, in which the level is constructed and the class transitions to the Idle state. While in this state, the state waits for commands. Once a command is received, one of the three guards to the transitions leading to Active are checked, then a transition takes place to the Active state. There are three possible transitions: [command: “pick up PickupAbleItem” is used], [command: “use staticItem” is used], or [other command is used]. One of three options is necessary to be checked in order for state Active to verify within Level if the command is valid. Once this state is entered, upon entry the state validates if the command is correct. What this means, is that it checks whether the issued command can be successful or not in terms of puzzle completion. After this Entry/ action, if the command was deemed invalid, the guard is immediately checked for transition [command is incorrect], and the class then transitions back to the idle state in which it then waits for a command. However, if the command is valid, the active state performs its activity in which puzzlesLeftToSolve are decreased by 1. If there are more than 0 puzzles remaining for the level after puzzlesLeftToSolve has decreased, the guard is checked for the transition that leads the class back to the idle state in which it waits for a command. But if puzzlesLeftToSolve are then 0, the transition with the guard [puzzlesLeftToSolve = 0] is checked, which leads to Level Completed, thus the end and the completion of the level.
->total words: 352
+
+The second state machine diagram represents the state changes class Level should go through in the event that a level is completed, once the functionality is implemented. To make it clear, in order for a level to be completed, players must successfully action and use items which then leads to the completion of puzzles, earning themselves puzzle points. Once the target amount of puzzle pieces have been earned, the level is then complete.  
+
+However, the description of the diagram itself is as follows: After the start of the game, the transition containing event "Level is constructed" fires, in which the level is constructed and the class transitions to the Idle state. While in this state, the state waits for commands. Once a command is received, one of the three guards to the transitions leading to Active are checked, then a transition takes place to the Active state. There are three possible transitions: [command: “pick up PickupAbleItem” is used], [command: “use staticItem” is used], or [other command is used]. It is necessary for one of these three guards to be checked in order for state Active to verify within Level if the command is valid.
+
+Once this state is entered, upon entry the state validates if the command is correct. What this means, is that it checks whether the issued command can be successfully completed. After this entry action, if the command was deemed invalid, the guard is immediately checked for transition [command is incorrect], and the class then transitions back to the idle state in which it then waits for a command. However, if the command is valid, the active state performs its activity in which puzzlesLeftToSolve is decreased by 1.
+
+If there are still more than 0 puzzles remaining for the level after puzzlesLeftToSolve has decreased, the guard [puzzles left to solve > 0] is checked, which  leads the class back to the idle state. But if puzzlesLeftToSolve are then 0, the transition with the guard [puzzlesLeftToSolve = 0] is checked, which leads to Level Completed, which thus marks the end and therefore the completion of the level.
+>total words: 357
+
+Maximum number of words for this section: 3000
 
 ## Sequence diagrams									
 Authors(in sequence): Ece Doganer, Valeriya Komarnitskaya
@@ -136,22 +201,13 @@ Author: Taylor Doughty
 ## Implementation									
 Author: Mateusz Belka
 
-In this chapter you will describe the following aspects of your project:
-- the strategy that you followed when moving from the UML models to the implementation code;
-- the key solutions that you applied when implementing your system (for example, how you implemented the syntax highlighting feature of your code snippet manager, how you manage fantasy soccer matches, etc.);
-- the location of the main Java class needed for executing your system in your source code;
-- the location of the Jar file for directly executing your system;
-- the 30-seconds video showing the execution of your system (you can embed the video directly in your md file on GitHub).
-
-IMPORTANT: remember that your implementation must be consistent with your UML models. Also, your implementation must run without the need from any other external software or tool. Failing to meet this requirement means 0 points for the implementation part of your project.
-
-
-
 From the very beginning, the overarching mentality when constructing the skeleton of our project was to implement it in such a way that it would be easily expandable. That means both from the perspective of infinitely complex story as well as adding code for additional features or expanding on existing features without redesigning existing implementation. We started following such an approach since we began work on our first UML diagram, and it followed through to when we executed those ideas in Java. With that in mind, we quickly realized the crucial part of our implementation was to have an independent, easily expandable class system. In order to achieve this, we chose to focus on coming up with small classes which contain many but straightforward methods and a manageable number of attributes.  
 We believed this approach to be pivotal as we quickly realized while working on a class diagram that there is only so much that we can implement on paper. The more complex our diagram is before we start implementation, the more prone we are to accidentally disregard or bypass individual element needed for our system to function adequately. As such, we had to begin our implementation with the idea of updating our diagrams along the way. At first, we started with creating skeleton classes for all of the classes as they were described in our class diagram. In the scenario when a method would require a function call from another class which has not yet been implemented, we commented that part out and revisited it at a later time. In our initial version of the class diagram, we didn't have a method of constructing our story, i.e. initializing our classes with story-dependent information such as item names or room configurations.  
 The first major stopping point, which required unique solution, arose amid creation of initialization class. The critical objective we had to keep in mind while designing initialization class was that our goal in the final version of our project was to remove all possible hardcoding on story elements. As such the user would be capable of creating the entire story through in-game means and we wanted to initial version of initialization class no to hinder our ability to accomplish that in the future while at the same time providing temporary solution of a hardcoded storyline. The critical aspect of our deployed version of initialization class is to firstly initialize all instances of classes and afterwards to populate their attributes. We aim to provide the functionality of creating your own story through the redesign of the above-mentioned methods at a later point in development. From the expandability standpoint, the significant milestone we managed to reach was to develop our system such that we can pinpoint the exact location of methods that need to be updated to provide new functionality without implementing changes to any other aspect of the system. The second unique issue we had to resolve regards processing user input and system output. The initial dispute was over the location of those classes in our class diagram. Should they be part of an existing class, a child class or be a class on their own? As there is no definitive, correct answer here, we believe that it makes the most sense to allow those classes to operate by themselves. Their main line of communication is through the player as we believe all of the possible user input is player-driven and further method calls should originate from the player class as it is the player making a choice (input handling) or receiving results of their actions (output handling).  
-The location of the **main** Java class needed for executing our system is "\src\main\java\Main.java". This class is responsible for the initial call to initialization class as well as the main game loop responsible for listening for user input and presenting the user with output. STILL TODO: location of Jar file and 30-sec video!!!!!!!
+The location of the **main** Java class needed for executing our system is "\src\main\java\Main.java". This class is responsible for the initial call to initialization class as well as the main game loop responsible for listening for user input and presenting the user with output. The jar executable file can be found at "\out\artifacts\software_design_vu_2020_jar\software-design-vu-2020.jar".
 
+Click image to watch 30 seconds video of our game!
+[![30sec Video Presentation](https://i.imgur.com/NtBIUrW.png)](https://youtu.be/dnpt9YXNlYQ)
 
 Word Count: 651
 

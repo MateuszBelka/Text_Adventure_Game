@@ -14,13 +14,13 @@ Author: Taylor Doughty
 &emsp; For this project, we were influenced by the game Zork, in that the protagonist adventures and explores a world in which they can interact with objects and the world around them. Because the project is to be a “minimal clone” of the game, we also designed the features of the gameplay taking inspiration from the game. As for the display/appearance of the game, we have taken inspiration from a tutorial. 
 
 
-***WORD COUNT: 965/1000***
-
 Inspiration:
 
 [Zork](https://en.wikipedia.org/wiki/Zork)
 
 [How to Make Text Adventure Game with GUI in Java](https://www.youtube.com/watch?v=G5yr4sekAI0)
+
+***WORD COUNT: 965/1000***
 
 ## Features
 Authors: Valeriya Komarnitskaya, Mateusz Belka, Ece Doganer
