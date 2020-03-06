@@ -60,10 +60,11 @@ One shall start examining the diagram by noticing the instance of the game class
 >total words: 439/1000
 
 ## State machine diagrams									
-Author(s): Valeriya Komarnitskaya Taylor Doughty 
+Author(s): Valeriya Komarnitskaya and Taylor Doughty 
 
 [ Events and states from the moment a player enters the starting screen until loading the game world.](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/State%20Machine%20Diagram_final.jpg)
-
+ Class Game.
+ 
 State machine diagram represents states and events that are happening from the moment a player enters the starting screen until the actual start of the game. The decision to implement this part of the process in the diagram was made because, in our opinion, it is crucial to show what happens as a very first thing when the player enters the game and through which states do the game go through to load the game. The state machine diagram consists of 3 parts: the error-free part with input “start new game” or “continue”, the part with error handling and the part with different input than “start new game” or “continue”.
 
 The part without an error is a composite state “Player starts the game” that contains in itself states and events from the moment a player enters the starting screen of the game until a player will load the game world. The game starts from the event when a player enters the starting screen. Then, the terminal is loading a welcoming text that allows a user to understand which options does he/she have before starting the game. The terminal is waiting for the input. The possible options are “start new game”, “continue”, “help”, “quit”. Depending on what user type, the program will analyse the input and do one of the following actions: to start a new game and load the game from the beginning, to continue previously started game, to get some help with the environment and possible inputs or quit the game. In case a user typed something different, the terminal will output a message indicating invalid input and will be waiting for new input. This part will be described in detail later. For now, since we are interested in what is happening when a player chooses to start the game or continue previously started, we proceed to the option when a user is typing “start new game”/”continue”. A quick state in terms of duration is the “load the game”. It is necessary due to the transition between events when a user is typing “start new game”/”continue” and actually starting to load the game. The final state in this composite state is “Start of the game” because this is the final point in loading the game, the moment when a user sees the description of the game, level, room and other story-related information. 
@@ -72,7 +73,7 @@ The part that is responsible for error handling is happening when loading the ga
 
 There are currently four possible inputs: “new game”, “continue”, “help”, “exit”. A new game we have already discussed. If a user types something else than “new game”/”continue”, there are three possible outcomes. In order to determine which one is the best for the user’s input, the check has to be completed. If the user has typed “help”, then new information about possible commands and environment will appear and the console will be ready for input again. If a player typed “exit”, then the console will stop waiting for the input and will exit to the desktop. If a user has typed none of these, then a user will receive a message stating that the input is invalid. A terminal will be waiting for new input. In this state machine diagram, in order to implement this check, we decided to use synchronization in order to have multiple options for an input and guards that would actually check the input and proceed to the next step depending on the input. 
 >total words: 624
->
+
  ####Taylor's Diagram: 
  
 
