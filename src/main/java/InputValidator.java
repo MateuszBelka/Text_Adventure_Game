@@ -34,7 +34,7 @@ public class InputValidator {
         currentRoom = player.getCurrentRoom();
     }
 
-    //Word Validation Methods
+    //Word Input Validation Methods
     public void wordValidator(){
         String[] parsedInput = inputParser();
         for (String wordToCheck : parsedInput) {
@@ -93,7 +93,7 @@ public class InputValidator {
         }
     }
 
-    //Full Input Validation Methods
+    //Sentence Input Validation Methods
     private void inputValidator(){
         wordValidator();
         inputTypeValidator();

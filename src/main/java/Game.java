@@ -1,19 +1,10 @@
 import java.util.ArrayList;
 
-/*
- * It should not be necessary to change any variable from private to public.
- * The GetSet Methods provide this functionality.
- * If you need one of them in your class, you can switch the specific method to public.
- */
-
 public class Game {
     //Variable Declarations
     private Player player;
     private ArrayList<Level> listOfLevels;
     private int levelsLeftToSolve;
-
-    //Constructors
-    public Game(){}
 
     //Get Methods
     public Player getPlayer() {
@@ -42,7 +33,6 @@ public class Game {
     }
 
     //Main Methods
-    public void addLevelToList(Level level) {getListOfLevels().add(level); }
     public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; }
 
     //Game is completed if there are no more levels left to solve.

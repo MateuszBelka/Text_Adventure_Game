@@ -3,11 +3,14 @@ public class Player {
     private Room currentRoom;
     private Level currentLevel;
     private Inventory inventory;
+    private Game currentGame;
 
     //Set Methods
-    public void setCurrentLevel(Level level) { currentLevel = level; }
+    public void setCurrentLevel(Level currentLevel) { this.currentLevel = currentLevel; }
     public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
     public void setInventory(Inventory inventory) { this.inventory = inventory;}
+
+    //Player actions
     public void movePlayer(String dirToMove){
         Room roomToMove = currentRoom.getRoomInDirection(dirToMove);
         setCurrentRoom(roomToMove);
