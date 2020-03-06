@@ -85,7 +85,21 @@ This is a class that keeps a collection of **Room** instances. It has an amount 
 - *getListOfStaticItems* retrieves stated attribute.
 - *getListOfPickupableItems* retrieves stated attribute.
 - *getTextAboutRoom* retrieves *textAboutRoom* attribute.
-- 
+
+####PickupableItem
+- *StaticItemtoUseOn* 
+- *textAboutThisItem*
+- *name* string 
+- *textForItemPickedUp*
+- *PickupableItem90*
+- *getName* 
+- *getTextAboutThisItem* 
+- *getTextForItemPickedup* 
+- *setName* 
+- *setStaticItemToUseOn* 
+- *setTextAboutThisItem*
+- *setTextForItemPickedUp* 
+
 
 For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
 - Brief description about what it represents
