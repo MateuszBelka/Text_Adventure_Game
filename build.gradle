@@ -2,12 +2,6 @@ plugins {
     id 'java'
 }
 
-jar {
-    manifest {
-        attributes 'Main-Class': 'Main'
-    }
-}
-
 group 'org.example'
 version '1.0-SNAPSHOT'
 
@@ -18,7 +12,5 @@ repositories {
 }
 
 dependencies {
-    compile 'org.beryx:text-io:3.4.0'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    implementation 'org.jetbrains:annotations:15.0'
 }

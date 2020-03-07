@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_qyHioE23EeqU4JjxTwkEGA" name="test">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_qzGaEE23EeqU4JjxTwkEGA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_9YsEoE5FEeqKnPceC0k9Gw" name="Game">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KRo1wE6CEeqKnPceC0k9Gw" name="listOfLevels" visibility="private" type="_xKJHkFduEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kTkoUFdvEeqB3o9Vz7QeMg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Q13XwE6CEeqKnPceC0k9Gw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_rf5T0FdpEeqB3o9Vz7QeMg" name="levelsLeftToSolve" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6lvRkFdpEeqB3o9Vz7QeMg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6mAXUFdpEeqB3o9Vz7QeMg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_SglEoFdrEeqB3o9Vz7QeMg" name="level" type="_xKJHkFduEeqB3o9Vz7QeMg" association="_SgbToFdrEeqB3o9Vz7QeMg"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_yhryIE6CEeqKnPceC0k9Gw" name="isCompleted" isQuery="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cbbFUE_lEeqe1pClr0gVTw" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_AvxK4FdqEeqB3o9Vz7QeMg" name="constructor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_ICjcAFdqEeqB3o9Vz7QeMg" name="amountOfLevelsToSolve">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_R1sxEFdqEeqB3o9Vz7QeMg" name="decreasePuzzlesLeftToSolve"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_UWPB4FdvEeqB3o9Vz7QeMg" name="addLevelToList">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_clka0FdvEeqB3o9Vz7QeMg" name="levelToAdd" type="_xKJHkFduEeqB3o9Vz7QeMg"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_FlM9oE5HEeqKnPceC0k9Gw" name="Player">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_3sQkIE6DEeqKnPceC0k9Gw" name="inventory" type="_ZyktgE5VEeqKnPceC0k9Gw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ysO_wE9HEeqe1pClr0gVTw" name="currentRoom" type="_MqAA4FdtEeqB3o9Vz7QeMg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_SNnN8FHcEeqe1pClr0gVTw" name="game" type="_9YsEoE5FEeqKnPceC0k9Gw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_B7dnAlP-EeqE4-4fi1pa4A" name="room">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_F5gJ4FP-EeqE4-4fi1pa4A"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_F5j0QFP-EeqE4-4fi1pa4A" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_-evQgFd2EeqB3o9Vz7QeMg" name="currentLevel" type="_xKJHkFduEeqB3o9Vz7QeMg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_CffwMFd3EeqB3o9Vz7QeMg" name="currentGame" type="_9YsEoE5FEeqKnPceC0k9Gw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_8TtcAFd5EeqB3o9Vz7QeMg" name="listOfInputWords">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_AumS8Fd6EeqB3o9Vz7QeMg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_HmAPoFd6EeqB3o9Vz7QeMg" name="listOfCurrentStoryText">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Lv0ksFd6EeqB3o9Vz7QeMg" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_i5VPIE6AEeqKnPceC0k9Gw" name="movePlayer" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4ymXoFd3EeqB3o9Vz7QeMg" name="validInput">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_2B_asE6DEeqKnPceC0k9Gw" name="usePickupableItem" visibility="public">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_nJM4AFd3EeqB3o9Vz7QeMg" name="validinputPickableItem" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_vfnJUFd3EeqB3o9Vz7QeMg" name="validInputStaticItem" type="_JF_xkE5MEeqKnPceC0k9Gw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_n8xvAE_tEeqe1pClr0gVTw" name="pickUpItemFromRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_hswdcFd3EeqB3o9Vz7QeMg" name="validInput" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_txtsoE_uEeqe1pClr0gVTw" name="useStaticItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cmiKgFd3EeqB3o9Vz7QeMg" name="input" type="_JF_xkE5MEeqKnPceC0k9Gw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qQBf8E5sEeqKnPceC0k9Gw" name="pickUpItemFromRoom"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_oW9pQE_wEeqe1pClr0gVTw" name="constructor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_MpI5sFd3EeqB3o9Vz7QeMg" name="ownedInventory" type="_ZyktgE5VEeqKnPceC0k9Gw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Dw_X0Fd4EeqB3o9Vz7QeMg" name="parseInput"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_G5INcFd4EeqB3o9Vz7QeMg" name="isInputValid">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Mf0TsFd5EeqB3o9Vz7QeMg" name="input">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Qx2JkFd5EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_IjO-0Fd4EeqB3o9Vz7QeMg" name="isInputValidMove" visibility="private">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_XZ6pwFd5EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_JloP8Fd4EeqB3o9Vz7QeMg" name="isInputValidStaticItem" visibility="private">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Zn5kQFd5EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_LB9EAFd4EeqB3o9Vz7QeMg" name="isInputValidPickupableItem" visibility="private">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_dBadwFd5EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_MYhOUFd4EeqB3o9Vz7QeMg" name="updatePuzzlesLeftToSolve" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ne7cwFd4EeqB3o9Vz7QeMg" name="updatePlayersProgress"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Ozy98Fd4EeqB3o9Vz7QeMg" name="isLevelCompleted" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_RH2EMFd4EeqB3o9Vz7QeMg" name="updateCurrLvlAndCurrRoom"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_T4lGcFd4EeqB3o9Vz7QeMg" name="isGameCompleted" visibility="private"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_VKk50Fd4EeqB3o9Vz7QeMg" name="updateLevelsLeftToSolve"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_W02DQFd4EeqB3o9Vz7QeMg" name="updateCurrentStoryText"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Yu4HAFd4EeqB3o9Vz7QeMg" name="printStoryText"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_JF_xkE5MEeqKnPceC0k9Gw" name="StaticItem">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_jY_SkFdzEeqB3o9Vz7QeMg" name="location" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_q6CCIFdzEeqB3o9Vz7QeMg" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_70RVsFdzEeqB3o9Vz7QeMg" name="needsItem" visibility="private" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_FAGMEFd0EeqB3o9Vz7QeMg" name="needsAction" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_GcFB4Fd0EeqB3o9Vz7QeMg" name="requirementsMetForPuzzle" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_rUQOEFd1EeqB3o9Vz7QeMg"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_IsF8sFd0EeqB3o9Vz7QeMg" name="textAboutThisItem" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_KeZn0Fd0EeqB3o9Vz7QeMg" name="textForPuzzleSolved" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_NWuf0Fd0EeqB3o9Vz7QeMg" name="constructor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Yd2IwFd1EeqB3o9Vz7QeMg" name="locatedInRoom" type="_MqAA4FdtEeqB3o9Vz7QeMg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k70FUFd1EeqB3o9Vz7QeMg" name="actionNeeded">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_OAcyQFd0EeqB3o9Vz7QeMg" name="switchNeedsActionToFalse"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_PJk9gFd0EeqB3o9Vz7QeMg" name="updateNeedsItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_0HQxQFd0EeqB3o9Vz7QeMg" name="item" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_QQuLwFd0EeqB3o9Vz7QeMg" name="nullifyNeedsItem"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_SFbqoFd0EeqB3o9Vz7QeMg" name="getTextAboutItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_8bIr8Fd0EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_VqIgcFd0EeqB3o9Vz7QeMg" name="getTextPuzzleSolved">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Fee7wFd1EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_ZyktgE5VEeqKnPceC0k9Gw" name="Inventory">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_97-QsE5tEeqKnPceC0k9Gw" name="listOfItems" visibility="private" type="_5MevkFP7EeqE4-4fi1pa4A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_BqnssE5uEeqKnPceC0k9Gw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CYPAoE5uEeqKnPceC0k9Gw" value="*"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_SDv3QE5uEeqKnPceC0k9Gw" name="getList" isQuery="true"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_qBC94E5uEeqKnPceC0k9Gw" name="addItemToInventory">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_xHHIEFd2EeqB3o9Vz7QeMg" name="itemToBeAddedToList" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_F8dXgE59EeqKnPceC0k9Gw" name="deleteItemInInventory">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_02pU4Fd2EeqB3o9Vz7QeMg" name="itemToDelInList" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_5MevkFP7EeqE4-4fi1pa4A" name="PickupableItem" isAbstract="true">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_8FA1gFd1EeqB3o9Vz7QeMg" name="location" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__enOkFd1EeqB3o9Vz7QeMg"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Bwa5IFd2EeqB3o9Vz7QeMg" name="staticItemToUseOn" visibility="private" type="_JF_xkE5MEeqKnPceC0k9Gw"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_Ic0fsFd2EeqB3o9Vz7QeMg" name="textAboutThisItem" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Od5RUFd2EeqB3o9Vz7QeMg" name="constructor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Smp2cFd2EeqB3o9Vz7QeMg" name="locatedInRoom" type="_MqAA4FdtEeqB3o9Vz7QeMg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_X4HwEFd2EeqB3o9Vz7QeMg" name="usedOnStaticItem" type="_JF_xkE5MEeqKnPceC0k9Gw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Y6hBMFd2EeqB3o9Vz7QeMg" name="nullifyLocation"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_cJh64Fd2EeqB3o9Vz7QeMg" name="getTextAboutItem">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_gJ2VsFd2EeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_SgbToFdrEeqB3o9Vz7QeMg" name="reads (to add to list)" memberEnd="_SglEoFdrEeqB3o9Vz7QeMg _SgmSwVdrEeqB3o9Vz7QeMg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_SghaQFdrEeqB3o9Vz7QeMg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_SgiBUFdrEeqB3o9Vz7QeMg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_SgmSwVdrEeqB3o9Vz7QeMg" name="game" type="_9YsEoE5FEeqKnPceC0k9Gw" association="_SgbToFdrEeqB3o9Vz7QeMg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_z6CjsFdrEeqB3o9Vz7QeMg" name="reads (to add to list)" memberEnd="_z6FnAFdrEeqB3o9Vz7QeMg _z6HcMFdrEeqB3o9Vz7QeMg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_z6EY4FdrEeqB3o9Vz7QeMg" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_z6E_8FdrEeqB3o9Vz7QeMg" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_z6HcMFdrEeqB3o9Vz7QeMg" name="level" type="_xKJHkFduEeqB3o9Vz7QeMg" association="_z6CjsFdrEeqB3o9Vz7QeMg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_MqAA4FdtEeqB3o9Vz7QeMg" name="Room">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_7GcJ0E50EeqKnPceC0k9Gw" name="listOfAvailableDirections" visibility="private" subsettedProperty="_TmpA0E6DEeqKnPceC0k9Gw _ZnSUoE6DEeqKnPceC0k9Gw _dCZwoE6DEeqKnPceC0k9Gw _ePenwE6DEeqKnPceC0k9Gw">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_GHutAE51EeqKnPceC0k9Gw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_GH2BwE51EeqKnPceC0k9Gw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_TmpA0E6DEeqKnPceC0k9Gw" name="north" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_W2PJUE6DEeqKnPceC0k9Gw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ZnSUoE6DEeqKnPceC0k9Gw" name="east" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ZnSUoU6DEeqKnPceC0k9Gw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_dCZwoE6DEeqKnPceC0k9Gw" name="south" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dCZwoU6DEeqKnPceC0k9Gw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ePenwE6DEeqKnPceC0k9Gw" name="west" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ePenwU6DEeqKnPceC0k9Gw"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_cCcSsE_nEeqe1pClr0gVTw" name="listOfStaticItems" visibility="private" type="_JF_xkE5MEeqKnPceC0k9Gw">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16SvkE_pEeqe1pClr0gVTw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_cCcSsU_nEeqe1pClr0gVTw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_raE5IE_pEeqe1pClr0gVTw" name="listOfPickupableItems" visibility="private" type="_5MevkFP7EeqE4-4fi1pa4A">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xc4wIE_pEeqe1pClr0gVTw"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xc9ooE_pEeqe1pClr0gVTw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_UA2SoFdtEeqB3o9Vz7QeMg" name="level" visibility="private" type="_xKJHkFduEeqB3o9Vz7QeMg"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_VlVkMFdtEeqB3o9Vz7QeMg" name="textAboutRoom" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_ETJL0E_nEeqe1pClr0gVTw" name="constructor">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_GC-CgFdtEeqB3o9Vz7QeMg" name="levelOfRoom" type="_xKJHkFduEeqB3o9Vz7QeMg"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_BB-_cFduEeqB3o9Vz7QeMg" name="north" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fAZCAFdwEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Ei8kwFduEeqB3o9Vz7QeMg" name="east" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gefXsFdwEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_HwSDcFduEeqB3o9Vz7QeMg" name="south" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h0SF8FdwEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_JokawFduEeqB3o9Vz7QeMg" name="west" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_jKENIFdwEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Rsf08FduEeqB3o9Vz7QeMg" name="getAvailableDirectionsList" isQuery="true"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_EenXAFdxEeqB3o9Vz7QeMg" name="updateRoomDirections">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Een-EVdxEeqB3o9Vz7QeMg" name="north" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Een-EldxEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Een-E1dxEeqB3o9Vz7QeMg" name="east" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Een-FFdxEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Een-FVdxEeqB3o9Vz7QeMg" name="south" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Een-FldxEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_Een-F1dxEeqB3o9Vz7QeMg" name="west" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Een-GFdxEeqB3o9Vz7QeMg"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_UE5IUFdxEeqB3o9Vz7QeMg" name="deletePickupableItemFromList">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_cMPC4FdxEeqB3o9Vz7QeMg" name="pickupableItemToDel" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_eJ63kFdxEeqB3o9Vz7QeMg" name="getRoomInDirection">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_k8NqwFdxEeqB3o9Vz7QeMg" type="_MqAA4FdtEeqB3o9Vz7QeMg" direction="return"/>
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_rbNHcFdxEeqB3o9Vz7QeMg" name="direction">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_0F1VQFdxEeqB3o9Vz7QeMg" name="addPickupableItemToList">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_5REEAFdxEeqB3o9Vz7QeMg" name="pickupableItemToAdd" type="_5MevkFP7EeqE4-4fi1pa4A"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_7cCt0FdxEeqB3o9Vz7QeMg" name="addStaticItemToList">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_A_nrIFdyEeqB3o9Vz7QeMg" name="staticItemToAdd" type="_JF_xkE5MEeqKnPceC0k9Gw"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_C4TrEFdyEeqB3o9Vz7QeMg" name="getTextAboutRoom">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_IQ9KwFdyEeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_LhB0YFdyEeqB3o9Vz7QeMg" name="getListOfStaticItems"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_jRQvYFdyEeqB3o9Vz7QeMg" name="getListOfPickupableItems"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_xKJHkFduEeqB3o9Vz7QeMg" name="Level">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_ucDtgFdqEeqB3o9Vz7QeMg" name="textAboutLevel" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_PWyIcE5zEeqKnPceC0k9Gw" name="puzzlesLeftToSolve" visibility="private">
+      <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_G3Z4oE6EEeqKnPceC0k9Gw" name="listOfRooms" visibility="private" type="_MqAA4FdtEeqB3o9Vz7QeMg">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_tmNRUFdvEeqB3o9Vz7QeMg"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_KXWKQE6EEeqKnPceC0k9Gw" value="*"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_z6FnAFdrEeqB3o9Vz7QeMg" name="room" type="_MqAA4FdtEeqB3o9Vz7QeMg" association="_z6CjsFdrEeqB3o9Vz7QeMg"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_SffbAE8REeqKnPceC0k9Gw" name="constructor" concurrency="guarded">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_4ck1MFczEeqB3o9Vz7QeMg" name="amountOfPuzzlesToSolve">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_FzemME5zEeqKnPceC0k9Gw" name="isCompleted" concurrency="concurrent" isQuery="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_bZWq4FdlEeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedParameter>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_Z-LTAE51EeqKnPceC0k9Gw" name="addRoomToList" visibility="public" concurrency="concurrent">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_9OKCIFdlEeqB3o9Vz7QeMg" name="roomToAdd" type="_MqAA4FdtEeqB3o9Vz7QeMg"/>
+    </ownedOperation>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GOyFUE53EeqKnPceC0k9Gw" name="decreasePuzzlesLeftToSolve()"/>
+    <ownedOperation xmi:type="uml:Operation" xmi:id="_GUPqoFdrEeqB3o9Vz7QeMg" name="getTextAboutLevel" isQuery="true">
+      <ownedParameter xmi:type="uml:Parameter" xmi:id="_LN_AwFdrEeqB3o9Vz7QeMg" direction="return">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+      </ownedParameter>
+    </ownedOperation>
+  </packagedElement>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_G3UXsE5FEeqKnPceC0k9Gw">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_G3Wz8E5FEeqKnPceC0k9Gw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+  </profileApplication>
+</uml:Model>
