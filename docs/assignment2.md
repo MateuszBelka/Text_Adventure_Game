@@ -27,93 +27,186 @@ Maximum number of words for this document: 12000
 ## Class diagram									
 Author: Ece Doganer
 
->todo: add diagram!
+[Class Diagram] (https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/copyOfClassDiagram.jpg)
+
+The following subchapters briefly describe the classes and their attributes, operations, and associations. The prescriptive parts are mentioned within the text, by using "will" and "should". 
+All associations are shared aggregation. We went for this design choice as we can construct all instances in one go, through **Initialisation**. Instances still exist, when other instances are deleted. So their creation relies on **Initialisation**, but their existence does not.
+All misleading names stated, will be revised. 
 
 ####**Initialisation**
 This class is a group of methods and attributes which cause the system to be fully initialised, by creating and configuring the needed instances of all other classes, in order to be able to play the game.
 - Each attribute is a collection of instances of all classes, used to store and manipulate the instances created.
-- An extra attribute is the *exitSwitch*, which is a boolean, and will be used to exiting the game through the input 'exit'.
+- An extra attribute is the <u>exitSwitch</u>, which is a boolean, and will be used to exiting the game through the input 'exit'.
 - *Initialisation* is a constructor of this class.
 - All attributes have a get method. These return the list of items in the according data type.
 - All attributes have a set method. These set a list of items of the according data type, to the designated attribute.
 - All attributes have a method which initializes the list of instances of its data type. This method returns the list of items of the according data type.
-- With the exception of *storyTextOutputs* and *inputValidators*, all attributes have a configuration method. This method configures the necessary attributes of the instances of each class type. (Except *inputValidators* and *storyTextOutputs*.)
-- The **Initialisation** class has a shared aggregation association, where the *initialisation* instance is 1, and all other classes are 1 to unlimited. As this class constructs and updates all other classes, it is a binary association from **Initialisation** class to all other classes. 
+- With the exception of <u>storyTextOutputs</u> and <u>inputValidators</u>, all attributes have a configuration method. This method configures the necessary attributes of the instances of each class type. (Except <u>inputValidators</u> and <u>storyTextOutputs</u>.)
+- The **Initialisation** class has a shared aggregation association, where the *initialisation* instance is 1, and all other classes are 1 to unlimited. As this class constructs and updates all other classes, it is a binary association from **Initialisation** class to all other classes.
 
 ####Game
-This class is meant to be a container of *level* and *player* instances, as well as a class that will deal with the functionality around completing the game. Quick note: we have set *player* attribute to 1. If we decide on implementing multiplayer, this will become a list of **Player** instances.
-- *player* keeps track of the player in this singleplayer version of the system.
-- *listOfLevels* is a list of at least 1 **Level** instance. We use this to calculate if the game has or hasn't been completed.
-- *levelsLeftToSolve* is an integer, for previously stated calculation.
-- *setPlayer* is a method that needs a **Player** instance, which will be set to the player attribute. 
-- *setListOfLevels* is a method that sets a list of **Level** instances, to make previously stated calculation possible.
-- *isCompleted* is a method returning a boolean. This is where previously stated calculation should happen.
-- *decreaseLevelsLeftToSolve* is a self-explanatory method, which should be called when a **Level** instance is completed.
+This class is meant to be a container of *level* and *player* instances, as well as a class that will deal with the functionality around completing the game. Quick note: we have set <u>player</u> attribute to 1. If we decide on implementing multiplayer, this will become a list of **Player** instances.
+- <u>player</u> keeps track of the player in this singleplayer version of the system.
+- <u>listOfLevels</u> is a list of at least 1 **Level** instance. We use this to calculate if the game has or hasn't been completed.
+- <u>levelsLeftToSolve</u> is an integer, for previously stated calculation.
+- <u>setPlayer</u> is a method that needs a **Player** instance, which will be set to the player attribute. 
+- <u>setListOfLevels</u> is a method that sets a list of **Level** instances, to make previously stated calculation possible.
+- <u>isCompleted</u> is a method returning a boolean. This is where previously stated calculation should happen.
+- <u>decreaseLevelsLeftToSolve</u> is a self-explanatory method, which should be called when a **Level** instance is completed.
 - There is a shared aggregation association between 1 **Game** instance and 1 to many **Level** instances. It is a binary association, meaning **Game** can call methods of **Level**, but not vice versa. 
-- There is a shared aggregation bidirectional association between 1 **Game** instance and 1 **Player** instance.
+- There is a shared aggregation unidirectional association between 1 **Game** instance and 1 **Player** instance.
 
 ####Level
 This is a class that keeps a collection of **Room** instances. It has an amount of puzzles to solve, in order to finish the **Level** instance, which is needed to finish the game.
-- *listOfRooms* keeps one or many Rooms.
-- *puzzlesLeftToSolve* is an attribute that holds an integer. We keep track of it, in order to be able to calculate when a **Level** instance is completed.
-- *storyText* is a String, which gets a value at the initialisation phase of the system. Every time a user starts a new level, this string should be printed once.
-- *enterLevel* is a boolean, which will will keep track of a level being entered for the first time.
-- *getListOfRooms* retrieves the list of **Room** instances.
-- *getPuzzlesLeftToSolve* returns puzzlesLeftToSolve attribute.
-- *getTextAboutLevel* returns *storyText* attribute.
-- *addRoomToList* is used by **Initialisation** instance to add *rooms* to a *level*.
-- *decreasePuzzlesLeftToSolve* should be used to decrease said attribute.
-- *isCompleted* returns boolean according to having finished a level.
-- *setListOfRooms* needs a list of **Room** instances, and sets this to the *listOfRooms* attribute.
-- *updatePuzzlesLeftToSolve* updates the stated attribute. This should decrease attribute by 1.
-- *setStoryText* needs a string and sets the stated attribute.
-- *switchEnterLevel* is a switch, that causes *enterLevel* to the true only the first time it is checked. The switch will permanently return false after this.
-- *isCompleted* is a boolean returning true if **Level** instance is completed. 
-- There is a shared aggregation bidirectional association between 1 **Level** instance and 1 or more **Room** instances.
-
+- <u>listOfRooms</u> keeps one or many Rooms.
+- <u>puzzlesLeftToSolve</u> is an attribute that holds an integer. We keep track of it, in order to be able to calculate when a **Level** instance is completed.
+- <u>storyText</u> is a String, which gets a value at the initialisation phase of the system. Every time a user starts a new level, this string should be printed once.
+- <u>enterLevel</u> is a boolean, which will will keep track of a level being entered for the first time.
+- <u>getListOfRooms</u> retrieves the list of **Room** instances.
+- <u>getPuzzlesLeftToSolve</u> returns puzzlesLeftToSolve attribute.
+- <u>getTextAboutLevel</u> returns *storyText* attribute.
+- <u>addRoomToList</u> is used by **Initialisation** instance to add *rooms* to a *level*.
+- <u>decreasePuzzlesLeftToSolve</u> should be used to decrease said attribute.
+- <u>isCompleted</u> returns boolean according to having finished a level.
+- <u>setListOfRooms</u> needs a list of **Room** instances, and sets this to the *listOfRooms* attribute.
+- <u>updatePuzzlesLeftToSolve</u> updates the stated attribute. This should decrease attribute by 1.
+- <u>setStoryText</u> needs a string and sets the stated attribute.
+- <u>switchEnterLevel</u> is a switch, that causes *enterLevel* to the true only the first time it is checked. The switch will permanently return false after this.
+- <u>isCompleted</u> is a boolean returning true if **Level** instance is completed. 
+- There is a composition bidirectional association between 1 **Level** instance and 1 or more **Room** instances.
 ####Room
-- *listofAvailableDirections* is a list of strings that might or might not have elements. One level could consist of one room, hence no directions would be available.
-- *north*, *east*, *south*, *west* all could have one or zero **Room** instances attached.
-- *listOfStaticItems* has one or more instances of **StaticItem** that 'exist' within the room. We need one element to be able to solve the game. (We can "action" it, which is a puzzle solved.)
-- *listOfPickupableItems* has zero or more instances of **PickupableItem** that 'exist' within the room.
-- *level* has the *level* instance which the *room* instance belongs in.
-- *textAboutRoom* is a string that will be printed every time user issues an input. 
-- *Room* is a constructor.
-- *getListOfAvailableDirections* has a list of strings, which could include north east south and/or west.
-- *getNorth*, *getSouth*, *getEast*, *getWest* all return the value of the stated attribute. 
+- <u>listofAvailableDirections</u> is a list of strings that might or might not have elements. One level could consist of one room, hence no directions would be available.
+- <u>north</u>, <u>east</u>, <u>south</u>, <u>west</u> all could have one or zero **Room** instances attached.
+- <u>listOfStaticItems</u> has one or more instances of **StaticItem** that 'exist' within the room. We need one element to be able to solve the game. (We can "action" it, which is a puzzle solved.)
+- <u>listOfPickupableItems</u> has zero or more instances of **PickupableItem** that 'exist' within the room.
+- <u>level</u> has the *level* instance which the *room* instance belongs in.
+- <u>textAboutRoom</u> is a string that will be printed every time user issues an input. 
+- <u>Room</u> is a constructor.
+- <u>getListOfAvailableDirections</u> has a list of strings, which could include north east south and/or west.
+- <u>getNorth</u>, <u>getSouth</u>, <u>getEast</u>, <u>getWest</u> all return the value of the stated attribute. 
 - The set method version of the previously mentioned method, sets a *Room* instance as value to the stated attribute.
-- *getListOfStaticItems* retrieves stated attribute.
-- *getListOfPickupableItems* retrieves stated attribute.
-- *getTextAboutRoom* retrieves *textAboutRoom* attribute.
+- <u>getListOfStaticItems</u> retrieves stated attribute.
+- <u>getListOfPickupableItems</u>retrieves stated attribute.
+- <u>getTextAboutRoom</u> retrieves *textAboutRoom* attribute.
+- <u>setLevel</u> sets *level* attribute with **Level** instance.
+- <u>setTextAboutRoom</u> sets stated attribute with string. 
+- <u>updateDirections</u> updates **Room** instance of direction attributes.
+- <u>updateListOfAvailableDirectionsUsingRooms</u> updates <u>listOfAvaiableDirections</u> by checking if a direction attribute has a value.
+- <u>getRoomInDirection</u> gets **Room** instance value of a <u>direction</u> attribute. Needs <u>direction</u>.
+- <u>getPickupableItemByName</u> needs a string name, returns item matching name in <u>listOfPickupableItems</u>. 
+- <u>getStaticItemByName</u> needs a string name, returns item matching name in <u>listOfStaticItems</u>.
+- <u>deletePickupableItemFromList</u> needs **PickupableItem** instance, and deletes it from the <u>listOfPickupableItems</u>.
+- <u>deleteStaticItemFromList</u> needs **StaticItem** instance, and deletes it from the <u>listOfPickupableItems</u>.
+- <u>addPickupableItemToList</u> needs **PickupableItem** instance, and adds it to the <u>listOfPickupableItems</u>.
+- <u>addStaticItemToList</u> needs **StaticItem** instance, and adds it to the <u>listOfPickupableItems</u>.
+- There is a composition bidirectional association between 1 **Room** instance and 1 or more **StaticItem** instances. If a **Room** instance is deleted, a <u>static item</u> cannot be accessed anymore.
+- There is a composition unidirectional association between 1 **Room** instance and 0 or more **PickupableItem** instances. This association XOR another association (connecting **PickupableItem** and **Inventory**) is valid at any point in time. An instance of **PickupableItem** can only be in an inventory list, or a room list. Also, if a **Room** instance is deleted, a <u>pickupable item</u> cannot be accessed anymore.
+
+####StaticItem
+This class deals with an item that is named static, because it is immovable from a room. User cannot pick it up. User can only "action" it, (eg. open door, press button, solve rubics cube), or use a pickup-able item on it (eg. put milk in fridge, use key with lock, give banana to monkey). 
+- <u>needsItem</u> has 1 or 0 PickupableItems. If 0, then this StaticItem needs to be "actioned" by user.
+- <u>textAboutThisItem</u> is a string: story related text. It will be printed every time a user inputs something, as long as this **StaticItem** instance is not 'solved'. (So not "actioned", or a pickup-able item is not used on it.)
+- <u>textForPuzzleSolved</u> is a string of story related text. It will be printed to screen after the user has actioned, or used pickup-able item on it. It shows the user that puzzle is solved. 
+- <u>name</u> is a string. Is used to match with input, to find the right instance.
+- <u>StaticItem</u> method, is a constructor.
+- <u>getNeedsItem</u> returns the <u>needsItem</u> attribute which has a **PickupableItem** value.
+- <u>getTextForPuzzleSolved</u> returns <u>textForPuzzleSolved</u> string attribute.
+- <u>getName</u> returns <u>name</u> attribute, which is a string.
+- <u>setNeedsItem</u> sets a **PickupableItem** instance for the <u>needsItem</u> attribute. This item needs to be used on the current **StaticItem** instance, in order to solve puzzle.
+- <u>setTextAboutThisItem</u> sets a string of story text, in the attribute <u>textAboutThisItem</u>.
+- <u>setTextForPuzzleSolved</u> sets a string of story text, in the attribute <u>textForPuzzleSolved</u>.
+- <u>setName</u> sets string in <u>name</u> attribute.
+- <u>isActionable</u> is a boolean that returns true if <u>needsItem</u> has no value. 
 
 ####PickupableItem
-- *StaticItemtoUseOn* 
-- *textAboutThisItem*
-- *name* string 
-- *textForItemPickedUp*
-- *PickupableItem90*
-- *getName* 
-- *getTextAboutThisItem* 
-- *getTextForItemPickedup* 
-- *setName* 
-- *setStaticItemToUseOn* 
-- *setTextAboutThisItem*
-- *setTextForItemPickedUp* 
+This class represents pickupable items that a user finds in a **Room** instance, and can pick up. When user types the name of a **PickupableItem** instance that is in the <u>listOfPickupableItems</u> in the **Room** instance of <u>player</u>'s <u>currentRoom</u> attribute, then the **PickupableItem** instance will be deleted from the mentioned **Room** instance's <u>listOfPickupableItems</u>, and will be added to the <u>listOfItems</u> of the **Inventory** instance which is in player's <u>inventory</u> attribute.
+**PickupableItem** instances can also be used on a **Static Item** instance: First, user needs to type the name of both the items. Player's <u>currentRoom</u> will need to have the **StaticItem** instance in its list, and that instance would have a <u>needsItem</u> attribute with the same **PickupableItem** instance as in user's input. Then, our solution is to delete the **StaticItem** instance from <u>listOfStaticItems</u> from the <u>currentRoom</u> of player, and delete the **PickupableItem** instance from the <u>inventory</u> of the player. The text for puzzle solved, which is in the **StaticItem** instance that is deleted, will be shown, once. After this, a puzzle will have been solved (thus, puzzle points will be updated).
+- <u>StaticItemtoUseOn</u> is an attribute that right now, does not have a function. It is for possible bonus functionality of hints. It holds one **StaticItem** instance, which needs this particular **PickupableItem** instance, to solve a puzzle. Also: All **PickupableItem** instances can be used on a **StaticItem** instance. This last fact might change in a next iteration, for bonus implementations such as food items for health replenishing.
+- <u>textAboutThisItem</u> is a string of text, which will be printed when user enters a room. If the item is picked up, this text will not be shown anymore.
+- <u>name</u> is a string. It is used for matching with user input.
+- <u>textForItemPickedUp</u> Is a string of text, which is printed after a valid pick-up. 
+- <u>PickupableItem</u> is a constructor. 
+- <u>getName</u> gets string attribute <u>name</u>.
+- <u>getTextAboutThisItem</u> gets string attribute <u>textAboutThisItem</u>.
+- <u>getTextForItemPickedUp</u> gets string attribute <u>textForItemPickedUp</u>.
+- <u>setName</u> sets <u>name</u> string attribute.
+- <u>setStaticItemToUseOn</u> sets <u>staticItemToUseOn</u> **StaticItem** instance attribute.
+- <u>setTextAboutThisItem</u> sets <u>textAboutThisItem</u> string attribute.
+- <u>setTextForItemPickedUp</u> sets <u>textForItemPickedUp</u> string attribute.
 
+####Inventory
 
-For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
-- Brief description about what it represents
-- Brief description of the meaning of each attribute
-- Brief description of the meaning of each operation
-- Brief description of the meaning of each association involving it (each association can be described only once in this deliverable)
+An instance of this class is directly connected to a **Player** instance, through its <u>inventory</u> attribute. It holds some **PickupableItems** instances in its <u>listOfItems</u> attribute, that a *player* has picked up from a *room*.
+- <u>listOfPickupableItems</u> holds **PickupableItems** instances.
+- <u>getItemsInInventory</u> returns <u>listOfPickupableItems</u>.
+- <u>getItemByName</u> is a method that checks the name of all **PickupableItem** instances in <u>listOfPickupableItems</u>, and returns the matching item. It is used for input.
+- <u>addItemToInventory</u> needs **PickupableItem** instance, adding it to <u>listOfPickupableItems</u>.
+- <u>deleteItemFromInventory</u> needs **PickupableItem** instance, deleting it from <u>listOfPickupableItems</u>.
+- There is a composition unidirectional association between 1 **Inventory** instance and 0 or more **PickupableItem** instances. This association XOR another association (connecting **PickupableItem** and **Room**) is valid at any point in time. An instance of **PickupableItem** can only be in an inventory list, or a room list.
 
-Also, you can briefly discuss fragments of previous versions of the class diagram (with figures) in order to show how you evolved from initial versions of the class diagram to the final one.
+####Player
+This class is designed to hold a collection of attributes that keep track of the user playing the game in multiple ways. The amount of puzzles solved is tracked within **Level** and **Game**. This design makes it possible to (bonus) have multiple players playing and solving the same game, where puzzle points are updated when any player has solved a puzzle.
+Note: Our system does not yet handle level and game completing. In a next iteration, we will focus on this.
+Note: Some methods print text, when a puzzle is solved. We designed this to be here, instead of **StoryTextOutput**, because it is less complex.
+- <u>inventory</u> holds one **Inventory** instance.
+- <u>currentRoom</u> holds one **Room** instance.
+- <u>currentLevel</u> holds one **Level** instance.
+- <u>currentGame</u> holds one **Game** instance.
+- <u>setCurrentLevel</u> needs **Level** instance, sets <u>currentLevel</u>.
+- <u>setCurrentRoom</u> needs **Room** instance, sets <u>currentRoom</u>.
+- <u>setInventory</u> needs **Inventory** instance, sets <u>inventory</u>.
+- <u>getCurrentRoom</u> returns <u>currentRoom</u>.
+- <u>getInventory</u> returns <u>inventory</u>.
+- <u>movePlayer</u> changes <u>currentRoom</u>, according to the valid input that user has issued. The *room* to the input(which is a string) will have been received through a get"direction" method in <u>currentRoom</u>.
+- <u>pickUpPickupableItem</u> deletes item from <u>listOfPickupableItems</u> of <u>currentRoom</u>, and adds it to <u>listOfItems</u> in <u>inventory</u>.
+- <u>actionStaticItem</u>, is perhaps named misleading: it does not "action" anything. The naming refers to the type of input: "actioning" a static item, will literally mean: delete item from <u>listOfStaticItems</u> of <u>currentRoom</u>. This method also prints the <u>puzzleSolvedText</u> from the *static item*. 
+- <u>usePickupableItemOnStaticItem</u>: also misleading name, named after input type. It will check if pickupable item is <u>neededItem</u> for static item. If so, then it will delete pickupable item from <u>listOfItems</u> of <u>inventory</u>, and delete static item from <u>listOfStaticItems</u> of <u>currentRoom</u>.
+- <u>checkProgress</u> should run <u>isLevelCompleted</u> and <u>isGameCompleted</u>, which will check the game state from other classes. Eventually, this method will be used to show user a message of a completed level or game, and cause the currentRoom and currentLevel to change. If a <u>currentGame</u> is completed, a message will be shown to user, and input will not be expected anymore.
+- <u>isLevelCompleted</u> is a boolean that should return true if <u>puzzlesLeftToSolve</u> in <u>currentLevel</u> is zero. This is a redundant method, we will use <u>currentLevel</u>'s <u>isCompleted</u>, or figure out a different way.
+- <u>isGameCompleted</u> is a boolean that should return true if <u>levelsLeftToSolve</u> in <u>currentGame</u> is zero. This is a redundant method, we will use <u>currentGame</u>'s <u>isCompleted</u>, or figure out a different way.
+- There is a composition unidirectional association between 1 **Player** instance to 1 **Inventory** instance. 
 
-In this document you have to adhere to the following formatting conventions:
-- the name of each **class** is in bold
-- the *attributes*, *operations*, *associations*, and *objects* are in italic.
+####StoryTextOutput
+This class design is simple: it asks text from level, room, static item and pickupable item instances, according to the <u>currentRoom</u> and <u>currentLevel</u> of the *player*. These can then be printed right before an input is expected.
+- <u>storyText</u> (misleading name) is a list of strings, that holds the retrieved text by the "load" methods from this class.
+- <u>addLineToStoryText</u> adds a string to <u>storyText</u>.
+- <u>printStoryText</u> prints <u>storyText</u>.
+- <u>resetStoryText</u> clears <u>storyText</u>.
+- <u>loadStoryTextForStartOfLevel</u> (misleading name) retrieves text from <u>currentLevel</u> and <u>currentRoom</u> of *player*, and static items and pickupable items in the lists of <u>currentRoom</u>. 
+- <u>loadTextForRoomAndItems</u> (misleading name), same functionality as <u>loadStoryTextForStartOfLevel</u> except it doesn't load <u>currentLevel</u> text.
+- There is a composition unidirectional association between 1 **Player** instance to 1 **Inventory** instance. 
 
-Maximum number of words for this section: 3000
+####InputValidator
+This class validates input and issues resulting methods in *player*. This class does not check if a pickupable item and static item inputted, are the correct combo. This is checked in *player*. This will be revised. 
+It is designed for checking only the most important part of the input: the name of pickupable and/or static item. So user can write in different ways, as long as valid item(s) is inputted, it will work.
+"Smash milk" would still pick up milk. This is why, when writing puzzle solved story text for milk, it should be specified what user is doing to it.  
+- <u>totalDirInInput</u> keeps track in int, how many valid words are directions.
+- <u>totalPItemsInInput</u> keeps track in int, how many valid words are pickupable items.
+- <u>totalSItemsInInput</u> keeps track in int, how many valid words are static items.
+- <u>listOfValidInputtedWords</u> keeps track of all valid words. This is used for <u>isInputAPickupableItemAndStaticItem</u>, which needs two elements.
+- <u>input</u>: this attribute is tracked so methods don't have the same parameters in.
+- <u>currentRoom</u> this attribute is tracked so methods don't have the same parameters in.
+- <u>typeOfInput</u> this is an int, that is used for dividing types of input, in order to <u>passInput</u> to *player* using the right method.
+- <u>player</u> this attribute is tracked so methods don't have the same parameters in.
+- <u>validateInput</u> this is the main method. It issues the other methods. 
+- <u>resetInputHandlerVariables</u> this resets/clears the <u>totalDirInInput</u>, <u>totalPItemsInInput</u>, <u>totalSItemsInInput</u> and <u>listOfValidInputtedWords</u>
+- <u>updateInputHandlerVariables</u> this gives value to <u>player</u>, <u>input<u/>, <u>currentRoom<u/>.
+- <u>inputParser</u> a 'sentence' of input is parsed into 'words', that are then saved in input.
+- <u>wordValidator</u> checks 'words' of a 'sentence' of input, after having parsed it. The next 3 methods (written underneath) are called in this method.
+- <u>isWordValidMove</u> checks if word matches with <u>currentRoom</u>'s <u>listOfAvailableDirections</u>. Boolean.
+- <u>isWordValidStaticItem</u> checks if word matches with <u>currentRoom</u>'s <u>listOfStaticItems</u>. Boolean.
+- <u>isWordValidPickupableItem</u> checks if word matches with <u>currentRoom</u>'s <u>listOfPickupableItems</u>. Boolean.
+- <u>inputValidator</u> calls <u>wordValidator</u> and <u>inputTypeValidator</u>.
+- <u>isInputADirection</u> checks if the 'total' attributes have the right combination, to be a valid direction. ("north north"=invalid, "north milk"=invalid)
+- <u>isInputAPickupableItemAndStaticItem</u> checks if the 'total' attributes have the right combination, to be a valid pair of pickupable and static item.
+- <u>isInputAPickupableItem</u> checks if the 'total' attributes have the right combination, to be a valid pickupable item.
+- <u>isInputAStaticItem</u> checks if the 'total' attributes have the right combination, to be a valid static item.
+- <u>inputTypeValidator</u> changes value of <u>typeOfInput</u> according to the 'totals' attributes.
+- <u>orderItems</u> checks <u>listOfValidInputtedWords</u>, and changes order if first item is not pickupable item.
+- <u>passInput</u> passes valid words to the right methods in *player*.
+- There is a composition unidirectional association between 1 **InputValidator** instance to 1 **Player** instance. 
+
+words: 2928
 
 ## Object diagrams								
 Author: Mateusz Belka
