@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.papyrus.infra.ui.emf.customizationManager">
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml:uml:Constraint:bodyCondition">
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__uml:Type:type">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_JF_xkE5MEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_5MevkFP7EeqE4-4fi1pa4A"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_ZyktgE5VEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_MqAA4FdtEeqB3o9Vz7QeMg"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_xKJHkFduEeqB3o9Vz7QeMg"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml:uml:Constraint:postcondition">
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml:uml:Type:type">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_9YsEoE5FEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_xKJHkFduEeqB3o9Vz7QeMg"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_MqAA4FdtEeqB3o9Vz7QeMg"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_5MevkFP7EeqE4-4fi1pa4A"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_JF_xkE5MEeqKnPceC0k9Gw"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+				<item value="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+			</list>
+		</section>
+	</section>
+	<section name="org.eclipse.papyrus.infra.ui.emf.providers.EMFGraphicalContentProvider_history__file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml:uml:Property:subsettedProperty">
+		<section name="History">
+			<list key="PreviousSelection">
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_ePenwE6DEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_dCZwoE6DEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_ZnSUoE6DEeqKnPceC0k9Gw"/>
+				<item value="file:/C:/Users/dogan/repos/Software-Design/classdiagram/Class%20Diagram.uml#_TmpA0E6DEeqKnPceC0k9Gw"/>
+			</list>
+		</section>
+	</section>
+</section>
