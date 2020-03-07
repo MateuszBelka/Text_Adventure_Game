@@ -15,6 +15,7 @@ public class Main {
         TextIO textIO = init.getTextIO();
         TextTerminal terminal = init.getTerminal();
 
+        terminal.printf("(GAME DEMO) (tip: you can type 'exit' at any time)\n");
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
             /* DEBUG MODE
@@ -28,7 +29,9 @@ public class Main {
              */
             storyTextOutput.printStoryText(player, terminal);
             String input = textIO.newStringInputReader().read("");
+            if (input.equals("exit")) { init.setExitSwitch(true); }
             inputValidator.validateInput(input, player, terminal);
         }
+        terminal.abort();
     }
 }
