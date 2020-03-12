@@ -89,14 +89,12 @@ public class Room {
     }
 
     public void updateListOfAvailableDirectionsUsingRooms() { //update list of possible directions depending on the current room
-        ArrayList<String> listOfAvailableDirections = new ArrayList<>();
+        listOfAvailableDirections = new ArrayList<>();
 
         if (getNorth() != null) listOfAvailableDirections.add("north");
         if (getEast() != null) listOfAvailableDirections.add("east");
         if (getSouth() != null) listOfAvailableDirections.add("south");
         if (getWest() != null) listOfAvailableDirections.add("west");
-
-        this.listOfAvailableDirections = listOfAvailableDirections;
     }
 
     public Room getRoomInDirection(String direction) { //get the name and properties of the room per direction

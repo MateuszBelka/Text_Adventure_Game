@@ -93,7 +93,7 @@ public class Initialisation {
 
     //Initialise class
     private ArrayList<Game> initializeGames() {
-        ArrayList<Game> games = new ArrayList<>();
+        games = new ArrayList<>();
         Game game = new Game();
 
         games.add(game);
@@ -101,7 +101,7 @@ public class Initialisation {
         return games;
     }
     private ArrayList<Player> initializePlayers() {
-        ArrayList<Player> players = new ArrayList<>();
+        players = new ArrayList<>();
         Player player = new Player();
 
         players.add(player);
@@ -109,7 +109,7 @@ public class Initialisation {
         return players;
     }
     private ArrayList<InputValidator> initializeInputValidators() {
-        ArrayList<InputValidator> inputValidators = new ArrayList<>();
+        inputValidators = new ArrayList<>();
         InputValidator inputHandler = new InputValidator();
 
         inputValidators.add(inputHandler);
@@ -125,7 +125,7 @@ public class Initialisation {
         return outputs;
     }
     private ArrayList<Inventory> initializeInventories() {
-        ArrayList<Inventory> inventories = new ArrayList<>();
+        inventories = new ArrayList<>();
         Inventory inventory = new Inventory();
 
         inventories.add(inventory);
@@ -133,7 +133,7 @@ public class Initialisation {
         return inventories;
     }
     private ArrayList<Level> initializeLevels() {
-        ArrayList<Level> levels = new ArrayList<>();
+        levels = new ArrayList<>();
         Level level = new Level();
 
         levels.add(level);
@@ -141,7 +141,7 @@ public class Initialisation {
         return levels;
     }
     private ArrayList<Room> initializeRooms() {
-        ArrayList<Room> rooms = new ArrayList<>();
+        rooms = new ArrayList<>();
         Room room1 = new Room();
         Room room2 = new Room();
 
@@ -151,7 +151,7 @@ public class Initialisation {
         return rooms;
     }
     private ArrayList<StaticItem> initializeStaticItems() {
-        ArrayList<StaticItem> staticItems = new ArrayList<>();
+        staticItems = new ArrayList<>();
         StaticItem staticItem1 = new StaticItem();
         StaticItem staticItem2 = new StaticItem();
 
@@ -161,7 +161,7 @@ public class Initialisation {
         return staticItems;
     }
     private ArrayList<PickupableItem> initializePickupableItems() {
-        ArrayList<PickupableItem> pickupableItems = new ArrayList<>();
+        pickupableItems = new ArrayList<>();
         PickupableItem pickupableItem = new PickupableItem();
 
         pickupableItems.add(pickupableItem);

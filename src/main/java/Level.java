@@ -7,34 +7,20 @@ public class Level {
     private String storyText;
     private Boolean enterLevel = true;
 
-    //Constructor
-    public Level(){}
-
     //Get Methods
-    public ArrayList<Room> getListOfRooms() {
-        return listOfRooms;
-    }
-    public int getPuzzlesLeftToSolve() {
-        return puzzlesLeftToSolve;
-    }
-    public String getTextAboutLevel() {
-        return storyText;
-    }
+    public ArrayList<Room> getListOfRooms() { return listOfRooms; }
+    public int getPuzzlesLeftToSolve() { return puzzlesLeftToSolve; }
+    public String getTextAboutLevel() { return storyText; }
 
     //Set Methods
-    public void setListOfRooms(ArrayList<Room> listOfRooms) {
-        this.listOfRooms = listOfRooms;
-    }
+    public void setListOfRooms(ArrayList<Room> listOfRooms) { this.listOfRooms = listOfRooms; }
     public void updatePuzzlesLeftToSolve() { //puzzles left to solve in the room
-        int puzzlesLeftToSolve = 0;
+        puzzlesLeftToSolve = 0;
         for (Room room : getListOfRooms()) {
             puzzlesLeftToSolve += room.getListOfStaticItems().size();
         }
-        this.puzzlesLeftToSolve = puzzlesLeftToSolve;
     }
-    public void setStoryText(String storyText) {
-        this.storyText = storyText;
-    }
+    public void setStoryText(String storyText) {this.storyText = storyText; }
     public boolean switchEnterLevel(){ //entering a new level
         if (enterLevel.equals(true)){
             enterLevel = false;
@@ -44,14 +30,8 @@ public class Level {
     }
 
     //Main Methods
-    public void addRoomToList(Room roomToAdd) {
-        listOfRooms.add(roomToAdd);
-    }
-    public void decreasePuzzlesLeftToSolve() {
-        puzzlesLeftToSolve -= 1;
-    }
-    public boolean isCompleted() {
-        return puzzlesLeftToSolve == 0;
-    }
+    public void addRoomToList(Room roomToAdd) { listOfRooms.add(roomToAdd); }
+    public void decreasePuzzlesLeftToSolve() { puzzlesLeftToSolve -= 1; }
+    public boolean isCompleted() { return puzzlesLeftToSolve == 0; }
 
 }

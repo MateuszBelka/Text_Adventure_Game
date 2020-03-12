@@ -11,7 +11,6 @@ public class Inventory{
                 if (name.equals(getItemsInInventory().get(i).getName())){
                     return getItemsInInventory().get(i);
                 }
-                else {System.out.println("No such item in inventory"); return null;}
             }
         }
         return null;

@@ -11,9 +11,6 @@ public class StaticItem {
     private String textForPuzzleSolved;
     private String name;
 
-    //Constructor
-    public StaticItem(){}
-
     //Get Methods
     public PickupableItem getNeedsItem() {
         return needsItem;

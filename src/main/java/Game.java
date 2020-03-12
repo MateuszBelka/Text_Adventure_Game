@@ -7,29 +7,18 @@ public class Game {
     private int levelsLeftToSolve;
 
     //Get Methods
-    public Player getPlayer() {
-        return player;
-    }
-    public ArrayList<Level> getListOfLevels() {
-        return listOfLevels;
-    }
-    public int getLevelsLeftToSolve() {
-        return levelsLeftToSolve;
-    }
+    public Player getPlayer() { return player; }
+    public ArrayList<Level> getListOfLevels() { return listOfLevels; }
+    public int getLevelsLeftToSolve() { return levelsLeftToSolve; }
 
     //Set Methods
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
-    public void setListOfLevels(ArrayList<Level> listOfLevels) {
-        this.listOfLevels = listOfLevels;
-    }
+    public void setPlayer(Player player) { this.player = player; }
+    public void setListOfLevels(ArrayList<Level> listOfLevels) { this.listOfLevels = listOfLevels; }
     public void setLevelsLeftToSolve() { //determining how many levels are left to solve in order to complete the game
-        int levelsLeftToSolve = 0;
+        levelsLeftToSolve = 0;
         for (Level level : getListOfLevels()) {
             if (level.getPuzzlesLeftToSolve() != 0) levelsLeftToSolve += 1;
         }
-        this.levelsLeftToSolve = levelsLeftToSolve;
     }
 
     //Main Methods

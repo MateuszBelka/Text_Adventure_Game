@@ -17,8 +17,6 @@ public class InputValidator {
         resetInputHandlerVariables();
         updateInputHandlerVariables(input, player);
         inputValidator();
-//        System.out.println("type: " + typeOfInput + ", valid: " + listOfValidInputtedWords);
-//        System.out.println("INPUT: dirs: " + totalDirInInput + " p: " + totalPItemsInInput + " s: " + totalSItemsInInput) ;
         passInput(terminal);
     }
 
@@ -37,7 +35,8 @@ public class InputValidator {
     }
 
     //Word Input Validation Methods
-    public void wordValidator(){ //parsing input, check if: the inputted word is a valid move/static item/pickupable item
+    public void wordValidator(){
+        //parsing input, check if: the inputted word is in the lists of current room's move/static item/pickupable item
         String[] parsedInput = inputParser();
         for (String wordToCheck : parsedInput) {
             isWordValidMove(wordToCheck);
