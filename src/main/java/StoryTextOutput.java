@@ -4,7 +4,7 @@ import org.beryx.textio.swing.SwingTextTerminal;
 import java.util.ArrayList;
 
 public class StoryTextOutput {
-    private ArrayList<String> storyText = new ArrayList<>();
+    private final ArrayList<String> storyText = new ArrayList<>();
 
     public void addLineToStoryText(String text){ storyText.add(text);}
 
