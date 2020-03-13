@@ -39,7 +39,10 @@ public class StaticItem {
         this.name = name;
     }
 
-    //Boolean Methods
+    /*
+     * Returns a boolean indicating whether the current StaticItem can be used by player
+     * or if it still requires a PickupableItem to be used on it firstly.
+     */
     public boolean isActionable(){
         return getNeedsItem() == null;
     }

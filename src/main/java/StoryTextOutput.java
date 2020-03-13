@@ -1,4 +1,6 @@
 import org.beryx.textio.TextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
+
 import java.util.ArrayList;
 
 public class StoryTextOutput {
@@ -6,7 +8,7 @@ public class StoryTextOutput {
 
     public void addLineToStoryText(String text){ storyText.add(text);}
 
-    public void printStoryText(Player player, TextTerminal<?> terminal){
+    public void printStoryText(Player player, TextTerminal<SwingTextTerminal> terminal){
         if (player.getCurrentLevel().switchEnterLevel()){
             loadTextForStartOfLevel(player);
         }

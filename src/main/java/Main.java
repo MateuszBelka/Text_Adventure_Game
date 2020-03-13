@@ -1,5 +1,6 @@
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
 
 public class Main {
     public static void main (String[] args) {
@@ -11,7 +12,7 @@ public class Main {
         InputValidator inputValidator = init.getInputValidators().get(0);
         StoryTextOutput storyTextOutput = init.getStoryTextOutputs().get(0);
         TextIO textIO = init.getTextIO();
-        TextTerminal<?> terminal = init.getTerminal();
+        TextTerminal<SwingTextTerminal> terminal = init.getTerminal();
 
         terminal.printf("(GAME DEMO)   (tip: you can type 'exit' at any time)\n");
         //main game loop

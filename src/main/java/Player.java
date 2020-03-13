@@ -1,5 +1,6 @@
 //import com.sun.org.apache.xml.internal.security.Init;
 import org.beryx.textio.TextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
 //import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -62,7 +63,7 @@ public class Player {
     public Room getCurrentRoom() { return currentRoom; }
     public Inventory getInventory() { return inventory; }
     public boolean isProgressingToNextLevel(){ return currentLevel.isCompleted(); }
-    public void progressPlayer (Initialisation init, TextTerminal<?> terminal){
+    public void progressPlayer (Initialisation init, TextTerminal<SwingTextTerminal> terminal){
         ArrayList<Level> levels = init.getLevels();
         if (levels.size() == 1){ terminal.printf("Game Completed!\n\n\n"); }
         else {
