@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Inventory{
-    private ArrayList<PickupableItem> listOfPickupableItems = new ArrayList<>();
+    private final ArrayList<PickupableItem> listOfPickupableItems = new ArrayList<>();
 
     //Get Methods
     public ArrayList<PickupableItem> getItemsInInventory() {return listOfPickupableItems;}

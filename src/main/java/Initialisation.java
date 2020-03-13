@@ -1,6 +1,7 @@
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 import org.beryx.textio.TextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class Initialisation {
     private ArrayList<PickupableItem> pickupableItems;
     private Boolean exitSwitch;
     private TextIO textIO;
-    private TextTerminal<?> terminal;
+    private TextTerminal<SwingTextTerminal> terminal;
 
     public Initialisation() { this.exitSwitch = false; }
 
@@ -39,7 +40,7 @@ public class Initialisation {
     public ArrayList<PickupableItem> getPickupableItems() { return pickupableItems; }
     public Boolean getExitSwitch() { return exitSwitch; }
     public TextIO getTextIO() { return textIO; }
-    public TextTerminal getTerminal() { return terminal; }
+    public TextTerminal<SwingTextTerminal> getTerminal() { return terminal; }
 
     //Set Methods
     private void setGames(ArrayList<Game> games) { this.games = games; }
@@ -53,22 +54,34 @@ public class Initialisation {
     private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){this.pickupableItems = pickupableItems;}
     public void setExitSwitch(Boolean exitSwitch) { this.exitSwitch = exitSwitch; }
     private void setTextIO(TextIO textIO) { this.textIO = textIO; }
-    private void setTerminal(TextTerminal<?> terminal) { this.terminal = terminal; }
+    private void setTerminal(TextTerminal<SwingTextTerminal> terminal) { this.terminal = terminal; }
 
     //Delete Method
-    public void deletePreviousLevel() { levels.remove(0); }
+    public void deletePreviousLevel() { levels.remove(0); } //Bad name
 
 
-    /* The following function is responsible for starting the entire game
-     * and as such overlooks class specific initialization functions.
+    /*
+     * The following function is responsible for starting the entire game and as such overlooks class specific initialization functions.
      *
-     * Dev note (delete later):
-     * We firstly have to init all classes in order to be
-     * able to access them while configuring objects.
+     * Before configuring attributes of all individual objects,
+     * it is necessary to initialize all of them initially so that
+     * we don't encounter situation where an object attempt to locate memory location of
+     * an object that has not yet been initialized.
      */
     public void initializeEntireSystem() {
+        /*
+         * Creates instances of relevant GUI classes which replace System.out calls.
+         * They allow the jar file to be launched without a terminal as the library provides one.
+         */
         initTextIO();
-        //initialise classes
+
+        /*
+         * Initializes all of the classes used in our system.
+         *
+         * From the point of view of the story you are trying to tell,
+         * this part is responsible for determining how much of what there is.
+         * (i.e. 1 player, 2 levels, and 20 rooms total)
+         */
         setGames(initializeGames());
         setPlayers(initializePlayers());
         setInputValidators(initializeInputValidators());
@@ -79,7 +92,12 @@ public class Initialisation {
         setStaticItems(initializeStaticItems());
         setPickupableItems(initializePickupableItems());
 
-        //configure classes
+        /*
+         * Configure all attibutes of newly created objects.
+         *
+         * This includes creating direct accesses between objects.
+         * (i.e. Game object knows how many levels there are and their order)
+         */
         configurePickupableItems();
         configureStaticItems();
         configureRooms();
@@ -89,12 +107,26 @@ public class Initialisation {
         configurePlayers();
     }
 
-    private void initTextIO() { //allows us to have input/output without terminal
+    /*
+     * Create instances of relevant GUI classes which replace System.out calls.
+     * They allow the jar file to be launched without a terminal as the library provides one.
+     */
+    private void initTextIO() {
+        setTerminal(new SwingTextTerminal());
+        setTextIO(new TextIO(getTerminal()));
+        /*
         setTextIO(TextIoFactory.getTextIO());
-        setTerminal(textIO.getTextTerminal());
+        setTerminal((TextTerminal<SwingTextTerminal>) textIO.getTextTerminal());
+         */
     }
 
-    //Initialise class
+    /*
+     * Initializes all the classes used in our system.
+     *
+     * From the point of view of the story you are trying to tell,
+     * this part is responsible for determining how much of what there is.
+     * (i.e. 1 player, 2 levels, and 20 rooms total)
+     */
     private ArrayList<Game> initializeGames() {
         games = new ArrayList<>();
         Game game = new Game();
@@ -177,7 +209,12 @@ public class Initialisation {
         return pickupableItems;
     }
 
-    //Configure object
+    /*
+     * Configure all attibutes of newly created objects.
+     *
+     * This includes creating direct accesses between objects.
+     * (i.e. Game object knows how many levels there are and their order)
+     */
     private void configureGames() {
         Game game0 = getGames().get(0);
         Player player0 = getPlayers().get(0);

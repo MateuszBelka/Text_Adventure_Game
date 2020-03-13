@@ -1,4 +1,5 @@
 import org.beryx.textio.TextTerminal;
+import org.beryx.textio.swing.SwingTextTerminal;
 
 import java.util.ArrayList;
 
@@ -6,14 +7,14 @@ public class InputValidator {
     private int totalDirInInput = 0;
     private int totalPItemsInInput = 0;
     private int totalSItemsInInput = 0;
-    private ArrayList<String> listOfValidInputtedWords = new ArrayList<>();
+    private final ArrayList<String> listOfValidInputtedWords = new ArrayList<>();
     private String input;
     private Room currentRoom;
     private int typeOfInput;
     private Player player;
 
     //Main Method
-    public void validateInput(String input, Player player, TextTerminal terminal) { //check of the validity of input
+    public void validateInput(String input, Player player, TextTerminal<SwingTextTerminal> terminal) { //check of the validity of input
         resetInputHandlerVariables();
         updateInputHandlerVariables(input, player);
         inputValidator();
@@ -136,7 +137,7 @@ public class InputValidator {
         }
     }
 
-    private void passInput(TextTerminal terminal){ //passing input to another class called player
+    private void passInput(TextTerminal<SwingTextTerminal> terminal){ //passing input to another class called player
         switch (typeOfInput){
             case 1:
                 player.movePlayer(listOfValidInputtedWords.get(0)); //passing inputted move to function movePlayer

@@ -21,10 +21,13 @@ public class Game {
         }
     }
 
-    //Main Methods
-    public void decreaseLevelsLeftToSolve(int valueToDecreaseBy) { this.levelsLeftToSolve -= valueToDecreaseBy; } //decreasing number of levels
-                                                                                                                  // left to solve
+    /*
+     * Decrements the value of Game's attribute levelsLeftToSolve by 1 until it reaches 0.
+     */
+    public void decrementLevelsLeftToSolve() { if (levelsLeftToSolve > 0) levelsLeftToSolve -= 1; }
 
-    //Game is completed if there are no more levels left to solve
+    /*
+     * Returns whether the game is complete. A game is complete when there are no more levels that have unsolved puzzles.
+     */
     public boolean isCompleted() { return getLevelsLeftToSolve() == 0; }
 }
