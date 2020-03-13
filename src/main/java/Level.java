@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Level {
     //Variable Declaration
-    private ArrayList<Room> listOfRooms;
+    private ArrayList<Room> listOfRooms = new ArrayList<>();
     private int puzzlesLeftToSolve;
     private String storyText;
     private Boolean enterLevel = true;
