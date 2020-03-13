@@ -85,11 +85,13 @@ public class Player {
     public Inventory getInventory() { return inventory; }
 
     public void progressPlayer (Initialisation init, TextTerminal<SwingTextTerminal> terminal){
+
         ArrayList<Level> levels = init.getLevels();
         if (levels.size() == 1){ terminal.printf("Game Completed!\n\n\n"); }
         else {
             currentLevel = levels.get(1);
             currentRoom = currentLevel.getListOfRooms().get(0);
+            currentLevel.updatePuzzlesLeftToSolve();
             init.deletePreviousLevel();
         }
     }
