@@ -169,10 +169,11 @@ public class Initialisation {
     }
     private ArrayList<Level> initializeLevels() {
         levels = new ArrayList<>();
-        Level level = new Level();
+        Level level1 = new Level();
+        Level level2 = new Level();
 
-        levels.add(level);
-        levels.add(level);
+        levels.add(level1);
+        levels.add(level2);
 
         return levels;
     }
@@ -255,7 +256,7 @@ public class Initialisation {
         level0.setStoryText(storyText);
 
         Level level1 = getLevels().get(1);
-        String storyText2 = "(LEVEL 2)   You did it! You miraculously teleported outside!";
+        String storyText2 = "(LEVEL 2)   You miraculously teleported outside!";
         ArrayList<Room> roomList2 = new ArrayList<>();
         roomList2.add(getRooms().get(2));
         level1.updatePuzzlesLeftToSolve();

@@ -17,7 +17,7 @@ public class Main {
         terminal.printf("(GAME DEMO)   (tip: you can type 'exit' at any time)\n");
         //main game loop
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
-            storyTextOutput.printStoryText(player, terminal);
+            storyTextOutput.setAndPrintAndClearStoryText(player, terminal);
             String input = textIO.newStringInputReader().read("");
             if (input.equals("exit")) { init.setExitSwitch(true); }
             //DEBUG
