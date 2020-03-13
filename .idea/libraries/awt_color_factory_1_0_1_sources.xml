@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="awt-color-factory-1.0.1-sources">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/awt-color-factory-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jline-2.14.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.29.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/jline-2.14.6-javadoc.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.29-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/awt-color-factory-1.0.1-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jline-2.14.6-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.29-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/text-io-3.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

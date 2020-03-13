@@ -33,5 +33,4 @@ public class Level {
     public void addRoomToList(Room roomToAdd) { listOfRooms.add(roomToAdd); }
     public void decreasePuzzlesLeftToSolve() { puzzlesLeftToSolve -= 1; }
     public boolean isCompleted() { return puzzlesLeftToSolve == 0; }
-
 }

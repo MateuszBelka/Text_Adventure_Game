@@ -5,5 +5,17 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="text-io-3.4.0" level="project" />
+    <orderEntry type="library" name="awt-color-factory-1.0.1-sources" level="project" />
+    <orderEntry type="library" name="awt-color-factory-1.0.1-javadoc" level="project" />
+    <orderEntry type="library" name="awt-color-factory-1.0.1" level="project" />
+    <orderEntry type="library" name="jline-2.14.6-javadoc" level="project" />
+    <orderEntry type="library" name="jline-2.14.6-sources" level="project" />
+    <orderEntry type="library" name="jline-2.14.6" level="project" />
+    <orderEntry type="library" name="text-io-3.4.0-sources" level="project" />
+    <orderEntry type="library" name="text-io-3.4.0-javadoc" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.29" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.29-sources" level="project" />
+    <orderEntry type="library" name="slf4j-api-1.7.29-javadoc" level="project" />
   </component>
 </module>

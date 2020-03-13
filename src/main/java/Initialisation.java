@@ -22,8 +22,8 @@ public class Initialisation {
     private ArrayList<StaticItem> staticItems;
     private ArrayList<PickupableItem> pickupableItems;
     private Boolean exitSwitch;
-    public TextIO textIO;
-    public TextTerminal terminal;
+    private TextIO textIO;
+    private TextTerminal<?> terminal;
 
     public Initialisation() { this.exitSwitch = false; }
 
@@ -53,14 +53,17 @@ public class Initialisation {
     private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){this.pickupableItems = pickupableItems;}
     public void setExitSwitch(Boolean exitSwitch) { this.exitSwitch = exitSwitch; }
     private void setTextIO(TextIO textIO) { this.textIO = textIO; }
-    private void setTerminal(TextTerminal terminal) { this.terminal = terminal; }
+    private void setTerminal(TextTerminal<?> terminal) { this.terminal = terminal; }
+
+    //Delete Method
+    public void deletePreviousLevel() { levels.remove(0); }
 
 
     /* The following function is responsible for starting the entire game
      * and as such overlooks class specific initialization functions.
      *
      * Dev note (delete later):
-     * We firstly have to init all classses in order to be
+     * We firstly have to init all classes in order to be
      * able to access them while configuring objects.
      */
     public void initializeEntireSystem() {
@@ -137,6 +140,7 @@ public class Initialisation {
         Level level = new Level();
 
         levels.add(level);
+        levels.add(level);
 
         return levels;
     }
@@ -144,9 +148,11 @@ public class Initialisation {
         rooms = new ArrayList<>();
         Room room1 = new Room();
         Room room2 = new Room();
+        Room room3 = new Room();
 
         rooms.add(room1);
         rooms.add(room2);
+        rooms.add(room3);
 
         return rooms;
     }
@@ -154,9 +160,11 @@ public class Initialisation {
         staticItems = new ArrayList<>();
         StaticItem staticItem1 = new StaticItem();
         StaticItem staticItem2 = new StaticItem();
+        StaticItem staticItem3 = new StaticItem();
 
         staticItems.add(staticItem1);
         staticItems.add(staticItem2);
+        staticItems.add(staticItem3);
 
         return staticItems;
     }
@@ -202,16 +210,30 @@ public class Initialisation {
                 "an attic, and a basement. You enter through the front door, and strangely enough, " +
                 "find yourself in the kitchen? 'What a peculiar design...', you think to yourself.";
 
-        level0.setListOfRooms(getRooms());
+        ArrayList<Room> roomList1 = new ArrayList<>();
+        roomList1.add(getRooms().get(0));
+        roomList1.add(getRooms().get(1));
+        level0.setListOfRooms(roomList1);
         level0.updatePuzzlesLeftToSolve();
         level0.setStoryText(storyText);
+
+        Level level1 = getLevels().get(1);
+        String storyText2 = "(LEVEL 2)   You did it! You miraculously teleported outside!";
+        ArrayList<Room> roomList2 = new ArrayList<>();
+        roomList2.add(getRooms().get(2));
+        level1.updatePuzzlesLeftToSolve();
+        level1.setStoryText(storyText2);
+        level1.setListOfRooms(roomList2);
+
     }
     private void configureRooms() {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
         StaticItem staticItem1 = getStaticItems().get(0);
         StaticItem staticItem2 = getStaticItems().get(1);
+        StaticItem staticItem3 = getStaticItems().get(2);
         Room room1 = getRooms().get(0);
         Room room2 = getRooms().get(1);
+        Room room3 = getRooms().get(2);
         String textAboutRoom1= "(KITCHEN)     The kitchen looks nice with its black and white tiles. " +
                 "There's a fridge, a stove, a counter... To the *north*, there is an open door, " +
                 "leading to the hallway.";
@@ -232,10 +254,18 @@ public class Initialisation {
         room2.addStaticItemToList(staticItem2);
         room2.setLevel(getLevels().get(0));
         room2.setTextAboutRoom(textAboutRoom2);
+
+        String textAboutRoom3 = "(Outside)";
+        room3.updateRoomDirections(null, null, null, null);
+        room3.setTextAboutRoom(textAboutRoom3);
+        room3.addStaticItemToList(staticItem3);
+        room3.setLevel(getLevels().get(1));
+        room3.updateListOfAvailableDirectionsUsingRooms();
     }
     private void configureStaticItems() {
         StaticItem staticItem1 = getStaticItems().get(0);
         StaticItem staticItem2 = getStaticItems().get(1);
+        StaticItem staticItem3 = getStaticItems().get(2);
         PickupableItem pickupableItem1 = getPickupableItems().get(0);
 
         String textAboutThisItem1 = "The *fridge* is buzzing with sound. " +
@@ -256,6 +286,12 @@ public class Initialisation {
         staticItem2.setTextAboutThisItem(textAboutThisItem2);
         staticItem2.setTextForPuzzleSolved(textForPuzzleSolvedOfItem2);
         staticItem2.setName(nameItem2);
+
+        String text3Before = "You see a *beautiful tree* that you might want to climb.";
+        String text3After = "You climb the tree, and decide to make it your home.";
+        staticItem3.setTextAboutThisItem(text3Before);
+        staticItem3.setTextForPuzzleSolved(text3After);
+        staticItem3.setName("tree");
     }
     private void configurePickupableItems() {
         PickupableItem pickupableItem1 = getPickupableItems().get(0);

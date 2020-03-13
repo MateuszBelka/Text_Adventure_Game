@@ -23,18 +23,10 @@ public class Room {
     public ArrayList<String> getListOfAvailableDirections() {
         return listOfAvailableDirections;
     }
-    public Room getNorth() {
-        return north;
-    }
-    public Room getEast() {
-        return east;
-    }
-    public Room getSouth() {
-        return south;
-    }
-    public Room getWest() {
-        return west;
-    }
+    public Room getNorth() { return north; }
+    public Room getEast() { return east; }
+    public Room getSouth() { return south; }
+    public Room getWest() { return west; }
     public ArrayList<StaticItem> getListOfStaticItems() {
         return listOfStaticItems;
     }
@@ -44,38 +36,24 @@ public class Room {
     public Level getLevel() {
         return level;
     }
-    public String getTextAboutRoom() {
-        return textAboutRoom;
-    }
+    public String getTextAboutRoom() { return textAboutRoom; }
 
     //Set Methods
     public void setListOfAvailableDirections(ArrayList<String> listOfAvailableDirections) {
         this.listOfAvailableDirections = listOfAvailableDirections;
     }
-    public void setNorth(Room north) {
-        this.north = north;
-    }
-    public void setEast(Room east) {
-        this.east = east;
-    }
-    public void setSouth(Room south) {
-        this.south = south;
-    }
-    public void setWest(Room west) {
-        this.west = west;
-    }
+    public void setNorth(Room north) { this.north = north; }
+    public void setEast(Room east) { this.east = east; }
+    public void setSouth(Room south) { this.south = south; }
+    public void setWest(Room west) { this.west = west; }
     public void setListOfStaticItems(ArrayList<StaticItem> listOfStaticItems) {
         this.listOfStaticItems = listOfStaticItems;
     }
     public void setListOfPickupableItems(ArrayList<PickupableItem> listOfPickupableItems) {
         this.listOfPickupableItems = listOfPickupableItems;
     }
-    public void setLevel(Level level) {
-        this.level = level;
-    }
-    public void setTextAboutRoom(String textAboutRoom) {
-        this.textAboutRoom = textAboutRoom;
-    }
+    public void setLevel(Level level) { this.level = level; }
+    public void setTextAboutRoom(String textAboutRoom) { this.textAboutRoom = textAboutRoom; }
 
     //Main Methods
     public void updateRoomDirections(Room north, //update of possible directions from the current room

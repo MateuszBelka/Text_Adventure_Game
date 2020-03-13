@@ -1,4 +1,8 @@
+//import com.sun.org.apache.xml.internal.security.Init;
 import org.beryx.textio.TextTerminal;
+//import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
@@ -33,7 +37,7 @@ public class Player {
         }
         else{ terminal.printf("HINT : This item needs another item.\n"); }
     }
-    public void usePickupableItemOnStaticItem(String pItem, String sItem, TextTerminal terminal){ //using pickupable itemon static item and removing
+    public void usePickupableItemOnStaticItem(String pItem, String sItem, TextTerminal terminal){ //using pickupable item on static item and removing
         StaticItem staticItem = getCurrentRoom().getStaticItemByName(sItem);                      //pickupable item from the inventory
         PickupableItem pickupableItem = getInventory().getItemByName(pItem);
 
@@ -57,4 +61,14 @@ public class Player {
     public Level getCurrentLevel() { return currentLevel; }
     public Room getCurrentRoom() { return currentRoom; }
     public Inventory getInventory() { return inventory; }
+    public boolean isProgressingToNextLevel(){ return currentLevel.isCompleted(); }
+    public void progressPlayer (Initialisation init, TextTerminal<?> terminal){
+        ArrayList<Level> levels = init.getLevels();
+        if (levels.size() == 1){ terminal.printf("Game Completed!\n\n\n"); }
+        else {
+            currentLevel = levels.get(1);
+            currentRoom = currentLevel.getListOfRooms().get(0);
+            init.deletePreviousLevel();
+        }
+    }
 }
