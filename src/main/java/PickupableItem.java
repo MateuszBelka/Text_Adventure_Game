@@ -8,7 +8,7 @@ public class PickupableItem {
 
     //Get Methods
     public String getName() { return name; }
-    public StaticItem getStaticItemToUseOn() { return staticItemToUseOn; } //TODO: might need it for hints? Decide
+    public StaticItem getStaticItemToUseOn() { return staticItemToUseOn; } //might need it for hints
     public String getTextAboutThisItem() { return textAboutThisItem; }
     public String getTextForItemPickedUp() { return textForItemPickedUp; }
 
