@@ -7,7 +7,7 @@ public class PickupableItem {
     private String textForItemPickedUp;
 
     //Get Methods
-    //gets name of the pickupable item
+    //gets name of the pickupableItem
     public String getName() { return name; }
     //gets the name of the staticItem to use on pickupable item
     public StaticItem getStaticItemToUseOn() { return staticItemToUseOn; }

@@ -37,7 +37,7 @@ public class Level {
     }
 
     //Main Methods
-    //A method used for game-creator mode when a creator has an option to add a room to his level
+    //The method used for game-creator mode when a creator has an option to add a room to his level
     public void addRoomToList(Room roomToAdd) { listOfRooms.add(roomToAdd); }
     //decrementing the number of puzzles left to solve
     public void decreasePuzzlesLeftToSolve() { puzzlesLeftToSolve -= 1; }
