@@ -20,13 +20,8 @@ public class Main {
             storyTextOutput.setAndPrintAndClearStoryText(player, terminal);
             String input = textIO.newStringInputReader().read("");
             if (input.equals("exit")) { init.setExitSwitch(true); }
-            //DEBUG
-            if (input.equals("test")) {System.out.println(player.getCurrentLevel().getPuzzlesLeftToSolve());}
             inputValidator.validateInput(input, player, terminal);
-            if (player.getCurrentLevel().isCompleted()){
-                terminal.printf("level completed\n");
-                player.progressPlayer(init, terminal);
-            }
+            if (player.getCurrentLevel().isCompleted()){ player.progressPlayer(init, terminal); }
         }
         terminal.abort();
     }

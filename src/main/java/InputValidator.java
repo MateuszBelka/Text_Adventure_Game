@@ -13,15 +13,19 @@ public class InputValidator {
     private String input;
     private Player player;
     private Room currentRoom;
+    private TextTerminal<SwingTextTerminal> terminal;
 
     //Main Method
     public void validateInput(String input, Player player, TextTerminal<SwingTextTerminal> terminal) {
         //Resets and appoints values to attributes.
-        //Proceeds to validate input and pass that input, through method calls.
+        //Proceeds to validate input.
+        // Checks for logical validation.
+        // If all goes through, passes that input to player, through method calls.
         resetInputHandlerVariables();
-        updateInputHandlerVariables(input, player);
+        updateInputHandlerVariables(input, player, terminal);
         inputValidator();
-        passInput(terminal);
+        logicValidator();
+        passInput();
     }
 
     //Class Variable Methods
@@ -33,11 +37,12 @@ public class InputValidator {
         listOfValidWords.clear();
     }
 
-    private void updateInputHandlerVariables(String input, Player player){
+    private void updateInputHandlerVariables(String input, Player player, TextTerminal<SwingTextTerminal> terminal){
         //Updates attributes (that are used to lessen down the amount of parameters passed in this class)
         this.input = input;
         this.player = player;
         currentRoom = player.getCurrentRoom();
+        this.terminal = terminal;
     }
 
     //Word Input Validation Methods
@@ -139,11 +144,16 @@ public class InputValidator {
     //Post-Validation Methods
     private void inputTypeValidator(){
         //Assigns a number to typeOfInput depending on the type of input (depending on amount of valid words).
-        if (isInputADirection()){typeOfInput = 1;} //if input is valid direction - assign 1
-        else if (isInputAPickupableItem()){typeOfInput = 2;} //if input is valid pickupable item - assign 2
-        else if (isInputAStaticItem()){typeOfInput = 3;} //if input is valid static item - assign 3
-        else if (isInputAPickupableItemAndStaticItem()){typeOfInput = 4;} //input valid pickupable&staticitem - assign 4
-        else typeOfInput = 0; //all else cases, assign 0
+        // 1: valid direction.
+        // 2: valid pickupable item.
+        // 3: valid static item.
+        // 4: valid pickupable and static item.
+        // 0: all other cases.
+        if (isInputADirection()){typeOfInput = 1;}
+        else if (isInputAPickupableItem()){typeOfInput = 2;}
+        else if (isInputAStaticItem()){typeOfInput = 3;}
+        else if (isInputAPickupableItemAndStaticItem()){typeOfInput = 4;}
+        else typeOfInput = 0;
     }
 
     private void orderItems(String item1, String item2){
@@ -158,21 +168,58 @@ public class InputValidator {
         }
     }
 
-    private void passInput(TextTerminal<SwingTextTerminal> terminal){
-        //Passing input to player object. TODO: put logical checks to inputvalidator?
+    public void logicValidator(){
+        //Validates if items have the correct attributes, in order to be a valid input to be passed on.
+        //Orders items passed in the parameters, for using pickupable item on a static item.
+        //Prints text for all cases.
         switch (typeOfInput){
-            case 1:
-                player.movePlayer(listOfValidWords.get(0)); //passing inputted move to function movePlayer
-                break;
             case 2:
-                player.pickUpPickupableItem(listOfValidWords.get(0), terminal); //passing inputted item to function pickUpPickupableItem
+                PickupableItem itemToPickUp = currentRoom.getPickupableItemByName(listOfValidWords.get(0));
+                //If item is not found in the list of current room, input is invalid.
+                //TODO: If we want to use an item in inventory (food/drink), here should be the place to start.
+                if (itemToPickUp == null) {typeOfInput = 0;}
+                else { terminal.printf("%s\n", itemToPickUp.getTextForItemPickedUp()); }
                 break;
             case 3:
-                player.actionStaticItem(listOfValidWords.get(0), terminal); //passing inputted static item to function actionStaticItem
+                StaticItem itemToAction = currentRoom.getStaticItemByName(listOfValidWords.get(0));
+                if (!itemToAction.isActionable()){
+                    terminal.printf("HINT : This item needs another item.\n");
+                    typeOfInput = 0;
+                }
+                else {terminal.printf("%s\n", itemToAction.getTextForPuzzleSolved());}
                 break;
             case 4:
-                orderItems(listOfValidWords.get(0), listOfValidWords.get(1)); //setting order such that pickupable item is before static item
-                player.usePickupableItemOnStaticItem(listOfValidWords.get(0), listOfValidWords.get(1), terminal);
+                orderItems(listOfValidWords.get(0), listOfValidWords.get(1));
+                StaticItem staticItem = currentRoom.getStaticItemByName(listOfValidWords.get(1));
+                PickupableItem pickupableItem = player.getInventory().getItemByName(listOfValidWords.get(0));
+                if (staticItem.getNeedsItem() == null) {
+                    terminal.printf("This item needs no other item.\n");
+                    typeOfInput = 0;
+                }
+                else if (!staticItem.getNeedsItem().equals(pickupableItem)){
+                    terminal.printf("Wrong item used on item.\n");
+                    typeOfInput = 0;
+                }
+                else { terminal.printf("%s\n", staticItem.getTextForPuzzleSolved()); }
+                break;
+            default:
+        }
+    }
+
+    private void passInput(){
+        //Method passes the validated input to the concluding methods of the player object.
+        switch (typeOfInput){
+            case 1:
+                player.movePlayer(listOfValidWords.get(0));
+                break;
+            case 2:
+                player.pickUpPickupableItem(listOfValidWords.get(0));
+                break;
+            case 3:
+                player.actionStaticItem(listOfValidWords.get(0));
+                break;
+            case 4:
+                player.usePickupableItemOnStaticItem(listOfValidWords.get(0), listOfValidWords.get(1));
                 break;
             default:
         }
