@@ -14,8 +14,8 @@ public class Main {
         TextIO textIO = init.getTextIO();
         TextTerminal<SwingTextTerminal> terminal = init.getTerminal();
 
-        terminal.printf("(GAME DEMO)   (tip: you can type 'exit' at any time)\n");
         //main game loop
+        terminal.printf("(GAME DEMO)   (tip: you can type 'exit' at any time)\n");
         while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
             storyTextOutput.setAndPrintAndClearStoryText(player, terminal);
             String input = textIO.newStringInputReader().read("");

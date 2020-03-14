@@ -1,5 +1,4 @@
 import org.beryx.textio.TextIO;
-import org.beryx.textio.TextIoFactory;
 import org.beryx.textio.TextTerminal;
 import org.beryx.textio.swing.SwingTextTerminal;
 
@@ -13,52 +12,49 @@ import java.util.ArrayList;
 
 public class Initialisation {
     //Variable Declaration
-    private ArrayList<Game> games;
-    private ArrayList<Player> players;
-    private ArrayList<InputValidator> inputValidators;
-    private ArrayList<StoryTextOutput> storyTextOutputs;
-    private ArrayList<Inventory> inventories;
-    private ArrayList<Level> levels;
-    private ArrayList<Room> rooms;
-    private ArrayList<StaticItem> staticItems;
-    private ArrayList<PickupableItem> pickupableItems;
-    private Boolean exitSwitch;
-    private TextIO textIO;
+    private ArrayList<Game>                 games;
+    private ArrayList<Player>               players;
+    private ArrayList<InputValidator>       inputValidators;
+    private ArrayList<StoryTextOutput>      storyTextOutputs;
+    private ArrayList<Inventory>            inventories;
+    private ArrayList<Level>                levels;
+    private ArrayList<Room>                 rooms;
+    private ArrayList<StaticItem>           staticItems;
+    private ArrayList<PickupableItem>       pickupableItems;
+    private TextIO                          textIO;
     private TextTerminal<SwingTextTerminal> terminal;
-
-    public Initialisation() { this.exitSwitch = false; }
+    private Boolean                         exitSwitch = false;
 
     //Get Methods
-    public ArrayList<Game> getGames() { return games; }
-    public ArrayList<Player> getPlayers() { return players; }
-    public ArrayList<InputValidator> getInputValidators() { return inputValidators;}
-    public ArrayList<StoryTextOutput> getStoryTextOutputs() { return storyTextOutputs; }
-    public ArrayList<Inventory> getInventories() {return inventories;}
-    public ArrayList<Level> getLevels() { return levels; }
-    public ArrayList<Room> getRooms() { return rooms; }
-    public ArrayList<StaticItem> getStaticItems() { return staticItems; }
-    public ArrayList<PickupableItem> getPickupableItems() { return pickupableItems; }
-    public Boolean getExitSwitch() { return exitSwitch; }
-    public TextIO getTextIO() { return textIO; }
-    public TextTerminal<SwingTextTerminal> getTerminal() { return terminal; }
+    public ArrayList<Game>                  getGames()              { return games; }
+    public ArrayList<Player>                getPlayers()            { return players; }
+    public ArrayList<InputValidator>        getInputValidators()    { return inputValidators;}
+    public ArrayList<StoryTextOutput>       getStoryTextOutputs()   { return storyTextOutputs; }
+    public ArrayList<Inventory>             getInventories()        { return inventories;}
+    public ArrayList<Level>                 getLevels()             { return levels; }
+    public ArrayList<Room>                  getRooms()              { return rooms; }
+    public ArrayList<StaticItem>            getStaticItems()        { return staticItems; }
+    public ArrayList<PickupableItem>        getPickupableItems()    { return pickupableItems; }
+    public Boolean                          getExitSwitch()         { return exitSwitch; }
+    public TextIO                           getTextIO()             { return textIO; }
+    public TextTerminal<SwingTextTerminal>  getTerminal()           { return terminal; }
 
     //Set Methods
-    private void setGames(ArrayList<Game> games) { this.games = games; }
-    private void setPlayers(ArrayList<Player> players) { this.players = players; }
-    private void setInputValidators(ArrayList<InputValidator> inputValidators) { this.inputValidators = inputValidators; }
-    private void setStoryTextOutputs(ArrayList<StoryTextOutput> outputs) { this.storyTextOutputs = outputs; }
-    public void setInventories(ArrayList<Inventory> inventories) { this.inventories = inventories; }
-    private void setLevels(ArrayList<Level> levels) { this.levels = levels; }
-    private void setRooms(ArrayList<Room> rooms) { this.rooms = rooms; }
-    private void setStaticItems(ArrayList<StaticItem> staticItems) { this.staticItems = staticItems; }
-    private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){this.pickupableItems = pickupableItems;}
-    public void setExitSwitch(Boolean exitSwitch) { this.exitSwitch = exitSwitch; }
-    private void setTextIO(TextIO textIO) { this.textIO = textIO; }
-    private void setTerminal(TextTerminal<SwingTextTerminal> terminal) { this.terminal = terminal; }
+    private void setGames(ArrayList<Game> games)                              { this.games = games; }
+    private void setPlayers(ArrayList<Player> players)                        { this.players = players; }
+    private void setInputValidators(ArrayList<InputValidator> inputValidators){ this.inputValidators = inputValidators;}
+    private void setStoryTextOutputs(ArrayList<StoryTextOutput> outputs)      { this.storyTextOutputs = outputs; }
+    private void setInventories(ArrayList<Inventory> inventories)             { this.inventories = inventories; }
+    private void setLevels(ArrayList<Level> levels)                           { this.levels = levels; }
+    private void setRooms(ArrayList<Room> rooms)                              { this.rooms = rooms; }
+    private void setStaticItems(ArrayList<StaticItem> staticItems)            { this.staticItems = staticItems; }
+    private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){ this.pickupableItems = pickupableItems;}
+    private void setTextIO(TextIO textIO)                                     { this.textIO = textIO; }
+    private void setTerminal(TextTerminal<SwingTextTerminal> terminal)        { this.terminal = terminal; }
+    public  void setExitSwitch(Boolean exitSwitch)                            { this.exitSwitch = exitSwitch; }
 
     //Delete Method
-    public void deletePreviousLevel() { levels.remove(0); } //Bad name
-
+    public void deletePreviousLevel() { levels.remove(0); }
 
     /*
      * The following function is responsible for starting the entire game and as such overlooks class specific initialization functions.
@@ -114,10 +110,6 @@ public class Initialisation {
     private void initTextIO() {
         setTerminal(new SwingTextTerminal());
         setTextIO(new TextIO(getTerminal()));
-        /*
-        setTextIO(TextIoFactory.getTextIO());
-        setTerminal((TextTerminal<SwingTextTerminal>) textIO.getTextTerminal());
-         */
     }
 
     /*
@@ -127,7 +119,7 @@ public class Initialisation {
      * this part is responsible for determining how much of what there is.
      * (i.e. 1 player, 2 levels, and 20 rooms total)
      */
-    private ArrayList<Game> initializeGames() {
+    private ArrayList<Game>             initializeGames() {
         games = new ArrayList<>();
         Game game = new Game();
 
@@ -135,7 +127,7 @@ public class Initialisation {
 
         return games;
     }
-    private ArrayList<Player> initializePlayers() {
+    private ArrayList<Player>           initializePlayers() {
         players = new ArrayList<>();
         Player player = new Player();
 
@@ -143,7 +135,7 @@ public class Initialisation {
 
         return players;
     }
-    private ArrayList<InputValidator> initializeInputValidators() {
+    private ArrayList<InputValidator>   initializeInputValidators() {
         inputValidators = new ArrayList<>();
         InputValidator inputHandler = new InputValidator();
 
@@ -151,7 +143,7 @@ public class Initialisation {
 
         return inputValidators;
     }
-    private ArrayList<StoryTextOutput> initializeStoryTextOutputs() {
+    private ArrayList<StoryTextOutput>  initializeStoryTextOutputs() {
         ArrayList<StoryTextOutput> outputs = new ArrayList<>();
         StoryTextOutput storyTextOutput = new StoryTextOutput();
 
@@ -159,7 +151,7 @@ public class Initialisation {
 
         return outputs;
     }
-    private ArrayList<Inventory> initializeInventories() {
+    private ArrayList<Inventory>        initializeInventories() {
         inventories = new ArrayList<>();
         Inventory inventory = new Inventory();
 
@@ -167,7 +159,7 @@ public class Initialisation {
 
         return inventories;
     }
-    private ArrayList<Level> initializeLevels() {
+    private ArrayList<Level>            initializeLevels() {
         levels = new ArrayList<>();
         Level level1 = new Level();
         Level level2 = new Level();
@@ -177,7 +169,7 @@ public class Initialisation {
 
         return levels;
     }
-    private ArrayList<Room> initializeRooms() {
+    private ArrayList<Room>             initializeRooms() {
         rooms = new ArrayList<>();
         Room room1 = new Room();
         Room room2 = new Room();
@@ -189,7 +181,7 @@ public class Initialisation {
 
         return rooms;
     }
-    private ArrayList<StaticItem> initializeStaticItems() {
+    private ArrayList<StaticItem>       initializeStaticItems() {
         staticItems = new ArrayList<>();
         StaticItem staticItem1 = new StaticItem();
         StaticItem staticItem2 = new StaticItem();
@@ -201,7 +193,7 @@ public class Initialisation {
 
         return staticItems;
     }
-    private ArrayList<PickupableItem> initializePickupableItems() {
+    private ArrayList<PickupableItem>   initializePickupableItems() {
         pickupableItems = new ArrayList<>();
         PickupableItem pickupableItem = new PickupableItem();
 

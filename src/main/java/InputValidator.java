@@ -4,7 +4,6 @@ import org.beryx.textio.swing.SwingTextTerminal;
 import java.util.ArrayList;
 
 public class InputValidator {
-    //Attributes
     private final ArrayList<String> listOfValidWords = new ArrayList<>();
     private int totalDirInInput = 0;
     private int totalPItemsInInput = 0;
