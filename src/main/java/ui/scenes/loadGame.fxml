@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.loadGame">
+<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.controllers.LoadGame">
     <children>
         <Region VBox.vgrow="ALWAYS" />
         <HBox>

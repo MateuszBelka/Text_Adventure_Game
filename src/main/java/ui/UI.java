@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,7 +18,7 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL welcomeURL = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
+        URL welcomeURL = new File("src/main/java/UI/scenes/welcome.fxml").toURI().toURL();
         Parent welcomeParent = FXMLLoader.load(welcomeURL);
         Scene welcomeScene = new Scene (welcomeParent, 960, 720);
 

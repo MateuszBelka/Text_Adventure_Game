@@ -1,4 +1,4 @@
-package UI.Controllers;
+package ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +11,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class newGame {
-    public void createGameButtonClicked(ActionEvent actionEvent) {
+public class LoadGame {
+    public void autoSaveButtonClicked(ActionEvent actionEvent) {
         System.out.println("Feature not ready!");
     }
 
-    public void selectExistingGameButtonClicked(ActionEvent actionEvent) {
+    public void selectExistingSaveButtonClicked(ActionEvent actionEvent) {
         System.out.println("Feature not ready!");
     }
 
