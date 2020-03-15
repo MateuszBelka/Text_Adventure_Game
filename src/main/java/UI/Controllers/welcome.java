@@ -1,4 +1,4 @@
-package UI.Controllers;
+package ui.controllers;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -11,10 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class welcome {
+public class Welcome {
     public void newGameButtonClicked(ActionEvent actionEvent) {
         try {
-            URL newGameURL = new File("src/main/java/UI/Scenes/newGame.fxml").toURI().toURL();
+            URL newGameURL = new File("src/main/java/UI/scenes/NewGame.fxml").toURI().toURL();
             Parent newGameParent = FXMLLoader.load(newGameURL);
             Scene newGameScene = new Scene (newGameParent, 960, 720);
             Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
@@ -26,7 +26,7 @@ public class welcome {
 
     public void loadGameButtonClicked(ActionEvent actionEvent) {
         try {
-            URL loadGameURL = new File("src/main/java/UI/Scenes/loadGame.fxml").toURI().toURL();
+            URL loadGameURL = new File("src/main/java/UI/scenes/LoadGame.fxml").toURI().toURL();
             Parent loadGameParent = FXMLLoader.load(loadGameURL);
             Scene loadGameScene = new Scene (loadGameParent, 960, 720);
             Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
