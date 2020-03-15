@@ -18,10 +18,12 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL url = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
+        URL welcomeURL = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
+        Parent welcomeParent = FXMLLoader.load(welcomeURL);
+        Scene welcomeScene = new Scene (welcomeParent, 960, 720);
+
         primaryStage.setTitle("VU Quest");
-        primaryStage.setScene(new Scene(root, 960, 720));
+        primaryStage.setScene(welcomeScene);
         primaryStage.show();
     }
 }

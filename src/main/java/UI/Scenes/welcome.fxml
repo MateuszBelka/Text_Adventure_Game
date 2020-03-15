@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Controllers.welcome">
    <children>
       <Region VBox.vgrow="ALWAYS" />
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -27,15 +27,15 @@
             <Region HBox.hgrow="ALWAYS" />
             <VBox minHeight="-Infinity" minWidth="-Infinity" spacing="50.0" HBox.hgrow="NEVER">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="New Game">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGameButtonClicked" prefHeight="60.0" prefWidth="200.0" text="New Game">
                      <font>
                         <Font size="30.0" />
                      </font></Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Load Game">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadGameButtonClicked" prefHeight="60.0" prefWidth="200.0" text="Load Game">
                      <font>
                         <Font size="30.0" />
                      </font></Button>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="200.0" text="Quit">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="60.0" prefWidth="200.0" text="Quit">
                      <font>
                         <Font size="30.0" />
                      </font></Button>
