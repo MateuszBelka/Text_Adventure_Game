@@ -29,8 +29,8 @@ public class UI extends Application {
         primaryStage.show();
     }
 
-    public static void changeToNewScene(String file_with_new_scene, ActionEvent actionEvent) throws IOException {
-        URL newSceneURL = new File(file_with_new_scene).toURI().toURL();
+    public static void changeToNewScene(String newSceneContentsFile, ActionEvent actionEvent) throws IOException {
+        URL newSceneURL = new File(newSceneContentsFile).toURI().toURL();
         Parent newSceneParent = FXMLLoader.load(newSceneURL);
         Scene newScene = new Scene (newSceneParent, 960, 720);
 
