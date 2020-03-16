@@ -20,15 +20,11 @@ public class LoadGame {
         System.out.println("Feature not ready!");
     }
 
-    public void backButtonClicked(ActionEvent actionEvent) {
-        try {
-            URL welcomeURL = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
-            Parent welcomeParent = FXMLLoader.load(welcomeURL);
-            Scene welcomeScene = new Scene (welcomeParent, 960, 720);
-            Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-            primaryStage.setScene(welcomeScene);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public void backButtonClicked(ActionEvent actionEvent) throws IOException {
+        URL welcomeURL = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
+        Parent welcomeParent = FXMLLoader.load(welcomeURL);
+        Scene welcomeScene = new Scene (welcomeParent, 960, 720);
+        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        primaryStage.setScene(welcomeScene);
     }
 }

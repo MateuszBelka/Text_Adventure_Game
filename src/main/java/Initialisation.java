@@ -1,14 +1,7 @@
 import org.beryx.textio.TextIO;
 import org.beryx.textio.TextTerminal;
 import org.beryx.textio.swing.SwingTextTerminal;
-
 import java.util.ArrayList;
-
-/* Potential issue:
- * Make sure all ArrayList are initialized,
- * otherwise you might end up trying to add item to
- * a list that doesn't exist yet.
- */
 
 public class Initialisation {
     //Variable Declaration
@@ -21,8 +14,6 @@ public class Initialisation {
     private ArrayList<Room>                 rooms;
     private ArrayList<StaticItem>           staticItems;
     private ArrayList<PickupableItem>       pickupableItems;
-    private TextIO                          textIO;
-    private TextTerminal<SwingTextTerminal> terminal;
     private Boolean                         exitSwitch = false;
 
     //Get Methods
@@ -36,8 +27,6 @@ public class Initialisation {
     public ArrayList<StaticItem>            getStaticItems()        { return staticItems; }
     public ArrayList<PickupableItem>        getPickupableItems()    { return pickupableItems; }
     public Boolean                          getExitSwitch()         { return exitSwitch; }
-    public TextIO                           getTextIO()             { return textIO; }
-    public TextTerminal<SwingTextTerminal>  getTerminal()           { return terminal; }
 
     //Set Methods
     private void setGames(ArrayList<Game> games)                              { this.games = games; }
@@ -49,8 +38,6 @@ public class Initialisation {
     private void setRooms(ArrayList<Room> rooms)                              { this.rooms = rooms; }
     private void setStaticItems(ArrayList<StaticItem> staticItems)            { this.staticItems = staticItems; }
     private void setPickupableItems(ArrayList<PickupableItem> pickupableItems){ this.pickupableItems = pickupableItems;}
-    private void setTextIO(TextIO textIO)                                     { this.textIO = textIO; }
-    private void setTerminal(TextTerminal<SwingTextTerminal> terminal)        { this.terminal = terminal; }
     public  void setExitSwitch(Boolean exitSwitch)                            { this.exitSwitch = exitSwitch; }
 
     //Delete Method
@@ -65,12 +52,6 @@ public class Initialisation {
      * an object that has not yet been initialized.
      */
     public void initializeEntireSystem() {
-        /*
-         * Creates instances of relevant GUI classes which replace System.out calls.
-         * They allow the jar file to be launched without a terminal as the library provides one.
-         */
-        initTextIO();
-
         /*
          * Initializes all of the classes used in our system.
          *
@@ -101,15 +82,6 @@ public class Initialisation {
         configureInventories();
         configureGames();
         configurePlayers();
-    }
-
-    /*
-     * Create instances of relevant GUI classes which replace System.out calls.
-     * They allow the jar file to be launched without a terminal as the library provides one.
-     */
-    private void initTextIO() {
-        setTerminal(new SwingTextTerminal());
-        setTextIO(new TextIO(getTerminal()));
     }
 
     /*
