@@ -6,13 +6,27 @@ public class Player {
     private Room currentRoom;
     private Level currentLevel;
     private Inventory inventory;
+    private int currentXP;
+    private int maximumXP;
+    private int playerLevel;
 
+    public Player() {
+        currentXP = 0;
+        maximumXP = 100;
+        playerLevel = 1;
+    }
     //Set Methods
     public void setCurrentLevel(Level currentLevel) { this.currentLevel = currentLevel; }
 
     public void setCurrentRoom(Room currentRoom) { this.currentRoom = currentRoom; }
 
     public void setInventory(Inventory inventory) { this.inventory = inventory;}
+
+    public void setCurrentXP(int currentXP) {this.currentXP = currentXP;}
+
+    public void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
+
+    public void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
 
     //Player actions
     public void movePlayer(String dirToMove){
@@ -36,6 +50,7 @@ public class Player {
         StaticItem staticItemToAction = currentRoom.getStaticItemByName(nameOfStaticItemToAction);
         currentRoom.deleteStaticItemFromList(staticItemToAction);
         getCurrentLevel().decreasePuzzlesLeftToSolve();
+        increaseCurrentXP();
     }
 
     public void usePickupableItemOnStaticItem(String pItem, String sItem){
@@ -48,7 +63,26 @@ public class Player {
         getCurrentRoom().deleteStaticItemFromList(staticItem);
         inventory.deleteItemFromInventory(pickupableItem);
         getCurrentLevel().decreasePuzzlesLeftToSolve();
+        increaseCurrentXP();
     }
+
+    public void increaseCurrentXP() {
+        final int increaseCurrentXPby = getMaximumXP() / (getPlayerLevel() * 30); //this
+        final int newCurrentXP = getCurrentXP() + increaseCurrentXPby;
+
+        if (newCurrentXP < getMaximumXP()) { //when updated xp < max xp
+            setCurrentXP(newCurrentXP);
+        }
+        else {
+            setCurrentXP(newCurrentXP-getMaximumXP()); //when updated xp >= max xp
+            incrementPlayerLevel();
+            increaseMaximumXP();
+        }
+    }
+
+    public void incrementPlayerLevel() { setPlayerLevel(getPlayerLevel() + 1); }
+
+    public void increaseMaximumXP() { setMaximumXP(getPlayerLevel() * getMaximumXP()); }
 
     //Get Methods
     public Level getCurrentLevel() { return currentLevel; }
@@ -56,6 +90,12 @@ public class Player {
     public Room getCurrentRoom() { return currentRoom; }
 
     public Inventory getInventory() { return inventory; }
+
+    private int getCurrentXP() {return currentXP;}
+
+    private int getMaximumXP() {return maximumXP;}
+
+    private int getPlayerLevel() {return playerLevel;}
 
     public void progressPlayer (Initialisation init, TextTerminal<SwingTextTerminal> terminal){
         ArrayList<Level> levels = init.getLevels();
