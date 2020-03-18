@@ -7,13 +7,13 @@ public class Player {
     private Level currentLevel;
     private Inventory inventory;
     private int currentXP;
-    private int maxXP;
+    private int maximumXP;
     private int currentHealth;
     private int maxHealth;
     private int currentHunger;
     private int maxHunger;
 
-    private int HUNGER_DAMAGE
+    private int HUNGER_DAMAGE;
     private int playerLevel;
 
     public Player() {
@@ -40,8 +40,6 @@ public class Player {
     public void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
 
     public void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
-
-    }
 
     //Player actions
     public void movePlayer(String dirToMove){
@@ -97,17 +95,17 @@ public class Player {
 
     public void decreaseHealth(int i) {
     // decreases healthPoints
-        setCurrentHealth(getCurrentHealth - i);
+        setCurrentHealth(getCurrentHealth() - i);
     }
 
     public void CheckHungerLevel() {
     // decreases healthPoints based on hungerLevel
-        if (hungerLevel <= 50) {
+        if (getCurrentHunger() <= 50) {
             decreaseHealth(HUNGER_DAMAGE);
 
         }
         // notifies player of death, reverts game back to previous save?
-        if (currentHealth <= 0) {
+        if (getCurrentHealth() <= 0) {
              ///revert back to previous save?
         }
     }
@@ -119,8 +117,6 @@ public class Player {
     public void increaseHealth ( int i){
     // increases healthPoints after eating food
         setCurrentHealth(getCurrentHealth()+i);
-
-        }
     }
 
     public void incrementPlayerLevel() { setPlayerLevel(getPlayerLevel() + 1); }
@@ -141,6 +137,8 @@ public class Player {
     private int getMaximumXP() {return maximumXP;}
 
     private int getPlayerLevel() {return playerLevel;}
+
+    private int getCurrentHunger() {return currentHunger;}
 
     public void progressPlayer (Initialisation init, TextTerminal<SwingTextTerminal> terminal){
         ArrayList<Level> levels = init.getLevels();
