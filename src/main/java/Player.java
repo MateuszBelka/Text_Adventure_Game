@@ -1,5 +1,3 @@
-import org.beryx.textio.TextTerminal;
-import org.beryx.textio.swing.SwingTextTerminal;
 import java.util.ArrayList;
 
 public class Player {
@@ -140,14 +138,14 @@ public class Player {
 
     private int getCurrentHunger() {return currentHunger;}
 
-    public void progressPlayer (Initialisation init, TextTerminal<SwingTextTerminal> terminal){
+    public void progressPlayer (Initialisation init){
         ArrayList<Level> levels = init.getLevels();
-        if (levels.size() == 1){ terminal.printf("Game Completed!\n"); }
+        if (levels.size() == 1){ System.out.println("Game Completed!\n"); }
         else {
             currentLevel = levels.get(1);
             currentRoom = currentLevel.getListOfRooms().get(0);
             currentLevel.updatePuzzlesLeftToSolve();
-            terminal.printf("Level Completed!\n");
+            System.out.println("Level Completed!\n");
             init.deletePreviousLevel();
         }
     }
