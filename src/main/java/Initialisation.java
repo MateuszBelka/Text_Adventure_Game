@@ -1,6 +1,3 @@
-import org.beryx.textio.TextIO;
-import org.beryx.textio.TextTerminal;
-import org.beryx.textio.swing.SwingTextTerminal;
 import java.util.ArrayList;
 
 public class Initialisation {

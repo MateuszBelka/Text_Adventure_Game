@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ui.UI;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,10 +22,6 @@ public class LoadGame {
     }
 
     public void backButtonClicked(ActionEvent actionEvent) throws IOException {
-        URL welcomeURL = new File("src/main/java/UI/Scenes/welcome.fxml").toURI().toURL();
-        Parent welcomeParent = FXMLLoader.load(welcomeURL);
-        Scene welcomeScene = new Scene (welcomeParent, 960, 720);
-        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setScene(welcomeScene);
+        UI.changeToNewScene("src/main/resources/fxml/welcome.fxml", actionEvent);
     }
 }

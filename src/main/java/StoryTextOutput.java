@@ -1,6 +1,3 @@
-import org.beryx.textio.TextTerminal;
-import org.beryx.textio.swing.SwingTextTerminal;
-
 import java.util.ArrayList;
 
 public class StoryTextOutput {
@@ -34,14 +31,14 @@ public class StoryTextOutput {
     }
 
     //Main Method
-    public void setAndPrintAndClearStoryText(Player player, TextTerminal<SwingTextTerminal> terminal){
+    public void setAndPrintAndClearStoryText(Player player){
         //Sets the strings to the arraylist (according to enterLevel attribute of player's current level),
         //Prints arraylist,
         //Clears arraylist.
         if (player.getCurrentLevel().switchEnterLevel()){ loadTextForStartOfLevel(player); }
         else loadTextForRoomAndItems(player);
 
-        for(String line : storyText){ terminal.printf("%s\n", line); }
+        for(String line : storyText){ System.out.println(line + "\n"); }
 
         resetStoryText();
     }
