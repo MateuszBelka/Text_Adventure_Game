@@ -15,15 +15,15 @@ import ui.*;
 
 public class Welcome {
     public void newGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        UI.changeToNewScene("src/main/java/UI/scenes/newGame.fxml", actionEvent);
+//        UI.changeToNewScene("src/main/java/UI/scenes/newGame.fxml", actionEvent);
     }
 
     public void loadGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        UI.changeToNewScene("src/main/java/UI/scenes/loadGame.fxml", actionEvent);
+//        UI.changeToNewScene("src/main/java/UI/scenes/loadGame.fxml", actionEvent);
     }
 
     public void quitButtonClicked(ActionEvent actionEvent) {
-        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        primaryStage.close();
+//        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+//        primaryStage.close();
     }
 }
