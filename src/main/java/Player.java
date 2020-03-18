@@ -7,12 +7,23 @@ public class Player {
     private Level currentLevel;
     private Inventory inventory;
     private int currentXP;
-    private int maximumXP;
+    private int maxXP;
+    private int currentHealth;
+    private int maxHealth;
+    private int currentHunger;
+    private int maxHunger;
+
+    private int HUNGER_DAMAGE
     private int playerLevel;
 
     public Player() {
+
         currentXP = 0;
         maximumXP = 100;
+        maxHealth = 100;
+        maxHunger = 100;
+        currentHunger = 0;
+        currentHealth = maxHealth;
         playerLevel = 1;
     }
     //Set Methods
@@ -26,7 +37,11 @@ public class Player {
 
     public void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
 
+    public void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
+
     public void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
+
+    }
 
     //Player actions
     public void movePlayer(String dirToMove){
@@ -80,6 +95,34 @@ public class Player {
         }
     }
 
+    public void decreaseHealth(int i) {
+    // decreases healthPoints
+        setCurrentHealth(getCurrentHealth - i);
+    }
+
+    public void CheckHungerLevel() {
+    // decreases healthPoints based on hungerLevel
+        if (hungerLevel <= 50) {
+            decreaseHealth(HUNGER_DAMAGE);
+
+        }
+        // notifies player of death, reverts game back to previous save?
+        if (currentHealth <= 0) {
+             ///revert back to previous save?
+        }
+    }
+
+    public void eatFood(int foodPoints) { //placeholder for now
+        increaseHealth(foodPoints);
+    }
+
+    public void increaseHealth ( int i){
+    // increases healthPoints after eating food
+        setCurrentHealth(getCurrentHealth()+i);
+
+        }
+    }
+
     public void incrementPlayerLevel() { setPlayerLevel(getPlayerLevel() + 1); }
 
     public void increaseMaximumXP() { setMaximumXP(getPlayerLevel() * getMaximumXP()); }
@@ -90,6 +133,8 @@ public class Player {
     public Room getCurrentRoom() { return currentRoom; }
 
     public Inventory getInventory() { return inventory; }
+
+    private int getCurrentHealth() {return currentHealth;}
 
     private int getCurrentXP() {return currentXP;}
 
