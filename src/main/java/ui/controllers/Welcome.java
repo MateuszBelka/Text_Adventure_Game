@@ -11,21 +11,15 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
+import ui.*;
+
 public class Welcome {
     public void newGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        URL newGameURL = new File("src/main/java/UI/scenes/newGame.fxml").toURI().toURL();
-        Parent newGameParent = FXMLLoader.load(newGameURL);
-        Scene newGameScene = new Scene (newGameParent, 960, 720);
-        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setScene(newGameScene);
+        UI.changeToNewScene("src/main/resources/fxml/newGame.fxml", actionEvent);
     }
 
     public void loadGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        URL loadGameURL = new File("src/main/java/UI/scenes/loadGame.fxml").toURI().toURL();
-        Parent loadGameParent = FXMLLoader.load(loadGameURL);
-        Scene loadGameScene = new Scene (loadGameParent, 960, 720);
-        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-        primaryStage.setScene(loadGameScene);
+        UI.changeToNewScene("src/main/resources/fxml/loadGame.fxml", actionEvent);
     }
 
     public void quitButtonClicked(ActionEvent actionEvent) {

@@ -1,6 +1,3 @@
-import org.beryx.textio.TextTerminal;
-import org.beryx.textio.swing.SwingTextTerminal;
-
 import java.util.ArrayList;
 
 public class InputValidator {
@@ -12,16 +9,15 @@ public class InputValidator {
     private String input;
     private Player player;
     private Room currentRoom;
-    private TextTerminal<SwingTextTerminal> terminal;
 
     //Main Method
-    public void validateInput(String input, Player player, TextTerminal<SwingTextTerminal> terminal) {
+    public void validateInput(String input, Player player) {
         //Resets and appoints values to attributes.
         //Proceeds to validate input.
         // Checks for logical validation.
         // If all goes through, passes that input to player, through method calls.
         resetInputHandlerVariables();
-        updateInputHandlerVariables(input, player, terminal);
+        updateInputHandlerVariables(input, player);
         inputValidator();
         logicValidator();
         passInput();
@@ -36,12 +32,11 @@ public class InputValidator {
         listOfValidWords.clear();
     }
 
-    private void updateInputHandlerVariables(String input, Player player, TextTerminal<SwingTextTerminal> terminal){
+    private void updateInputHandlerVariables(String input, Player player){
         //Updates attributes (that are used to lessen down the amount of parameters passed in this class)
         this.input = input;
         this.player = player;
         currentRoom = player.getCurrentRoom();
-        this.terminal = terminal;
     }
 
     //Word Input Validation Methods
@@ -177,29 +172,29 @@ public class InputValidator {
                 //If item is not found in the list of current room, input is invalid.
                 //TODO: If we want to use an item in inventory (food/drink), here should be the place to start.
                 if (itemToPickUp == null) {typeOfInput = 0;}
-                else { terminal.printf("%s\n", itemToPickUp.getTextForItemPickedUp()); }
+                else { System.out.println(itemToPickUp.getTextForItemPickedUp() + "\n"); }
                 break;
             case 3:
                 StaticItem itemToAction = currentRoom.getStaticItemByName(listOfValidWords.get(0));
                 if (!itemToAction.isActionable()){
-                    terminal.printf("HINT : This item needs another item.\n");
+                    System.out.println("HINT : This item needs another item.\n");
                     typeOfInput = 0;
                 }
-                else {terminal.printf("%s\n", itemToAction.getTextForPuzzleSolved());}
+                else { System.out.println(itemToAction.getTextForPuzzleSolved() + "\n"); }
                 break;
             case 4:
                 orderItems(listOfValidWords.get(0), listOfValidWords.get(1));
                 StaticItem staticItem = currentRoom.getStaticItemByName(listOfValidWords.get(1));
                 PickupableItem pickupableItem = player.getInventory().getItemByName(listOfValidWords.get(0));
                 if (staticItem.getNeedsItem() == null) {
-                    terminal.printf("This item needs no other item.\n");
+                    System.out.println("This item needs no other item.\n");
                     typeOfInput = 0;
                 }
                 else if (!staticItem.getNeedsItem().equals(pickupableItem)){
-                    terminal.printf("Wrong item used on item.\n");
+                    System.out.println("Wrong item used on item.\n");
                     typeOfInput = 0;
                 }
-                else { terminal.printf("%s\n", staticItem.getTextForPuzzleSolved()); }
+                else { System.out.println(staticItem.getTextForPuzzleSolved() + "\n"); }
                 break;
             default:
         }

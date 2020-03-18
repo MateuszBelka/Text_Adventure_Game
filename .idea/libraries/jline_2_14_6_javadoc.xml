@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jline-2.14.6-javadoc">
-    <CLASSES />
-    <JAVADOC>
-      <root url="jar://$PROJECT_DIR$/lib/jline-2.14.6-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES />
-  </library>
-</component>
