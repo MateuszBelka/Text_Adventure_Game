@@ -25,28 +25,13 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL welcomeURL = new File("src/main/resources/fxml/welcome.fxml").toURI().toURL();
+        URL welcomeURL = new File("src/main/resources/fxml/adventure.fxml").toURI().toURL();
         Parent welcomeParent = FXMLLoader.load(welcomeURL);
         Scene welcomeScene = new Scene (welcomeParent, 960, 720);
 
         primaryStage.setTitle("VU Quest");
         primaryStage.setScene(welcomeScene);
         primaryStage.show();
-//        primaryStage.setTitle("Hello World!");
-//        Button btn = new Button();
-//        btn.setText("Say 'Hello World'");
-//        btn.setOnAction(new EventHandler<ActionEvent>() {
-//
-//            @Override
-//            public void handle(ActionEvent event) {
-//                System.out.println("Hello World!");
-//            }
-//        });
-//
-//        StackPane root = new StackPane();
-//        root.getChildren().add(btn);
-//        primaryStage.setScene(new Scene(root, 300, 250));
-//        primaryStage.show();
     }
 
     public static void changeToNewScene(String newSceneContentsFile, ActionEvent actionEvent) throws IOException {
