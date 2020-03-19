@@ -11,8 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-//Requires JDK 11+ to run
-
 public class UI extends Application {
 
     private static FXMLLoader loader;
