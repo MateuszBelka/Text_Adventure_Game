@@ -25,6 +25,7 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        //Temporarily set to adventure to try out new work in progress features.
         URL welcomeURL = new File("src/main/resources/fxml/adventure.fxml").toURI().toURL();
         loader = new FXMLLoader();
         loader.setLocation(welcomeURL);
