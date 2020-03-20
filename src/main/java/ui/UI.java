@@ -25,7 +25,7 @@ public class UI extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        URL welcomeURL = new File("src/main/resources/fxml/welcome.fxml").toURI().toURL();
+        URL welcomeURL = new File("src/main/resources/fxml/adventure.fxml").toURI().toURL();
         loader = new FXMLLoader();
         loader.setLocation(welcomeURL);
         Scene welcomeScene = new Scene (loader.load(), 960, 720);
