@@ -1,7 +1,12 @@
 /*
- * It should not be necessary to change any variable from private to public.
- * The GetSet Methods provide this functionality.
- * If you need one of them in your class, you can switch the specific method to public.
+ * We've decided to change our project structure to utilize
+ * packages for Assignment 3.
+ *
+ * The following file is temporary and will be removed
+ * when it's functionality is copied by corresponding new file.
+ *
+ * Due to this work in progress currently only UI part of our code fully works.
+ * That includes initial framework for IO.
  */
 
 public class StaticItem {

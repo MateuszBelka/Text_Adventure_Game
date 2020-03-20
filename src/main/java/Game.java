@@ -1,3 +1,14 @@
+/*
+ * We've decided to change our project structure to utilize
+ * packages for Assignment 3.
+ *
+ * The following file is temporary and will be removed
+ * when it's functionality is copied by corresponding new file.
+ *
+ * Due to this work in progress currently only UI part of our code fully works.
+ * That includes initial framework for IO.
+ */
+
 import java.util.ArrayList;
 
 public class Game {
