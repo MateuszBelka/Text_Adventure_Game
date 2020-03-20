@@ -9,7 +9,7 @@ public class Main {
         Initialisation init = new Initialisation();
         init.initializeEntireSystem();
 
-        deserializeJSON();
+        deserializeJSONdemo();
 
         /* DEV NOTE:
          * Keep in mind that nothing after this line of code will be executed.
@@ -19,7 +19,10 @@ public class Main {
         UI.run();
     }
 
-    private static void deserializeJSON() {
+    /* Temporary method which is meant to test
+     * the functionality of reading information from JSON file.
+     */
+    private static void deserializeJSONdemo() {
         InputStream in = null;
         try {
             URL url = new File ("src/main/resources/json/sample.json").toURI().toURL();
