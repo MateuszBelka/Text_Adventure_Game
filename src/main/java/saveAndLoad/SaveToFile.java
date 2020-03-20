@@ -1,5 +1,6 @@
 package saveAndLoad;
 
+import com.google.gson.Gson;
 import initialisation.CollectionOfAllClasses;
 
 import java.io.FileWriter;
