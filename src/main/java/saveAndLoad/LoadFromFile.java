@@ -1,5 +1,6 @@
 package saveAndLoad;
 
+import com.google.gson.Gson;
 import initialisation.CollectionOfAllClasses;
 
 import java.io.File;
@@ -31,10 +32,8 @@ public class LoadFromFile {
     }
 
     private CollectionOfAllClasses deserialize(String jsonFile) {
-//        Gson gson = new Gson();
-//        return gson.fromJson(jsonFile, CollectionOfAllClasses.class);
-        CollectionOfAllClasses collection = new CollectionOfAllClasses("Norman");
-        return collection;
+        Gson gson = new Gson();
+        return gson.fromJson(jsonFile, CollectionOfAllClasses.class);
     }
 }
 
