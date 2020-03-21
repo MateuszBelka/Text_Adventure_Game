@@ -38,27 +38,3 @@ X
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-[
-+.idea/libraries/awt_color_factory_1_0_1.xml,6\2\626f0837c4743381d85e82d510b8a617e058175b
-c
-3.idea/libraries/awt_color_factory_1_0_1_javadoc.xml,8\1\81425ed410159a72169b004ea20d786f5ba62ade
-c
-3.idea/libraries/awt_color_factory_1_0_1_sources.xml,2\1\21a0d9dc47423fdeac53a63f536c0035a96d3328
-P
- .idea/libraries/jline_2_14_6.xml,0\d\0d90fb6ef50bbb6fe0175bf4562bb99986a5a882
-X
-(.idea/libraries/jline_2_14_6_javadoc.xml,6\c\6c8070decc3bc8d2184b39f80b9b62356ee9c4d1
-X
-(.idea/libraries/jline_2_14_6_sources.xml,c\a\cab1a6b24b090423e9cb9d9869a4099bee58b5b1
-T
-$.idea/libraries/slf4j_api_1_7_29.xml,4\e\4ecc4ad8b1ccd3b024979bff56b63e5a8d3838f1
-\
-,.idea/libraries/slf4j_api_1_7_29_javadoc.xml,e\f\ef3ca8877dbb0db3682e838aa5a9f9cc9cc620ef
-\
-,.idea/libraries/slf4j_api_1_7_29_sources.xml,6\0\6027c14a3e7f6a6a2f1f4ff5f2bdf0f084660a06
-Q
-!.idea/libraries/text_io_3_4_0.xml,e\2\e29092e4a9e138652fb80a34db8dc78b5ddbb87b
-Y
-).idea/libraries/text_io_3_4_0_javadoc.xml,d\2\d282f947e7143ee3d3db8615dbe8f136a025aaec
-Y
-).idea/libraries/text_io_3_4_0_sources.xml,9\0\9082915638ac6512c81f767ed2a3dc32387ef7f0
