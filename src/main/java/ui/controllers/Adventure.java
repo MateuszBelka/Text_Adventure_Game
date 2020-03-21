@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import initialisation.CollectionOfAllClasses;
 import storyText.StoryTextPrinter;
-import input.CommandHandler;
+import input.commands.CommandHandler;
 
 import java.net.URL;
 import java.util.ResourceBundle;
