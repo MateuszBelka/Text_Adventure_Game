@@ -31,6 +31,20 @@ abstract public class Entity {
     Boolean canBeCutWithItem = false;
     Boolean canBeTurnedOn = false;
     Boolean canBeTurnedOff = false;
+    Boolean firstTimeEnteringLocation = true;
+
+    public boolean descriptionPrintedOnce (){
+        if (firstTimeEnteringLocation.equals(true)){
+            firstTimeEnteringLocation = false;
+            return true;
+        }
+        return firstTimeEnteringLocation;
+    }
+
+    public void puzzleCompleted (){
+        description = descriptionAfterPuzzleComplete;
+
+    }
 
     public void setDescriptionAfterCommand(HashMap<String, String> descriptionAfterCommand) {
         this.descriptionAfterCommand = descriptionAfterCommand;

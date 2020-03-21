@@ -26,6 +26,18 @@ public class Player {
     private int playerLevel;
 
     public Player() {
+        /*
+        * Hi Valeriya,
+        * Nice work on XP and health and hunger!
+        * A quick moment for learning:
+        * Your method here, is called Player, and does not do anything besides
+        * changing the variables of the class. I think your intention was to
+        * have a steady place for initialisation, and a second place for declaration.
+        * That is fine :) Just rename the method into something else, like "initialisePlayer".
+        *
+        * I've moved the functions to the new Player class location, and made a few changes.
+        * Keep up the good work! :)
+        * */
 
         currentXP = 0;
         maximumXP = 100;
