@@ -25,7 +25,7 @@ public class Main {
     private static void deserializeJSONdemo() {
         InputStream in = null;
         try {
-            URL url = new File ("src/main/resources/json/sample.json").toURI().toURL();
+            URL url = Main.class.getResource("/json/sample.json");
             in = url.openStream();
         } catch (Exception e) {
             e.printStackTrace();

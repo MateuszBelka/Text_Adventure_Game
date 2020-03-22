@@ -22,6 +22,6 @@ public class LoadGame {
     }
 
     public void backButtonClicked(ActionEvent actionEvent) throws IOException {
-        UI.changeToNewScene("src/main/resources/fxml/welcome.fxml", actionEvent);
+        UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
     }
 }
