@@ -31,7 +31,10 @@ abstract public class Entity {
     Boolean canBeCutWithItem = false;
     Boolean canBeTurnedOn = false;
     Boolean canBeTurnedOff = false;
+    Boolean canBeGivenTo = false;
+    Boolean canBeUsedOnNPC = false;
     Boolean firstTimeEnteringLocation = true;
+
 
     public boolean descriptionPrintedOnce (){
         if (firstTimeEnteringLocation.equals(true)){
@@ -68,6 +71,14 @@ abstract public class Entity {
 
     public String getName() {
         return name;
+    }
+
+    public Boolean getCanBeGivenTo() {
+        return canBeGivenTo;
+    }
+
+    public Boolean getCanBeUsedOnNPC() {
+        return canBeUsedOnNPC;
     }
 
     public Boolean getCanBeDropped() {
@@ -268,5 +279,13 @@ abstract public class Entity {
 
     public void setTextForTalking(String textForTalking) {
         this.textForTalking = textForTalking;
+    }
+
+    public void setCanBeGivenTo(Boolean canBeGivenTo) {
+        this.canBeGivenTo = canBeGivenTo;
+    }
+
+    public void setCanBeUsedOnNPC(Boolean canBeUsedOnNPC) {
+        this.canBeUsedOnNPC = canBeUsedOnNPC;
     }
 }
