@@ -1,8 +1,8 @@
 package saveAndLoad;
 
-
 /*
  * Gson doesn't natively support saving variables which pointer is used by multiple classes.
+ * Keywords: Gson, graph of objects
  *
  * Example:
  * public class classA {
@@ -31,12 +31,22 @@ package saveAndLoad;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import gameElements.levelAndContents.Item;
+import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
+import gameElements.levelAndContents.NPC;
+import gameElements.player.Inventory;
 import gameElements.player.Player;
+import gameElements.player.PlayerProgression;
 import initialisation.CollectionOfAllClasses;
+import storyText.StoryTextGetter;
+import sun.plugin2.message.GetAppletMessage;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Load {
 
@@ -95,51 +105,115 @@ public class Load {
         connectPlayerToInventory();
         connectStoryTextGetterToPlayer();
         connectPlayerProgressToPlayer();
-        connectLevelToLocation();
-        connectLocationToItems();
-        connectLocationToNPCs();
-        connectLocationToHashMap();
+        connectLevelsToLocation();
+        connectLocationsToItems();
+        connectLocationsToNPCs();
+        connectLocationsToHashMap();
     }
 
     private void connectPlayerToLocation() {
         Player player = CollectionOfAllClasses.getPlayer();
         for (Location location : CollectionOfAllClasses.getLocations()) {
-            //if (player.getCurrentLocationID() == location.get)
+            if (player.getCurrentLocationID() == location.getId()) {
+                player.setCurrentLocation(location);
+            }
         }
     }
 
     private void connectPlayerToLevel() {
-
+        Player player = CollectionOfAllClasses.getPlayer();
+        for (Level level : CollectionOfAllClasses.getLevels()) {
+            if (player.getCurrentLevelID() == level.getId()) {
+                player.setCurrentLevel(level);
+            }
+        }
     }
 
     private void connectPlayerToInventory() {
+        Player player = CollectionOfAllClasses.getPlayer();
+        Inventory inv = CollectionOfAllClasses.getInventory();
 
+        player.setInventory(inv);
     }
 
     private void connectStoryTextGetterToPlayer() {
+        StoryTextGetter getter = CollectionOfAllClasses.getStoryTextGetter();
+        Player player = CollectionOfAllClasses.getPlayer();
 
+        getter.setPlayer(player);
     }
 
     private void connectPlayerProgressToPlayer() {
+        PlayerProgression progression = CollectionOfAllClasses.getPlayerProgression();
+        Player player = CollectionOfAllClasses.getPlayer();
 
+        progression.setPlayer(player);
     }
 
-    private void connectLevelToLocation() {
-
+    // Connect all levels to their starting locations
+    private void connectLevelsToLocation() {
+        // Loop through all levels in the game
+        for (Level level : CollectionOfAllClasses.getLevels()) {
+            // Go through all location until we find the one that is i's level starting location
+            for (Location location : CollectionOfAllClasses.getLocations()) {
+                if (level.getStartLocationID() == location.getId()) {
+                    level.setStartLocation(location);
+                    break;
+                }
+            }
+        }
     }
 
-    private void connectLocationToItems() {
+    private void connectLocationsToItems() {
+        for (Location location : CollectionOfAllClasses.getLocations()) {
+            ArrayList<Item> newListOfItems = new ArrayList<>();
 
+            for (Integer id : location.getListOfItemsIDs()) {
+                for (Item item : CollectionOfAllClasses.getItems()) {
+                    if (id == item.getId()) {
+                        newListOfItems.add(item);
+                        break;
+                    }
+                }
+            }
+
+            location.setListOfItems(newListOfItems);
+        }
     }
 
-    private void connectLocationToNPCs() {
+    private void connectLocationsToNPCs() {
+        for (Location location : CollectionOfAllClasses.getLocations()) {
+            ArrayList<NPC> newListOfNPCs = new ArrayList<>();
 
+            for (Integer id : location.getListOfNPCsIDs()) {
+                for (NPC npc : CollectionOfAllClasses.getNpcs()) {
+                    if (id == npc.getId()) {
+                        newListOfNPCs.add(npc);
+                        break;
+                    }
+                }
+            }
+
+            location.setListOfNPCs(newListOfNPCs);
+        }
     }
 
-    private void connectLocationToHashMap() {
+    private void connectLocationsToHashMap() {
+        for (Location location : CollectionOfAllClasses.getLocations()) {
+            HashMap<String, Location> newListOfConnectedLocations = new HashMap<>();
 
+            for (Map.Entry<String, Integer> integerEntry : location.getListOfConnectedLocationsIDs().entrySet()) {
+                for (Location possibleConnectedLocation : CollectionOfAllClasses.getLocations()) {
+                    if (integerEntry.getValue() == possibleConnectedLocation.getId()) {
+                        newListOfConnectedLocations.put(integerEntry.getKey(), possibleConnectedLocation);
+                        break;
+                    }
+                }
+            }
+
+            location.setListOfConnectedLocations(newListOfConnectedLocations);
+        }
     }
-
 }
 
 

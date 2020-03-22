@@ -8,11 +8,10 @@ public class Player {
     private transient Location currentLocation;
     private int currentLocationID;
 
-    Level currentLevel;
+    private transient Level currentLevel;
     private int currentLevelID;
 
-    Inventory inventory = CollectionOfAllClasses.getInventory();
-    private int inventoryID;
+    private transient Inventory inventory = CollectionOfAllClasses.getInventory();
 
     private int maximumXP = 100;
     private int maxHealth = 100;
@@ -40,10 +39,6 @@ public class Player {
         return currentLevelID;
     }
 
-    public int getInventoryID() {
-        return inventoryID;
-    }
-
     public int getCurrentHunger() {return currentHunger;}
 
     private int getMaxHunger() {return maxHunger;}
@@ -56,7 +51,7 @@ public class Player {
 
     protected int getPlayerLevel() {return playerLevel;}
 
-    protected void setCurrentLevel(Level currentLevel) {
+    public void setCurrentLevel(Level currentLevel) {
         this.currentLevel = currentLevel;
     }
 
@@ -68,11 +63,11 @@ public class Player {
         this.currentLevelID = currentLevelID;
     }
 
-    public void setInventoryID(int inventoryID) {
-        this.inventoryID = inventoryID;
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 
-    protected void setCurrentLocation(Location currentLocation) {
+    public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
 

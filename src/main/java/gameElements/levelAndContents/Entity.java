@@ -3,6 +3,7 @@ package gameElements.levelAndContents;
 import java.util.HashMap;
 
 abstract public class Entity {
+    private int id;
     String name;
     String description;
     String descriptionAfterPuzzleComplete;
@@ -34,6 +35,16 @@ abstract public class Entity {
     Boolean canBeGivenTo = false;
     Boolean canBeUsedOnNPC = false;
     Boolean firstTimeEnteringLocation = true;
+
+    //Get Method
+    public int getId() {
+        return id;
+    }
+
+    //Set Method
+    public void setId(int id) {
+        this.id = id;
+    }
 
 
     public boolean descriptionPrintedOnce (){
