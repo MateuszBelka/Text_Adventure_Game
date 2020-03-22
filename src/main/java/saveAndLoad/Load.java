@@ -61,7 +61,7 @@ public class Load {
      * Since all variables of CollectionOfAllClasses are static
      * the actual instance
      */
-    public void loadGameSave(String fileName) throws FileNotFoundException {
+    public static void loadGameSave(String fileName) throws FileNotFoundException {
         // Create instances of all classes and populate majority of their variables using provided Json file.
         initializeClassesFromJson(fileName);
 
@@ -69,7 +69,7 @@ public class Load {
         decodeIDsToObjects();
     }
 
-    private void initializeClassesFromJson(String fileName) throws FileNotFoundException {
+    private static void initializeClassesFromJson(String fileName) throws FileNotFoundException {
         /*
          * Create a GsonBuilder instance required to change default settings of Gson
          * Allow the serialization of static fields by setting exclusion setting to ONLY transient
@@ -90,7 +90,7 @@ public class Load {
         loadNewGameObjects = null;
     }
 
-    private void decodeIDsToObjects() {
+    private static void decodeIDsToObjects() {
         /*
          * TODO:
          *  Check the following classes for possible IDs
@@ -111,7 +111,7 @@ public class Load {
         connectLocationsToHashMap();
     }
 
-    private void connectPlayerToLocation() {
+    private static void connectPlayerToLocation() {
         Player player = CollectionOfAllClasses.getPlayer();
         for (Location location : CollectionOfAllClasses.getLocations()) {
             if (player.getCurrentLocationID() == location.getId()) {
@@ -120,7 +120,7 @@ public class Load {
         }
     }
 
-    private void connectPlayerToLevel() {
+    private static void connectPlayerToLevel() {
         Player player = CollectionOfAllClasses.getPlayer();
         for (Level level : CollectionOfAllClasses.getLevels()) {
             if (player.getCurrentLevelID() == level.getId()) {
@@ -129,21 +129,21 @@ public class Load {
         }
     }
 
-    private void connectPlayerToInventory() {
+    private static void connectPlayerToInventory() {
         Player player = CollectionOfAllClasses.getPlayer();
         Inventory inv = CollectionOfAllClasses.getInventory();
 
         player.setInventory(inv);
     }
 
-    private void connectStoryTextGetterToPlayer() {
+    private static void connectStoryTextGetterToPlayer() {
         StoryTextGetter getter = CollectionOfAllClasses.getStoryTextGetter();
         Player player = CollectionOfAllClasses.getPlayer();
 
         getter.setPlayer(player);
     }
 
-    private void connectPlayerProgressToPlayer() {
+    private static void connectPlayerProgressToPlayer() {
         PlayerProgression progression = CollectionOfAllClasses.getPlayerProgression();
         Player player = CollectionOfAllClasses.getPlayer();
 
@@ -151,7 +151,7 @@ public class Load {
     }
 
     // Connect all levels to their starting locations
-    private void connectLevelsToLocation() {
+    private static void connectLevelsToLocation() {
         // Loop through all levels in the game
         for (Level level : CollectionOfAllClasses.getLevels()) {
             // Go through all location until we find the one that is i's level starting location
@@ -164,7 +164,7 @@ public class Load {
         }
     }
 
-    private void connectLocationsToItems() {
+    private static void connectLocationsToItems() {
         for (Location location : CollectionOfAllClasses.getLocations()) {
             ArrayList<Item> newListOfItems = new ArrayList<>();
 
@@ -181,7 +181,7 @@ public class Load {
         }
     }
 
-    private void connectLocationsToNPCs() {
+    private static void connectLocationsToNPCs() {
         for (Location location : CollectionOfAllClasses.getLocations()) {
             ArrayList<NPC> newListOfNPCs = new ArrayList<>();
 
@@ -198,7 +198,7 @@ public class Load {
         }
     }
 
-    private void connectLocationsToHashMap() {
+    private static void connectLocationsToHashMap() {
         for (Location location : CollectionOfAllClasses.getLocations()) {
             HashMap<String, Location> newListOfConnectedLocations = new HashMap<>();
 

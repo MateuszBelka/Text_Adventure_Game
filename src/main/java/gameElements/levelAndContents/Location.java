@@ -48,11 +48,20 @@ public class Location {
     public void setListOfItems(ArrayList<Item> listOfItems) {
         this.listOfItems = listOfItems;
     }
+    public void setListOfItemsIDs(ArrayList<Integer> listOfItemsIDs) {
+        this.listOfItemsIDs = listOfItemsIDs;
+    }
     public void setListOfNPCs(ArrayList<NPC> listOfNPCs) {
         this.listOfNPCs = listOfNPCs;
     }
+    public void setListOfNPCsIDs(ArrayList<Integer> listOfNPCsIDs) {
+        this.listOfNPCsIDs = listOfNPCsIDs;
+    }
     public void setListOfConnectedLocations(HashMap<String, Location> listOfConnectedLocations) {
         this.listOfConnectedLocations = listOfConnectedLocations;
+    }
+    public void setListOfConnectedLocationsIDs(HashMap<String, Integer> listOfConnectedLocationsIDs) {
+        this.listOfConnectedLocationsIDs = listOfConnectedLocationsIDs;
     }
 
     public boolean descriptionPrintedOnce (){

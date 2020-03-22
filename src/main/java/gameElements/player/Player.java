@@ -17,71 +17,61 @@ public class Player {
     private int maxHealth = 100;
     private int maxHunger = 100;
     private int currentHunger = maxHunger;
+    /*
+     * Dev Comment from Matt:
+     * Imo the only edge case should be int size but that goes for everything.
+     * Not sure what is the purpose of this variable.
+     * If somebody wants to be level 100 000, why not?
+     */
     private int maxPlayerLevel = 100; //todo: put this edge case in the set and increment method
     private int HUNGER_DAMAGE;
     private int currentXP = 0;
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
 
+    //Get Methods
     public Location getCurrentLocation() {
         return currentLocation;
     }
-
     public int getCurrentLocationID() {
         return currentLocationID;
     }
-
     public Level getCurrentLevel() {
         return currentLevel;
     }
-
     public int getCurrentLevelID() {
         return currentLevelID;
     }
-
     public int getCurrentHunger() {return currentHunger;}
-
     private int getMaxHunger() {return maxHunger;}
-
     private int getCurrentHealth() {return currentHealth;}
-
     protected int getCurrentXP() {return currentXP;}
-
     protected int getMaximumXP() {return maximumXP;}
-
     protected int getPlayerLevel() {return playerLevel;}
 
+    //Set Methods
     public void setCurrentLevel(Level currentLevel) {
         this.currentLevel = currentLevel;
     }
-
     public void setCurrentLocationID(int currentLocationID) {
         this.currentLocationID = currentLocationID;
     }
-
     public void setCurrentLevelID(int currentLevelID) {
         this.currentLevelID = currentLevelID;
     }
-
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
-
     protected void setCurrentXP(int currentXP) {this.currentXP = currentXP;}
-
     protected void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
-
     protected void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
-
     protected void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
-
     protected void setCurrentHunger(int currentHunger) { this.currentHunger = currentHunger; }
-
     protected void setMaximumHunger(int maxHunger) { this.maxHunger = maxHunger; }
+
 
     protected void decreaseCurrentHunger() { setCurrentHunger(currentHunger - 10); }
 
