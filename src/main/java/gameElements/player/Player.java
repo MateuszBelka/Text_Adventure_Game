@@ -5,9 +5,15 @@ import gameElements.levelAndContents.Location;
 import initialisation.CollectionOfAllClasses;
 
 public class Player {
-    Location currentLocation;
+    private transient Location currentLocation;
+    private int currentLocationID;
+
     Level currentLevel;
+    private int currentLevelID;
+
     Inventory inventory = CollectionOfAllClasses.getInventory();
+    private int inventoryID;
+
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
@@ -22,11 +28,21 @@ public class Player {
         return currentLocation;
     }
 
+    public int getCurrentLocationID() {
+        return currentLocationID;
+    }
+
     public Level getCurrentLevel() {
         return currentLevel;
     }
 
-    protected int getPlayerLevel() {return playerLevel;}
+    public int getCurrentLevelID() {
+        return currentLevelID;
+    }
+
+    public int getInventoryID() {
+        return inventoryID;
+    }
 
     public int getCurrentHunger() {return currentHunger;}
 
@@ -38,8 +54,22 @@ public class Player {
 
     protected int getMaximumXP() {return maximumXP;}
 
+    protected int getPlayerLevel() {return playerLevel;}
+
     protected void setCurrentLevel(Level currentLevel) {
         this.currentLevel = currentLevel;
+    }
+
+    public void setCurrentLocationID(int currentLocationID) {
+        this.currentLocationID = currentLocationID;
+    }
+
+    public void setCurrentLevelID(int currentLevelID) {
+        this.currentLevelID = currentLevelID;
+    }
+
+    public void setInventoryID(int inventoryID) {
+        this.inventoryID = inventoryID;
     }
 
     protected void setCurrentLocation(Location currentLocation) {

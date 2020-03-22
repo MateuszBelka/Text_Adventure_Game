@@ -31,6 +31,8 @@ package saveAndLoad;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import gameElements.levelAndContents.Location;
+import gameElements.player.Player;
 import initialisation.CollectionOfAllClasses;
 
 import java.io.FileNotFoundException;
@@ -50,8 +52,11 @@ public class Load {
      * the actual instance
      */
     public void loadGameSave(String fileName) throws FileNotFoundException {
+        // Create instances of all classes and populate majority of their variables using provided Json file.
         initializeClassesFromJson(fileName);
-        connectIDsToObjects();
+
+        // Convert ID variables to their expected object references.
+        decodeIDsToObjects();
     }
 
     private void initializeClassesFromJson(String fileName) throws FileNotFoundException {
@@ -75,7 +80,7 @@ public class Load {
         loadNewGameObjects = null;
     }
 
-    private void connectIDsToObjects() {
+    private void decodeIDsToObjects() {
         /*
          * TODO:
          *  Check the following classes for possible IDs
@@ -97,7 +102,10 @@ public class Load {
     }
 
     private void connectPlayerToLocation() {
-
+        Player player = CollectionOfAllClasses.getPlayer();
+        for (Location location : CollectionOfAllClasses.getLocations()) {
+            //if (player.getCurrentLocationID() == location.get)
+        }
     }
 
     private void connectPlayerToLevel() {
