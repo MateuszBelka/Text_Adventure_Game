@@ -28,7 +28,7 @@ public class Player {
 
     protected int getPlayerLevel() {return playerLevel;}
 
-    private int getCurrentHunger() {return currentHunger;}
+    public int getCurrentHunger() {return currentHunger;}
 
     private int getMaxHunger() {return maxHunger;}
 

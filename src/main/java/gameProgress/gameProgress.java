@@ -23,8 +23,10 @@ public class gameProgress {
     private void updateLevel(){
         for (int i = 0; i < amountOfLevels; i++){
             if (player.getCurrentLevel().equals(CollectionOfAllClasses.getLevels().get(i))){
-                player.setCurrentLevel(CollectionOfAllClasses.getLevels().get(i + 1));
-                player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
+                // error: setCurrentLevel(Level) has protected access in Player
+//                player.setCurrentLevel(CollectionOfAllClasses.getLevels().get(i + 1));
+                //error: setCurrentLocation(Location) has protected access in Player
+//                player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
             }
         }
     }
