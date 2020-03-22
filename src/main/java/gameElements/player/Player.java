@@ -69,7 +69,7 @@ public class Player {
             //return additional message that will warn a player character being close to starving
         }
         else if (getCurrentHunger() == 0) {
-            //health points will start decreasing
+            setCurrentHealth(currentHealth - 20);
             //return warning message that a character is starving and starts to lose health
         }
     }
