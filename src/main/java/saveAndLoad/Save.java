@@ -6,8 +6,9 @@ import initialisation.CollectionOfAllClasses;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class SaveToFile {
-    /* Receives an instance of CollectionOfAllClasses class
+public class Save {
+    /*
+     * Receives an instance of CollectionOfAllClasses class
      * which is then serialized and put in JSON file with the name
      * specified in the 2nd parameter of the method.
      *

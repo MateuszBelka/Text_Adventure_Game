@@ -34,18 +34,15 @@ import java.io.IOException;
  * using custom ID matching algorithm.
  */
 
-public class LoadFromFile {
+public class Load {
     /*
      *
      * Returns: an instance of CollectionOfAllClasses class
      * which contains information required to reconstruct
      * a game from any moment in terms of player's progress.
      */
-    public void deserializeJSONFile(String fileName) throws IOException {
-        Gson gson = new Gson();
+    public void loadGameSave(String fileName) throws IOException {
 
-        FileReader loadFile = new FileReader(fileName);
-        CollectionOfAllClasses loadedInfoAboutClasses = gson.fromJson(loadFile, CollectionOfAllClasses.class);
 
 
     }
@@ -54,13 +51,3 @@ public class LoadFromFile {
         System.out.println(CollectionOfAllClasses.getPlayer().getCurrentHunger());
     }
 }
-
-
-/*
- * Alternative idea:
- * Create variable for each class and serialize those variables to json.
- * This way you'd create multiple json files. One for each class.
- *
- * Issue: cash instances
- * https://stackoverflow.com/questions/58841054/gson-same-object-referenced-in-two-classes-duplicated-instance-after-decode
- */
