@@ -11,10 +11,10 @@ public class Player {
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
+    private int currentHunger = maxHunger;
     private int maxPlayerLevel = 100; //todo: put this edge case in the set and increment method
     private int HUNGER_DAMAGE;
     private int currentXP = 0;
-    private int currentHunger = 0;
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
 
@@ -28,7 +28,9 @@ public class Player {
 
     protected int getPlayerLevel() {return playerLevel;}
 
-    private int getCurrentHunger() {return currentHunger;}
+    public int getCurrentHunger() {return currentHunger;}
+
+    private int getMaxHunger() {return maxHunger;}
 
     private int getCurrentHealth() {return currentHealth;}
 
@@ -51,6 +53,26 @@ public class Player {
     protected void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
 
     protected void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
+
+    protected void setCurrentHunger(int currentHunger) { this.currentHunger = currentHunger; }
+
+    protected void setMaximumHunger(int maxHunger) { this.maxHunger = maxHunger; }
+
+    protected void decreaseCurrentHunger() { setCurrentHunger(currentHunger - 10); }
+
+    //called when a character consumed something
+    protected void increaseCurrentHunger() { setCurrentHunger(currentHunger + 15); }
+
+    //the type should be changed depending on implementation, probably boolean or string, not sure yet
+    public void checkCurrentHunger() {
+        if (getCurrentHunger() <= 10 && getCurrentHunger() > 0) {
+            //return additional message that will warn a player character being close to starving
+        }
+        else if (getCurrentHunger() == 0) {
+            setCurrentHealth(currentHealth - 20);
+            //return warning message that a character is starving and starts to lose health
+        }
+    }
 
     protected void incrementPlayerLevel() { setPlayerLevel(getPlayerLevel() + 1); }
 

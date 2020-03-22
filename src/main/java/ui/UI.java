@@ -26,7 +26,7 @@ public class UI extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         //Temporarily set to adventure to try out new work in progress features.
-        URL welcomeURL = new File("src/main/resources/fxml/adventure.fxml").toURI().toURL();
+        URL welcomeURL = getClass().getResource("/fxml/adventure.fxml");
         loader = new FXMLLoader();
         loader.setLocation(welcomeURL);
         Scene welcomeScene = new Scene (loader.load(), 960, 720);
@@ -37,7 +37,8 @@ public class UI extends Application {
     }
 
     public static void changeToNewScene(String newSceneContentsFile, ActionEvent actionEvent) throws IOException {
-        URL newSceneURL = new File(newSceneContentsFile).toURI().toURL();
+//        URL newSceneURL = new File(newSceneContentsFile).toURI().toURL();
+        URL newSceneURL = UI.class.getResource(newSceneContentsFile);
         loader = new FXMLLoader();
         loader.setLocation(newSceneURL);
         Scene newScene = new Scene (loader.load(), 960, 720);

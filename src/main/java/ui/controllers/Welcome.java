@@ -15,11 +15,11 @@ import ui.*;
 
 public class Welcome {
     public void newGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        UI.changeToNewScene("src/main/resources/fxml/newGame.fxml", actionEvent);
+        UI.changeToNewScene("/fxml/newGame.fxml", actionEvent);
     }
 
     public void loadGameButtonClicked(ActionEvent actionEvent) throws IOException {
-        UI.changeToNewScene("src/main/resources/fxml/loadGame.fxml", actionEvent);
+        UI.changeToNewScene("/fxml/loadGame.fxml", actionEvent);
     }
 
     public void quitButtonClicked(ActionEvent actionEvent) {
