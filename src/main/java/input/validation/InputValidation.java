@@ -6,10 +6,9 @@ import initialisation.CollectionOfAllClasses;
 import input.commands.CommandHandler;
 
 public class InputValidation {
-    Player player;
 
-    public void inputValidator(String input, Player player){
-        this.player = player;
+    public void inputValidator(String input) {
+        Player player = CollectionOfAllClasses.getPlayer();
 
         String[] inputList = inputParser(input);
 

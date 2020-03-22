@@ -7,14 +7,17 @@ import input.validation.InputValidation;
 import input.validation.WordValidation;
 import storyText.StoryTextGetter;
 import storyText.StoryTextPrinter;
-//import input.*;
-//import output.*;
 
 import java.util.ArrayList;
 
-
+/*
+ * Benefit of maintaining all variables as static in a class
+ * that will always have only one instance at a time is that
+ * no one has to ever keep track of instances of the class
+ * and in case they have to be created,
+ * then they can be immediately set to null (deleted)
+ */
 public class CollectionOfAllClasses {
-    String name; // TESTER FOR LOADING AND SAVING
     private static Player player;
     private static WordValidation wordValidation;
     private static Inventory inventory;
@@ -27,12 +30,6 @@ public class CollectionOfAllClasses {
     private static ArrayList<Location> locations;
     private static ArrayList<Item> items;
     private static ArrayList<NPC> npcs;
-
-    public CollectionOfAllClasses(String name){this.name = name;}
-
-    public String getName() {
-        return name;
-    }
 
     public static ArrayList<Item> getItems() {
         return items;

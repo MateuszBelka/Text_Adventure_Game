@@ -1,10 +1,5 @@
 package saveAndLoad;
 
-import com.google.gson.Gson;
-import initialisation.CollectionOfAllClasses;
-
-import java.io.FileReader;
-import java.io.IOException;
 
 /*
  * Gson doesn't natively support saving variables which pointer is used by multiple classes.
@@ -34,20 +29,103 @@ import java.io.IOException;
  * using custom ID matching algorithm.
  */
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import initialisation.CollectionOfAllClasses;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
 public class Load {
+
     /*
+     * Parameters: String with the location of json file
+     * containing information about CollectionOfAllClasses
      *
-     * Returns: an instance of CollectionOfAllClasses class
+     * Creates an instance of CollectionOfAllClasses
      * which contains information required to reconstruct
      * a game from any moment in terms of player's progress.
+     *
+     * Since all variables of CollectionOfAllClasses are static
+     * the actual instance
      */
-    public void loadGameSave(String fileName) throws IOException {
+    public void loadGameSave(String fileName) throws FileNotFoundException {
+        initializeClassesFromJson(fileName);
+        connectIDsToObjects();
+    }
 
+    private void initializeClassesFromJson(String fileName) throws FileNotFoundException {
+        /*
+         * Create a GsonBuilder instance required to change default settings of Gson
+         * Allow the serialization of static fields by setting exclusion setting to ONLY transient
+         * For debugging purposes make the Json file in human-readable style
+         */
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
+                .setPrettyPrinting()
+                .create();
 
+        // Open json file
+        FileReader jsonFile = new FileReader(fileName);
+
+        // Populate static variables of CollectionOfAllClasses from json file.
+        CollectionOfAllClasses loadNewGameObjects = gson.fromJson(jsonFile, CollectionOfAllClasses.class);
+
+        // Since all variables within CollectionOfAllClasses are static the object is not longer needed
+        loadNewGameObjects = null;
+    }
+
+    private void connectIDsToObjects() {
+        /*
+         * TODO:
+         *  Check the following classes for possible IDs
+         *  when they will be implemented:
+         *  -Inventory
+         *  -
+         *
+         */
+        connectPlayerToLocation();
+        connectPlayerToLevel();
+        connectPlayerToInventory();
+        connectStoryTextGetterToPlayer();
+    }
+
+    private void connectPlayerToLocation() {
 
     }
 
-    public void debugPrintContentsOfCollectionOfAllClasses(CollectionOfAllClasses object) {
-        System.out.println(CollectionOfAllClasses.getPlayer().getCurrentHunger());
+    private void connectPlayerToLevel() {
+
     }
+
+    private void connectPlayerToInventory() {
+
+    }
+
+    private void connectStoryTextGetterToPlayer() {
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
