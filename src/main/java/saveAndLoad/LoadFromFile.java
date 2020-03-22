@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /*
- * Gson doesn't natively support saving variables which type is of other classes.
+ * Gson doesn't natively support saving variables which pointer is used by multiple classes.
  *
  * Example:
  * public class classA {
