@@ -2,7 +2,7 @@ package gameElements.player;
 
 import initialisation.CollectionOfAllClasses;
 
-public class PlayerProgress {
+public class PlayerProgression {
     Player player = CollectionOfAllClasses.getPlayer();
     public void increaseCurrentXP() {
         final int increaseCurrentXPby = player.getMaximumXP() / (player.getPlayerLevel() * 30); //this //todo: ?

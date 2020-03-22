@@ -6,6 +6,8 @@ abstract public class Entity {
     String name;
     String description;
     String descriptionAfterPuzzleComplete;
+    String textForReading;
+    String textForTalking;
     HashMap<String, String> descriptionAfterCommand = new HashMap<>();
     Boolean canBeConsumed = false;
     Boolean canBePickedUp = false;
@@ -23,8 +25,6 @@ abstract public class Entity {
     Boolean canBeSmelled = false;
     Boolean canBeOpened = false;
     Boolean canBeClosed = false;
-    Boolean canBeEntered = false;
-    Boolean canBeMovedInLocation = false;
     Boolean canBeExamined = false;
     Boolean canBeBrokenWithItem = false;
     Boolean canBeBrokenWithoutItem = false;
@@ -54,6 +54,13 @@ abstract public class Entity {
         descriptionAfterCommand.put(command, description);
     }
 
+    public String getTextForReading() {
+        return textForReading;
+    }
+
+    public String getTextForTalking() {
+        return textForTalking;
+    }
 
     public String getDescription() {
         return description;
@@ -123,10 +130,6 @@ abstract public class Entity {
         return itemToBeUsedOn;
     }
 
-    public Boolean getCanBeEntered() {
-        return canBeEntered;
-    }
-
     public Boolean getCanBeClosed() {
         return canBeClosed;
     }
@@ -153,10 +156,6 @@ abstract public class Entity {
 
     public Boolean getCanBeCutWithItem() {
         return canBeCutWithItem;
-    }
-
-    public Boolean getCanBeMovedInLocation() {
-        return canBeMovedInLocation;
     }
 
     public String getDescriptionAfterPuzzleComplete() {
@@ -199,10 +198,6 @@ abstract public class Entity {
         this.canBeListenedTo = canBeListenedTo;
     }
 
-    public void setCanBeEntered(Boolean canBeEntered) {
-        this.canBeEntered = canBeEntered;
-    }
-
     public void setCanBeAttacked(Boolean canBeAttacked) {
         this.canBeAttacked = canBeAttacked;
     }
@@ -225,10 +220,6 @@ abstract public class Entity {
 
     public void setCanBeTalkedWith(Boolean canBeTalkedWith) {
         this.canBeTalkedWith = canBeTalkedWith;
-    }
-
-    public void setCanBeMovedInLocation(Boolean canBeMovedInLocation) {
-        this.canBeMovedInLocation = canBeMovedInLocation;
     }
 
     public void setCanBeExamined(Boolean canBeExamined) {
@@ -271,5 +262,11 @@ abstract public class Entity {
         this.canBeCutWithItem = canBeCutWithItem;
     }
 
+    public void setTextForReading(String textForReading) {
+        this.textForReading = textForReading;
+    }
 
+    public void setTextForTalking(String textForTalking) {
+        this.textForTalking = textForTalking;
+    }
 }
