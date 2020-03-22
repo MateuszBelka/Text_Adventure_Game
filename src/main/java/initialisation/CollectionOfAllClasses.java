@@ -2,8 +2,8 @@ package initialisation;
 
 import gameElements.player.*;
 import gameElements.levelAndContents.*;
-import input.commands.CommandHandler;
 import input.validation.InputValidation;
+import input.validation.Validation;
 import input.validation.WordValidation;
 import storyText.StoryTextGetter;
 import storyText.StoryTextPrinter;
@@ -21,11 +21,11 @@ public class CollectionOfAllClasses {
     private static Player player;
     private static WordValidation wordValidation;
     private static Inventory inventory;
+    private static Validation validation;
     private static InputValidation inputValidation;
-    private static CommandHandler commandHandler;
     private static StoryTextGetter storyTextGetter;
     private static StoryTextPrinter storyTextPrinter;
-    private static PlayerProgress playerProgress;
+    private static PlayerProgression playerProgression;
     private static ArrayList<Level> levels;
     private static ArrayList<Location> locations;
     private static ArrayList<Item> items;
@@ -51,16 +51,16 @@ public class CollectionOfAllClasses {
         return player;
     }
 
-    public static PlayerProgress getPlayerProgress() {
-        return playerProgress;
+    public static PlayerProgression getPlayerProgression() {
+        return playerProgression;
     }
 
-    public static CommandHandler getCommandHandler() {
-        return commandHandler;
-    }
-
-    public InputValidation getInputValidation() {
+    public static InputValidation getInputValidation() {
         return inputValidation;
+    }
+
+    public Validation getValidation() {
+        return validation;
     }
 
     public static WordValidation getWordValidation() {

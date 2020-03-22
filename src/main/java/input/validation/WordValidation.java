@@ -3,20 +3,23 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Player;
+import initialisation.CollectionOfAllClasses;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WordValidation {
-    public HashMap<String, String> wordValidator(String[] inputList, Player player) {
+    Player player = CollectionOfAllClasses.getPlayer();
+
+    public HashMap<String, String> wordValidator(String[] inputList) {
         HashMap<String, String> validInputList = new HashMap<>();
 
         for (String word : inputList) {
             commandValidator(word, validInputList);
 
-            itemValidator(word, validInputList, player);
+            itemValidator(word, validInputList);
 
-            npcValidator(word, validInputList, player);
+            npcValidator(word, validInputList);
         }
         return validInputList;
     }
@@ -31,10 +34,17 @@ public class WordValidation {
         }
     }
 
-    private void itemValidator(String word, HashMap<String, String> validInputList, Player player) {
+    private void itemValidator(String word, HashMap<String, String> validInputList) {
         ArrayList<Item> listOfItemsInPlayersCurrentLocation = player.getCurrentLocation().getListOfItems();
+        ArrayList<Item> listOfInventoryItems = CollectionOfAllClasses.getInventory().getItemsInInventory();
+        addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfItemsInPlayersCurrentLocation);
+        addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfInventoryItems);
+    }
 
-        for (Item item : listOfItemsInPlayersCurrentLocation) {
+    private void addItemToValidInputListIfFoundInPassedList (String word,
+                                                             HashMap<String, String> validInputList,
+                                                             ArrayList<Item> list){
+        for (Item item : list) {
             String itemName = item.getName();
             if (word.equals(itemName)) {
                 validInputList.put(word, "item");
@@ -42,7 +52,7 @@ public class WordValidation {
         }
     }
 
-    private void npcValidator(String word, HashMap<String, String> validInputList, Player player) {
+    private void npcValidator(String word, HashMap<String, String> validInputList) {
         ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = player.getCurrentLocation().getListOfNPCs();
 
         for (NPC npc : listOfNPCsInPlayersCurrentLocation) {

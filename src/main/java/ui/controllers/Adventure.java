@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 
 import initialisation.CollectionOfAllClasses;
 import storyText.StoryTextPrinter;
-import input.commands.CommandHandler;
+import input.validation.InputValidation;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -53,7 +53,7 @@ public class Adventure implements Initializable {
         readAndClearInput();
 
         //Update Game through Input Validation
-        CommandHandler.temporaryInputReceiver(getInputString(), CollectionOfAllClasses.getPlayer());
+        InputValidation.temporaryInputReceiver(getInputString(), CollectionOfAllClasses.getPlayer());
 
         //Output Printing
         StoryTextPrinter.printStory(getTerminal());
