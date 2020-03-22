@@ -81,13 +81,19 @@ public class Load {
          *  Check the following classes for possible IDs
          *  when they will be implemented:
          *  -Inventory
-         *  -
-         *
+         *  -StoryTextPrinter
+         *  -Item
+         *  -NPC
          */
         connectPlayerToLocation();
         connectPlayerToLevel();
         connectPlayerToInventory();
         connectStoryTextGetterToPlayer();
+        connectPlayerProgressToPlayer();
+        connectLevelToLocation();
+        connectLocationToItems();
+        connectLocationToNPCs();
+        connectLocationToHashMap();
     }
 
     private void connectPlayerToLocation() {
@@ -103,6 +109,26 @@ public class Load {
     }
 
     private void connectStoryTextGetterToPlayer() {
+
+    }
+
+    private void connectPlayerProgressToPlayer() {
+
+    }
+
+    private void connectLevelToLocation() {
+
+    }
+
+    private void connectLocationToItems() {
+
+    }
+
+    private void connectLocationToNPCs() {
+
+    }
+
+    private void connectLocationToHashMap() {
 
     }
 
