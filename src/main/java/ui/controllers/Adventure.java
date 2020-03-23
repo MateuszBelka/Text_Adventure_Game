@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import initialisation.CollectionOfAllClasses;
-import storyText.StoryTextPrinter;
+import output.StoryTextPrinter;
 import input.validation.InputValidation;
 
 import java.net.URL;

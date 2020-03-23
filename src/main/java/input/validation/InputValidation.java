@@ -10,7 +10,7 @@ import java.util.Objects;
 
 import static input.validation.HandlerOf1Word.validateAndHandle1Word;
 import static input.validation.HandlerOf2Words.validateAndHandle2Words;
-import static input.validation.HandlerOf2Words.handle2ValidWords;
+import static input.validation.HandlerOf2Words.validateAndHandle2Words;
 import static input.validation.HandlerOf3Words.handle3ValidWords;
 import static input.validation.HandlerOf3Words.validate3Words;
 
@@ -28,7 +28,7 @@ public class InputValidation {
                 validateAndHandle1Word(validInputList);
                 break;
             case 2:
-                if (validateAndHandle2Words(validInputList)){ handle2ValidWords(validInputList); }
+                validateAndHandle2Words(validInputList);
                 break;
             case 3:
                 if (validate3Words(validInputList)){ handle3ValidWords(validInputList); }

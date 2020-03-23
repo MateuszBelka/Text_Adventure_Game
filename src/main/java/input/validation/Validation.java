@@ -4,6 +4,7 @@ import java.util.HashMap;
 import initialisation.CollectionOfAllClasses;
 
 public class Validation {
+    //todo: deal with uppercase/lowercase input
     WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
     InputValidation inputValidation = CollectionOfAllClasses.getInputValidation();
 

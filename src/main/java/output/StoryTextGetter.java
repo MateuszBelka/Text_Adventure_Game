@@ -1,4 +1,4 @@
-package storyText;
+package output;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;

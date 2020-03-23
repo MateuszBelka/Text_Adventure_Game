@@ -3,8 +3,12 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class UseItemOnNPC {
-    public static void doUseItemOnNPC(Item item, NPC npc){
-        //todo:
+public class Attack {
+    public static void doAttack(Item item){
+
+    }
+
+    public static void doAttack(NPC npc){
+
     }
 }

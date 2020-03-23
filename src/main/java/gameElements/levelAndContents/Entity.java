@@ -33,6 +33,10 @@ abstract public class Entity {
     Boolean canBeTurnedOff = false;
     Boolean canBeGivenTo = false;
     Boolean canBeUsedOnNPC = false;
+    Boolean canBePushed = false;
+    Boolean canBePulled = false;
+    Boolean canBeCutWith = false;
+    Boolean canBeUsed = false;
     Boolean firstTimeEnteringLocation = true;
 
 
@@ -55,6 +59,18 @@ abstract public class Entity {
 
     public void setOneDescriptionAfterCommand(String command, String description){
         descriptionAfterCommand.put(command, description);
+    }
+
+    public Boolean getCanBeCutWith() {
+        return canBeCutWith;
+    }
+
+    public Boolean getCanBePushed() {
+        return canBePushed;
+    }
+
+    public Boolean getCanBePulled() {
+        return canBePulled;
     }
 
     public String getTextForReading() {
@@ -173,6 +189,10 @@ abstract public class Entity {
         return descriptionAfterPuzzleComplete;
     }
 
+    public Boolean getCanBeUsed() {
+        return canBeUsed;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -287,5 +307,21 @@ abstract public class Entity {
 
     public void setCanBeUsedOnNPC(Boolean canBeUsedOnNPC) {
         this.canBeUsedOnNPC = canBeUsedOnNPC;
+    }
+
+    public void setCanBePushed(Boolean canBePushed) {
+        this.canBePushed = canBePushed;
+    }
+
+    public void setCanBePulled(Boolean canBePulled) {
+        this.canBePulled = canBePulled;
+    }
+
+    public void setCanBeCutWith(Boolean canBeCutWith) {
+        this.canBeCutWith = canBeCutWith;
+    }
+
+    public void setCanBeUsed(Boolean canBeUsed) {
+        this.canBeUsed = canBeUsed;
     }
 }

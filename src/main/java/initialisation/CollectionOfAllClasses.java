@@ -5,8 +5,8 @@ import gameElements.levelAndContents.*;
 import input.validation.InputValidation;
 import input.validation.Validation;
 import input.validation.WordValidation;
-import storyText.StoryTextGetter;
-import storyText.StoryTextPrinter;
+import output.StoryTextGetter;
+import output.StoryTextPrinter;
 //import input.*;
 //import output.*;
 

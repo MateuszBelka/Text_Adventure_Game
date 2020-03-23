@@ -7,6 +7,7 @@ import initialisation.CollectionOfAllClasses;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static input.commands.Consume.doConsume;
 import static input.commands.Exit.doExit;
 import static input.commands.Inventory.doInventory;
 import static input.commands.Load.doLoad;
@@ -72,43 +73,26 @@ public class HandlerOf1Word {
     }
 
     private static void handle1Item(String word){
-        //if item is in inventory, and item is consumable, send through
-        //if in inventory and not consumable, print "cannot eat that"
-        //if not in inventory, and item can be picked up, send through
-        //if not in inventory, and item can't be picked up, print "please use a [command] + [item] (+ [item])"
-        ArrayList<Item> items = CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfItems();
-        Item itemToHandle = new Item();
-        for (Item item: items){
-            if (item.getName().equals(word)){
-                itemToHandle = item;
-            }
+        Item item = Item.getItemByName(word);
+        if (item.getCanBePickedUp()){
+            doPickUp(item);
         }
-
-        if (itemToHandle.getCanBePickedUp()){
-            doPickUp(itemToHandle);
+        if (item.getCanBeConsumed()){
+            doConsume(item);
         }
-        else {
-            //todo:print: "Cannot pick up " + itemToHandle + "."
+        else{
+            //todo: print "Please be more specific. Use [command] + [thing] (+ [thing])"
         }
     }
 
     private static void handle1NPC(String word){
-        //if can be talked with, send through
-        //if not, print "cannot talk right now"
-        //
-        ArrayList<NPC> npcs = CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfNPCs();
-        NPC npcToHandle = new NPC();
-        for (NPC npc: npcs){
-            if (npc.getName().equals(word)){
-                npcToHandle = npc;
-            }
-        }
+        NPC npc = NPC.getNPCByName(word);
 
-        if (npcToHandle.getCanBeTalkedWith()){
-            doTalkWith(npcToHandle);
+        if (npc.getCanBeTalkedWith()){
+            doTalkWith(npc);
         }
-        else{
-            //todo: print "Cannot talk with " + npcToHandle + "."
+        else {
+            //todo: print "Cannot talk with " + word + "."
         }
     }
 }
