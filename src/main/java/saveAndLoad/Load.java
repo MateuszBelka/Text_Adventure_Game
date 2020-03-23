@@ -39,6 +39,7 @@ import gameElements.player.Inventory;
 import gameElements.player.Player;
 import gameElements.player.PlayerProgression;
 import initialisation.CollectionOfAllClasses;
+import input.validation.WordValidation;
 import storyText.StoryTextGetter;
 import sun.plugin2.message.GetAppletMessage;
 
@@ -103,6 +104,7 @@ public class Load {
         connectPlayerToLocation();
         connectPlayerToLevel();
         connectPlayerToInventory();
+        connectWordValidatorToPlayer();
         connectStoryTextGetterToPlayer();
         connectPlayerProgressToPlayer();
         connectLevelsToLocation();
@@ -134,6 +136,13 @@ public class Load {
         Inventory inv = CollectionOfAllClasses.getInventory();
 
         player.setInventory(inv);
+    }
+
+    private static void connectWordValidatorToPlayer() {
+        WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
+        Player player = CollectionOfAllClasses.getPlayer();
+
+        wordValidation.setPlayer(player);
     }
 
     private static void connectStoryTextGetterToPlayer() {

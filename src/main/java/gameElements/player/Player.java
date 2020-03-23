@@ -2,7 +2,6 @@ package gameElements.player;
 
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import initialisation.CollectionOfAllClasses;
 
 public class Player {
     private transient Location currentLocation;
@@ -11,7 +10,7 @@ public class Player {
     private transient Level currentLevel;
     private int currentLevelID;
 
-    private transient Inventory inventory = CollectionOfAllClasses.getInventory();
+    private transient Inventory inventory;
 
     private int maximumXP = 100;
     private int maxHealth = 100;

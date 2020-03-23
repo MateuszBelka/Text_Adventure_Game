@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class StoryTextGetter {
     private ArrayList<String> listToPrint = new ArrayList<>();
-    private transient Player player = CollectionOfAllClasses.getPlayer();
+    private transient Player player;
 
     //Get Methods
     public Player getPlayer() {

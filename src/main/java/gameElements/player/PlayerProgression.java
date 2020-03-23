@@ -3,7 +3,7 @@ package gameElements.player;
 import initialisation.CollectionOfAllClasses;
 
 public class PlayerProgression {
-    private transient Player player = CollectionOfAllClasses.getPlayer();
+    private transient Player player;
 
     //Get Methods
     public Player getPlayer() {

@@ -4,8 +4,16 @@ import java.util.HashMap;
 import initialisation.CollectionOfAllClasses;
 
 public class Validation {
-    WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
-    InputValidation inputValidation = CollectionOfAllClasses.getInputValidation();
+    WordValidation wordValidation;
+    InputValidation inputValidation;
+
+    //Set Methods
+    public void setWordValidation(WordValidation wordValidation) {
+        this.wordValidation = wordValidation;
+    }
+    public void setInputValidation(InputValidation inputValidation) {
+        this.inputValidation = inputValidation;
+    }
 
     public void validator(String input){
         String[] inputList = inputParser(input);

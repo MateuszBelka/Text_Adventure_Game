@@ -33,14 +33,23 @@ public class Level {
     public void setId(int id) {
         this.id = id;
     }
-    public void setPuzzles(Integer puzzles) {
-        this.puzzles = puzzles;
+    public void setPuzzles() {
+        //Waiting for Item Class to be finished
     }
     public void setStartLocation(Location startLocation) {
         this.startLocation = startLocation;
     }
     public void setStartLocationID(int startLocationID) {
         this.startLocationID = startLocationID;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setFirstTimeEnteringLevel(Boolean firstTimeEnteringLevel) {
+        this.firstTimeEnteringLevel = firstTimeEnteringLevel;
     }
 
     public boolean descriptionPrintedOnce (){
