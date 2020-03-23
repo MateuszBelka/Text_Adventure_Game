@@ -1,11 +1,14 @@
 package gameElements.levelAndContents;
 
+import java.util.ArrayList;
+
 public class Level {
     String description;
     String name;
     Boolean firstTimeEnteringLevel = true;
     Integer puzzles;
     Location startLocation;
+    ArrayList<Location> listOfLocations;
 
     public boolean descriptionPrintedOnce (){
         if (firstTimeEnteringLevel.equals(true)){
@@ -37,5 +40,13 @@ public class Level {
 
     public Location getStartLocation() {
         return startLocation;
+    }
+
+    public ArrayList<Location> getListOfLocations() {
+        return listOfLocations;
+    }
+
+    public void setListOfLocations(ArrayList<Location> listOfLocations) {
+        this.listOfLocations = listOfLocations;
     }
 }
