@@ -298,4 +298,12 @@ public class CollectionOfAllClasses {
     public static ArrayList<Level> getLevels() {
         return levels;
     }
+
+    public static InputValidation getInputValidation() {
+        return inputValidation;
+    }
+
+    public static WordValidation getWordValidation() {
+        return wordValidation;
+    }
 }
