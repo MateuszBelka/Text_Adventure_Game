@@ -5,12 +5,17 @@ import gameElements.levelAndContents.NPC;
 
 public class Use {
     public static void doUse(Item item){
-        //todo:
+    }
+
+    public static void doUse(NPC npc){
     }
 
     public static void doUseItemOnNPC(Item item, NPC npc){
-        //todo:
     }
+
+    public static void doUseItemOnItem(Item item1, Item item2){
+    }
+
 
 
 }

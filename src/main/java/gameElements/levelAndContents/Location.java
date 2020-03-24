@@ -19,6 +19,10 @@ public class Location {
         return firstTimeEnteringLocation;
     }
 
+    public HashMap<String, Location> getListOfConnectedLocations() {
+        return listOfConnectedLocations;
+    }
+
     public ArrayList<Item> getListOfItems() {
         return listOfItems;
     }

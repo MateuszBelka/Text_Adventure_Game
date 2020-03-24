@@ -11,6 +11,7 @@ import static input.commands.Attack.doAttack;
 import static input.commands.Break.doBreakWithoutItem;
 import static input.commands.Close.doClose;
 import static input.commands.Consume.doConsume;
+import static input.commands.Cut.doCutWith;
 import static input.commands.Drop.doDrop;
 import static input.commands.Examine.doExamine;
 import static input.commands.GiveItemToNPC.doGiveItemToNPC;
@@ -24,33 +25,36 @@ import static input.commands.TalkWith.doTalkWith;
 import static input.commands.Use.doUse;
 import static input.commands.Use.doUseItemOnNPC;
 import static input.commands.Listen.doListenTo;
-import static input.validation.InputValidation.getKeyInValidInputList;
+import static input.validation.HandlerOf1Word.handle1Direction;
+import static input.validation.InputValidation.*;
 
 public class HandlerOf2Words {
-
     protected static void validateAndHandle2Words(HashMap<String, String> validInputList){
+        Item item = getItem(validInputList);
+        String command = getCommand(validInputList);
+        NPC npc = getNPC(validInputList);
+        String direction = getDirection(validInputList);
+
         if (validInputList.containsKey("item") && validInputList.containsKey("npc")) {
-            validateAndHandleItemAndNPCCombination(validInputList);
+            validateAndHandleItemAndNPCCombination(item, npc);
         }
-        if (validInputList.containsKey("command") && validInputList.containsKey("item")){
-            validateAndHandleCommandAndItemCombination(validInputList);
+        else if (validInputList.containsKey("command") && validInputList.containsKey("item")){
+            validateAndHandleCommandAndItemCombination(command, item);
         }
-        if (validInputList.containsKey("command") && validInputList.containsKey("npc")){
-            //todo: check if command is valid for that item. if yes, return true. If no, print "you cannot do that"
+        else if (validInputList.containsKey("command") && validInputList.containsKey("npc")){
+            validateAndHandleCommandAndNPCCombination(command, npc);
+        }
+        else if (validInputList.containsKey("direction") && validInputList.containsKey("command")){
+            validateAndHandleCommandAndDirectionCombination(command, direction);
         }
         else {
             //todo: print "You cannot do that. Try in the form [command] + [thing] ( + [thing] )"
         }
     }
 
-    private static void validateAndHandleItemAndNPCCombination(HashMap<String, String> validInputList){
-        String itemName = getKeyInValidInputList(validInputList, "item");
-        String npcName = getKeyInValidInputList(validInputList, "npc");
-        NPC npc = NPC.getNPCByName(npcName);
-        Item item = Item.getItemByName(itemName);
-
+    private static void validateAndHandleItemAndNPCCombination(Item item, NPC npc){
         if(npc.getItemToBeUsedOn().equals(item)){
-            if(item.getCanBeGivenTo()){
+            if(item.getCanBeGiven()){
                 doGiveItemToNPC(item, npc);
             }
             else if (item.getCanBeUsedOnNPC()){
@@ -69,11 +73,7 @@ public class HandlerOf2Words {
         }
     }
 
-    private static void validateAndHandleCommandAndItemCombination(HashMap<String, String> validInputList){
-        String command = getKeyInValidInputList(validInputList, "command");
-        String itemName = getKeyInValidInputList(validInputList, "item");
-        Item item = Item.getItemByName(itemName);
-
+    private static void validateAndHandleCommandAndItemCombination(String command, Item item){
         switch (command){
             case "USE":
                 if (item.getCanBeUsed()) { doUse(item); }
@@ -150,10 +150,105 @@ public class HandlerOf2Words {
     }
 
     private static void cutItemHandler(Item item){
-        //if item can be cut,
-        //if there is an item to cut with, in inventory.
-        //
+        ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
+
+        if (item.getCanBeCut()){
+            for (Item itemInInventory : itemsInInventory){
+                if (item.getItemToCutWith().equals(itemInInventory)){
+                    doCutWith(item, itemInInventory);
+                }
+            }
+            //todo: else give message that user doesn't have the right item to cut?
+        }
+
+        else{
+            //todo: print: item.getName() + " cannot be cut."
+        }
     }
 
+    private static void validateAndHandleCommandAndNPCCombination(String command, NPC npc) {
+        switch (command) {
+            case "LISTEN":
+                if (npc.getCanBeListenedTo()) { doListenTo(npc); }
+                else { /*todo: print: npcName + " cannot be listened to."*/ }
+                break;
+            case "TALK":
+                if (npc.getCanBeTalkedWith()) { doTalkWith(npc); }
+                else { /*todo: print: npcName + " cannot be talked to."*/ }
+                break;
+            case "ATTACK":
+                if (npc.getCanBeAttacked()) { doAttack(npc); }
+                else { /*todo: print: npcName + " cannot be attacked."*/}
+                break;
+            case "SMELL":
+                if (npc.getCanBeSmelled()) { doSmell(npc); }
+                else { /*todo: print: npcName + " cannot be smelled."*/ }
+                break;
+            case "PUSH":
+                if (npc.getCanBePushed()) { doPush(npc); }
+                else { /*todo: print: npcName + " cannot be pushed."*/ }
+                break;
+            case "PULL":
+                if (npc.getCanBePulled()) { doPull(npc); }
+                else { /*todo: print: npcName + " cannot be pulled."*/ }
+                break;
+            case "EXAMINE":
+                if (npc.getCanBeExamined()) { doExamine(npc); }
+                else { /*todo: print: "Cannot examine * + npcName + "."*/ }
+                break;
+            case "USE":
+                if (npc.getCanBeUsed()) { doUse(npc); }
+                else {/*todo: print: npcName + " cannot be used ."*/}
+                break;
+            case "EAT":
+            case "DRINK":
+            case "CONSUME":
+                if (npc.getCanBeConsumed()) { doConsume(npc); }
+                else {/*todo: print: "Cannot consume * + npcName + "."*/}
+                break;
+            case "OPEN":
+                if (npc.getCanBeOpened()) { doOpen(npc); }
+                else { /*todo: print: itemName + " cannot be opened."*/}
+                break;
+            case "CLOSE":
+                if (npc.getCanBeClosed()) { doClose(npc); }
+                else { /*todo: print: itemName + " cannot be closed."*/}
+                break;
+            case "CUT":
+                cutNPCHandler(npc);
+                break;
+            default:
+                //todo: print: "Cannot do that."
+        }
+    }
 
+    private static void cutNPCHandler(NPC npc){
+        ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
+
+        if (npc.getCanBeCut()){
+            for (Item itemInInventory : itemsInInventory){
+                if (npc.getItemToCutWith().equals(itemInInventory)){
+                    doCutWith(npc, itemInInventory);
+                }
+            }
+            //todo: else give message that user doesn't have the right item to cut?
+        }
+
+        else{
+            //todo: print: item.getName() + " cannot be cut."
+        }
+    }
+
+    private static void validateAndHandleCommandAndDirectionCombination(String command, String direction){
+        switch (command){
+            case "RUN":
+            case "GO":
+            case "WALK":
+            case "MOVE":
+                handle1Direction(direction);
+                break;
+            default:
+                //todo: print: "Cannot " + command + " to " + direction + "."
+        }
+    }
 }

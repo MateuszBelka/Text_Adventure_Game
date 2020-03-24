@@ -11,4 +11,14 @@ public class Listen {
     public static void doListenTo(NPC npc){
 
     }
+
+    public static void doListenToNPCWithItem(NPC npc, Item item){
+
+    }
+
+    public static void doListenToItemWithItem(Item itemToListenTo, Item itemToListenWith){
+
+    }
+
+
 }
