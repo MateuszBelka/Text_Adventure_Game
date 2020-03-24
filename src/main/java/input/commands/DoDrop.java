@@ -2,7 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 
-public class Drop {
+public class DoDrop {
     public static void doDrop(Item item){
         //do
     }

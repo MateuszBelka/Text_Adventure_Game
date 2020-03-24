@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Open {
+public class DoOpen {
     public static void doOpen (Item item){
 
     }

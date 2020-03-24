@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Examine {
+public class DoExamine {
     public static void doExamine (Item item){
 
     }

@@ -3,12 +3,12 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Pull {
-    public static void doPull (Item item){
+public class DoAttack {
+    public static void doAttack(Item item){
 
     }
 
-    public static void doPull (NPC npc){
+    public static void doAttack(NPC npc){
 
     }
 }

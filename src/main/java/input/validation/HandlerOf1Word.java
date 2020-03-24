@@ -5,19 +5,18 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import initialisation.CollectionOfAllClasses;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
-import static input.commands.Consume.doConsume;
-import static input.commands.Exit.doExit;
-import static input.commands.Inventory.doInventoryLookUp;
-import static input.commands.Load.doLoad;
-import static input.commands.Look.doLook;
-import static input.commands.Move.doMove;
-import static input.commands.PickUp.doPickUp;
-import static input.commands.Read.doRead;
-import static input.commands.Save.doSave;
-import static input.commands.TalkWith.doTalkWith;
+import static input.commands.DoConsume.doConsume;
+import static input.commands.DoExit.doExit;
+import static input.commands.DoGetInventory.doInventoryLookUp;
+import static input.commands.DoLoad.doLoad;
+import static input.commands.DoLook.doLook;
+import static input.commands.DoMove.doMove;
+import static input.commands.DoPickUp.doPickUp;
+import static input.commands.DoRead.doRead;
+import static input.commands.DoSave.doSave;
+import static input.commands.DoTalkWith.doTalkWith;
 import static input.validation.InputValidation.*;
 
 public class HandlerOf1Word {

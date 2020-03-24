@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Smell {
+public class DoSmell {
     public static void doSmell(Item item){
 
     }

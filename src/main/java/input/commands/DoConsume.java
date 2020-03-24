@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Consume {
+public class DoConsume {
     public static void doConsume (Item item){
         //consume
     }

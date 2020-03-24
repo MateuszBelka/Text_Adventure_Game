@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Listen {
+public class DoListen {
     public static void doListenTo(Item item){
 
     }

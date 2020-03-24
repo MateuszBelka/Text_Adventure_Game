@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class TalkWith {
+public class DoTalkWith {
     public static void  doTalkWith(NPC npc){
         //todo: print textForTalking;
     }

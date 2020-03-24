@@ -1,6 +1,6 @@
 package input.commands;
 
-public class Back {
+public class DoBack {
     public static void doBack(){
 
     }

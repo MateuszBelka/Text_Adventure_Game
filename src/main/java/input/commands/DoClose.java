@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Close {
+public class DoClose {
     public static void doClose(Item item){
 
     }

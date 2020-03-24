@@ -3,7 +3,7 @@ package gameProgress;
 import gameElements.player.Player;
 import initialisation.CollectionOfAllClasses;
 
-public class gameProgress {
+public class GameProgression {
     Player player = CollectionOfAllClasses.getPlayer();
     Integer amountOfLevels = CollectionOfAllClasses.getLevels().size();
 

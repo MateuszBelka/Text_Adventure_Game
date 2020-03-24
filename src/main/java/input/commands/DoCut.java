@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Cut {
+public class DoCut {
     public static void doCutWith(Item itemToBeCut, Item itemToCutWith){
 
     }

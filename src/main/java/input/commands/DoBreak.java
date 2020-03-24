@@ -2,7 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 
-public class Break {
+public class DoBreak {
     public static void doBreakWithoutItem(Item item){
         //if needs item, then check if item is in inventory.
     }

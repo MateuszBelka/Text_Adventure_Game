@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class Push {
+public class DoPush {
     public static void doPush(Item item){
 
     }

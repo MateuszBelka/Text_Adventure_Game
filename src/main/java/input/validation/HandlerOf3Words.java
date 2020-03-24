@@ -5,16 +5,16 @@ import gameElements.levelAndContents.NPC;
 
 import java.util.HashMap;
 
-import static input.commands.Break.doBreakWithItem;
-import static input.commands.Close.doCloseItemWithItem;
-import static input.commands.Cut.doCutItemWithItem;
-import static input.commands.GiveItemToNPC.doGiveItemToNPC;
-import static input.commands.Listen.doListenToItemWithItem;
-import static input.commands.Listen.doListenToNPCWithItem;
-import static input.commands.Open.doOpenItemWithItem;
-import static input.commands.Unlock.doUnlockItemWithItem;
-import static input.commands.Use.doUseItemOnItem;
-import static input.commands.Use.doUseItemOnNPC;
+import static input.commands.DoBreak.doBreakWithItem;
+import static input.commands.DoClose.doCloseItemWithItem;
+import static input.commands.DoCut.doCutItemWithItem;
+import static input.commands.DoGiveItemToNPC.doGiveItemToNPC;
+import static input.commands.DoListen.doListenToItemWithItem;
+import static input.commands.DoListen.doListenToNPCWithItem;
+import static input.commands.DoOpen.doOpenItemWithItem;
+import static input.commands.DoUnlock.doUnlockItemWithItem;
+import static input.commands.DoUse.doUseItemOnItem;
+import static input.commands.DoUse.doUseItemOnNPC;
 import static input.validation.InputValidation.*;
 
 public class HandlerOf3Words {
