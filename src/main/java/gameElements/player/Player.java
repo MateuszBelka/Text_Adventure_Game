@@ -4,10 +4,13 @@ import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import initialisation.CollectionOfAllClasses;
 
+import java.util.ArrayList;
+
 public class Player {
-    Location currentLocation;
-    Level currentLevel;
-    Inventory inventory = CollectionOfAllClasses.getInventory();
+    private Location currentLocation;
+    private Level currentLevel;
+    private Inventory inventory = CollectionOfAllClasses.getInventory();
+    private ArrayList<Location> listOfMovedLocations = new ArrayList<>();
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
@@ -42,7 +45,7 @@ public class Player {
         this.currentLevel = currentLevel;
     }
 
-    protected void setCurrentLocation(Location currentLocation) {
+    public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
 
@@ -82,4 +85,11 @@ public class Player {
     }
 
     protected void increaseMaximumXP() { setMaximumXP(getPlayerLevel() * getMaximumXP()); }
+
+    public void addLocationToMovedLocationsList(Location location) { listOfMovedLocations.add(location); }
+
+    public  void setCurrentLocationToPreviousLocation() {
+        Location previousLocation = listOfMovedLocations.get(listOfMovedLocations.size() - 1);
+        setCurrentLocation(previousLocation);
+    }
 }

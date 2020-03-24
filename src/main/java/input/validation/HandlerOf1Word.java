@@ -5,11 +5,13 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import initialisation.CollectionOfAllClasses;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import static input.commands.DoConsume.doConsume;
 import static input.commands.DoExit.doExit;
 import static input.commands.DoGetInventory.doInventoryLookUp;
+import static input.commands.DoListen.doListen;
 import static input.commands.DoLoad.doLoad;
 import static input.commands.DoLook.doLook;
 import static input.commands.DoMove.doMove;
@@ -56,10 +58,13 @@ public class HandlerOf1Word {
                 doExit();
                 break;
             case "READ":
-                doRead();
+                handleReadCommand();
                 break;
             case "SAVE":
                 doSave();
+                break;
+            case "LISTEN":
+                doListen();
                 break;
             case "LOAD":
                 doLoad();
@@ -73,6 +78,27 @@ public class HandlerOf1Word {
                 doLook();
                 break;
             default: //todo: print: "This command cannot be used that way. Enter "help" for an overview of how to use commands. "
+        }
+    }
+
+    private static void handleReadCommand() {
+        ArrayList<Item> listOfItemsInCurrentLocation =
+                CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfItems();
+        int amountOfReadableItems = 0;
+        Item itemToRead = null;
+
+        for(Item item : listOfItemsInCurrentLocation){
+            if (item.getCanBeRead()){
+                amountOfReadableItems++;
+                itemToRead = item;
+            }
+        }
+
+        if (amountOfReadableItems == 1){
+            doRead(itemToRead);
+        }
+        else{
+            //todo: print: "Try Read + [thing] "
         }
     }
 

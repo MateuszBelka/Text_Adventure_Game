@@ -101,6 +101,7 @@ public class HandlerOf2Words {
                 if (item.getCanBeRead()) { doRead(item); }
                 else { /*todo: print: "Cannot read * + itemName + "."*/ }
                 break;
+            case "OBSERVE":
             case "EXAMINE":
                 if (item.getCanBeExamined()) { doExamine(item); }
                 else { /*todo: print: "Cannot examine * + itemName + "."*/ }
@@ -134,7 +135,7 @@ public class HandlerOf2Words {
                 else { /*todo: print: itemName + " cannot be closed."*/}
                 break;
             case "CUT":
-                cutItemHandler(item);
+                cutItemCommand(item);
                 break;
             case "ATTACK":
                 if (item.getCanBeAttacked()) { doAttack(item); }
@@ -149,7 +150,7 @@ public class HandlerOf2Words {
         }
     }
 
-    private static void cutItemHandler(Item item){
+    private static void cutItemCommand(Item item){
         ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
 
         if (item.getCanBeCut()){
@@ -160,7 +161,6 @@ public class HandlerOf2Words {
             }
             //todo: else give message that user doesn't have the right item to cut?
         }
-
         else{
             //todo: print: item.getName() + " cannot be cut."
         }
@@ -192,6 +192,7 @@ public class HandlerOf2Words {
                 if (npc.getCanBePulled()) { doPull(npc); }
                 else { /*todo: print: npcName + " cannot be pulled."*/ }
                 break;
+            case "OBSERVE":
             case "EXAMINE":
                 if (npc.getCanBeExamined()) { doExamine(npc); }
                 else { /*todo: print: "Cannot examine * + npcName + "."*/ }
@@ -215,14 +216,14 @@ public class HandlerOf2Words {
                 else { /*todo: print: itemName + " cannot be closed."*/}
                 break;
             case "CUT":
-                cutNPCHandler(npc);
+                cutNPCCommand(npc);
                 break;
             default:
                 //todo: print: "Cannot do that."
         }
     }
 
-    private static void cutNPCHandler(NPC npc){
+    private static void cutNPCCommand(NPC npc){
         ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
 
         if (npc.getCanBeCut()){
@@ -233,7 +234,6 @@ public class HandlerOf2Words {
             }
             //todo: else give message that user doesn't have the right item to cut?
         }
-
         else{
             //todo: print: item.getName() + " cannot be cut."
         }

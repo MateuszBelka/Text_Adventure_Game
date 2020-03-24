@@ -9,6 +9,7 @@ public class DoOpen {
     }
 
     public static void doOpen (NPC npc){
+        //example: corpses
 
     }
 

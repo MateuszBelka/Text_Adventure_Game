@@ -8,6 +8,10 @@ abstract public class Entity {
     String descriptionAfterPuzzleComplete;
     String textForReading;
     String textForTalking;
+    String textForExamining;
+    String textForSmelling;
+    String textForBreaking;
+    String textForListening;
     HashMap<String, String> descriptionAfterCommand = new HashMap<>();
     Boolean canBeConsumed = false;
     Boolean canBePickedUp = false;
@@ -42,6 +46,7 @@ abstract public class Entity {
     Boolean firstTimeEnteringLocation = true;
     Boolean canBeListenedWith = false;
     Boolean canBreak = false;
+    Boolean canBeUnlockedByItem = false;
     Item itemToGive;
     NPC npcToGiveItemTo;
     Item itemToListenWith;
@@ -72,12 +77,28 @@ abstract public class Entity {
 
     }
 
+    public String getTextForListening() {
+        return textForListening;
+    }
+
     public void setDescriptionAfterCommand(HashMap<String, String> descriptionAfterCommand) {
         this.descriptionAfterCommand = descriptionAfterCommand;
     }
 
     public void setOneDescriptionAfterCommand(String command, String description){
         descriptionAfterCommand.put(command, description);
+    }
+
+    public String getTextForExamining() {
+        return textForExamining;
+    }
+
+    public Boolean getCanBeUnlockedByItem() {
+        return canBeUnlockedByItem;
+    }
+
+    public String getTextForBreaking() {
+        return textForBreaking;
     }
 
     public Item getItemToBeClosed() {
@@ -146,6 +167,10 @@ abstract public class Entity {
 
     public Boolean getCanBeCutWith() {
         return canBeCutWith;
+    }
+
+    public String getTextForSmelling() {
+        return textForSmelling;
     }
 
     public Boolean getCanBePushed() {
@@ -328,6 +353,10 @@ abstract public class Entity {
         this.canBePickedUp = canBePickedUp;
     }
 
+    public void setTextForListening(String textForListening) {
+        this.textForListening = textForListening;
+    }
+
     public void setCanBeInteractedWith(Boolean canBeInteractedWith) {
         this.canBeInteractedWith = canBeInteractedWith;
     }
@@ -342,6 +371,14 @@ abstract public class Entity {
 
     public void setCanBeListenedTo(Boolean canBeListenedTo) {
         this.canBeListenedTo = canBeListenedTo;
+    }
+
+    public void setTextForExamining(String textForExamining) {
+        this.textForExamining = textForExamining;
+    }
+
+    public void setTextForBreaking(String textForBreaking) {
+        this.textForBreaking = textForBreaking;
     }
 
     public void setCanBeAttacked(Boolean canBeAttacked) {
@@ -384,6 +421,10 @@ abstract public class Entity {
         this.descriptionAfterPuzzleComplete = descriptionAfterPuzzleComplete;
     }
 
+    public void setCanBeUnlockedByItem(Boolean canBeUnlockedByItem) {
+        this.canBeUnlockedByItem = canBeUnlockedByItem;
+    }
+
     public void setItemToBeUsedBy(Item itemToBeUsedBy) {
         this.itemToBeUsedBy = itemToBeUsedBy;
     }
@@ -398,6 +439,10 @@ abstract public class Entity {
 
     public void setCanBeBrokenWithoutItem(Boolean canBeBrokenWithoutItem) {
         this.canBeBrokenWithoutItem = canBeBrokenWithoutItem;
+    }
+
+    public void setTextForSmelling(String textForSmelling) {
+        this.textForSmelling = textForSmelling;
     }
 
     public void setCanBeTurnedOff(Boolean canBeTurnedOff) {

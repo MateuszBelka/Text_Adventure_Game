@@ -86,7 +86,7 @@ public class HandlerOf3Words {
                 }
                 break;
             case "UNLOCK":
-                if (item1.getItemToUnlock().equals(item2)) {
+                if (item1.getItemToUnlock().equals(item2) && item1.getCanBeUnlockedByItem()) {
                     doUnlockItemWithItem(item1, item2);
                 } else {
                     //todo: print: item2.getName() cannot be unlocked with item1.getName();
