@@ -10,7 +10,7 @@ public class StoryTextPrinter {
 
         terminal.appendText("A temporary new line of text has been added!\n");
 
-        ArrayList<String> currentTextList = CollectionOfAllClasses.getStoryTextGetter().compileStoryText();
+//        ArrayList<String> currentTextList = CollectionOfAllClasses.getStoryTextGetter().compileStoryText();
 //
 //        for (String text: currentTextList){
 //            terminal.appendText(text);
