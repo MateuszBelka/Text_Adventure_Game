@@ -2,22 +2,22 @@ package output;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import gameElements.player.Player;
+import gameElements.player.PlayerStats;
 
 import java.util.ArrayList;
 
 public class StoryTextGetter {
     private ArrayList<String> listToPrint = new ArrayList<>();
-    private transient Player player;
+    private transient PlayerStats playerStats;
 
     //Get Methods
-    public Player getPlayer() {
-        return player;
+    public PlayerStats getPlayerStats() {
+        return playerStats;
     }
 
     //Set Methods
-    public void setPlayer(Player player) {
-        this.player = player;
+    public void setPlayerStats(PlayerStats playerStats) {
+        this.playerStats = playerStats;
     }
 
     public ArrayList<String> compileStoryText(){
@@ -25,6 +25,7 @@ public class StoryTextGetter {
 
         addLevelTextIfFirstPrint();
         addLocationTextIfFirstPrint();
+        //todo: Maybe we want to print only the level and location text, and make user ask item descriptions through examine?
         addItemsTextsIfFirstPrint();
         addNPCsTextsIfFirstPrint();
         addListOfEntitiesInLocation();
@@ -33,37 +34,37 @@ public class StoryTextGetter {
     }
 
     private void addLevelTextIfFirstPrint(){
-        Boolean firstPrintOfLevel = player.getCurrentLevel().descriptionPrintedOnce();
+        Boolean firstPrintOfLevel = playerStats.getCurrentLevel().descriptionPrintedOnce();
 
         if (firstPrintOfLevel) {
-            listToPrint.add(player.getCurrentLevel().getDescription());
+            listToPrint.add(playerStats.getCurrentLevel().getDescription());
         }
     }
 
     private void addLocationTextIfFirstPrint(){
-        Boolean firstPrintOfLocation = player.getCurrentLocation().descriptionPrintedOnce();
+        Boolean firstPrintOfLocation = playerStats.getCurrentLocation().descriptionPrintedOnce();
 
         if (firstPrintOfLocation) {
-            listToPrint.add(player.getCurrentLocation().getDescription());
+            listToPrint.add(playerStats.getCurrentLocation().getDescription());
         }
     }
 
     private void addItemsTextsIfFirstPrint(){
-        for (int i = 0; i < player.getCurrentLocation().getListOfItems().size(); i++){
-            Boolean firstPrintOfItem = player.getCurrentLocation().getListOfItems().get(i).descriptionPrintedOnce();
+        for (int i = 0; i < playerStats.getCurrentLocation().getListOfItems().size(); i++){
+            Boolean firstPrintOfItem = playerStats.getCurrentLocation().getListOfItems().get(i).descriptionPrintedOnce();
 
             if (firstPrintOfItem) {
-                listToPrint.add(player.getCurrentLocation().getListOfItems().get(i).getDescription());
+                listToPrint.add(playerStats.getCurrentLocation().getListOfItems().get(i).getDescription());
             }
         }
     }
 
     private void addNPCsTextsIfFirstPrint(){
-        for (int i = 0; i < player.getCurrentLocation().getListOfNPCs().size(); i++){
-            Boolean firstPrintOfNPC = player.getCurrentLocation().getListOfNPCs().get(i).descriptionPrintedOnce();
+        for (int i = 0; i < playerStats.getCurrentLocation().getListOfNPCs().size(); i++){
+            Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfNPCs().get(i).descriptionPrintedOnce();
 
             if (firstPrintOfNPC) {
-                listToPrint.add(player.getCurrentLocation().getListOfNPCs().get(i).getDescription());
+                listToPrint.add(playerStats.getCurrentLocation().getListOfNPCs().get(i).getDescription());
             }
         }
     }
@@ -75,7 +76,7 @@ public class StoryTextGetter {
 
     private String addListOfItems(){
         StringBuilder compiledListOfItems = new StringBuilder();
-        ArrayList<Item> listOfItems = player.getCurrentLocation().getListOfItems();
+        ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
 
         for (int i = 0; i < listOfItems.size(); i++){
             String itemToAdd = "[" + listOfItems.get(i) + "] ";
@@ -86,7 +87,7 @@ public class StoryTextGetter {
 
     private String addListOfNPCs(){
         StringBuilder compiledListOfNPCs = new StringBuilder();
-        ArrayList<NPC> listOfNPCs = player.getCurrentLocation().getListOfNPCs();
+        ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfNPCs();
 
         for (int i = 0; i < listOfNPCs.size(); i++){
             String itemToAdd = "<" + listOfNPCs.get(i) + "> ";

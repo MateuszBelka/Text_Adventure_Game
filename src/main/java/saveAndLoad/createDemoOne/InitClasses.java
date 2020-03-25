@@ -5,9 +5,9 @@ import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
-import gameElements.player.Player;
-import gameElements.player.PlayerProgression;
-import initialisation.CollectionOfAllClasses;
+import gameElements.player.PlayerStats;
+import gameElements.player.PlayerLevellingProgression;
+import initialisation.InitOfClassesThroughSaveFile;
 import input.validation.InputValidation;
 import input.validation.Validation;
 import input.validation.WordValidation;
@@ -18,22 +18,22 @@ import java.util.ArrayList;
 
 public class InitClasses {
     public static void initEverything() {
-        CollectionOfAllClasses.setPlayer(initPlayer());
-        CollectionOfAllClasses.setWordValidation(initWordValidation());
-        CollectionOfAllClasses.setInventory(initInventory());
-        CollectionOfAllClasses.setValidation(initValidation());
-        CollectionOfAllClasses.setInputValidation(initInputValidation());
-        CollectionOfAllClasses.setStoryTextGetter(initStoryTextGetter());
-        CollectionOfAllClasses.setStoryTextPrinter(initStoryTextPrinter());
-        CollectionOfAllClasses.setPlayerProgression(initPlayerProgression());
-        CollectionOfAllClasses.setLevels(initLevels());
-        CollectionOfAllClasses.setLocations(initLocations());
-        CollectionOfAllClasses.setItems(initItems());
-        CollectionOfAllClasses.setNpcs(initNPC());
+        InitOfClassesThroughSaveFile.setPlayerStats(initPlayer());
+        InitOfClassesThroughSaveFile.setWordValidation(initWordValidation());
+        InitOfClassesThroughSaveFile.setInventory(initInventory());
+        InitOfClassesThroughSaveFile.setValidation(initValidation());
+        InitOfClassesThroughSaveFile.setInputValidation(initInputValidation());
+        InitOfClassesThroughSaveFile.setStoryTextGetter(initStoryTextGetter());
+        InitOfClassesThroughSaveFile.setStoryTextPrinter(initStoryTextPrinter());
+        InitOfClassesThroughSaveFile.setPlayerProgression(initPlayerProgression());
+        InitOfClassesThroughSaveFile.setLevels(initLevels());
+        InitOfClassesThroughSaveFile.setLocations(initLocations());
+        InitOfClassesThroughSaveFile.setItems(initItems());
+        InitOfClassesThroughSaveFile.setNpcs(initNPC());
     }
 
-    public static Player initPlayer() {
-        return new Player();
+    public static PlayerStats initPlayer() {
+        return new PlayerStats();
     }
 
     public static WordValidation initWordValidation() {
@@ -60,8 +60,8 @@ public class InitClasses {
         return new StoryTextPrinter();
     }
 
-    public static PlayerProgression initPlayerProgression() {
-        return new PlayerProgression();
+    public static PlayerLevellingProgression initPlayerProgression() {
+        return new PlayerLevellingProgression();
     }
 
     public static ArrayList<Level> initLevels() {

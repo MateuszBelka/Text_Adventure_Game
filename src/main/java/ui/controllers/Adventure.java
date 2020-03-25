@@ -6,7 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import initialisation.CollectionOfAllClasses;
+import initialisation.InitOfClassesThroughSaveFile;
 import output.StoryTextPrinter;
 import input.validation.InputValidation;
 
@@ -53,7 +53,7 @@ public class Adventure implements Initializable {
         readAndClearInput();
 
         //Update Game through Input Validation
-        InputValidation.temporaryInputReceiver(getInputString(), CollectionOfAllClasses.getPlayer());
+        InputValidation.temporaryInputReceiver(getInputString(), InitOfClassesThroughSaveFile.getPlayerStats());
 
         //Output Printing
         StoryTextPrinter.printStory(getTerminal());

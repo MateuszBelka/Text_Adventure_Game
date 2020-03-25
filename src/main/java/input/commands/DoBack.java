@@ -1,9 +1,9 @@
 package input.commands;
 
-import initialisation.CollectionOfAllClasses;
+import initialisation.InitOfClassesThroughSaveFile;
 
 public class DoBack {
     public static void doBack(){
-        CollectionOfAllClasses.getPlayer().setCurrentLocationToPreviousLocation();
+        InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocationToPreviousLocation();
     }
 }

@@ -5,7 +5,7 @@ import gameElements.levelAndContents.Location;
 
 import java.util.ArrayList;
 
-public class Player {
+public class PlayerStats {
     private transient Location currentLocation;
     private int currentLocationID;
 

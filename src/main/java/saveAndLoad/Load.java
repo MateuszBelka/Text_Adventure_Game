@@ -36,9 +36,10 @@ import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
-import gameElements.player.Player;
-import gameElements.player.PlayerProgression;
-import initialisation.CollectionOfAllClasses;
+import gameElements.player.PlayerStats;
+import gameElements.player.PlayerLevellingProgression;
+import initialisation.InitOfClassesThroughSaveFile;
+import initialisation.InitOfStandardClasses;
 import input.validation.WordValidation;
 import output.StoryTextGetter;
 
@@ -84,7 +85,7 @@ public class Load {
         FileReader jsonFile = new FileReader(fileName);
 
         // Populate static variables of CollectionOfAllClasses from json file.
-        CollectionOfAllClasses loadNewGameObjects = gson.fromJson(jsonFile, CollectionOfAllClasses.class);
+        InitOfClassesThroughSaveFile loadNewGameObjects = gson.fromJson(jsonFile, InitOfClassesThroughSaveFile.class);
 
         // Since all variables within CollectionOfAllClasses are static the object is not longer needed
         loadNewGameObjects = null;
@@ -113,57 +114,57 @@ public class Load {
     }
 
     private static void connectPlayerToLocation() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        for (Location location : CollectionOfAllClasses.getLocations()) {
-            if (player.getCurrentLocationID() == location.getId()) {
-                player.setCurrentLocation(location);
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
+            if (playerStats.getCurrentLocationID() == location.getId()) {
+                playerStats.setCurrentLocation(location);
             }
         }
     }
 
     private static void connectPlayerToLevel() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        for (Level level : CollectionOfAllClasses.getLevels()) {
-            if (player.getCurrentLevelID() == level.getId()) {
-                player.setCurrentLevel(level);
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
+            if (playerStats.getCurrentLevelID() == level.getId()) {
+                playerStats.setCurrentLevel(level);
             }
         }
     }
 
     private static void connectPlayerToInventory() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        Inventory inv = CollectionOfAllClasses.getInventory();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        Inventory inv = InitOfClassesThroughSaveFile.getInventory();
 
-        player.setInventory(inv);
+        playerStats.setInventory(inv);
     }
 
     private static void connectWordValidatorToPlayer() {
-        WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
-        Player player = CollectionOfAllClasses.getPlayer();
+        WordValidation wordValidation = InitOfStandardClasses.getWordValidation();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        wordValidation.setPlayer(player);
+        wordValidation.setPlayerStats(playerStats);
     }
 
     private static void connectStoryTextGetterToPlayer() {
-        StoryTextGetter getter = CollectionOfAllClasses.getStoryTextGetter();
-        Player player = CollectionOfAllClasses.getPlayer();
+        StoryTextGetter getter = InitOfStandardClasses.getStoryTextGetter();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        getter.setPlayer(player);
+        getter.setPlayerStats(playerStats);
     }
 
     private static void connectPlayerProgressToPlayer() {
-        PlayerProgression progression = CollectionOfAllClasses.getPlayerProgression();
-        Player player = CollectionOfAllClasses.getPlayer();
+        PlayerLevellingProgression progression = InitOfStandardClasses.getPlayerProgression();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        progression.setPlayer(player);
+        progression.setPlayerStats(playerStats);
     }
 
     // Connect all levels to their starting locations
     private static void connectLevelsToLocation() {
         // Loop through all levels in the game
-        for (Level level : CollectionOfAllClasses.getLevels()) {
+        for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
             // Go through all location until we find the one that is i's level starting location
-            for (Location location : CollectionOfAllClasses.getLocations()) {
+            for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
                 if (level.getStartLocationID() == location.getId()) {
                     level.setStartLocation(location);
                     break;
@@ -173,11 +174,11 @@ public class Load {
     }
 
     private static void connectLocationsToItems() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             ArrayList<Item> newListOfItems = new ArrayList<>();
 
             for (Integer id : location.getListOfItemsIDs()) {
-                for (Item item : CollectionOfAllClasses.getItems()) {
+                for (Item item : InitOfClassesThroughSaveFile.getItems()) {
                     if (id == item.getId()) {
                         newListOfItems.add(item);
                         break;
@@ -190,11 +191,11 @@ public class Load {
     }
 
     private static void connectLocationsToNPCs() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             ArrayList<NPC> newListOfNPCs = new ArrayList<>();
 
             for (Integer id : location.getListOfNPCsIDs()) {
-                for (NPC npc : CollectionOfAllClasses.getNpcs()) {
+                for (NPC npc : InitOfClassesThroughSaveFile.getNpcs()) {
                     if (id == npc.getId()) {
                         newListOfNPCs.add(npc);
                         break;
@@ -207,11 +208,11 @@ public class Load {
     }
 
     private static void connectLocationsToHashMap() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             HashMap<String, Location> newListOfConnectedLocations = new HashMap<>();
 
             for (Map.Entry<String, Integer> integerEntry : location.getListOfConnectedLocationsIDs().entrySet()) {
-                for (Location possibleConnectedLocation : CollectionOfAllClasses.getLocations()) {
+                for (Location possibleConnectedLocation : InitOfClassesThroughSaveFile.getLocations()) {
                     if (integerEntry.getValue() == possibleConnectedLocation.getId()) {
                         newListOfConnectedLocations.put(integerEntry.getKey(), possibleConnectedLocation);
                         break;

@@ -3,9 +3,10 @@ package saveAndLoad.createDemoOne;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import gameElements.player.Inventory;
-import gameElements.player.Player;
-import gameElements.player.PlayerProgression;
-import initialisation.CollectionOfAllClasses;
+import gameElements.player.PlayerStats;
+import gameElements.player.PlayerLevellingProgression;
+import initialisation.InitOfClassesThroughSaveFile;
+import initialisation.InitOfStandardClasses;
 import input.validation.InputValidation;
 import input.validation.Validation;
 import input.validation.WordValidation;
@@ -27,36 +28,36 @@ public class ConfigureClasses {
     }
 
     public static void configurePlayer() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        Inventory inventory = CollectionOfAllClasses.getInventory();
-        Level level0 = CollectionOfAllClasses.getLevels().get(0);
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        Inventory inventory = InitOfClassesThroughSaveFile.getInventory();
+        Level level0 = InitOfClassesThroughSaveFile.getLevels().get(0);
 
-        player.setCurrentLevel(level0);
-        player.setCurrentLocation(level0.getStartLocation());
-        player.setInventory(inventory);
+        playerStats.setCurrentLevel(level0);
+        playerStats.setCurrentLocation(level0.getStartLocation());
+        playerStats.setInventory(inventory);
     }
 
     public static void configureWordValidation() {
-        WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
-        Player player = CollectionOfAllClasses.getPlayer();
+        WordValidation wordValidation = InitOfStandardClasses.getWordValidation();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        wordValidation.setPlayer(player);
+        wordValidation.setPlayerStats(playerStats);
     }
 
     public static void configureValidation() {
-        Validation validation = CollectionOfAllClasses.getValidation();
-        WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
-        InputValidation inputValidation = CollectionOfAllClasses.getInputValidation();
+        Validation validation = InitOfStandardClasses.getValidation();
+        WordValidation wordValidation = InitOfStandardClasses.getWordValidation();
+        InputValidation inputValidation = InitOfStandardClasses.getInputValidation();
 
         validation.setWordValidation(wordValidation);
         validation.setInputValidation(inputValidation);
     }
 
     public static void configureStoryTextGetter() {
-        StoryTextGetter storyTextGetter = CollectionOfAllClasses.getStoryTextGetter();
-        Player player = CollectionOfAllClasses.getPlayer();
+        StoryTextGetter storyTextGetter = InitOfStandardClasses.getStoryTextGetter();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        storyTextGetter.setPlayer(player);
+        storyTextGetter.setPlayerStats(playerStats);
     }
 
     public static void configureStoryTextPrinter() {
@@ -64,10 +65,10 @@ public class ConfigureClasses {
     }
 
     public static void configurePlayerProgression() {
-        PlayerProgression playerProgression = CollectionOfAllClasses.getPlayerProgression();
-        Player player = CollectionOfAllClasses.getPlayer();
+        PlayerLevellingProgression playerLevellingProgression = InitOfStandardClasses.getPlayerProgression();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        playerProgression.setPlayer(player);
+        playerLevellingProgression.setPlayerStats(playerStats);
     }
 
     public static void configureItems() {
@@ -79,8 +80,8 @@ public class ConfigureClasses {
     }
 
     public static void configureLevels() {
-        Level level0 = CollectionOfAllClasses.getLevels().get(0);
-        Location location0 = CollectionOfAllClasses.getLocations().get(0);
+        Level level0 = InitOfClassesThroughSaveFile.getLevels().get(0);
+        Location location0 = InitOfClassesThroughSaveFile.getLocations().get(0);
 
         level0.setId(1);
         level0.setDescription("test description for level0");

@@ -2,7 +2,7 @@ package input.validation;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import gameElements.player.Player;
+import gameElements.player.PlayerStats;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,7 +15,7 @@ import static input.validation.HandlerOf3Words.*;
 
 public class InputValidation {
 
-    public static void temporaryInputReceiver(String input, Player player) {
+    public static void temporaryInputReceiver(String input, PlayerStats playerStats) {
         //Placeholder method
     }
 

@@ -2,7 +2,6 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import initialisation.CollectionOfAllClasses;
 
 public class DoExamine {
     public static void doExamine (Item item){

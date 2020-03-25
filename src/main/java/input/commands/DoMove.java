@@ -1,11 +1,11 @@
 package input.commands;
 
 import gameElements.levelAndContents.Location;
-import initialisation.CollectionOfAllClasses;
+import initialisation.InitOfClassesThroughSaveFile;
 
 public class DoMove {
     public static void doMove (Location location){
-        CollectionOfAllClasses.getPlayer().addLocationToMovedLocationsList(location);
-        CollectionOfAllClasses.getPlayer().setCurrentLocation(location);
+        InitOfClassesThroughSaveFile.getPlayerStats().addLocationToMovedLocationsList(location);
+        InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocation(location);
     }
 }

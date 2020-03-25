@@ -5,9 +5,8 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
-import gameElements.player.Inventory;
-import gameElements.player.Player;
-import initialisation.CollectionOfAllClasses;
+import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -47,28 +46,28 @@ public class Save {
     }
 
     private static void connectPlayerToLocation() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        Location currentLocation = player.getCurrentLocation();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        Location currentLocation = playerStats.getCurrentLocation();
 
-        player.setCurrentLocationID(currentLocation.getId());
+        playerStats.setCurrentLocationID(currentLocation.getId());
     }
 
     private static void connectPlayerToLevel() {
-        Player player = CollectionOfAllClasses.getPlayer();
-        Level currentLevel = player.getCurrentLevel();
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        Level currentLevel = playerStats.getCurrentLevel();
 
-        player.setCurrentLevelID(currentLevel.getId());
+        playerStats.setCurrentLevelID(currentLevel.getId());
     }
 
     private static void connectLevelsToLocation() {
-        for (Level level : CollectionOfAllClasses.getLevels()) {
+        for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
             Location startLocation = level.getStartLocation();
             level.setStartLocationID(startLocation.getId());
         }
     }
 
     private static void connectLocationsToItems() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             ArrayList<Integer> newListOfItemsIDs = new ArrayList<>();
 
             for (Item item : location.getListOfItems()) {
@@ -80,7 +79,7 @@ public class Save {
     }
 
     private static void connectLocationsToNPCs() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             ArrayList<Integer> newListOfNPCsIDs = new ArrayList<>();
 
             for (NPC npc : location.getListOfNPCs()) {
@@ -92,7 +91,7 @@ public class Save {
     }
 
     private static void connectLocationsToHashMap() {
-        for (Location location : CollectionOfAllClasses.getLocations()) {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             HashMap<String, Integer> newListOfConnectedLocationsIDs = new HashMap<>();
 
             for (Map.Entry<String, Location> locationEntry : location.getListOfConnectedLocations().entrySet()) {
@@ -104,7 +103,7 @@ public class Save {
     }
 
     private static void populateJsonWithClasses(String fileName) {
-        CollectionOfAllClasses saveGameObjects = new CollectionOfAllClasses();
+        InitOfClassesThroughSaveFile saveGameObjects = new InitOfClassesThroughSaveFile();
         Gson gson = new Gson();
         String json = gson.toJson(saveGameObjects);
 

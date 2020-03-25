@@ -1,7 +1,6 @@
 package input.validation;
 
 import java.util.HashMap;
-import initialisation.CollectionOfAllClasses;
 
 
 public class Validation {

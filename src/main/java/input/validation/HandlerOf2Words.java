@@ -2,7 +2,7 @@ package input.validation;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import initialisation.CollectionOfAllClasses;
+import initialisation.InitOfClassesThroughSaveFile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,7 +65,7 @@ public class HandlerOf2Words {
             }
         }
 
-        ArrayList<Item> itemsInLocation = CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfItems();
+        ArrayList<Item> itemsInLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems();
         for (Item itemInLocation : itemsInLocation){
             if (itemInLocation.equals(item)){
                 //todo: print: "Cannot do that. Maybe try to pick " + item + " up first?"
@@ -151,7 +151,7 @@ public class HandlerOf2Words {
     }
 
     private static void cutItemCommand(Item item){
-        ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
+        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
 
         if (item.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){
@@ -224,7 +224,7 @@ public class HandlerOf2Words {
     }
 
     private static void cutNPCCommand(NPC npc){
-        ArrayList<Item> itemsInInventory = CollectionOfAllClasses.getInventory().getItemsInInventory();
+        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
 
         if (npc.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){

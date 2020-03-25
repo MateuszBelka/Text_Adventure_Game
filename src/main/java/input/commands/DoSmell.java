@@ -2,7 +2,6 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import initialisation.CollectionOfAllClasses;
 
 public class DoSmell {
     public static void doSmell(){

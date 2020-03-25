@@ -3,7 +3,7 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
-import initialisation.CollectionOfAllClasses;
+import initialisation.InitOfClassesThroughSaveFile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -83,7 +83,7 @@ public class HandlerOf1Word {
 
     private static void handleReadCommand() {
         ArrayList<Item> listOfItemsInCurrentLocation =
-                CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfItems();
+                InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems();
         int amountOfReadableItems = 0;
         Item itemToRead = null;
 
@@ -126,7 +126,7 @@ public class HandlerOf1Word {
     protected static void handle1Direction(String direction){
         direction = direction.toLowerCase();
         HashMap<String, Location> listOfLocationsFromCurrentLocation =
-                CollectionOfAllClasses.getPlayer().getCurrentLocation().getListOfConnectedLocations();
+                InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfConnectedLocations();
 
         if (listOfLocationsFromCurrentLocation.containsKey(direction)){
             Location location = listOfLocationsFromCurrentLocation.get(direction);
