@@ -64,7 +64,6 @@ public class Player {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-    public void setCurrentLocation(Location currentLocation) {
 
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
@@ -75,7 +74,6 @@ public class Player {
     protected void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
     protected void setCurrentHunger(int currentHunger) { this.currentHunger = currentHunger; }
     protected void setMaximumHunger(int maxHunger) { this.maxHunger = maxHunger; }
-
 
     protected void decreaseCurrentHunger() { setCurrentHunger(currentHunger - 10); }
 

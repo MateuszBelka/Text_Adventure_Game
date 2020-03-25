@@ -40,8 +40,7 @@ import gameElements.player.Player;
 import gameElements.player.PlayerProgression;
 import initialisation.CollectionOfAllClasses;
 import input.validation.WordValidation;
-import storyText.StoryTextGetter;
-import sun.plugin2.message.GetAppletMessage;
+import output.StoryTextGetter;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

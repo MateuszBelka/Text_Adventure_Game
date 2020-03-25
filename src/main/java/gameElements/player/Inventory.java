@@ -21,7 +21,6 @@ public class Inventory {
         return null;
     }
 
-    //Set Methods
     public void addToInventory(Item item){ getItemsInInventory().add(item);}
 
     public void deleteItemFromInventory(Item item){ getItemsInInventory().remove(item);}

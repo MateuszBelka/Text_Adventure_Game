@@ -9,7 +9,7 @@ import initialisation.CollectionOfAllClasses;
 import input.validation.InputValidation;
 import input.validation.Validation;
 import input.validation.WordValidation;
-import storyText.StoryTextGetter;
+import output.StoryTextGetter;
 
 public class ConfigureClasses {
     public static void configureEverything() {

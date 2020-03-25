@@ -12,21 +12,61 @@ public class Level {
     private int startLocationID;
     private transient ArrayList<Location> listOfLocations;
 
-    //Get Methods
+    // Getter + Setter
     public int getId() {
         return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getDescription() {
         return description;
     }
-    public Integer getPuzzles() {
-        return puzzles;
+
+    public void setDescription(String description) {
+        this.description = description;
     }
+
     public String getName() {
         return name;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Boolean getFirstTimeEnteringLevel() {
+        return firstTimeEnteringLevel;
+    }
+
+    public void setFirstTimeEnteringLevel(Boolean firstTimeEnteringLevel) {
+        this.firstTimeEnteringLevel = firstTimeEnteringLevel;
+    }
+
+    public Integer getPuzzles() {
+        return puzzles;
+    }
+
+    public void setPuzzles() {
+        //TODO
+    }
+
     public Location getStartLocation() {
         return startLocation;
+    }
+
+    public void setStartLocation(Location startLocation) {
+        this.startLocation = startLocation;
+    }
+
+    public int getStartLocationID() {
+        return startLocationID;
+    }
+
+    public void setStartLocationID(int startLocationID) {
+        this.startLocationID = startLocationID;
     }
 
     public ArrayList<Location> getListOfLocations() {
@@ -35,32 +75,6 @@ public class Level {
 
     public void setListOfLocations(ArrayList<Location> listOfLocations) {
         this.listOfLocations = listOfLocations;
-    }
-    public int getStartLocationID() {
-        return startLocationID;
-    }
-
-    //Set Methods
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setPuzzles() {
-        //Waiting for Item Class to be finished
-    }
-    public void setStartLocation(Location startLocation) {
-        this.startLocation = startLocation;
-    }
-    public void setStartLocationID(int startLocationID) {
-        this.startLocationID = startLocationID;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setFirstTimeEnteringLevel(Boolean firstTimeEnteringLevel) {
-        this.firstTimeEnteringLevel = firstTimeEnteringLevel;
     }
 
     public boolean descriptionPrintedOnce (){

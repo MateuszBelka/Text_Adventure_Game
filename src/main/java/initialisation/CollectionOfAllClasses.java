@@ -7,8 +7,8 @@ import input.validation.*;
 import output.*;
 import gameProgress.*;
 import input.commands.*;
-import saveAndLoad.LoadFromFile;
-import saveAndLoad.SaveToFile;
+import saveAndLoad.Load;
+import saveAndLoad.Save;
 import ui.UI;
 import ui.controllers.Adventure;
 import ui.controllers.LoadGame;
@@ -71,245 +71,331 @@ public class CollectionOfAllClasses {
     private static WordValidation wordValidation;
     private static StoryTextGetter storyTextGetter;
     private static StoryTextPrinter storyTextPrinter;
-    private static LoadFromFile loadFromFile;
-    private static SaveToFile saveToFile;
+    private static Load loadFromFile;
+    private static Save saveToFile;
     private static Adventure adventure;
     private static LoadGame loadGame;
     private static NewGame newGame;
     private static Welcome welcome;
     private static UI ui;
 
-    public static void setDoAttack(DoAttack doAttack) {
-        CollectionOfAllClasses.doAttack = doAttack;
+    //Getter + Setter
+    public static ArrayList<Item> getItems() {
+        return items;
     }
-
-    public static void setDoBack(DoBack doBack) {
-        CollectionOfAllClasses.doBack = doBack;
-    }
-
-    public static void setGameProgression(GameProgression gameProgression) {
-        CollectionOfAllClasses.gameProgression = gameProgression;
-    }
-
-    public static void setAdventure(Adventure adventure) {
-        CollectionOfAllClasses.adventure = adventure;
-    }
-
-    public static void setDoBreak(DoBreak doBreak) {
-        CollectionOfAllClasses.doBreak = doBreak;
-    }
-
-    public static void setDoClose(DoClose doClose) {
-        CollectionOfAllClasses.doClose = doClose;
-    }
-
-    public static void setDoConsume(DoConsume doConsume) {
-        CollectionOfAllClasses.doConsume = doConsume;
-    }
-
-    public static void setDoCut(DoCut doCut) {
-        CollectionOfAllClasses.doCut = doCut;
-    }
-
-    public static void setDoDrop(DoDrop doDrop) {
-        CollectionOfAllClasses.doDrop = doDrop;
-    }
-
-    public static void setDoExamine(DoExamine doExamine) {
-        CollectionOfAllClasses.doExamine = doExamine;
-    }
-
-    public static void setDoExit(DoExit doExit) {
-        CollectionOfAllClasses.doExit = doExit;
-    }
-
-    public static void setCommands(Commands commands) {
-        CollectionOfAllClasses.commands = commands;
-    }
-
-    public static void setCommandsWith1ValidWord(CommandsWith1ValidWord commandsWith1ValidWord) {
-        CollectionOfAllClasses.commandsWith1ValidWord = commandsWith1ValidWord;
-    }
-
-    public static void setDoGetInventory(DoGetInventory doGetInventory) {
-        CollectionOfAllClasses.doGetInventory = doGetInventory;
-    }
-
-    public static void setCommandsWith2ValidWords(CommandsWith2ValidWords commandsWith2ValidWords) {
-        CollectionOfAllClasses.commandsWith2ValidWords = commandsWith2ValidWords;
-    }
-
-    public static void setCommandsWith3ValidWords(CommandsWith3ValidWords commandsWith3ValidWords) {
-        CollectionOfAllClasses.commandsWith3ValidWords = commandsWith3ValidWords;
-    }
-
-    public static void setDoGiveItemToNPC(DoGiveItemToNPC doGiveItemToNPC) {
-        CollectionOfAllClasses.doGiveItemToNPC = doGiveItemToNPC;
-    }
-
-    public static void setDirections(Directions directions) {
-        CollectionOfAllClasses.directions = directions;
-    }
-
-    public static void setDoListen(DoListen doListen) {
-        CollectionOfAllClasses.doListen = doListen;
-    }
-
-    public static void setDoLoad(DoLoad doLoad) {
-        CollectionOfAllClasses.doLoad = doLoad;
-    }
-
-    public static void setDoLook(DoLook doLook) {
-        CollectionOfAllClasses.doLook = doLook;
-    }
-
-    public static void setDoMove(DoMove doMove) {
-        CollectionOfAllClasses.doMove = doMove;
-    }
-
-    public static void setDoOpen(DoOpen doOpen) {
-        CollectionOfAllClasses.doOpen = doOpen;
-    }
-
-    public static void setDoPickUp(DoPickUp doPickUp) {
-        CollectionOfAllClasses.doPickUp = doPickUp;
-    }
-
-    public static void setDoPull(DoPull doPull) {
-        CollectionOfAllClasses.doPull = doPull;
-    }
-
-    public static void setDoPush(DoPush doPush) {
-        CollectionOfAllClasses.doPush = doPush;
-    }
-
-    public static void setDoRead(DoRead doRead) {
-        CollectionOfAllClasses.doRead = doRead;
-    }
-
-    public static void setDoSave(DoSave doSave) {
-        CollectionOfAllClasses.doSave = doSave;
-    }
-
-    public static void setDoSmell(DoSmell doSmell) {
-        CollectionOfAllClasses.doSmell = doSmell;
-    }
-
-    public static void setDoTalkWith(DoTalkWith doTalkWith) {
-        CollectionOfAllClasses.doTalkWith = doTalkWith;
-    }
-
-    public static void setDoUnlock(DoUnlock doUnlock) {
-        CollectionOfAllClasses.doUnlock = doUnlock;
-    }
-
-    public static void setDoUse(DoUse doUse) {
-        CollectionOfAllClasses.doUse = doUse;
-    }
-
-    public static void setHandlerOf1Word(HandlerOf1Word handlerOf1Word) {
-        CollectionOfAllClasses.handlerOf1Word = handlerOf1Word;
-    }
-
-    public static void setHandlerOf2Words(HandlerOf2Words handlerOf2Words) {
-        CollectionOfAllClasses.handlerOf2Words = handlerOf2Words;
-    }
-
-    public static void setHandlerOf3Words(HandlerOf3Words handlerOf3Words) {
-        CollectionOfAllClasses.handlerOf3Words = handlerOf3Words;
-    }
-
-    public static void setLoadFromFile(LoadFromFile loadFromFile) {
-        CollectionOfAllClasses.loadFromFile = loadFromFile;
-    }
-
-    public static void setLoadGame(LoadGame loadGame) {
-        CollectionOfAllClasses.loadGame = loadGame;
-    }
-
-    public static void setNewGame(NewGame newGame) {
-        CollectionOfAllClasses.newGame = newGame;
-    }
-
-    public static void setSaveToFile(SaveToFile saveToFile) {
-        CollectionOfAllClasses.saveToFile = saveToFile;
-    }
-
-    public static void setUi(UI ui) {
-        CollectionOfAllClasses.ui = ui;
-    }
-
-    public static void setWelcome(Welcome welcome) {
-        CollectionOfAllClasses.welcome = welcome;
-    }
-
-    public static void setInputValidation(InputValidation inputValidation) {
-        CollectionOfAllClasses.inputValidation = inputValidation;
-    }
-
-    public static void setInventory(Inventory inventory) {
-        CollectionOfAllClasses.inventory = inventory;
-    }
-
-    public static void setLevels(ArrayList<Level> levels) {
-        CollectionOfAllClasses.levels = levels;
-    }
-
     public static void setItems(ArrayList<Item> items) {
         CollectionOfAllClasses.items = items;
     }
-
-    public static void setLocations(ArrayList<Location> locations) {
-        CollectionOfAllClasses.locations = locations;
-    }
-
-    public static void setNpcs(ArrayList<NPC> npcs) {
-        CollectionOfAllClasses.npcs = npcs;
-    }
-
-    public static void setPlayer(Player player) {
-        CollectionOfAllClasses.player = player;
-    }
-
-    public static void setPlayerProgression(PlayerProgression playerProgression) {
-        CollectionOfAllClasses.playerProgression = playerProgression;
-    }
-
-    public static void setStoryTextGetter(StoryTextGetter storyTextGetter) {
-        CollectionOfAllClasses.storyTextGetter = storyTextGetter;
-    }
-
-    public static void setStoryTextPrinter(StoryTextPrinter storyTextPrinter) {
-        CollectionOfAllClasses.storyTextPrinter = storyTextPrinter;
-    }
-
-    public static void setValidation(Validation validation) {
-        CollectionOfAllClasses.validation = validation;
-    }
-
-    public static void setWordValidation(WordValidation wordValidation) {
-        CollectionOfAllClasses.wordValidation = wordValidation;
-    }
-
-
-
-    public static Inventory getInventory() {
-        return inventory;
-    }
-
-    public static Player getPlayer() {
-        return player;
-    }
-
     public static ArrayList<Level> getLevels() {
         return levels;
     }
-
+    public static void setLevels(ArrayList<Level> levels) {
+        CollectionOfAllClasses.levels = levels;
+    }
+    public static ArrayList<Location> getLocations() {
+        return locations;
+    }
+    public static void setLocations(ArrayList<Location> locations) {
+        CollectionOfAllClasses.locations = locations;
+    }
+    public static ArrayList<NPC> getNpcs() {
+        return npcs;
+    }
+    public static void setNpcs(ArrayList<NPC> npcs) {
+        CollectionOfAllClasses.npcs = npcs;
+    }
+    public static Inventory getInventory() {
+        return inventory;
+    }
+    public static void setInventory(Inventory inventory) {
+        CollectionOfAllClasses.inventory = inventory;
+    }
+    public static Player getPlayer() {
+        return player;
+    }
+    public static void setPlayer(Player player) {
+        CollectionOfAllClasses.player = player;
+    }
+    public static PlayerProgression getPlayerProgression() {
+        return playerProgression;
+    }
+    public static void setPlayerProgression(PlayerProgression playerProgression) {
+        CollectionOfAllClasses.playerProgression = playerProgression;
+    }
+    public static GameProgression getGameProgression() {
+        return gameProgression;
+    }
+    public static void setGameProgression(GameProgression gameProgression) {
+        CollectionOfAllClasses.gameProgression = gameProgression;
+    }
+    public static DoAttack getDoAttack() {
+        return doAttack;
+    }
+    public static void setDoAttack(DoAttack doAttack) {
+        CollectionOfAllClasses.doAttack = doAttack;
+    }
+    public static DoBack getDoBack() {
+        return doBack;
+    }
+    public static void setDoBack(DoBack doBack) {
+        CollectionOfAllClasses.doBack = doBack;
+    }
+    public static DoBreak getDoBreak() {
+        return doBreak;
+    }
+    public static void setDoBreak(DoBreak doBreak) {
+        CollectionOfAllClasses.doBreak = doBreak;
+    }
+    public static DoClose getDoClose() {
+        return doClose;
+    }
+    public static void setDoClose(DoClose doClose) {
+        CollectionOfAllClasses.doClose = doClose;
+    }
+    public static DoConsume getDoConsume() {
+        return doConsume;
+    }
+    public static void setDoConsume(DoConsume doConsume) {
+        CollectionOfAllClasses.doConsume = doConsume;
+    }
+    public static DoCut getDoCut() {
+        return doCut;
+    }
+    public static void setDoCut(DoCut doCut) {
+        CollectionOfAllClasses.doCut = doCut;
+    }
+    public static DoDrop getDoDrop() {
+        return doDrop;
+    }
+    public static void setDoDrop(DoDrop doDrop) {
+        CollectionOfAllClasses.doDrop = doDrop;
+    }
+    public static DoExamine getDoExamine() {
+        return doExamine;
+    }
+    public static void setDoExamine(DoExamine doExamine) {
+        CollectionOfAllClasses.doExamine = doExamine;
+    }
+    public static DoExit getDoExit() {
+        return doExit;
+    }
+    public static void setDoExit(DoExit doExit) {
+        CollectionOfAllClasses.doExit = doExit;
+    }
+    public static DoGetInventory getDoGetInventory() {
+        return doGetInventory;
+    }
+    public static void setDoGetInventory(DoGetInventory doGetInventory) {
+        CollectionOfAllClasses.doGetInventory = doGetInventory;
+    }
+    public static DoGiveItemToNPC getDoGiveItemToNPC() {
+        return doGiveItemToNPC;
+    }
+    public static void setDoGiveItemToNPC(DoGiveItemToNPC doGiveItemToNPC) {
+        CollectionOfAllClasses.doGiveItemToNPC = doGiveItemToNPC;
+    }
+    public static DoListen getDoListen() {
+        return doListen;
+    }
+    public static void setDoListen(DoListen doListen) {
+        CollectionOfAllClasses.doListen = doListen;
+    }
+    public static DoLoad getDoLoad() {
+        return doLoad;
+    }
+    public static void setDoLoad(DoLoad doLoad) {
+        CollectionOfAllClasses.doLoad = doLoad;
+    }
+    public static DoLook getDoLook() {
+        return doLook;
+    }
+    public static void setDoLook(DoLook doLook) {
+        CollectionOfAllClasses.doLook = doLook;
+    }
+    public static DoMove getDoMove() {
+        return doMove;
+    }
+    public static void setDoMove(DoMove doMove) {
+        CollectionOfAllClasses.doMove = doMove;
+    }
+    public static DoOpen getDoOpen() {
+        return doOpen;
+    }
+    public static void setDoOpen(DoOpen doOpen) {
+        CollectionOfAllClasses.doOpen = doOpen;
+    }
+    public static DoPickUp getDoPickUp() {
+        return doPickUp;
+    }
+    public static void setDoPickUp(DoPickUp doPickUp) {
+        CollectionOfAllClasses.doPickUp = doPickUp;
+    }
+    public static DoPull getDoPull() {
+        return doPull;
+    }
+    public static void setDoPull(DoPull doPull) {
+        CollectionOfAllClasses.doPull = doPull;
+    }
+    public static DoPush getDoPush() {
+        return doPush;
+    }
+    public static void setDoPush(DoPush doPush) {
+        CollectionOfAllClasses.doPush = doPush;
+    }
+    public static DoRead getDoRead() {
+        return doRead;
+    }
+    public static void setDoRead(DoRead doRead) {
+        CollectionOfAllClasses.doRead = doRead;
+    }
+    public static DoSave getDoSave() {
+        return doSave;
+    }
+    public static void setDoSave(DoSave doSave) {
+        CollectionOfAllClasses.doSave = doSave;
+    }
+    public static DoSmell getDoSmell() {
+        return doSmell;
+    }
+    public static void setDoSmell(DoSmell doSmell) {
+        CollectionOfAllClasses.doSmell = doSmell;
+    }
+    public static DoTalkWith getDoTalkWith() {
+        return doTalkWith;
+    }
+    public static void setDoTalkWith(DoTalkWith doTalkWith) {
+        CollectionOfAllClasses.doTalkWith = doTalkWith;
+    }
+    public static DoUnlock getDoUnlock() {
+        return doUnlock;
+    }
+    public static void setDoUnlock(DoUnlock doUnlock) {
+        CollectionOfAllClasses.doUnlock = doUnlock;
+    }
+    public static DoUse getDoUse() {
+        return doUse;
+    }
+    public static void setDoUse(DoUse doUse) {
+        CollectionOfAllClasses.doUse = doUse;
+    }
+    public static Commands getCommands() {
+        return commands;
+    }
+    public static void setCommands(Commands commands) {
+        CollectionOfAllClasses.commands = commands;
+    }
+    public static CommandsWith1ValidWord getCommandsWith1ValidWord() {
+        return commandsWith1ValidWord;
+    }
+    public static void setCommandsWith1ValidWord(CommandsWith1ValidWord commandsWith1ValidWord) {
+        CollectionOfAllClasses.commandsWith1ValidWord = commandsWith1ValidWord;
+    }
+    public static CommandsWith2ValidWords getCommandsWith2ValidWords() {
+        return commandsWith2ValidWords;
+    }
+    public static void setCommandsWith2ValidWords(CommandsWith2ValidWords commandsWith2ValidWords) {
+        CollectionOfAllClasses.commandsWith2ValidWords = commandsWith2ValidWords;
+    }
+    public static CommandsWith3ValidWords getCommandsWith3ValidWords() {
+        return commandsWith3ValidWords;
+    }
+    public static void setCommandsWith3ValidWords(CommandsWith3ValidWords commandsWith3ValidWords) {
+        CollectionOfAllClasses.commandsWith3ValidWords = commandsWith3ValidWords;
+    }
+    public static Directions getDirections() {
+        return directions;
+    }
+    public static void setDirections(Directions directions) {
+        CollectionOfAllClasses.directions = directions;
+    }
+    public static HandlerOf1Word getHandlerOf1Word() {
+        return handlerOf1Word;
+    }
+    public static void setHandlerOf1Word(HandlerOf1Word handlerOf1Word) {
+        CollectionOfAllClasses.handlerOf1Word = handlerOf1Word;
+    }
+    public static HandlerOf2Words getHandlerOf2Words() {
+        return handlerOf2Words;
+    }
+    public static void setHandlerOf2Words(HandlerOf2Words handlerOf2Words) {
+        CollectionOfAllClasses.handlerOf2Words = handlerOf2Words;
+    }
+    public static HandlerOf3Words getHandlerOf3Words() {
+        return handlerOf3Words;
+    }
+    public static void setHandlerOf3Words(HandlerOf3Words handlerOf3Words) {
+        CollectionOfAllClasses.handlerOf3Words = handlerOf3Words;
+    }
     public static InputValidation getInputValidation() {
         return inputValidation;
     }
-
+    public static void setInputValidation(InputValidation inputValidation) {
+        CollectionOfAllClasses.inputValidation = inputValidation;
+    }
+    public static Validation getValidation() {
+        return validation;
+    }
+    public static void setValidation(Validation validation) {
+        CollectionOfAllClasses.validation = validation;
+    }
     public static WordValidation getWordValidation() {
         return wordValidation;
+    }
+    public static void setWordValidation(WordValidation wordValidation) {
+        CollectionOfAllClasses.wordValidation = wordValidation;
+    }
+    public static StoryTextGetter getStoryTextGetter() {
+        return storyTextGetter;
+    }
+    public static void setStoryTextGetter(StoryTextGetter storyTextGetter) {
+        CollectionOfAllClasses.storyTextGetter = storyTextGetter;
+    }
+    public static StoryTextPrinter getStoryTextPrinter() {
+        return storyTextPrinter;
+    }
+    public static void setStoryTextPrinter(StoryTextPrinter storyTextPrinter) {
+        CollectionOfAllClasses.storyTextPrinter = storyTextPrinter;
+    }
+    public static Load getLoadFromFile() {
+        return loadFromFile;
+    }
+    public static void setLoadFromFile(Load loadFromFile) {
+        CollectionOfAllClasses.loadFromFile = loadFromFile;
+    }
+    public static Save getSaveToFile() {
+        return saveToFile;
+    }
+    public static void setSaveToFile(Save saveToFile) {
+        CollectionOfAllClasses.saveToFile = saveToFile;
+    }
+    public static Adventure getAdventure() {
+        return adventure;
+    }
+    public static void setAdventure(Adventure adventure) {
+        CollectionOfAllClasses.adventure = adventure;
+    }
+    public static LoadGame getLoadGame() {
+        return loadGame;
+    }
+    public static void setLoadGame(LoadGame loadGame) {
+        CollectionOfAllClasses.loadGame = loadGame;
+    }
+    public static NewGame getNewGame() {
+        return newGame;
+    }
+    public static void setNewGame(NewGame newGame) {
+        CollectionOfAllClasses.newGame = newGame;
+    }
+    public static Welcome getWelcome() {
+        return welcome;
+    }
+    public static void setWelcome(Welcome welcome) {
+        CollectionOfAllClasses.welcome = welcome;
+    }
+    public static UI getUi() {
+        return ui;
+    }
+    public static void setUi(UI ui) {
+        CollectionOfAllClasses.ui = ui;
     }
 }

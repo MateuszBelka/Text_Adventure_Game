@@ -3,7 +3,6 @@ package output;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Player;
-import initialisation.CollectionOfAllClasses;
 
 import java.util.ArrayList;
 

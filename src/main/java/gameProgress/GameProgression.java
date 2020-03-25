@@ -4,8 +4,21 @@ import gameElements.player.Player;
 import initialisation.CollectionOfAllClasses;
 
 public class GameProgression {
-    Player player = CollectionOfAllClasses.getPlayer();
-    Integer amountOfLevels = CollectionOfAllClasses.getLevels().size();
+    private transient Player player;
+    private transient Integer amountOfLevels;
+
+    public Player getPlayer() {
+        return player;
+    }
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    public Integer getAmountOfLevels() {
+        return amountOfLevels;
+    }
+    public void setAmountOfLevels(Integer amountOfLevels) {
+        this.amountOfLevels = amountOfLevels;
+    }
 
     public void updateGameProgress(){
         if (player.getCurrentLevel().getPuzzles().equals(0)){
