@@ -14,7 +14,7 @@ import ui.controllers.LoadGame;
 import ui.controllers.NewGame;
 import ui.controllers.Welcome;
 
-public class InitOfStandardClasses {
+public class InitOfStoryIndependentClasses {
     private static DoAttack doAttack;
     private static DoBack doBack;
     private static DoBreak doBreak;
