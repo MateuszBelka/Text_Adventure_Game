@@ -3,13 +3,13 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 
-public class TalkWith {
+public class DoTalkWith {
     public static void  doTalkWith(NPC npc){
-        //todo: print textForTalking;
+        //todo: print npc.getTextForTalking();
     }
 
     public static void  doTalkWith(Item item){
-        //todo: print textForTalking;
+        //todo: print item.getTextForTalking();
     }
 
 }

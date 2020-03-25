@@ -1,5 +1,7 @@
 package gameElements.levelAndContents;
 
+import java.util.ArrayList;
+
 public class Level {
     private int id;
     String description;
@@ -8,6 +10,7 @@ public class Level {
     Integer puzzles;
     private transient Location startLocation;
     private int startLocationID;
+    private transient ArrayList<Location> listOfLocations;
 
     //Get Methods
     public int getId() {
@@ -24,6 +27,14 @@ public class Level {
     }
     public Location getStartLocation() {
         return startLocation;
+    }
+
+    public ArrayList<Location> getListOfLocations() {
+        return listOfLocations;
+    }
+
+    public void setListOfLocations(ArrayList<Location> listOfLocations) {
+        this.listOfLocations = listOfLocations;
     }
     public int getStartLocationID() {
         return startLocationID;

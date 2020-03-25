@@ -11,14 +11,21 @@ public class Location {
     private ArrayList<Integer> listOfNPCsIDs;
     private transient HashMap<String, Location> listOfConnectedLocations;
     private HashMap<String, Integer> listOfConnectedLocationsIDs;
-    String description;
-    String name;
+    private String description;
+    private String name;
+    private String textForListening;
+    private String textForSmelling;
+
     Boolean firstTimeEnteringLocation = true;
 
     //Get Methods
     public int getId() {
         return id;
     }
+    public String getName() {
+        return name;
+    }
+
     public ArrayList<Item> getListOfItems() {
         return listOfItems;
     }
@@ -39,6 +46,30 @@ public class Location {
     }
     public String getDescription() {
         return description;
+    }
+
+    public void addItemToList(Item item) { listOfItems.add(item); }
+
+    public String getTextForListening() { return textForListening; }
+
+    public String getTextForSmelling() {
+        return textForSmelling;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTextForSmelling(String textForSmelling) {
+        this.textForSmelling = textForSmelling;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setTextForListening(String textForListening) {
+        this.textForListening = textForListening;
     }
 
     //Set Methods

@@ -21,6 +21,8 @@ public class WordValidation {
         for (String word : inputList) {
             commandValidator(word, validInputList);
 
+            directionValidator(word, validInputList);
+
             itemValidator(word, validInputList);
 
             npcValidator(word, validInputList);
@@ -30,10 +32,22 @@ public class WordValidation {
 
     private void commandValidator(String word, HashMap<String, String> validInputList){
         Commands[] listOfCommands = Commands.values();
+        word = word.toUpperCase();
 
         for (Commands command : listOfCommands) {
             if (word.equals(command.toString())) {
                 validInputList.put(word, "command");
+            }
+        }
+    }
+
+    private void directionValidator(String word, HashMap<String, String> validInputList){
+        Directions[] listOfDirections = Directions.values();
+        word = word.toUpperCase();
+
+        for (Directions direction : listOfDirections) {
+            if (word.equals(direction.toString())) {
+                validInputList.put(word, "direction");
             }
         }
     }
@@ -66,5 +80,7 @@ public class WordValidation {
             }
         }
     }
+
+
 
 }

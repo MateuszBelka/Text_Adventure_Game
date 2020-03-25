@@ -3,6 +3,7 @@ package input.validation;
 import java.util.HashMap;
 import initialisation.CollectionOfAllClasses;
 
+
 public class Validation {
     WordValidation wordValidation;
     InputValidation inputValidation;
@@ -14,6 +15,7 @@ public class Validation {
     public void setInputValidation(InputValidation inputValidation) {
         this.inputValidation = inputValidation;
     }
+    //todo: deal with uppercase/lowercase input
 
     public void validator(String input){
         String[] inputList = inputParser(input);

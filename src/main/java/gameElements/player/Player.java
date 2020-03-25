@@ -3,6 +3,8 @@ package gameElements.player;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 
+import java.util.ArrayList;
+
 public class Player {
     private transient Location currentLocation;
     private int currentLocationID;
@@ -12,6 +14,7 @@ public class Player {
 
     private transient Inventory inventory;
 
+    private ArrayList<Location> listOfMovedLocations = new ArrayList<>();
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
@@ -62,6 +65,8 @@ public class Player {
         this.inventory = inventory;
     }
     public void setCurrentLocation(Location currentLocation) {
+
+    public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
     protected void setCurrentXP(int currentXP) {this.currentXP = currentXP;}
@@ -96,4 +101,11 @@ public class Player {
     }
 
     protected void increaseMaximumXP() { setMaximumXP(getPlayerLevel() * getMaximumXP()); }
+
+    public void addLocationToMovedLocationsList(Location location) { listOfMovedLocations.add(location); }
+
+    public  void setCurrentLocationToPreviousLocation() {
+        Location previousLocation = listOfMovedLocations.get(listOfMovedLocations.size() - 1);
+        setCurrentLocation(previousLocation);
+    }
 }
