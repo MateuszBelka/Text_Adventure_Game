@@ -5,9 +5,17 @@ import initialisation.CollectionOfAllClasses;
 
 
 public class Validation {
+    WordValidation wordValidation;
+    InputValidation inputValidation;
+
+    //Set Methods
+    public void setWordValidation(WordValidation wordValidation) {
+        this.wordValidation = wordValidation;
+    }
+    public void setInputValidation(InputValidation inputValidation) {
+        this.inputValidation = inputValidation;
+    }
     //todo: deal with uppercase/lowercase input
-    WordValidation wordValidation = CollectionOfAllClasses.getWordValidation();
-    InputValidation inputValidation = CollectionOfAllClasses.getInputValidation();
 
     public void validator(String input){
         String[] inputList = inputParser(input);

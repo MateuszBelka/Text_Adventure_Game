@@ -4,7 +4,6 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Player;
 
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;

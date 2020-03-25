@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WordValidation {
-    Player player = CollectionOfAllClasses.getPlayer();
+    Player player;
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 
     public HashMap<String, String> wordValidator(String[] inputList) {
         HashMap<String, String> validInputList = new HashMap<>();
