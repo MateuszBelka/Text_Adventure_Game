@@ -11,6 +11,7 @@ public class Level {
     private transient Location startLocation;
     private int startLocationID;
     private transient ArrayList<Location> listOfLocations;
+    private ArrayList<Integer> listOfLocationsIDs;
 
     // Getter + Setter
     public int getId() {
@@ -75,6 +76,14 @@ public class Level {
 
     public void setListOfLocations(ArrayList<Location> listOfLocations) {
         this.listOfLocations = listOfLocations;
+    }
+
+    public ArrayList<Integer> getListOfLocationsIDs() {
+        return listOfLocationsIDs;
+    }
+
+    public void setListOfLocationsIDs(ArrayList<Integer> listOfLocationsIDs) {
+        this.listOfLocationsIDs = listOfLocationsIDs;
     }
 
     public boolean descriptionPrintedOnce (){

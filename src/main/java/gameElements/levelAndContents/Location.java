@@ -16,7 +16,7 @@ public class Location {
     private String textForListening;
     private String textForSmelling;
 
-    Boolean firstTimeEnteringLocation = true;
+    private Boolean firstTimeEnteringLocation = true;
 
 
     //Getter + Setter

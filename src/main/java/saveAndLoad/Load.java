@@ -39,7 +39,7 @@ import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import gameElements.player.PlayerLevellingProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStandardClasses;
+import initialisation.InitOfStoryIndependentClasses;
 import input.validation.WordValidation;
 import output.StoryTextGetter;
 
@@ -139,21 +139,21 @@ public class Load {
     }
 
     private static void connectWordValidatorToPlayer() {
-        WordValidation wordValidation = InitOfStandardClasses.getWordValidation();
+        WordValidation wordValidation = InitOfStoryIndependentClasses.getWordValidation();
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
         wordValidation.setPlayerStats(playerStats);
     }
 
     private static void connectStoryTextGetterToPlayer() {
-        StoryTextGetter getter = InitOfStandardClasses.getStoryTextGetter();
+        StoryTextGetter getter = InitOfStoryIndependentClasses.getStoryTextGetter();
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
         getter.setPlayerStats(playerStats);
     }
 
     private static void connectPlayerProgressToPlayer() {
-        PlayerLevellingProgression progression = InitOfStandardClasses.getPlayerProgression();
+        PlayerLevellingProgression progression = InitOfStoryIndependentClasses.getPlayerProgression();
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
         progression.setPlayerStats(playerStats);

@@ -19,13 +19,7 @@ import java.util.ArrayList;
 public class InitClasses {
     public static void initEverything() {
         InitOfClassesThroughSaveFile.setPlayerStats(initPlayer());
-        InitOfClassesThroughSaveFile.setWordValidation(initWordValidation());
         InitOfClassesThroughSaveFile.setInventory(initInventory());
-        InitOfClassesThroughSaveFile.setValidation(initValidation());
-        InitOfClassesThroughSaveFile.setInputValidation(initInputValidation());
-        InitOfClassesThroughSaveFile.setStoryTextGetter(initStoryTextGetter());
-        InitOfClassesThroughSaveFile.setStoryTextPrinter(initStoryTextPrinter());
-        InitOfClassesThroughSaveFile.setPlayerProgression(initPlayerProgression());
         InitOfClassesThroughSaveFile.setLevels(initLevels());
         InitOfClassesThroughSaveFile.setLocations(initLocations());
         InitOfClassesThroughSaveFile.setItems(initItems());
@@ -36,32 +30,8 @@ public class InitClasses {
         return new PlayerStats();
     }
 
-    public static WordValidation initWordValidation() {
-        return new WordValidation();
-    }
-
     public static Inventory initInventory() {
         return new Inventory();
-    }
-
-    public static Validation initValidation() {
-        return new Validation();
-    }
-
-    public static InputValidation initInputValidation() {
-        return new InputValidation();
-    }
-
-    public static StoryTextGetter initStoryTextGetter() {
-        return new StoryTextGetter();
-    }
-
-    public static StoryTextPrinter initStoryTextPrinter() {
-        return new StoryTextPrinter();
-    }
-
-    public static PlayerLevellingProgression initPlayerProgression() {
-        return new PlayerLevellingProgression();
     }
 
     public static ArrayList<Level> initLevels() {
