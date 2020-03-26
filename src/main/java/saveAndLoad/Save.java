@@ -1,6 +1,7 @@
 package saveAndLoad;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
@@ -68,13 +69,15 @@ public class Save {
 
     private static void connectLocationsToItems() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            ArrayList<Integer> newListOfItemsIDs = new ArrayList<>();
+            if (location.getListOfItems().size() != 0) {
+                ArrayList<Integer> newListOfItemsIDs = new ArrayList<>();
 
-            for (Item item : location.getListOfItems()) {
-                newListOfItemsIDs.add(item.getId());
+                for (Item item : location.getListOfItems()) {
+                    newListOfItemsIDs.add(item.getId());
+                }
+
+                location.setListOfItemsIDs(newListOfItemsIDs);
             }
-
-            location.setListOfItemsIDs(newListOfItemsIDs);
         }
     }
 
@@ -103,13 +106,17 @@ public class Save {
     }
 
     private static void populateJsonWithClasses(String fileName) {
-        InitOfClassesThroughSaveFile saveGameObjects = new InitOfClassesThroughSaveFile();
-        Gson gson = new Gson();
-        String json = gson.toJson(saveGameObjects);
-
         try {
+            InitOfClassesThroughSaveFile saveGameObjects = new InitOfClassesThroughSaveFile();
             FileWriter fileWriter = new FileWriter(fileName);
-            fileWriter.write(json);
+            Gson gson = new GsonBuilder()
+                    .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
+                    .setPrettyPrinting()
+                    .create();
+
+
+            gson.toJson(saveGameObjects, fileWriter);
+            fileWriter.flush();
             fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();

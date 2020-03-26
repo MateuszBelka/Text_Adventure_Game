@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 public class Location {
     private int id;
-    private transient ArrayList<Item> listOfItems;
+    private transient ArrayList<Item> listOfItems = new ArrayList<>();
     private ArrayList<Integer> listOfItemsIDs;
-    private transient ArrayList<NPC> listOfNPCs;
+    private transient ArrayList<NPC> listOfNPCs = new ArrayList<>();
     private ArrayList<Integer> listOfNPCsIDs;
     private transient HashMap<String, Location> listOfConnectedLocations;
     private HashMap<String, Integer> listOfConnectedLocationsIDs;
