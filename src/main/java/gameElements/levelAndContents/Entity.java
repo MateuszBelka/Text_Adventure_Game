@@ -44,7 +44,7 @@ abstract public class Entity {
     Item itemToCutWith;
     Boolean canBeCut = false;
     Boolean canBeUsed = false;
-    Boolean firstTimeEnteringLocation = true;
+    Boolean firstTimeEnteringLocation = true; //What does this mean in context of entity?
     Boolean canBeListenedWith = false;
     Boolean canBreak = false;
     Boolean canBeUnlockedByItem = false;

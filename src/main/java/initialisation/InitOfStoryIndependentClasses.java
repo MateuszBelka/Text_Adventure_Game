@@ -14,7 +14,7 @@ import ui.controllers.LoadGame;
 import ui.controllers.NewGame;
 import ui.controllers.Welcome;
 
-public class InitOfStandardClasses {
+public class InitOfStoryIndependentClasses {
     private static DoAttack doAttack;
     private static DoBack doBack;
     private static DoBreak doBreak;
@@ -49,14 +49,14 @@ public class InitOfStandardClasses {
     private static HandlerOf2Words handlerOf2Words;
     private static HandlerOf3Words handlerOf3Words;
     private static InputValidation inputValidation;
-    private static Validation validation;
-    private static WordValidation wordValidation;
-    private static StoryTextGetter storyTextGetter;
-    private static StoryTextPrinter storyTextPrinter;
+    private static Validation validation = new Validation();
+    private static WordValidation wordValidation = new WordValidation();
+    private static StoryTextGetter storyTextGetter = new StoryTextGetter();
+    private static StoryTextPrinter storyTextPrinter = new StoryTextPrinter();
     private static Load loadFromFile;
     private static Save saveToFile;
     private static GameProgression gameProgression;
-    private static PlayerLevellingProgression playerLevellingProgression;
+    private static PlayerLevellingProgression playerLevellingProgression = new PlayerLevellingProgression();
     private static Adventure adventure;
     private static LoadGame loadGame;
     private static NewGame newGame;
