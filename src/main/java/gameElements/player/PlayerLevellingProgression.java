@@ -21,9 +21,12 @@ public class PlayerLevellingProgression {
             playerStats.setCurrentXP(newCurrentXP);
         }
         else {
-            playerStats.setCurrentXP(newCurrentXP- playerStats.getMaximumXP()); //when updated xp >= max xp
-            playerStats.incrementPlayerLevel();
-            playerStats.increaseMaximumXP();
+            playerStats.setCurrentXP(newCurrentXP - playerStats.getMaximumXP()); //when updated xp >= max xp
+            incrementPlayerLevel();
+            increaseMaximumXP();
         }
     }
+    protected void incrementPlayerLevel() { playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1); }
+
+    protected void increaseMaximumXP() { playerStats.setMaximumXP(playerStats.getPlayerLevel() * playerStats.getMaximumXP()); }
 }
