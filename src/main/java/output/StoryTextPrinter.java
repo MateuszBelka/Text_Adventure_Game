@@ -5,6 +5,11 @@ import initialisation.InitOfClassesThroughSaveFile;
 import javafx.scene.control.TextArea;
 
 public class StoryTextPrinter {
+    /*
+     * Matt:
+     * Stuff to check for:
+     *  - player dead
+     */
     public static void printStory(TextArea terminal) {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         String description = player.getCurrentLocation().getDescription();

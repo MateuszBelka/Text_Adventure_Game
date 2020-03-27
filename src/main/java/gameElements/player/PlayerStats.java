@@ -69,7 +69,7 @@ public class PlayerStats {
         this.currentLocation = currentLocation;
     }
     protected void setCurrentXP(int currentXP) {this.currentXP = currentXP;}
-    protected void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
+    public void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
     protected void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
     protected void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
     protected void setCurrentHunger(int currentHunger) { this.currentHunger = currentHunger; }

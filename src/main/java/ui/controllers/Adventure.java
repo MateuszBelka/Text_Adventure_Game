@@ -56,8 +56,8 @@ public class Adventure implements Initializable {
         //Update Game through Input Validation
         InputValidation.temporaryInputReceiver(getInputString());
 
-        //Enemies turn if in combat
-        BattleSequence.enemiesTurn();
+        //Player gets hit by enemy -- ONLY does something when it combat
+        BattleSequence.enemyAttack();
 
         //Output Printing
         StoryTextPrinter.printStory(getTerminal());
