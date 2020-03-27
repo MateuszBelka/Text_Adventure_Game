@@ -43,8 +43,8 @@ import initialisation.InitOfStoryIndependentClasses;
 import input.validation.WordValidation;
 import output.StoryTextGetter;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,7 +62,7 @@ public class Load {
      * Since all variables of CollectionOfAllClasses are static
      * the actual instance
      */
-    public static void loadGameSave(String fileName) throws FileNotFoundException {
+    public static void loadGameSave(String fileName) throws IOException {
         // Create instances of all classes and populate majority of their variables using provided Json file.
         initializeClassesFromJson(fileName);
 
@@ -70,7 +70,7 @@ public class Load {
         decodeIDsToObjects();
     }
 
-    private static void initializeClassesFromJson(String fileName) throws FileNotFoundException {
+    private static void initializeClassesFromJson(String fileName) throws IOException {
         /*
          * Create a GsonBuilder instance required to change default settings of Gson
          * Allow the serialization of static fields by setting exclusion setting to ONLY transient
@@ -82,10 +82,12 @@ public class Load {
                 .create();
 
         // Open json file
-        FileReader jsonFile = new FileReader(fileName);
+        URL url = Load.class.getResource(fileName);
+        InputStream in = url.openStream();
+        BufferedReader input = new BufferedReader(new InputStreamReader(in));
 
         // Populate static variables of CollectionOfAllClasses from json file.
-        InitOfClassesThroughSaveFile loadNewGameObjects = gson.fromJson(jsonFile, InitOfClassesThroughSaveFile.class);
+        InitOfClassesThroughSaveFile loadNewGameObjects = gson.fromJson(input, InitOfClassesThroughSaveFile.class);
 
         // Since all variables within CollectionOfAllClasses are static the object is not longer needed
         loadNewGameObjects = null;
@@ -175,18 +177,20 @@ public class Load {
 
     private static void connectLocationsToItems() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            ArrayList<Item> newListOfItems = new ArrayList<>();
+            if (location.getListOfItems().size() > 0) {
+                ArrayList<Item> newListOfItems = new ArrayList<>();
 
-            for (Integer id : location.getListOfItemsIDs()) {
-                for (Item item : InitOfClassesThroughSaveFile.getItems()) {
-                    if (id == item.getId()) {
-                        newListOfItems.add(item);
-                        break;
+                for (Integer id : location.getListOfItemsIDs()) {
+                    for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+                        if (id == item.getId()) {
+                            newListOfItems.add(item);
+                            break;
+                        }
                     }
                 }
-            }
 
-            location.setListOfItems(newListOfItems);
+                location.setListOfItems(newListOfItems);
+            }
         }
     }
 
