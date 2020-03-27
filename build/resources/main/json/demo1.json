@@ -1,0 +1,129 @@
+{
+  "items": [
+    {
+      "id": 0,
+      "name": "item0",
+      "description": "temporary description for item0",
+      "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item0",
+      "descriptionAfterCommand": {},
+      "canBeConsumed": false,
+      "canBePickedUp": true,
+      "canBeDropped": false,
+      "canBeInteractedWith": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeRead": false,
+      "canBeAttacked": false,
+      "canAttack": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCutWith": false,
+      "canBeCut": false,
+      "canBeUsed": false,
+      "firstTimeEnteringLocation": true,
+      "canBeListenedWith": false,
+      "canBreak": false,
+      "canBeUnlockedByItem": false
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "description": "test description for level0",
+      "name": "test name for level0",
+      "firstTimeEnteringLevel": true,
+      "startLocationID": 0
+    }
+  ],
+  "locations": [
+    {
+      "id": 0,
+      "listOfItemsIDs": [
+        0
+      ],
+      "listOfNPCsIDs": [],
+      "listOfConnectedLocationsIDs": {
+        "south": 0,
+        "north": 0
+      },
+      "description": "temporary description for location0.",
+      "name": "location0",
+      "firstTimeEnteringLocation": true
+    },
+    {
+      "id": 0,
+      "listOfNPCsIDs": [],
+      "listOfConnectedLocationsIDs": {},
+      "description": "temporary description for location1.",
+      "name": "location1",
+      "firstTimeEnteringLocation": true
+    }
+  ],
+  "npcs": [
+    {
+      "id": 0,
+      "descriptionAfterCommand": {},
+      "canBeConsumed": false,
+      "canBePickedUp": false,
+      "canBeDropped": false,
+      "canBeInteractedWith": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeRead": false,
+      "canBeAttacked": false,
+      "canAttack": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCutWith": false,
+      "canBeCut": false,
+      "canBeUsed": false,
+      "firstTimeEnteringLocation": true,
+      "canBeListenedWith": false,
+      "canBreak": false,
+      "canBeUnlockedByItem": false
+    }
+  ],
+  "inventory": {
+    "listOfPickupableItems": []
+  },
+  "playerStats": {
+    "currentLocationID": 0,
+    "currentLevelID": 1,
+    "listOfMovedLocations": [],
+    "maximumXP": 100,
+    "maxHealth": 100,
+    "maxHunger": 100,
+    "currentHunger": 100,
+    "maxPlayerLevel": 100,
+    "HUNGER_DAMAGE": 0,
+    "currentXP": 0,
+    "currentHealth": 100,
+    "playerLevel": 1
+  }
+}

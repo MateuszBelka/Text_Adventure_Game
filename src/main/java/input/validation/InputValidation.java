@@ -15,7 +15,7 @@ import static input.validation.HandlerOf3Words.*;
 
 public class InputValidation {
 
-    public static void temporaryInputReceiver(String input, PlayerStats playerStats) {
+    public static void temporaryInputReceiver(String input) {
         //Placeholder method
     }
 
