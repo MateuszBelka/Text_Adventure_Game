@@ -46,7 +46,7 @@ public class PlayerStats {
     }
     public int getCurrentHunger() {return currentHunger;}
     private int getMaxHunger() {return maxHunger;}
-    private int getCurrentHealth() {return currentHealth;}
+    public int getCurrentHealth() {return currentHealth;}
     protected int getCurrentXP() {return currentXP;}
     protected int getMaximumXP() {return maximumXP;}
     protected int getPlayerLevel() {return playerLevel;}
