@@ -5,20 +5,25 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 
 public class NPC extends Entity {
+    Boolean canAttack = false;
+    Item itemToGive;
     private int damage;
     private int currentHealth;
 
-    public int getDamage() {
-        return damage;
+    public Item getItemToGive() {
+        return itemToGive;
     }
-    public void setDamage(int damage) {
-        this.damage = damage;
+
+    public Boolean getCanAttack() {
+        return canAttack;
     }
-    public int getCurrentHealth() {
-        return currentHealth;
+
+    public void setItemToGive(Item itemToGive) {
+        this.itemToGive = itemToGive;
     }
-    public void setCurrentHealth(int currentHealth) {
-        this.currentHealth = currentHealth;
+
+    public void setCanAttack(Boolean canAttack) {
+        this.canAttack = canAttack;
     }
 
     public static NPC getNPCByName (String name){
@@ -31,5 +36,18 @@ public class NPC extends Entity {
             }
         }
         return searchedNPC;
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
     }
 }
