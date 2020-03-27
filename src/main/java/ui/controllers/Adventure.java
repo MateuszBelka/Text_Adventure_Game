@@ -1,6 +1,7 @@
 package ui.controllers;
 
 
+import gameElements.battle.BattleSequence;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -53,7 +54,10 @@ public class Adventure implements Initializable {
         readAndClearInput();
 
         //Update Game through Input Validation
-        InputValidation.temporaryInputReceiver(getInputString(), InitOfClassesThroughSaveFile.getPlayerStats());
+        InputValidation.temporaryInputReceiver(getInputString());
+
+        //Player gets hit by enemy -- ONLY does something when it combat
+        BattleSequence.enemyAttack();
 
         //Output Printing
         StoryTextPrinter.printStory(getTerminal());

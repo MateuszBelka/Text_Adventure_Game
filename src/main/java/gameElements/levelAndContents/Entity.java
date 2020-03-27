@@ -25,6 +25,7 @@ abstract public class Entity {
     Boolean canBeRead = false;
     Boolean canBeAttacked = false;
     Boolean canAttack = false;
+    int damage;
     Boolean canBeTalkedWith = false;
     Boolean canBeListenedTo = false;
     Boolean canBeSmelled = false;
@@ -508,6 +509,15 @@ abstract public class Entity {
     public void setItemToBeClosed(Item itemToBeClosed) {
         this.itemToBeClosed = itemToBeClosed;
     }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
+
 
     public boolean descriptionPrintedOnce (){
         if (firstTimeEnteringLocation.equals(true)){
