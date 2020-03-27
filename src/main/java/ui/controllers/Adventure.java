@@ -1,6 +1,8 @@
 package ui.controllers;
 
 
+import engine.Engine;
+import gameElements.battle.BattleSequence;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -44,19 +46,17 @@ public class Adventure implements Initializable {
         StoryTextPrinter.printStory(getTerminal());
     }
 
-    /* Responsible for moving the game forward; main loop of the game
-     * Called automatically when user sends new input.
-     * As such game is updated only as a response to user input.
+
+    /*
+     * Called when user sends input
+     * This input is send to main game loop
      */
-    public void handleInputUpdateAndOutput() {
+    public void handleInput() {
         //Input Reading
         readAndClearInput();
 
-        //Update Game through Input Validation
-        InputValidation.temporaryInputReceiver(getInputString(), InitOfClassesThroughSaveFile.getPlayerStats());
-
-        //Output Printing
-        StoryTextPrinter.printStory(getTerminal());
+        //
+        Engine.progressGame(getInputString(), getTerminal());
     }
 
     public void readAndClearInput() {

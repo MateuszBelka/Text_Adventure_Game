@@ -107,6 +107,6 @@
             <TextArea fx:id="terminal" editable="false" focusTraversable="false" pickOnBounds="false" style="-fx-text-fill: green; -fx-control-inner-background: black; -fx-background-color: black; -fx-background-radius: 0; -fx-faint-focus-color: black;" wrapText="true" />
          </content>
       </ScrollPane>
-      <TextField fx:id="input" onAction="#handleInputUpdateAndOutput" style="-fx-focus-color: transparent;" />
+      <TextField fx:id="input" onAction="#handleInput" style="-fx-focus-color: transparent;" />
    </children>
 </VBox>
