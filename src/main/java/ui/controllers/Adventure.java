@@ -43,9 +43,8 @@ public class Adventure implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        StoryTextPrinter.printStory(getTerminal());
+        Engine.initializeGameScene(getTerminal());
     }
-
 
     /*
      * Called when user sends input
