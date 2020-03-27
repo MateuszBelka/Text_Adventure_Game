@@ -1,9 +1,11 @@
 package gameElements.battle;
 
+import com.sun.org.apache.xml.internal.security.Init;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import initialisation.InitOfStoryIndependentClasses;
 
 public class BattleSequence {
     /*
@@ -34,7 +36,7 @@ public class BattleSequence {
          * No need to inform the called about lack of attack
          * as no unique action is taken in such scenario
          */
-        if (getCurrentEnemy() == null) return;
+        if (!inCombat()) return;
         int damage = currentEnemy.getDamage();
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
@@ -49,10 +51,12 @@ public class BattleSequence {
      * Called when player inputs attack command
      * returns 0 on successful attack and non-zero on unsuccessful
      */
-    public static int playerAttack(Item weapon) {
-        if (!weapon.getCanAttack() || getCurrentEnemy() == null || !getCurrentEnemy().getCanBeAttacked()) return 1;
+    public static int playerAttack() {
+        if (!inCombat() || !getCurrentEnemy().getCanBeAttacked()) return 1;
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         NPC enemy = getCurrentEnemy();
-        int damage = weapon.getDamage();
+
+        int damage = player.getDamage();
 
         // Inflict damage on enemy
         enemy.setCurrentHealth(Math.max(enemy.getCurrentHealth() - damage, 0));

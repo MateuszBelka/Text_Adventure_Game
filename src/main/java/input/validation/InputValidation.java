@@ -15,10 +15,6 @@ import static input.validation.HandlerOf3Words.*;
 
 public class InputValidation {
 
-    public static void temporaryInputReceiver(String input) {
-        //Placeholder method
-    }
-
     public void inputValidator(HashMap<String, String> validInputList){
         int listSize = validInputList.size();
 
