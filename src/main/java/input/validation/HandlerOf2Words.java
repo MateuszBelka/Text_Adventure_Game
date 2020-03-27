@@ -53,6 +53,7 @@ public class HandlerOf2Words {
     }
 
     private static void validateAndHandleItemAndNPCCombination(Item item, NPC npc){
+        // todo: consider input: attack skeleton with sword
         if(npc.getItemToBeUsedOn().equals(item)){
             if(item.getCanBeGiven()){
                 doGiveItemToNPC(item, npc);

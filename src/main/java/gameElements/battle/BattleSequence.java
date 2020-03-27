@@ -7,7 +7,9 @@ import initialisation.InitOfClassesThroughSaveFile;
 
 public class BattleSequence {
     /*
-     * A battle is happening if there is an enemy;
+     * A battle is happening if there is an enemy
+     * When a fight is started this variable will be assigned proper value
+     * at the end of a fight it will be reset to null
      */
     private static NPC currentEnemy = null;
 
@@ -48,7 +50,7 @@ public class BattleSequence {
      * returns 0 on successful attack and non-zero on unsuccessful
      */
     public static int playerAttack(Item weapon) {
-        if (!weapon.getCanAttack() || getCurrentEnemy() == null) return 1;
+        if (!weapon.getCanAttack() || getCurrentEnemy() == null || !getCurrentEnemy().getCanBeAttacked()) return 1;
         NPC enemy = getCurrentEnemy();
         int damage = weapon.getDamage();
 
