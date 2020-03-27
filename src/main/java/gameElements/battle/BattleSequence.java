@@ -1,11 +1,8 @@
 package gameElements.battle;
 
-import com.sun.org.apache.xml.internal.security.Init;
-import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStoryIndependentClasses;
 
 public class BattleSequence {
     /*
@@ -37,7 +34,7 @@ public class BattleSequence {
          * as no unique action is taken in such scenario
          */
         if (!inCombat()) return;
-        int damage = currentEnemy.getDamage();
+        int damage = getCurrentEnemy().getDamage();
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
         // Inflict damage to player
