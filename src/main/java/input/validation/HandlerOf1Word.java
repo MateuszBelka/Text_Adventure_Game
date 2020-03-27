@@ -8,6 +8,7 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static input.commands.DoAttack.doAttack;
 import static input.commands.DoConsume.doConsume;
 import static input.commands.DoExit.doExit;
 import static input.commands.DoGetInventory.doInventoryLookUp;
@@ -56,6 +57,9 @@ public class HandlerOf1Word {
             case "EXIT":
             case "QUIT":
                 doExit();
+                break;
+            case "ATTACK":
+                doAttack();
                 break;
             case "READ":
                 handleReadCommand();

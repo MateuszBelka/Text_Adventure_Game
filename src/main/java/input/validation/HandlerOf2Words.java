@@ -74,6 +74,7 @@ public class HandlerOf2Words {
     }
 
     private static void validateAndHandleCommandAndItemCombination(String command, Item item){
+        //todo: "look at milk"
         switch (command){
             case "USE":
                 if (item.getCanBeUsed()) { doUse(item); }
@@ -101,6 +102,7 @@ public class HandlerOf2Words {
                 if (item.getCanBeRead()) { doRead(item); }
                 else { /*todo: print: "Cannot read * + itemName + "."*/ }
                 break;
+            case "LOOK":
             case "OBSERVE":
             case "EXAMINE":
                 if (item.getCanBeExamined()) { doExamine(item); }

@@ -9,6 +9,7 @@ public class DoClose {
     }
 
     public static void doClose(NPC npc){
+        //could be a corpse
 
     }
 

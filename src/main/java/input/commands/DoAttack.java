@@ -11,4 +11,8 @@ public class DoAttack {
     public static void doAttack(NPC npc){
 
     }
+
+    public static void doAttack(){
+
+    }
 }

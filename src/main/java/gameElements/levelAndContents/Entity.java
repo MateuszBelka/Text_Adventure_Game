@@ -7,52 +7,35 @@ abstract public class Entity {
     String name;
     String description;
     String descriptionAfterPuzzleComplete;
-    String textForReading;
-    String textForTalking;
-    String textForExamining;
-    String textForSmelling;
-    String textForBreaking;
-    String textForListening;
     HashMap<String, String> descriptionAfterCommand = new HashMap<>();
+    String textForReading; //can be put in "descriptionAfterCommand"
+    String textForTalking; //can be put in "descriptionAfterCommand"
+    String textForExamining; //can be put in "descriptionAfterCommand"
+    String textForSmelling; //can be put in "descriptionAfterCommand"
+    String textForBreaking; //can be put in "descriptionAfterCommand"
+    String textForListening; //can be put in "descriptionAfterCommand"
+    Boolean firstTimeEnteringLocation = true; //Used for printing descriptions, once. Just like in Zork.
     Boolean canBeConsumed = false;
-    Boolean canBePickedUp = false;
-    Boolean canBeDropped = false;
-    Boolean canBeInteractedWith = false;
     Boolean canBeUsedOnItem = false;
     Item itemToBeUsedOn;
     Boolean canBeUsedByItem = false;
     Item itemToBeUsedBy;
-    Boolean canBeRead = false;
     Boolean canBeAttacked = false;
-    Boolean canAttack = false;
     Boolean canBeTalkedWith = false;
     Boolean canBeListenedTo = false;
     Boolean canBeSmelled = false;
     Boolean canBeOpened = false;
     Boolean canBeClosed = false;
     Boolean canBeExamined = false;
-    Boolean canBeBrokenWithItem = false;
-    Boolean canBeBrokenWithoutItem = false;
-    Boolean canBeTurnedOn = false;
-    Boolean canBeTurnedOff = false;
-    Boolean canBeGiven = false;
     Boolean needsItem = false;
     Boolean canBeUsedOnNPC = false;
     Boolean canBePushed = false;
     Boolean canBePulled = false;
-    Boolean canBeCutWith = false;
     Item itemToCutWith;
     Boolean canBeCut = false;
     Boolean canBeUsed = false;
-    Boolean firstTimeEnteringLocation = true; //What does this mean in context of entity?
-    Boolean canBeListenedWith = false;
-    Boolean canBreak = false;
-    Boolean canBeUnlockedByItem = false;
-    Item itemToGive;
     NPC npcToGiveItemTo;
     Item itemToListenWith;
-    NPC npcToListenWithItemTo;
-    Item itemToBreakWith;
     Item itemToUnlockWith;
     Item itemToUnlock;
     Item itemToOpenWith;
@@ -157,30 +140,6 @@ abstract public class Entity {
         this.canBeConsumed = canBeConsumed;
     }
 
-    public Boolean getCanBePickedUp() {
-        return canBePickedUp;
-    }
-
-    public void setCanBePickedUp(Boolean canBePickedUp) {
-        this.canBePickedUp = canBePickedUp;
-    }
-
-    public Boolean getCanBeDropped() {
-        return canBeDropped;
-    }
-
-    public void setCanBeDropped(Boolean canBeDropped) {
-        this.canBeDropped = canBeDropped;
-    }
-
-    public Boolean getCanBeInteractedWith() {
-        return canBeInteractedWith;
-    }
-
-    public void setCanBeInteractedWith(Boolean canBeInteractedWith) {
-        this.canBeInteractedWith = canBeInteractedWith;
-    }
-
     public Boolean getCanBeUsedOnItem() {
         return canBeUsedOnItem;
     }
@@ -213,28 +172,12 @@ abstract public class Entity {
         this.itemToBeUsedBy = itemToBeUsedBy;
     }
 
-    public Boolean getCanBeRead() {
-        return canBeRead;
-    }
-
-    public void setCanBeRead(Boolean canBeRead) {
-        this.canBeRead = canBeRead;
-    }
-
     public Boolean getCanBeAttacked() {
         return canBeAttacked;
     }
 
     public void setCanBeAttacked(Boolean canBeAttacked) {
         this.canBeAttacked = canBeAttacked;
-    }
-
-    public Boolean getCanAttack() {
-        return canAttack;
-    }
-
-    public void setCanAttack(Boolean canAttack) {
-        this.canAttack = canAttack;
     }
 
     public Boolean getCanBeTalkedWith() {
@@ -285,46 +228,6 @@ abstract public class Entity {
         this.canBeExamined = canBeExamined;
     }
 
-    public Boolean getCanBeBrokenWithItem() {
-        return canBeBrokenWithItem;
-    }
-
-    public void setCanBeBrokenWithItem(Boolean canBeBrokenWithItem) {
-        this.canBeBrokenWithItem = canBeBrokenWithItem;
-    }
-
-    public Boolean getCanBeBrokenWithoutItem() {
-        return canBeBrokenWithoutItem;
-    }
-
-    public void setCanBeBrokenWithoutItem(Boolean canBeBrokenWithoutItem) {
-        this.canBeBrokenWithoutItem = canBeBrokenWithoutItem;
-    }
-
-    public Boolean getCanBeTurnedOn() {
-        return canBeTurnedOn;
-    }
-
-    public void setCanBeTurnedOn(Boolean canBeTurnedOn) {
-        this.canBeTurnedOn = canBeTurnedOn;
-    }
-
-    public Boolean getCanBeTurnedOff() {
-        return canBeTurnedOff;
-    }
-
-    public void setCanBeTurnedOff(Boolean canBeTurnedOff) {
-        this.canBeTurnedOff = canBeTurnedOff;
-    }
-
-    public Boolean getCanBeGiven() {
-        return canBeGiven;
-    }
-
-    public void setCanBeGiven(Boolean canBeGiven) {
-        this.canBeGiven = canBeGiven;
-    }
-
     public Boolean getNeedsItem() {
         return needsItem;
     }
@@ -355,14 +258,6 @@ abstract public class Entity {
 
     public void setCanBePulled(Boolean canBePulled) {
         this.canBePulled = canBePulled;
-    }
-
-    public Boolean getCanBeCutWith() {
-        return canBeCutWith;
-    }
-
-    public void setCanBeCutWith(Boolean canBeCutWith) {
-        this.canBeCutWith = canBeCutWith;
     }
 
     public Item getItemToCutWith() {
@@ -397,38 +292,6 @@ abstract public class Entity {
         this.firstTimeEnteringLocation = firstTimeEnteringLocation;
     }
 
-    public Boolean getCanBeListenedWith() {
-        return canBeListenedWith;
-    }
-
-    public void setCanBeListenedWith(Boolean canBeListenedWith) {
-        this.canBeListenedWith = canBeListenedWith;
-    }
-
-    public Boolean getCanBreak() {
-        return canBreak;
-    }
-
-    public void setCanBreak(Boolean canBreak) {
-        this.canBreak = canBreak;
-    }
-
-    public Boolean getCanBeUnlockedByItem() {
-        return canBeUnlockedByItem;
-    }
-
-    public void setCanBeUnlockedByItem(Boolean canBeUnlockedByItem) {
-        this.canBeUnlockedByItem = canBeUnlockedByItem;
-    }
-
-    public Item getItemToGive() {
-        return itemToGive;
-    }
-
-    public void setItemToGive(Item itemToGive) {
-        this.itemToGive = itemToGive;
-    }
-
     public NPC getNpcToGiveItemTo() {
         return npcToGiveItemTo;
     }
@@ -443,22 +306,6 @@ abstract public class Entity {
 
     public void setItemToListenWith(Item itemToListenWith) {
         this.itemToListenWith = itemToListenWith;
-    }
-
-    public NPC getNpcToListenWithItemTo() {
-        return npcToListenWithItemTo;
-    }
-
-    public void setNpcToListenWithItemTo(NPC npcToListenWithItemTo) {
-        this.npcToListenWithItemTo = npcToListenWithItemTo;
-    }
-
-    public Item getItemToBreakWith() {
-        return itemToBreakWith;
-    }
-
-    public void setItemToBreakWith(Item itemToBreakWith) {
-        this.itemToBreakWith = itemToBreakWith;
     }
 
     public Item getItemToUnlockWith() {
@@ -517,7 +364,7 @@ abstract public class Entity {
         return firstTimeEnteringLocation;
     }
 
-    public void puzzleCompleted (){
+    public void changeDescriptionWhenPuzzleCompleted (){
         description = descriptionAfterPuzzleComplete;
 
     }

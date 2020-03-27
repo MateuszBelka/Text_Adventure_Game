@@ -1,5 +1,6 @@
 package initialisation;
 
+import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerLevellingProgression;
 import gameProgress.GameProgression;
 import input.commands.*;
@@ -62,6 +63,15 @@ public class InitOfStoryIndependentClasses {
     private static NewGame newGame;
     private static Welcome welcome;
     private static UI ui;
+    private static BattleSequence battleSequence;
+
+    public static BattleSequence getBattleSequence() {
+        return battleSequence;
+    }
+
+    public static PlayerLevellingProgression getPlayerLevellingProgression() {
+        return playerLevellingProgression;
+    }
 
     public static Adventure getAdventure() {
         return adventure;
