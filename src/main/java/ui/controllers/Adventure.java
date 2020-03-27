@@ -2,19 +2,20 @@ package ui.controllers;
 
 
 import engine.Engine;
-import gameElements.battle.BattleSequence;
+import initialisation.InitOfStoryIndependentClasses;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
-import initialisation.InitOfClassesThroughSaveFile;
-import output.StoryTextPrinter;
-import input.validation.InputValidation;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/*
+ * Responsible for Adventure Scene in UI
+ * which carries out all of the frontend
+ * for the main gameplay part of VU Quest
+ */
 public class Adventure implements Initializable {
 
     private String inputString;
@@ -43,6 +44,7 @@ public class Adventure implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        InitOfStoryIndependentClasses.setAdventure(Adventure.this);
         Engine.initializeGameScene(getTerminal());
     }
 
@@ -54,12 +56,16 @@ public class Adventure implements Initializable {
         //Input Reading
         readAndClearInput();
 
-        //
+        //main game loop call
         Engine.progressGame(getInputString(), getTerminal());
     }
 
     public void readAndClearInput() {
         setInputString(getInput().getText());
         getInput().clear();
+    }
+
+    public void updateUIElements() {
+        //Update health, hunger, exp, level
     }
 }

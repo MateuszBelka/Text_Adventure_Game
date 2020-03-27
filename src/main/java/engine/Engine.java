@@ -5,6 +5,7 @@ import initialisation.InitOfStoryIndependentClasses;
 import input.validation.Validation;
 import javafx.scene.control.TextArea;
 import output.StoryTextPrinter;
+import ui.controllers.Adventure;
 
 public class Engine {
 
@@ -33,5 +34,7 @@ public class Engine {
         StoryTextPrinter.printStory(terminal);
 
         // Update UI elements with new information
+        Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
+        adventure.updateUIElements();
     }
 }
