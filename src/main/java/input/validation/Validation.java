@@ -1,7 +1,7 @@
 package input.validation;
 
-import gameElements.player.PlayerStats;
-import initialisation.InitOfClassesThroughSaveFile;
+import gameElements.player.PlayerHealthProgression;
+import gameProgress.GameProgression;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -19,9 +19,8 @@ public class Validation {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        if (player.getCurrentHealth() < 0) {
-            deathScenario(input, actionEvent);
+        if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
+            gameEndedScenario(input, actionEvent);
         } else {
             String[] inputList = inputParser(input);
 
@@ -41,7 +40,7 @@ public class Validation {
         return WordValidation.wordValidator(inputList);
     }
 
-    private static void deathScenario(String input, ActionEvent actionEvent) throws IOException {
+    private static void gameEndedScenario(String input, ActionEvent actionEvent) throws IOException {
         switch(input) {
             case "Quit":
                 Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();

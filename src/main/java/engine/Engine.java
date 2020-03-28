@@ -1,6 +1,9 @@
 package engine;
 
 import gameElements.battle.BattleSequence;
+import gameElements.player.PlayerHealthProgression;
+import gameElements.player.PlayerHungerProgression;
+import gameProgress.GameProgression;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.commands.DoSave;
@@ -45,14 +48,7 @@ public class Engine {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException {
-        // Auto Save every 5th input
-        if (getInputsUntilAutoSave() == 0) {
-            DoSave.doSave();
-            setInputsUntilAutoSave(5);
-        } else {
-            setInputsUntilAutoSave(getInputsUntilAutoSave() - 1);
-        }
-
+        autoSaveCheck();
         /*
          * We analyse and process information differently when player is in combat
          * As in different inputs are allowed and we print different information
@@ -70,15 +66,35 @@ public class Engine {
             // Update Game through Input Validation
             Validation.validator(input, actionEvent);
 
+            // Check if player has finished the current level
+            GameProgression.checkLevelProgression();
+
             // Output Printing
             StoryTextPrinter.printStory(terminal);
         }
 
+        // Check hunger level and decrease health if necessary
+        PlayerHungerProgression.checkCurrentHunger();
+
+        // Check if player is dead
+        if (PlayerHealthProgression.isDead()) PlayerHealthProgression.printDeath();
+
         // Print unique text (non-Story and non-Combat)
         NonStoryPrinter.printToTerminal();
+
 
         // Update UI elements with new information
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         adventure.updateUIElements();
+    }
+
+    private static void autoSaveCheck() {
+        // Auto Save every 5th input
+        if (getInputsUntilAutoSave() == 0) {
+            DoSave.doSave();
+            setInputsUntilAutoSave(5);
+        } else {
+            setInputsUntilAutoSave(getInputsUntilAutoSave() - 1);
+        }
     }
 }

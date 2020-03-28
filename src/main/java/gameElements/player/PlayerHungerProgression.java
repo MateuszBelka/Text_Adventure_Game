@@ -6,16 +6,15 @@ import output.NonStoryPrinter;
 public class PlayerHungerProgression {
 
     //called when a player did some action, for example move, action, etc. Exception: consumption
-    protected static void decreaseCurrentHunger() {
+    public static void decreaseCurrentHunger() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         player.setCurrentHunger(Math.max(player.getCurrentHunger() - player.getHungerDrain(), 0));
     }
 
     //called when a character consumed something
-    protected static void eatFoodHungerHealthIncrease() {
+    public static void eatFoodHungerIncrease() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         player.setCurrentHunger(Math.min(player.getCurrentHunger() + player.getFoodHungerIncrease(), player.getMaxHunger()));
-        player.setCurrentHealth(Math.min(player.getCurrentHealth() + player.getFoodHealthIncrease(), player.getMaxHealth()));
     }
 
     //the type should be changed depending on implementation, probably boolean or string, not sure yet
