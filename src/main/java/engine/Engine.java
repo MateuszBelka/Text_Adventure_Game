@@ -1,6 +1,9 @@
 package engine;
 
 import gameElements.battle.BattleSequence;
+import gameElements.levelAndContents.Item;
+import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.validation.Validation;
@@ -9,6 +12,8 @@ import output.NonStoryPrinter;
 import output.StoryTextPrinter;
 import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
+
+import java.util.ArrayList;
 
 public class Engine {
 
@@ -21,6 +26,7 @@ public class Engine {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
 
         StoryTextPrinter.printStory(terminal);
+        adventure.getTerminal().appendText("\n"); //newline
         adventure.updateUIElements();
     }
 

@@ -31,5 +31,6 @@ public class NonStoryPrinter {
         for (String lineOfText : getListToPrint()) {
             terminal.appendText(lineOfText + "\n");
         }
+        terminal.appendText("\n");
     }
 }
