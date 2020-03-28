@@ -3,6 +3,7 @@ package saveAndLoad.createDemoOne;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
+import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import gameElements.player.PlayerLevellingProgression;
@@ -72,7 +73,9 @@ public class ConfigureClasses {
     }
 
     public static void configureNPCs() {
-        //No npcs here
+        NPC npc0 = InitOfClassesThroughSaveFile.getNpcs().get(0);
+
+        npc0.setName("Henry");
     }
 
     public static void configureInventory() {
