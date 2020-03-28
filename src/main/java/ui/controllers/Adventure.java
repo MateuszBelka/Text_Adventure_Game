@@ -2,11 +2,16 @@ package ui.controllers;
 
 
 import engine.Engine;
+import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +28,20 @@ public class Adventure implements Initializable {
     private TextField input;
     @FXML
     private TextArea terminal;
+    @FXML
+    private ProgressBar healthBar;
+    @FXML
+    private ProgressBar hungerBar;
+    @FXML
+    private ProgressBar expBar;
+    @FXML
+    private Text healthText;
+    @FXML
+    private Text hungerText;
+    @FXML
+    private Text expText;
+    @FXML
+    private Label levelText;
 
     //Get Methods
     public String getInputString() {
@@ -38,6 +57,27 @@ public class Adventure implements Initializable {
     //Set Methods
     private void setInputString(String inputString) {
         this.inputString = inputString;
+    }
+    public void setHealthBar(ProgressBar healthBar) {
+        this.healthBar = healthBar;
+    }
+    public void setHungerBar(ProgressBar hungerBar) {
+        this.hungerBar = hungerBar;
+    }
+    public void setExpBar(ProgressBar expBar) {
+        this.expBar = expBar;
+    }
+    public void setHealthText(Text healthText) {
+        this.healthText = healthText;
+    }
+    public void setHungerText(Text hungerText) {
+        this.hungerText = hungerText;
+    }
+    public void setExpText(Text expText) {
+        this.expText = expText;
+    }
+    public void setLevelText(Label levelText) {
+        this.levelText = levelText;
     }
 
     /* Present initial story output to user when the scene is loaded
@@ -66,6 +106,35 @@ public class Adventure implements Initializable {
     }
 
     public void updateUIElements() {
-        //Update health, hunger, exp, level
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+
+        // Update health
+        int healthPercent = playerStats.getCurrentHealth()/playerStats.getMaximumXP();
+        String currentHealth = Integer.toString(playerStats.getCurrentHealth());
+        String maxHealth = Integer.toString(playerStats.getMaximumXP());
+
+        healthBar.setProgress(healthPercent);
+        healthText.setText(currentHealth + "/" + maxHealth);
+
+        // Update hunger
+        int hungerPercent = playerStats.getCurrentHunger()/playerStats.getMaxHunger();
+        String currentHunger = Integer.toString(playerStats.getCurrentHunger());
+        String maxHunger = Integer.toString(playerStats.getMaxHunger());
+
+        hungerBar.setProgress(hungerPercent);
+        hungerText.setText(currentHunger + "/" + maxHunger);
+
+        // Update experience
+        int xpPercent = playerStats.getCurrentXP()/playerStats.getMaximumXP();
+        String currentXP = Integer.toString(playerStats.getCurrentXP());
+        String maxXP = Integer.toString(playerStats.getMaximumXP());
+
+        expBar.setProgress(xpPercent);
+        expText.setText(currentXP + "/" + maxXP);
+
+        // Update level
+        String playerLevel = Integer.toString(playerStats.getPlayerLevel());
+
+        levelText.setText(playerLevel);
     }
 }
