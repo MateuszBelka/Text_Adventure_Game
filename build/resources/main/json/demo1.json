@@ -80,6 +80,7 @@
       "currentHealth": 0,
       "id": 1,
       "name": "Henry",
+      "description": "test description for Henry",
       "descriptionAfterCommand": {},
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,

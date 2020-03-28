@@ -30,12 +30,17 @@ public class ConfigureClasses {
 
     public static void configureItems() {
         Item item0 = InitOfClassesThroughSaveFile.getItems().get(0);
+        Item item1 = InitOfClassesThroughSaveFile.getItems().get(1);
 
         item0.setName("item0");
         item0.setDescription("temporary description for item0");
         item0.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item0");
-        //...//
         item0.setCanBePickedUp(true);
+
+        item1.setName("item1");
+        item1.setDescription("temporary description for item1");
+        item1.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item1");
+        item1.setCanBePickedUp(true);
     }
 
     public static void configureLevels() {
@@ -54,24 +59,32 @@ public class ConfigureClasses {
         Location location0 = InitOfClassesThroughSaveFile.getLocations().get(0);
         Location location1 = InitOfClassesThroughSaveFile.getLocations().get(1);
         Item item0 = InitOfClassesThroughSaveFile.getItems().get(0);
+        Item item1 = InitOfClassesThroughSaveFile.getItems().get(1);
         NPC npc0 = InitOfClassesThroughSaveFile.getNpcs().get(0);
 
+        //Location 0 config
         HashMap<String, Location> location0Connections = new HashMap<>();
         location0Connections.put("north",location1);
         location0.setListOfConnectedLocations(location0Connections);
+
         ArrayList<Item> location0items = new ArrayList<>();
         location0items.add(item0);
+        location0items.add(item1);
         location0.setListOfItems(location0items);
+
         ArrayList<NPC> location0npcs = new ArrayList<>();
         location0npcs.add(npc0);
         location0.setListOfNPCs(location0npcs);
+
         location0.setDescription("temporary description for location0.");
         location0.setName("location0");
 
 
+        //Location 1 config
         HashMap<String, Location> location1Connections = new HashMap<>();
         location0Connections.put("south",location0);
         location1.setListOfConnectedLocations(location1Connections);
+
         location1.setDescription("temporary description for location1.");
         location1.setName("location1");
     }

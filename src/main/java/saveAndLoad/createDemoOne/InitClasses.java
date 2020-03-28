@@ -55,8 +55,10 @@ public class InitClasses {
     public static ArrayList<Item> initItems() {
         ArrayList<Item> listOfItems = new ArrayList<>();
         Item item0 = new Item();
+        Item item1 = new Item();
 
         listOfItems.add(item0);
+        listOfItems.add(item1);
         return listOfItems;
     }
 

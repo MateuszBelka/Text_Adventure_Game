@@ -35,6 +35,42 @@
       "canBePulled": false,
       "canBeCut": false,
       "canBeUsed": false
+    },
+    {
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBePickedUp": true,
+      "canBeDropped": false,
+      "canBeUnlockedByItem": false,
+      "canBeListenedWith": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "canBeCutWith": false,
+      "canBeRead": false,
+      "canBreak": false,
+      "id": 2,
+      "name": "item1",
+      "description": "temporary description for item1",
+      "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item1",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": true,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
     }
   ],
   "levels": [
@@ -50,7 +86,8 @@
     {
       "id": 1,
       "listOfItemsIDs": [
-        1
+        1,
+        2
       ],
       "listOfNPCsIDs": [
         1
