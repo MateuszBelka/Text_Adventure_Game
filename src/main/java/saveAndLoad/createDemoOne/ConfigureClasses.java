@@ -54,6 +54,7 @@ public class ConfigureClasses {
         Location location0 = InitOfClassesThroughSaveFile.getLocations().get(0);
         Location location1 = InitOfClassesThroughSaveFile.getLocations().get(1);
         Item item0 = InitOfClassesThroughSaveFile.getItems().get(0);
+        NPC npc0 = InitOfClassesThroughSaveFile.getNpcs().get(0);
 
         HashMap<String, Location> location0Connections = new HashMap<>();
         location0Connections.put("north",location1);
@@ -61,6 +62,9 @@ public class ConfigureClasses {
         ArrayList<Item> location0items = new ArrayList<>();
         location0items.add(item0);
         location0.setListOfItems(location0items);
+        ArrayList<NPC> location0npcs = new ArrayList<>();
+        location0npcs.add(npc0);
+        location0.setListOfNPCs(location0npcs);
         location0.setDescription("temporary description for location0.");
         location0.setName("location0");
 
