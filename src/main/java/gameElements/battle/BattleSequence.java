@@ -48,8 +48,8 @@ public class BattleSequence {
      * Called when player inputs attack command
      * returns 0 on successful attack and non-zero on unsuccessful
      */
-    public static int playerAttack() {
-        if (!inCombat() || !getCurrentEnemy().getCanBeAttacked()) return 1;
+    public static void playerAttack() {
+        if (!inCombat() || !getCurrentEnemy().getCanBeAttacked()) return;
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         NPC enemy = getCurrentEnemy();
 
@@ -60,7 +60,5 @@ public class BattleSequence {
 
         // If enemy is dead then set current enemy to null
         if (enemy.getCurrentHealth() <= 0) setCurrentEnemy(null);
-
-        return 0;
     }
 }
