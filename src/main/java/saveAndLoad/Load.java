@@ -92,10 +92,6 @@ public class Load {
     private static void decodeIDsToObjects() {
         /*
          * TODO:
-         *  Check the following classes for possible IDs
-         *  when they will be implemented:
-         *  -Inventory
-         *  -StoryTextPrinter
          *  -Item
          *  -NPC
          */

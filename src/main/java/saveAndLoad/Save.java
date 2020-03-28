@@ -80,10 +80,6 @@ public class Save {
     private static void encodeIDsOfObjects() {
         /*
          * TODO:
-         *  Check the following classes for possible IDs
-         *  when they will be implemented:
-         *  -Inventory
-         *  -StoryTextPrinter
          *  -Item
          *  -NPC
          */

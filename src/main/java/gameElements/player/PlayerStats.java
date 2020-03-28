@@ -30,7 +30,7 @@ public class PlayerStats {
      * Not sure what is the purpose of this variable.
      * If somebody wants to be level 100 000, why not?
      */
-    private int maxPlayerLevel = 100; //todo: put this edge case in the set and increment method
+    private int maxPlayerLevel = 100;
     private int hungerDamage = 20;
     private int currentXP = 0;
     private int currentHealth = maxHealth;
