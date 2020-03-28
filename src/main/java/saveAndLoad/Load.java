@@ -106,9 +106,6 @@ public class Load {
         connectPlayerToLocation();
         connectPlayerToLevel();
         connectPlayerToInventory();
-        connectWordValidatorToPlayer();
-        connectStoryTextGetterToPlayer();
-        connectPlayerProgressToPlayer();
         connectLevelsToLocation();
         connectLocationsToItems();
         connectLocationsToNPCs();
@@ -139,28 +136,6 @@ public class Load {
 
         playerStats.setInventory(inv);
     }
-
-    private static void connectWordValidatorToPlayer() {
-        WordValidation wordValidation = InitOfStoryIndependentClasses.getWordValidation();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        wordValidation.setPlayerStats(playerStats);
-    }
-
-    private static void connectStoryTextGetterToPlayer() {
-        StoryTextGetter getter = InitOfStoryIndependentClasses.getStoryTextGetter();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        getter.setPlayerStats(playerStats);
-    }
-
-    private static void connectPlayerProgressToPlayer() {
-        PlayerLevellingProgression progression = InitOfStoryIndependentClasses.getPlayerProgression();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        progression.setPlayerStats(playerStats);
-    }
-
     // Connect all levels to their starting locations
     private static void connectLevelsToLocation() {
         // Loop through all levels in the game

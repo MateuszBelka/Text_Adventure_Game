@@ -9,11 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WordValidation {
-    PlayerStats playerStats;
-
-    public void setPlayerStats(PlayerStats playerStats) {
-        this.playerStats = playerStats;
-    }
 
     public HashMap<String, String> wordValidator(String[] inputList) {
         HashMap<String, String> validInputList = new HashMap<>();
@@ -53,6 +48,7 @@ public class WordValidation {
     }
 
     private void itemValidator(String word, HashMap<String, String> validInputList) {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         ArrayList<Item> listOfItemsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfItems();
         ArrayList<Item> listOfInventoryItems = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
         addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfItemsInPlayersCurrentLocation);
@@ -71,6 +67,7 @@ public class WordValidation {
     }
 
     private void npcValidator(String word, HashMap<String, String> validInputList) {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfNPCs();
 
         for (NPC npc : listOfNPCsInPlayersCurrentLocation) {
