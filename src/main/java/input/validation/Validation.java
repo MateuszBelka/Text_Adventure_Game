@@ -2,7 +2,6 @@ package input.validation;
 
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStoryIndependentClasses;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
@@ -53,8 +52,8 @@ public class Validation {
                 UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
                 break;
             default:
-                NonStoryPrinter.addToPrinting("Wrong command!");
-                NonStoryPrinter.addToPrinting("Type <Quit> to close the game or <Menu> to start again!");
+                NonStoryPrinter.printString("Wrong command!");
+                NonStoryPrinter.printString("Type <Quit> to close the game or <Menu> to start again!");
         }
     }
 

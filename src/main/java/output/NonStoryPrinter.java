@@ -20,7 +20,7 @@ public class NonStoryPrinter {
     /*
      * Use this method to print strings to terminal
      */
-    public static void addToPrinting(String newline) {
+    public static void printString(String newline) {
         getListToPrint().add(newline);
     }
 
