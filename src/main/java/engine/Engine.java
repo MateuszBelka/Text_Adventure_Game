@@ -29,8 +29,7 @@ public class Engine {
      */
     public static void progressGame(String input, TextArea terminal) {
         // Update Game through Input Validation
-        Validation validation = InitOfStoryIndependentClasses.getValidation();
-        validation.validator(input);
+        Validation.validator(input);
 
         // Player gets hit by enemy -- ONLY does something when it combat
         BattleSequence.enemyAttack();

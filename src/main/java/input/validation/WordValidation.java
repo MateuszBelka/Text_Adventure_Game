@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class WordValidation {
 
-    public HashMap<String, String> wordValidator(String[] inputList) {
+    public static HashMap<String, String> wordValidator(String[] inputList) {
         HashMap<String, String> validInputList = new HashMap<>();
 
         for (String word : inputList) {
@@ -25,7 +25,7 @@ public class WordValidation {
         return validInputList;
     }
 
-    private void commandValidator(String word, HashMap<String, String> validInputList){
+    private static void commandValidator(String word, HashMap<String, String> validInputList){
         Commands[] listOfCommands = Commands.values();
         word = word.toUpperCase();
 
@@ -36,7 +36,7 @@ public class WordValidation {
         }
     }
 
-    private void directionValidator(String word, HashMap<String, String> validInputList){
+    private static void directionValidator(String word, HashMap<String, String> validInputList){
         Directions[] listOfDirections = Directions.values();
         word = word.toUpperCase();
 
@@ -47,7 +47,7 @@ public class WordValidation {
         }
     }
 
-    private void itemValidator(String word, HashMap<String, String> validInputList) {
+    private static void itemValidator(String word, HashMap<String, String> validInputList) {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         ArrayList<Item> listOfItemsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfItems();
         ArrayList<Item> listOfInventoryItems = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
@@ -55,7 +55,7 @@ public class WordValidation {
         addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfInventoryItems);
     }
 
-    private void addItemToValidInputListIfFoundInPassedList (String word,
+    private static void addItemToValidInputListIfFoundInPassedList (String word,
                                                              HashMap<String, String> validInputList,
                                                              ArrayList<Item> list){
         for (Item item : list) {
@@ -66,7 +66,7 @@ public class WordValidation {
         }
     }
 
-    private void npcValidator(String word, HashMap<String, String> validInputList) {
+    private static void npcValidator(String word, HashMap<String, String> validInputList) {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfNPCs();
 
@@ -77,7 +77,4 @@ public class WordValidation {
             }
         }
     }
-
-
-
 }
