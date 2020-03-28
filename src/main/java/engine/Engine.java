@@ -4,9 +4,11 @@ import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
+import input.combatValidation.CombatValidation;
 import input.validation.Validation;
 import javafx.scene.control.TextArea;
 import output.StoryTextPrinter;
+import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
 
 public class Engine {
@@ -23,21 +25,32 @@ public class Engine {
         adventure.updateUIElements();
     }
 
-    /* Responsible for moving the game forward; main loop of the game
+    /*
+     * Responsible for moving the game forward; main loop of the game
      * Called automatically when user sends new input.
      * As such game is updated only as a response to user input.
      */
     public static void progressGame(String input, TextArea terminal) {
-        // Update Game through Input Validation
-        Validation validation = InitOfStoryIndependentClasses.getValidation();
-        validation.validator(input);
+        /*
+         * We analyse and process information differently when player is in combat
+         * As in different inputs are allowed and we print different information
+         */
+        if (BattleSequence.inCombat()) {
+            // Update Game through Input Validation
+            CombatValidation.validator();
 
-        // Player gets hit by enemy -- ONLY does something when it combat
-        BattleSequence.enemyAttack();
+            // Player gets hit by enemy -- ONLY does something when it combat
+            BattleSequence.enemyAttack();
 
-        // Output Printing
-        StoryTextPrinter.printStory(terminal);
+            // Output Printing
+            CombatPrinter.printCombat();
+        } else {
+            // Update Game through Input Validation
+            Validation.validator(input);
 
+            // Output Printing
+            StoryTextPrinter.printStory(terminal);
+        }
         // Update UI elements with new information
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         adventure.updateUIElements();

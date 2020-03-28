@@ -8,9 +8,9 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 
 public class StoryTextGetter {
-    private ArrayList<String> listToPrint = new ArrayList<>();
+    private static ArrayList<String> listToPrint = new ArrayList<>();
 
-    public ArrayList<String> compileStoryText(){
+    public static ArrayList<String> compileStoryText(){
         listToPrint.clear();
 
         addLevelTextIfFirstPrint();
@@ -23,7 +23,7 @@ public class StoryTextGetter {
         return listToPrint;
     }
 
-    private void addLevelTextIfFirstPrint(){
+    private static void addLevelTextIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Boolean firstPrintOfLevel = playerStats.getCurrentLevel().descriptionPrintedOnce();
 
@@ -32,7 +32,7 @@ public class StoryTextGetter {
         }
     }
 
-    private void addLocationTextIfFirstPrint(){
+    private static void addLocationTextIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Boolean firstPrintOfLocation = playerStats.getCurrentLocation().descriptionPrintedOnce();
 
@@ -41,7 +41,7 @@ public class StoryTextGetter {
         }
     }
 
-    private void addItemsTextsIfFirstPrint(){
+    private static void addItemsTextsIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         for (int i = 0; i < playerStats.getCurrentLocation().getListOfItems().size(); i++){
             Boolean firstPrintOfItem = playerStats.getCurrentLocation().getListOfItems().get(i).descriptionPrintedOnce();
@@ -52,7 +52,7 @@ public class StoryTextGetter {
         }
     }
 
-    private void addNPCsTextsIfFirstPrint(){
+    private static void addNPCsTextsIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         for (int i = 0; i < playerStats.getCurrentLocation().getListOfNPCs().size(); i++){
             Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfNPCs().get(i).descriptionPrintedOnce();
@@ -63,12 +63,12 @@ public class StoryTextGetter {
         }
     }
 
-    private void addListOfEntitiesInLocation(){
+    private static void addListOfEntitiesInLocation(){
         addListOfItems();
         addListOfNPCs();
     }
 
-    private String addListOfItems(){
+    private static String addListOfItems(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfItems = new StringBuilder();
         ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
@@ -80,7 +80,7 @@ public class StoryTextGetter {
         return compiledListOfItems.toString();
     }
 
-    private String addListOfNPCs(){
+    private static String addListOfNPCs(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfNPCs = new StringBuilder();
         ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfNPCs();
@@ -91,6 +91,4 @@ public class StoryTextGetter {
         }
         return compiledListOfNPCs.toString();
     }
-
-
 }
