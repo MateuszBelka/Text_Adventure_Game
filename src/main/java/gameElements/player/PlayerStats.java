@@ -16,21 +16,21 @@ public class PlayerStats {
 
     public ArrayList<Location> listOfMovedLocations = new ArrayList<>();
     private int damage = 0;
-    public int maximumXP = 100;
-    public int maxHealth = 100;
-    public int maxHunger = 100;
-    public int currentHunger = maxHunger;
+    private int maximumXP = 100;
+    private int maxHealth = 100;
+    private int maxHunger = 100;
+    private int currentHunger = maxHunger;
     /*
      * Dev Comment from Matt:
      * Imo the only edge case should be int size but that goes for everything.
      * Not sure what is the purpose of this variable.
      * If somebody wants to be level 100 000, why not?
      */
-    public int maxPlayerLevel = 100; //todo: put this edge case in the set and increment method
-    public int HUNGER_DAMAGE;
-    public int currentXP = 0;
-    public int currentHealth = maxHealth;
-    public int playerLevel = 1;
+    private int maxPlayerLevel = 100; //todo: put this edge case in the set and increment method
+    private int HUNGER_DAMAGE;
+    private int currentXP = 0;
+    private int currentHealth = maxHealth;
+    private int playerLevel = 1;
 
     //Get Methods
     public Location getCurrentLocation() {
