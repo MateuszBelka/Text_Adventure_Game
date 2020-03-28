@@ -1,49 +1,39 @@
 package gameProgress;
 
+import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 public class GameProgression {
-    private transient PlayerStats playerStats;
-    private transient Integer amountOfLevels;
+    public static void checkLevelProgression() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
-    public PlayerStats getPlayerStats() {
-        return playerStats;
-    }
-    public void setPlayerStats(PlayerStats playerStats) {
-        this.playerStats = playerStats;
-    }
-    public Integer getAmountOfLevels() {
-        return amountOfLevels;
-    }
-    public void setAmountOfLevels(Integer amountOfLevels) {
-        this.amountOfLevels = amountOfLevels;
-    }
-
-    public void updateGameProgress(){
-        if (playerStats.getCurrentLevel().getPuzzles().equals(0)){
-            checkGameCompletion();
+        if (player.getCurrentLevel().getPuzzlesSolvedCount() == player.getCurrentLevel().getTotalPuzzleCount()) {
+            progressLevel();
         }
     }
 
-    /*
-     * Called every main game loop
-     */
-    private void checkGameCompletion(){
-        if (playerStats.getCurrentLevel().equals(amountOfLevels - 1)){
-            //todo: Game Completed message, press enter to continue message, and return to welcome screen.
+    private static void progressLevel() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+
+        if (gameCompleted()) {
+            printGameCompleted();
+        } else {
+            player.setCurrentLevel(player.getCurrentLevel().getNextLevel());
+            player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
+            NonStoryPrinter.print("Congratulations! You've made it to next step of your journey!");
         }
-        else updateLevel();
     }
 
-    private void updateLevel(){
-        for (int i = 0; i < amountOfLevels; i++){
-            if (playerStats.getCurrentLevel().equals(InitOfClassesThroughSaveFile.getLevels().get(i))){
-                // error: setCurrentLevel(Level) has protected access in Player
-//                player.setCurrentLevel(CollectionOfAllClasses.getLevels().get(i + 1));
-                //error: setCurrentLocation(Location) has protected access in Player
-//                player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
-            }
-        }
+    public static boolean gameCompleted() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+        return player.getCurrentLevel().getNextLevel() == null;
+    }
+
+    private static void printGameCompleted() {
+        BattleSequence.setCurrentEnemy(null);
+        NonStoryPrinter.print("You finished the game! Congratulations!");
+        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 }
