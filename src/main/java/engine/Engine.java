@@ -1,11 +1,9 @@
 package engine;
 
 import gameElements.battle.BattleSequence;
-import gameElements.levelAndContents.Item;
-import gameElements.player.PlayerStats;
-import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
+import input.commands.DoSave;
 import input.validation.Validation;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
@@ -15,9 +13,16 @@ import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class Engine {
+    private static int inputsUntilAutoSave = 5;
+
+    public static int getInputsUntilAutoSave() {
+        return inputsUntilAutoSave;
+    }
+    public static void setInputsUntilAutoSave(int inputsUntilAutoSave) {
+        Engine.inputsUntilAutoSave = inputsUntilAutoSave;
+    }
 
     /*
      * Called when user loads up a game (both new and old save)
@@ -40,6 +45,14 @@ public class Engine {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException {
+        // Auto Save every 5th input
+        if (getInputsUntilAutoSave() == 0) {
+            DoSave.doSave();
+            setInputsUntilAutoSave(5);
+        } else {
+            setInputsUntilAutoSave(getInputsUntilAutoSave() - 1);
+        }
+
         /*
          * We analyse and process information differently when player is in combat
          * As in different inputs are allowed and we print different information
