@@ -26,6 +26,9 @@ public class GameProgression {
         }
     }
 
+    /*
+     * Called every main game loop
+     */
     private void checkGameCompletion(){
         if (playerStats.getCurrentLevel().equals(amountOfLevels - 1)){
             //todo: Game Completed message, press enter to continue message, and return to welcome screen.
