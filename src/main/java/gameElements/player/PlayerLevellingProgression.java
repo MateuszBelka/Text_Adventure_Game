@@ -1,19 +1,11 @@
 package gameElements.player;
 
+import initialisation.InitOfClassesThroughSaveFile;
+
 public class PlayerLevellingProgression {
-    private transient PlayerStats playerStats;
-
-    //Get Methods
-    public PlayerStats getPlayerStats() {
-        return playerStats;
-    }
-
-    //Set Methods
-    public void setPlayerStats(PlayerStats playerStats) {
-        this.playerStats = playerStats;
-    }
 
     public void increaseCurrentXP() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         final int increaseCurrentXPby = playerStats.getMaximumXP() / (playerStats.getPlayerLevel() * 30); //this //todo: ?
         final int newCurrentXP = playerStats.getCurrentXP() + increaseCurrentXPby;
 
@@ -26,7 +18,13 @@ public class PlayerLevellingProgression {
             increaseMaximumXP();
         }
     }
-    protected void incrementPlayerLevel() { playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1); }
+    protected void incrementPlayerLevel() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1);
+    }
 
-    protected void increaseMaximumXP() { playerStats.setMaximumXP(playerStats.getPlayerLevel() * playerStats.getMaximumXP()); }
+    protected void increaseMaximumXP() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setMaximumXP(playerStats.getPlayerLevel() * playerStats.getMaximumXP());
+    }
 }

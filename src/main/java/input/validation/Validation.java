@@ -1,22 +1,15 @@
 package input.validation;
 
+import initialisation.InitOfStoryIndependentClasses;
+
 import java.util.HashMap;
 
 
 public class Validation {
-    WordValidation wordValidation;
-    InputValidation inputValidation;
-
-    //Set Methods
-    public void setWordValidation(WordValidation wordValidation) {
-        this.wordValidation = wordValidation;
-    }
-    public void setInputValidation(InputValidation inputValidation) {
-        this.inputValidation = inputValidation;
-    }
     //todo: deal with uppercase/lowercase input
 
     public void validator(String input){
+        InputValidation inputValidation = InitOfStoryIndependentClasses.getInputValidation();
         String[] inputList = inputParser(input);
 
         HashMap<String, String> validInputList = compileValidList(inputList);
@@ -31,6 +24,7 @@ public class Validation {
     }
 
     public HashMap<String, String> compileValidList(String[] inputList){
+        WordValidation wordValidation = InitOfStoryIndependentClasses.getWordValidation();
         return wordValidation.wordValidator(inputList);
     }
 

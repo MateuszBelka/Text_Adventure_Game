@@ -25,13 +25,6 @@ public class ConfigureClasses {
         configureNPCs();
         configureInventory();
         configurePlayer();
-
-        //File Independent
-        configureWordValidation();
-        configureValidation();
-        configureStoryTextGetter();
-        configureStoryTextPrinter();
-        configurePlayerProgression();
     }
 
     public static void configureItems() {
@@ -95,42 +88,4 @@ public class ConfigureClasses {
         playerStats.setCurrentLocation(level0.getStartLocation());
         playerStats.setInventory(inventory);
     }
-
-
-
-    public static void configureWordValidation() {
-        WordValidation wordValidation = InitOfStoryIndependentClasses.getWordValidation();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        wordValidation.setPlayerStats(playerStats);
-    }
-
-    public static void configureValidation() {
-        Validation validation = InitOfStoryIndependentClasses.getValidation();
-        WordValidation wordValidation = InitOfStoryIndependentClasses.getWordValidation();
-        InputValidation inputValidation = InitOfStoryIndependentClasses.getInputValidation();
-
-        validation.setWordValidation(wordValidation);
-        validation.setInputValidation(inputValidation);
-    }
-
-    public static void configureStoryTextGetter() {
-        StoryTextGetter storyTextGetter = InitOfStoryIndependentClasses.getStoryTextGetter();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        storyTextGetter.setPlayerStats(playerStats);
-    }
-
-    public static void configureStoryTextPrinter() {
-        //Currently unfinished as of 23.03 10:30
-    }
-
-    public static void configurePlayerProgression() {
-        PlayerLevellingProgression playerLevellingProgression = InitOfStoryIndependentClasses.getPlayerProgression();
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-
-        playerLevellingProgression.setPlayerStats(playerStats);
-    }
-
-
 }

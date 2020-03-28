@@ -3,22 +3,12 @@ package output;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 
 import java.util.ArrayList;
 
 public class StoryTextGetter {
     private ArrayList<String> listToPrint = new ArrayList<>();
-    private transient PlayerStats playerStats;
-
-    //Get Methods
-    public PlayerStats getPlayerStats() {
-        return playerStats;
-    }
-
-    //Set Methods
-    public void setPlayerStats(PlayerStats playerStats) {
-        this.playerStats = playerStats;
-    }
 
     public ArrayList<String> compileStoryText(){
         listToPrint.clear();
@@ -34,6 +24,7 @@ public class StoryTextGetter {
     }
 
     private void addLevelTextIfFirstPrint(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Boolean firstPrintOfLevel = playerStats.getCurrentLevel().descriptionPrintedOnce();
 
         if (firstPrintOfLevel) {
@@ -42,6 +33,7 @@ public class StoryTextGetter {
     }
 
     private void addLocationTextIfFirstPrint(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Boolean firstPrintOfLocation = playerStats.getCurrentLocation().descriptionPrintedOnce();
 
         if (firstPrintOfLocation) {
@@ -50,6 +42,7 @@ public class StoryTextGetter {
     }
 
     private void addItemsTextsIfFirstPrint(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         for (int i = 0; i < playerStats.getCurrentLocation().getListOfItems().size(); i++){
             Boolean firstPrintOfItem = playerStats.getCurrentLocation().getListOfItems().get(i).descriptionPrintedOnce();
 
@@ -60,6 +53,7 @@ public class StoryTextGetter {
     }
 
     private void addNPCsTextsIfFirstPrint(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         for (int i = 0; i < playerStats.getCurrentLocation().getListOfNPCs().size(); i++){
             Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfNPCs().get(i).descriptionPrintedOnce();
 
@@ -75,6 +69,7 @@ public class StoryTextGetter {
     }
 
     private String addListOfItems(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfItems = new StringBuilder();
         ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
 
@@ -86,6 +81,7 @@ public class StoryTextGetter {
     }
 
     private String addListOfNPCs(){
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfNPCs = new StringBuilder();
         ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfNPCs();
 
