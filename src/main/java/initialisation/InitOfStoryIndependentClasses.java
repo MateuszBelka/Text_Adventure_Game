@@ -260,4 +260,8 @@ public class InitOfStoryIndependentClasses {
     public static StoryTextPrinter getStoryTextPrinter() {
         return storyTextPrinter;
     }
+
+    public static void setAdventure(Adventure adventure) {
+        InitOfStoryIndependentClasses.adventure = adventure;
+    }
 }

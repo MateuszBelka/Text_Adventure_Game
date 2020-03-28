@@ -1,10 +1,13 @@
 package engine;
 
 import gameElements.battle.BattleSequence;
+import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.validation.Validation;
 import javafx.scene.control.TextArea;
 import output.StoryTextPrinter;
+import ui.controllers.Adventure;
 
 public class Engine {
 
@@ -14,7 +17,10 @@ public class Engine {
      * we want them to see something printed on terminal
      */
     public static void initializeGameScene(TextArea terminal) {
+        Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
+
         StoryTextPrinter.printStory(terminal);
+        adventure.updateUIElements();
     }
 
     /* Responsible for moving the game forward; main loop of the game
@@ -33,5 +39,7 @@ public class Engine {
         StoryTextPrinter.printStory(terminal);
 
         // Update UI elements with new information
+        Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
+        adventure.updateUIElements();
     }
 }
