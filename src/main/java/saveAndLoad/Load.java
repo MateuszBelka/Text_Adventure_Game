@@ -37,11 +37,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
-import gameElements.player.PlayerLevellingProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStoryIndependentClasses;
-import input.validation.WordValidation;
-import output.StoryTextGetter;
 
 import java.io.*;
 import java.net.URL;
@@ -108,7 +104,8 @@ public class Load {
         connectPlayerToInventory();
         connectLevelsToLocation();
         connectLocationsToItems();
-        connectLocationsToNPCs();
+        connectLocationsToFriendlyNPCs();
+        connectLocationsToEnemyNPCs();
         connectLocationsToHashMap();
     }
 
@@ -170,20 +167,37 @@ public class Load {
         }
     }
 
-    private static void connectLocationsToNPCs() {
+    private static void connectLocationsToFriendlyNPCs() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            ArrayList<NPC> newListOfNPCs = new ArrayList<>();
+            ArrayList<NPC> newListOfFriendlyNPCs = new ArrayList<>();
 
-            for (Integer id : location.getListOfNPCsIDs()) {
-                for (NPC npc : InitOfClassesThroughSaveFile.getNpcs()) {
+            for (Integer id : location.getListOfFriendlyNPCsIDs()) {
+                for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
                     if (id == npc.getId()) {
-                        newListOfNPCs.add(npc);
+                        newListOfFriendlyNPCs.add(npc);
                         break;
                     }
                 }
             }
 
-            location.setListOfNPCs(newListOfNPCs);
+            location.setListOfFriendlyNPCs(newListOfFriendlyNPCs);
+        }
+    }
+
+    private static void connectLocationsToEnemyNPCs() {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
+            ArrayList<NPC> newListOfEnemyNPCs = new ArrayList<>();
+
+            for (Integer id : location.getListOfEnemyNPCsIDs()) {
+                for (NPC npc : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
+                    if (id == npc.getId()) {
+                        newListOfEnemyNPCs.add(npc);
+                        break;
+                    }
+                }
+            }
+
+            location.setListOfEnemyNPCs(newListOfEnemyNPCs);
         }
     }
 

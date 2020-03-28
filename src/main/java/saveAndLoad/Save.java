@@ -27,7 +27,8 @@ public class Save {
         setIDsOfItems();
         setIDsOfLevels();
         setIDsOfLocations();
-        setIDsOfNPCs();
+        setIDsOfFriendlyNPCs();
+        setIDsOfEnemyNPCs();
     }
 
     private static void setIDsOfItems() {
@@ -54,9 +55,17 @@ public class Save {
         }
     }
 
-    private static void setIDsOfNPCs() {
+    private static void setIDsOfFriendlyNPCs() {
         int id = 1;
-        for (NPC npc : InitOfClassesThroughSaveFile.getNpcs()) {
+        for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+            npc.setId(id);
+            id++;
+        }
+    }
+
+    private static void setIDsOfEnemyNPCs() {
+        int id = 1;
+        for (NPC npc : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
             npc.setId(id);
             id++;
         }
@@ -82,7 +91,8 @@ public class Save {
         connectPlayerToLevel();
         connectLevelsToLocation();
         connectLocationsToItems();
-        connectLocationsToNPCs();
+        connectLocationsToFriendlyNPCs();
+        connectLocationsToEnemyNPCs();
         connectLocationsToHashMap();
     }
 
@@ -119,15 +129,27 @@ public class Save {
         }
     }
 
-    private static void connectLocationsToNPCs() {
+    private static void connectLocationsToFriendlyNPCs() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            ArrayList<Integer> newListOfNPCsIDs = new ArrayList<>();
+            ArrayList<Integer> newListOfFriendlyNPCsIDs = new ArrayList<>();
 
-            for (NPC npc : location.getListOfNPCs()) {
-                newListOfNPCsIDs.add(npc.getId());
+            for (NPC npc : location.getListOfFriendlyNPCs()) {
+                newListOfFriendlyNPCsIDs.add(npc.getId());
             }
 
-            location.setListOfNPCsIDs(newListOfNPCsIDs);
+            location.setListOfFriendlyNPCsIDs(newListOfFriendlyNPCsIDs);
+        }
+    }
+
+    private static void connectLocationsToEnemyNPCs() {
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
+            ArrayList<Integer> newListOfEnemyNPCsIDs = new ArrayList<>();
+
+            for (NPC npc : location.getListOfEnemyNPCs()) {
+                newListOfEnemyNPCsIDs.add(npc.getId());
+            }
+
+            location.setListOfEnemyNPCsIDs(newListOfEnemyNPCsIDs);
         }
     }
 

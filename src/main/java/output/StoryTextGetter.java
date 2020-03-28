@@ -54,11 +54,11 @@ public class StoryTextGetter {
 
     private static void addNPCsTextsIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        for (int i = 0; i < playerStats.getCurrentLocation().getListOfNPCs().size(); i++){
-            Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfNPCs().get(i).descriptionPrintedOnce();
+        for (int i = 0; i < playerStats.getCurrentLocation().getListOfFriendlyNPCs().size(); i++){
+            Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfFriendlyNPCs().get(i).descriptionPrintedOnce();
 
             if (firstPrintOfNPC) {
-                listToPrint.add(playerStats.getCurrentLocation().getListOfNPCs().get(i).getDescription());
+                listToPrint.add(playerStats.getCurrentLocation().getListOfFriendlyNPCs().get(i).getDescription());
             }
         }
     }
@@ -83,7 +83,7 @@ public class StoryTextGetter {
     private static String addListOfNPCs(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfNPCs = new StringBuilder();
-        ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfNPCs();
+        ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfFriendlyNPCs();
 
         for (int i = 0; i < listOfNPCs.size(); i++){
             String itemToAdd = "<" + listOfNPCs.get(i).getName() + "> ";

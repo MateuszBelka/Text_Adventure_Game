@@ -89,9 +89,10 @@
         1,
         2
       ],
-      "listOfNPCsIDs": [
+      "listOfFriendlyNPCsIDs": [
         1
       ],
+      "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
         "south": 1,
         "north": 2
@@ -103,16 +104,20 @@
     {
       "id": 2,
       "listOfItemsIDs": [],
-      "listOfNPCsIDs": [],
+      "listOfFriendlyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        1
+      ],
       "listOfConnectedLocationsIDs": {},
       "description": "temporary description for location1.",
       "name": "location1",
       "firstTimeEnteringLocation": true
     }
   ],
-  "npcs": [
+  "friendlyNPCs": [
     {
       "canAttack": false,
+      "percentChanceToShowUpAtLocationSwitch": 0,
       "damage": 0,
       "currentHealth": 0,
       "id": 1,
@@ -124,6 +129,34 @@
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
       "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
+    }
+  ],
+  "enemyNPCs": [
+    {
+      "canAttack": true,
+      "percentChanceToShowUpAtLocationSwitch": 0,
+      "damage": 5,
+      "currentHealth": 50,
+      "id": 1,
+      "name": "Skeleton",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": true,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": true,
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
       "canBeSmelled": false,

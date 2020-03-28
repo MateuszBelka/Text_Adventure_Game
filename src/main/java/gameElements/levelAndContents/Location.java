@@ -7,8 +7,10 @@ public class Location {
     private int id;
     private transient ArrayList<Item> listOfItems = new ArrayList<>();
     private ArrayList<Integer> listOfItemsIDs;
-    private transient ArrayList<NPC> listOfNPCs = new ArrayList<>();
-    private ArrayList<Integer> listOfNPCsIDs;
+    private transient ArrayList<NPC> listOfFriendlyNPCs = new ArrayList<>();
+    private ArrayList<Integer> listOfFriendlyNPCsIDs;
+    private transient ArrayList<NPC> listOfEnemyNPCs = new ArrayList<>();
+    private ArrayList<Integer> listOfEnemyNPCsIDs;
     private transient HashMap<String, Location> listOfConnectedLocations;
     private HashMap<String, Integer> listOfConnectedLocationsIDs;
     private String description;
@@ -44,20 +46,36 @@ public class Location {
         this.listOfItemsIDs = listOfItemsIDs;
     }
 
-    public ArrayList<NPC> getListOfNPCs() {
-        return listOfNPCs;
+    public ArrayList<NPC> getListOfFriendlyNPCs() {
+        return listOfFriendlyNPCs;
     }
 
-    public void setListOfNPCs(ArrayList<NPC> listOfNPCs) {
-        this.listOfNPCs = listOfNPCs;
+    public void setListOfFriendlyNPCs(ArrayList<NPC> listOfNPCs) {
+        this.listOfFriendlyNPCs = listOfNPCs;
     }
 
-    public ArrayList<Integer> getListOfNPCsIDs() {
-        return listOfNPCsIDs;
+    public ArrayList<Integer> getListOfFriendlyNPCsIDs() {
+        return listOfFriendlyNPCsIDs;
     }
 
-    public void setListOfNPCsIDs(ArrayList<Integer> listOfNPCsIDs) {
-        this.listOfNPCsIDs = listOfNPCsIDs;
+    public void setListOfFriendlyNPCsIDs(ArrayList<Integer> listOfFriendlyNPCsIDs) {
+        this.listOfFriendlyNPCsIDs = listOfFriendlyNPCsIDs;
+    }
+
+    public ArrayList<NPC> getListOfEnemyNPCs() {
+        return listOfEnemyNPCs;
+    }
+
+    public void setListOfEnemyNPCs(ArrayList<NPC> listOfEnemyNPCs) {
+        this.listOfEnemyNPCs = listOfEnemyNPCs;
+    }
+
+    public ArrayList<Integer> getListOfEnemyNPCsIDs() {
+        return listOfEnemyNPCsIDs;
+    }
+
+    public void setListOfEnemyNPCsIDs(ArrayList<Integer> listOfEnemyNPCsIDs) {
+        this.listOfEnemyNPCsIDs = listOfEnemyNPCsIDs;
     }
 
     public HashMap<String, Location> getListOfConnectedLocations() {
@@ -115,6 +133,7 @@ public class Location {
     public void setFirstTimeEnteringLocation(Boolean firstTimeEnteringLocation) {
         this.firstTimeEnteringLocation = firstTimeEnteringLocation;
     }
+
 
     public void addItemToList(Item item) { listOfItems.add(item); }
 

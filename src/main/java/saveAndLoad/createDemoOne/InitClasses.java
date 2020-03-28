@@ -6,13 +6,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
-import gameElements.player.PlayerLevellingProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import input.validation.InputValidation;
-import input.validation.Validation;
-import input.validation.WordValidation;
-import output.StoryTextGetter;
-import output.StoryTextPrinter;
 
 import java.util.ArrayList;
 
@@ -23,7 +17,8 @@ public class InitClasses {
         InitOfClassesThroughSaveFile.setLevels(initLevels());
         InitOfClassesThroughSaveFile.setLocations(initLocations());
         InitOfClassesThroughSaveFile.setItems(initItems());
-        InitOfClassesThroughSaveFile.setNpcs(initNPC());
+        InitOfClassesThroughSaveFile.setFriendlyNPCs(initFriendlyNPC());
+        InitOfClassesThroughSaveFile.setEnemyNPCs(initEnemyNPC());
     }
 
     public static PlayerStats initPlayer() {
@@ -62,7 +57,15 @@ public class InitClasses {
         return listOfItems;
     }
 
-    public static ArrayList<NPC> initNPC() {
+    public static ArrayList<NPC> initFriendlyNPC() {
+        ArrayList<NPC> listOfNPCs = new ArrayList<>();
+        NPC npc = new NPC();
+
+        listOfNPCs.add(npc);
+        return listOfNPCs;
+    }
+
+    public static ArrayList<NPC> initEnemyNPC() {
         ArrayList<NPC> listOfNPCs = new ArrayList<>();
         NPC npc = new NPC();
 
