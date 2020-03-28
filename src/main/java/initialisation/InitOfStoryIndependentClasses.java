@@ -49,7 +49,7 @@ public class InitOfStoryIndependentClasses {
     private static HandlerOf1Word handlerOf1Word;
     private static HandlerOf2Words handlerOf2Words;
     private static HandlerOf3Words handlerOf3Words;
-    private static InputValidation inputValidation;
+    private static InputValidation inputValidation = new InputValidation();
     private static Validation validation = new Validation();
     private static WordValidation wordValidation = new WordValidation();
     private static StoryTextGetter storyTextGetter = new StoryTextGetter();
