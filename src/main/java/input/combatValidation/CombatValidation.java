@@ -1,6 +1,7 @@
 package input.combatValidation;
 
 import gameElements.battle.BattleSequence;
+import output.NonStoryPrinter;
 
 public class CombatValidation {
     public static void validator(String input) {
@@ -10,6 +11,8 @@ public class CombatValidation {
             case "attack":
                 BattleSequence.playerAttack();
                 break;
+            default:
+                NonStoryPrinter.addToPrinting("This command is unavailable during combat. Defeat the enemy to continue!");
         }
     }
 }
