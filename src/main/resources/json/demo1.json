@@ -52,7 +52,9 @@
       "listOfItemsIDs": [
         1
       ],
-      "listOfNPCsIDs": [],
+      "listOfNPCsIDs": [
+        1
+      ],
       "listOfConnectedLocationsIDs": {
         "south": 1,
         "north": 2
@@ -77,6 +79,8 @@
       "damage": 0,
       "currentHealth": 0,
       "id": 1,
+      "name": "Henry",
+      "description": "test description for Henry",
       "descriptionAfterCommand": {},
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,

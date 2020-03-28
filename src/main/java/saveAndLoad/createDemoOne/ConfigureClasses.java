@@ -80,6 +80,7 @@ public class ConfigureClasses {
         NPC npc0 = InitOfClassesThroughSaveFile.getNpcs().get(0);
 
         npc0.setName("Henry");
+        npc0.setDescription("test description for Henry");
     }
 
     public static void configureInventory() {

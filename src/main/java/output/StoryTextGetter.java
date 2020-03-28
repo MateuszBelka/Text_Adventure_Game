@@ -64,8 +64,8 @@ public class StoryTextGetter {
     }
 
     private static void addListOfEntitiesInLocation(){
-        addListOfItems();
-        addListOfNPCs();
+        listToPrint.add(addListOfItems());
+        listToPrint.add(addListOfNPCs());
     }
 
     private static String addListOfItems(){
@@ -74,7 +74,7 @@ public class StoryTextGetter {
         ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
 
         for (int i = 0; i < listOfItems.size(); i++){
-            String itemToAdd = "[" + listOfItems.get(i) + "] ";
+            String itemToAdd = "[" + listOfItems.get(i).getName() + "] ";
             compiledListOfItems.append(itemToAdd);
         }
         return compiledListOfItems.toString();
@@ -86,7 +86,7 @@ public class StoryTextGetter {
         ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfNPCs();
 
         for (int i = 0; i < listOfNPCs.size(); i++){
-            String itemToAdd = "<" + listOfNPCs.get(i) + "> ";
+            String itemToAdd = "<" + listOfNPCs.get(i).getName() + "> ";
             compiledListOfNPCs.append(itemToAdd);
         }
         return compiledListOfNPCs.toString();
