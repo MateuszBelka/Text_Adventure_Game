@@ -16,7 +16,8 @@ public class InitOfClassesThroughSaveFile {
     private static ArrayList<Item> items;
     private static ArrayList<Level> levels;
     private static ArrayList<Location> locations;
-    private static ArrayList<NPC> npcs;
+    private static ArrayList<NPC> friendlyNPCs;
+    private static ArrayList<NPC> enemyNPCs;
     private static Inventory inventory;
     private static PlayerStats playerStats;
 
@@ -33,8 +34,16 @@ public class InitOfClassesThroughSaveFile {
         InitOfClassesThroughSaveFile.locations = locations;
     }
 
-    public static void setNpcs(ArrayList<NPC> npcs) {
-        InitOfClassesThroughSaveFile.npcs = npcs;
+    public static void setFriendlyNPCs(ArrayList<NPC> friendlyNPCs) {
+        InitOfClassesThroughSaveFile.friendlyNPCs = friendlyNPCs;
+    }
+
+    public static ArrayList<NPC> getEnemyNPCs() {
+        return enemyNPCs;
+    }
+
+    public static void setEnemyNPCs(ArrayList<NPC> enemyNPCs) {
+        InitOfClassesThroughSaveFile.enemyNPCs = enemyNPCs;
     }
 
     public static void setInventory(Inventory inventory) {
@@ -58,8 +67,8 @@ public class InitOfClassesThroughSaveFile {
         return locations;
     }
 
-    public static ArrayList<NPC> getNpcs() {
-        return npcs;
+    public static ArrayList<NPC> getFriendlyNPCs() {
+        return friendlyNPCs;
     }
 
     public static Inventory getInventory() {

@@ -21,7 +21,7 @@ public class BattleSequence {
 
     // Call when player changes rooms and there is enemy inside
     public static void initCombat(NPC enemy) {
-        setCurrentEnemy(enemy);
+        if (enemy.getCanAttack() && enemy.getCanBeAttacked()) setCurrentEnemy(enemy);
     }
 
     // Can be used to check if player is in combat at the moment

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 public class NPC extends Entity {
     Boolean canAttack = false;
     Item itemToGive;
+    private int percentChanceToShowUpAtLocationSwitch;
     private int damage;
     private int currentHealth;
 
@@ -49,5 +50,11 @@ public class NPC extends Entity {
     }
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
+    }
+    public int getPercentChanceToShowUpAtLocationSwitch() {
+        return percentChanceToShowUpAtLocationSwitch;
+    }
+    public void setPercentChanceToShowUpAtLocationSwitch(int percentChanceToShowUpAtLocationSwitch) {
+        this.percentChanceToShowUpAtLocationSwitch = percentChanceToShowUpAtLocationSwitch;
     }
 }
