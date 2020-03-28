@@ -9,7 +9,7 @@ public class StoryTextPrinter {
         ArrayList<String> currentTextList = StoryTextGetter.compileStoryText();
 
         for (String text: currentTextList){
-            terminal.appendText(text);
+            terminal.appendText(text + "\n");
         }
     }
 }

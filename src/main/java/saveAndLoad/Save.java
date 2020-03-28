@@ -18,8 +18,48 @@ import java.util.Map;
 public class Save {
 
     public static void writeGameSave(String fileName) {
+        setIDsOfObjects();
         encodeIDsOfObjects();
         populateJsonWithClasses(fileName);
+    }
+
+    private static void setIDsOfObjects() {
+        setIDsOfItems();
+        setIDsOfLevels();
+        setIDsOfLocations();
+        setIDsOfNPCs();
+    }
+
+    private static void setIDsOfItems() {
+        int id = 1;
+        for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+            item.setId(id);
+            id++;
+        }
+    }
+
+    private static void setIDsOfLevels() {
+        int id = 1;
+        for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
+            level.setId(id);
+            id++;
+        }
+    }
+
+    private static void setIDsOfLocations() {
+        int id = 1;
+        for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
+            location.setId(id);
+            id++;
+        }
+    }
+
+    private static void setIDsOfNPCs() {
+        int id = 1;
+        for (NPC npc : InitOfClassesThroughSaveFile.getNpcs()) {
+            npc.setId(id);
+            id++;
+        }
     }
 
     /*
@@ -69,15 +109,13 @@ public class Save {
 
     private static void connectLocationsToItems() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            if (location.getListOfItems().size() != 0) {
-                ArrayList<Integer> newListOfItemsIDs = new ArrayList<>();
+            ArrayList<Integer> newListOfItemsIDs = new ArrayList<>();
 
-                for (Item item : location.getListOfItems()) {
-                    newListOfItemsIDs.add(item.getId());
-                }
-
-                location.setListOfItemsIDs(newListOfItemsIDs);
+            for (Item item : location.getListOfItems()) {
+                newListOfItemsIDs.add(item.getId());
             }
+
+            location.setListOfItemsIDs(newListOfItemsIDs);
         }
     }
 

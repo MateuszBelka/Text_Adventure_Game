@@ -136,6 +136,7 @@ public class Load {
 
         playerStats.setInventory(inv);
     }
+
     // Connect all levels to their starting locations
     private static void connectLevelsToLocation() {
         // Loop through all levels in the game
@@ -152,7 +153,7 @@ public class Load {
 
     private static void connectLocationsToItems() {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
-            if (location.getListOfItems().size() > 0) {
+            if (location.getListOfItemsIDs().size() > 0) {
                 ArrayList<Item> newListOfItems = new ArrayList<>();
 
                 for (Integer id : location.getListOfItemsIDs()) {

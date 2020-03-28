@@ -13,7 +13,7 @@
       "canBeCutWith": false,
       "canBeRead": false,
       "canBreak": false,
-      "id": 0,
+      "id": 1,
       "name": "item0",
       "description": "temporary description for item0",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item0",
@@ -43,26 +43,27 @@
       "description": "test description for level0",
       "name": "test name for level0",
       "firstTimeEnteringLevel": true,
-      "startLocationID": 0
+      "startLocationID": 1
     }
   ],
   "locations": [
     {
-      "id": 0,
+      "id": 1,
       "listOfItemsIDs": [
-        0
+        1
       ],
       "listOfNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
-        "south": 0,
-        "north": 0
+        "south": 1,
+        "north": 2
       },
       "description": "temporary description for location0.",
       "name": "location0",
       "firstTimeEnteringLocation": true
     },
     {
-      "id": 0,
+      "id": 2,
+      "listOfItemsIDs": [],
       "listOfNPCsIDs": [],
       "listOfConnectedLocationsIDs": {},
       "description": "temporary description for location1.",
@@ -75,7 +76,7 @@
       "canAttack": false,
       "damage": 0,
       "currentHealth": 0,
-      "id": 0,
+      "id": 1,
       "descriptionAfterCommand": {},
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
@@ -100,7 +101,7 @@
     "listOfPickupableItems": []
   },
   "playerStats": {
-    "currentLocationID": 0,
+    "currentLocationID": 1,
     "currentLevelID": 1,
     "listOfMovedLocations": [],
     "damage": 0,
