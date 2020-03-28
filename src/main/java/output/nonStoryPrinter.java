@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Responsible for printing additional information after story text
  * as part of game logic you can call addToPrinting in order to have something printed to terminal
  */
-public class nonStoryPrinter {
+public class NonStoryPrinter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
     public static ArrayList<String> getListToPrint() {

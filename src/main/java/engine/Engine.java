@@ -1,12 +1,11 @@
 package engine;
 
 import gameElements.battle.BattleSequence;
-import gameElements.player.PlayerStats;
-import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.validation.Validation;
 import javafx.scene.control.TextArea;
+import output.NonStoryPrinter;
 import output.StoryTextPrinter;
 import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
@@ -51,6 +50,10 @@ public class Engine {
             // Output Printing
             StoryTextPrinter.printStory(terminal);
         }
+
+        // Print unique text (non-Story and non-Combat)
+        NonStoryPrinter.printToTerminal();
+
         // Update UI elements with new information
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         adventure.updateUIElements();
