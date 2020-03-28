@@ -49,6 +49,7 @@ public class Validation {
                 primaryStage.close();
                 break;
             case "Menu":
+                //todo: clear all vars if possible
                 UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
                 break;
             default:
