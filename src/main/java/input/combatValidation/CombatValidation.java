@@ -12,7 +12,7 @@ public class CombatValidation {
                 BattleSequence.playerAttack();
                 break;
             default:
-                NonStoryPrinter.printString("This command is unavailable during combat. Defeat the enemy to continue!");
+                NonStoryPrinter.print("This command is unavailable during combat. Defeat the enemy to continue!");
         }
     }
 }

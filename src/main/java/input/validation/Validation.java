@@ -52,8 +52,8 @@ public class Validation {
                 UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
                 break;
             default:
-                NonStoryPrinter.printString("Wrong command!");
-                NonStoryPrinter.printString("Type <Quit> to close the game or <Menu> to start again!");
+                NonStoryPrinter.print("Wrong command!");
+                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
         }
     }
 
