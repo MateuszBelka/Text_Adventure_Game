@@ -20,13 +20,3 @@ public class DoAttack {
 
     }
 }
-
-// Stuff for enemy combat
-//if (BattleSequence.playerAttack(item) != 0) {
-//        /*
-//         * Set some work of error msg in output
-//         *
-//         * either the weapon can't be used to attack
-//         * or there is no enemy
-//         */
-//        }
