@@ -42,7 +42,7 @@ public class Engine {
          */
         if (BattleSequence.inCombat()) {
             // Update Game through Input Validation
-            CombatValidation.validator();
+            CombatValidation.validator(input);
 
             // Player gets hit by enemy -- ONLY does something when it combat
             BattleSequence.enemyAttack();
