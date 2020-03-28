@@ -13,10 +13,10 @@ public class PlayerHungerProgression {
     }
 
     //called when a player did some action, for example move, action, etc. Exception: consumption
-    protected void decreaseCurrentHunger() { playerStats.setCurrentHunger(playerStats.currentHunger - 10); }
+    protected void decreaseCurrentHunger() { playerStats.setCurrentHunger(playerStats.getCurrentHunger() - 10); }
 
     //called when a character consumed something
-    protected void increaseCurrentHunger() { playerStats.setCurrentHunger(playerStats.currentHunger + 15); }
+    protected void increaseCurrentHunger() { playerStats.setCurrentHunger(playerStats.getCurrentHunger() + 15); }
 
     //the type should be changed depending on implementation, probably boolean or string, not sure yet
     public void checkCurrentHunger() {
@@ -24,7 +24,7 @@ public class PlayerHungerProgression {
             //return additional message that will warn a player character being close to starving
         }
         else if (playerStats.getCurrentHunger() == 0) {
-            playerStats.setCurrentHealth(playerStats.currentHealth - 20);
+            playerStats.setCurrentHealth(playerStats.getCurrentHealth() - 20);
             //return warning message that a character is starving and starts to lose health
         }
     }
