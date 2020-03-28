@@ -7,12 +7,14 @@ import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.validation.Validation;
+import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import output.NonStoryPrinter;
 import output.StoryTextPrinter;
 import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Engine {
@@ -34,8 +36,10 @@ public class Engine {
      * Responsible for moving the game forward; main loop of the game
      * Called automatically when user sends new input.
      * As such game is updated only as a response to user input.
+     *
+     * ActionEvent is necessary to quit UI or switch scenes
      */
-    public static void progressGame(String input, TextArea terminal) {
+    public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException {
         /*
          * We analyse and process information differently when player is in combat
          * As in different inputs are allowed and we print different information
@@ -51,7 +55,7 @@ public class Engine {
             CombatPrinter.printCombat();
         } else {
             // Update Game through Input Validation
-            Validation.validator(input);
+            Validation.validator(input, actionEvent);
 
             // Output Printing
             StoryTextPrinter.printStory(terminal);

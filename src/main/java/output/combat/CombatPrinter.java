@@ -18,10 +18,21 @@ public class CombatPrinter {
         TextArea terminal = adventure.getTerminal();
         ArrayList<String> listToPrint = new ArrayList<>();
 
+
         listToPrint.add("You dealt " + player.getDamage() + " points of damage to your enemy.");
-        listToPrint.add("Your enemy: " + enemy.getName() + " now has " + enemy.getCurrentHealth() + " health points.\n");
-        listToPrint.add("Your enemy: " + enemy.getName() + " has hit you for " + enemy.getDamage() + "points of damage.");
-        listToPrint.add("You now have " + player.getCurrentHealth() + " health points.");
+        // If player is still in combat after damaging enemy then it means the enemy is alive and also hit player
+        if (BattleSequence.inCombat()) {
+            listToPrint.add("Your enemy: " + enemy.getName() + " now has " + enemy.getCurrentHealth() + " health points.");
+            listToPrint.add("Your enemy: " + enemy.getName() + " has hit you for " + enemy.getDamage() + "points of damage.");
+            listToPrint.add("You now have " + player.getCurrentHealth() + " health points.");
+        } else {
+            if (player.getCurrentHealth() > 0) {
+                listToPrint.add("You defeated " + enemy.getName() + ".");
+            } else {
+                listToPrint.add("You have been killed! Better luck next time!");
+                listToPrint.add("Type <Quit> to close the game or <Menu> to start again!");
+            }
+        }
 
         for (String newline : listToPrint) {
             terminal.appendText(newline + "\n");

@@ -5,6 +5,7 @@ import engine.Engine;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -58,27 +60,6 @@ public class Adventure implements Initializable {
     private void setInputString(String inputString) {
         this.inputString = inputString;
     }
-    public void setHealthBar(ProgressBar healthBar) {
-        this.healthBar = healthBar;
-    }
-    public void setHungerBar(ProgressBar hungerBar) {
-        this.hungerBar = hungerBar;
-    }
-    public void setExpBar(ProgressBar expBar) {
-        this.expBar = expBar;
-    }
-    public void setHealthText(Text healthText) {
-        this.healthText = healthText;
-    }
-    public void setHungerText(Text hungerText) {
-        this.hungerText = hungerText;
-    }
-    public void setExpText(Text expText) {
-        this.expText = expText;
-    }
-    public void setLevelText(Label levelText) {
-        this.levelText = levelText;
-    }
 
     /* Present initial story output to user when the scene is loaded
      */
@@ -91,13 +72,15 @@ public class Adventure implements Initializable {
     /*
      * Called when user sends input
      * This input is send to main game loop
+     *
+     * ActionEvent is necessary to quit UI or switch scenes
      */
-    public void handleInput() {
+    public void handleInput(ActionEvent actionEvent) throws IOException {
         //Input Reading
         readAndClearInput();
 
         //main game loop call
-        Engine.progressGame(getInputString(), getTerminal());
+        Engine.progressGame(getInputString(), getTerminal(), actionEvent);
     }
 
     public void readAndClearInput() {

@@ -1,19 +1,35 @@
 package input.validation;
 
+import gameElements.player.PlayerStats;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+import output.NonStoryPrinter;
+import ui.UI;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 
 public class Validation {
     //todo: deal with uppercase/lowercase input
 
-    public static void validator(String input){
-        String[] inputList = inputParser(input);
+    /*
+     * ActionEvent is necessary to quit UI or switch scenes
+     */
+    public static void validator(String input, ActionEvent actionEvent) throws IOException {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+        if (player.getCurrentHealth() < 0) {
+            deathScenario(input, actionEvent);
+        } else {
+            String[] inputList = inputParser(input);
 
-        HashMap<String, String> validInputList = compileValidList(inputList);
+            HashMap<String, String> validInputList = compileValidList(inputList);
 
-        InputValidation.inputValidator(validInputList);
+            InputValidation.inputValidator(validInputList);
+        }
     }
 
     private static String[] inputParser(String input){
@@ -26,5 +42,19 @@ public class Validation {
         return WordValidation.wordValidator(inputList);
     }
 
+    private static void deathScenario(String input, ActionEvent actionEvent) throws IOException {
+        switch(input) {
+            case "Quit":
+                Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                primaryStage.close();
+                break;
+            case "Menu":
+                UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
+                break;
+            default:
+                NonStoryPrinter.addToPrinting("Wrong command!");
+                NonStoryPrinter.addToPrinting("Type <Quit> to close the game or <Menu> to start again!");
+        }
+    }
 
 }
