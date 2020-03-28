@@ -123,7 +123,7 @@ public class Save {
         for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
             ArrayList<Integer> newListOfNPCsIDs = new ArrayList<>();
 
-            for (NPC npc : location.getListOfNPCs()) {
+            for (NPC npc : location.getListOfFriendlyNPCs()) {
                 newListOfNPCsIDs.add(npc.getId());
             }
 

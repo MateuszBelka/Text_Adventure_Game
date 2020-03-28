@@ -6,13 +6,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
-import gameElements.player.PlayerLevellingProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStoryIndependentClasses;
-import input.validation.InputValidation;
-import input.validation.Validation;
-import input.validation.WordValidation;
-import output.StoryTextGetter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -74,7 +68,7 @@ public class ConfigureClasses {
 
         ArrayList<NPC> location0npcs = new ArrayList<>();
         location0npcs.add(npc0);
-        location0.setListOfNPCs(location0npcs);
+        location0.setListOfFriendlyNPCs(location0npcs);
 
         location0.setDescription("temporary description for location0.");
         location0.setName("location0");

@@ -27,7 +27,7 @@ public class NPC extends Entity {
     }
 
     public static NPC getNPCByName (String name){
-        ArrayList<NPC> listOfNpcsOnLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfNPCs();
+        ArrayList<NPC> listOfNpcsOnLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfFriendlyNPCs();
         NPC searchedNPC = null;
 
         for (NPC npc : listOfNpcsOnLocation){

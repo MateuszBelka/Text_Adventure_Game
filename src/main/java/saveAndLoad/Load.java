@@ -37,11 +37,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
-import gameElements.player.PlayerLevellingProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import initialisation.InitOfStoryIndependentClasses;
-import input.validation.WordValidation;
-import output.StoryTextGetter;
 
 import java.io.*;
 import java.net.URL;
@@ -183,7 +179,7 @@ public class Load {
                 }
             }
 
-            location.setListOfNPCs(newListOfNPCs);
+            location.setListOfFriendlyNPCs(newListOfNPCs);
         }
     }
 

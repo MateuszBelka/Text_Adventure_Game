@@ -68,7 +68,7 @@ public class WordValidation {
 
     private static void npcValidator(String word, HashMap<String, String> validInputList) {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfNPCs();
+        ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfFriendlyNPCs();
 
         for (NPC npc : listOfNPCsInPlayersCurrentLocation) {
             String npcName = npc.getName();

@@ -7,7 +7,7 @@ public class Location {
     private int id;
     private transient ArrayList<Item> listOfItems = new ArrayList<>();
     private ArrayList<Integer> listOfItemsIDs;
-    private transient ArrayList<NPC> listOfNPCs = new ArrayList<>();
+    private transient ArrayList<NPC> listOfFriendlyNPCs = new ArrayList<>();
     private ArrayList<Integer> listOfNPCsIDs;
     private transient HashMap<String, Location> listOfConnectedLocations;
     private HashMap<String, Integer> listOfConnectedLocationsIDs;
@@ -44,12 +44,12 @@ public class Location {
         this.listOfItemsIDs = listOfItemsIDs;
     }
 
-    public ArrayList<NPC> getListOfNPCs() {
-        return listOfNPCs;
+    public ArrayList<NPC> getListOfFriendlyNPCs() {
+        return listOfFriendlyNPCs;
     }
 
-    public void setListOfNPCs(ArrayList<NPC> listOfNPCs) {
-        this.listOfNPCs = listOfNPCs;
+    public void setListOfFriendlyNPCs(ArrayList<NPC> listOfNPCs) {
+        this.listOfFriendlyNPCs = listOfNPCs;
     }
 
     public ArrayList<Integer> getListOfNPCsIDs() {
