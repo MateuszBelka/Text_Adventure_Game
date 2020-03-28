@@ -20,9 +20,11 @@ public class DoMove {
         for (NPC enemy : player.getCurrentLocation().getListOfEnemyNPCs()) {
             int diceRoll0To100 = r.nextInt(101);
             if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
-                BattleSequence.setCurrentEnemy(enemy);
-                NonStoryPrinter.addToPrinting("A " + enemy.getName() + " saw you move and initiated a fight!");
-                NonStoryPrinter.addToPrinting("Press [1] or [Attack] to defeat the foe!");
+                BattleSequence.initCombat(enemy);
+                if (BattleSequence.inCombat()) {
+                    NonStoryPrinter.addToPrinting("A " + enemy.getName() + " saw you move and initiated a fight!");
+                    NonStoryPrinter.addToPrinting("Press [1] or [Attack] to defeat the foe!");
+                }
                 break;
             }
         }
