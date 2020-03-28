@@ -10,8 +10,10 @@ public class DoAttack {
     }
 
     public static void doAttack(NPC npc){
-        BattleSequence.setCurrentEnemy(npc);
-        CombatValidation.validator("attack");
+        BattleSequence.initCombat(npc);
+        if (BattleSequence.inCombat()) {
+            CombatValidation.validator("attack");
+        }
     }
 
     public static void doAttack(){
