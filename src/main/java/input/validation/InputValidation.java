@@ -21,7 +21,7 @@ public class InputValidation {
 
         switch (listSize){
             case 0:
-                NonStoryPrinter.print("?");
+                NonStoryPrinter.print("No valid input detected.");
                 break;
             case 1:
                 validateAndHandle1Word(validInputList);
