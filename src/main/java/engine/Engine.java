@@ -100,7 +100,7 @@ public class Engine {
     private static void autoSaveCheck() throws URISyntaxException {
         // Auto Save every 5th input
         if (getInputsUntilAutoSave() == 0) {
-            DoSave.doSave();
+            DoSave.doAutoSave();
             setInputsUntilAutoSave(5);
         } else {
             setInputsUntilAutoSave(getInputsUntilAutoSave() - 1);
