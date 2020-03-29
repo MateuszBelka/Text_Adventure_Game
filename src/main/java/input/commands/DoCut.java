@@ -2,33 +2,28 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerLevellingProgression;
-import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import util.ExistenceCheck;
+import output.NonStoryPrinter;
 
 public class DoCut {
-    public static void doCutWith(Item itemToBeCut, Item itemToCutWith) {
-        // Since we are cutting item it cannot be cut again; we are switching from not cut state to cut
-        itemToBeCut.setCanBeCut(false);
-
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
-    }
 
     public static void doCutWith(NPC npcToBeCut, Item itemToCutWith) {
-        // Since we are cutting npc it cannot be cut again; we are switching from not cut state to cut
+        //deletes itemToCutWith, changes itemToBeCut to cannot be cut,
+        //changes item's description to command description, prints description.
+        InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCutWith);
         npcToBeCut.setCanBeCut(false);
-
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        npcToBeCut.setDescription( npcToBeCut.getDescriptionOfCommand("cut") );
+        NonStoryPrinter.print(npcToBeCut.getDescription());
     }
+
+    public static void doCutItemWithItem(Item itemToBeCut, Item itemToCutWith) {
+        //deletes itemToCutWith, changes itemToBeCut to cannot be cut,
+        //changes item's description to command description, prints description.
+        InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCutWith);
+        itemToBeCut.setCanBeCut(false);
+        itemToBeCut.setDescription( itemToBeCut.getDescriptionOfCommand("cut") );
+        NonStoryPrinter.print(itemToBeCut.getDescription());
+    }
+
+
 }

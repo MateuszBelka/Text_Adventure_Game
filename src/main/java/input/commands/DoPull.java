@@ -11,21 +11,20 @@ public class DoPull {
     public static void doPull (Item item){
         item.setCanBePulled(false);
         item.setCanBePushed(true);
-        NonStoryPrinter.print("You have pulled " + item.getName() + ".");
+        NonStoryPrinter.print( item.getDescriptionOfCommand("pull") );
 
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        puzzleCompletedAndXPReward();
     }
 
     public static void doPull (NPC npc){
         npc.setCanBePulled(false);
         npc.setCanBePushed(true);
-        NonStoryPrinter.print("You have pulled " + npc.getName() + ".");
+        NonStoryPrinter.print( npc.getDescriptionOfCommand("npc") );
 
+        puzzleCompletedAndXPReward();
+    }
+
+    private static void puzzleCompletedAndXPReward(){
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         player.getCurrentLevel().incrementPuzzlesSolvedCount();

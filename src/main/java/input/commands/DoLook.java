@@ -11,22 +11,22 @@ import java.util.ArrayList;
 
 public class DoLook {
     public static void doLook(){
+        //prints description of location and a list of items and npcs in the location.
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Location currentLocation = playerStats.getCurrentLocation();
         ArrayList<Item> itemsOfCurrentLocation = currentLocation.getListOfItems();
         ArrayList<NPC> npcsOfCurrentLocation = currentLocation.getListOfFriendlyNPCs();
-        ArrayList<String> listToPrint = new ArrayList<>();
 
-        listToPrint.add(currentLocation.getDescription());
+
+        String listToPrint = "";
         for (Item item : itemsOfCurrentLocation) {
-            listToPrint.add(item.getDescription());
+            listToPrint = listToPrint + "[" + item.getName() + "] ";
         }
         for (NPC npc : npcsOfCurrentLocation) {
-            listToPrint.add(npc.getDescription());
+            listToPrint = listToPrint + "<" + npc.getName() + "> ";
         }
 
-        for (String text : listToPrint){
-            NonStoryPrinter.print(text + "\n");
-        }
+        NonStoryPrinter.print(currentLocation.getDescription());
+        NonStoryPrinter.print(listToPrint);
     }
 }

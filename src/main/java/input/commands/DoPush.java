@@ -11,21 +11,20 @@ public class DoPush {
     public static void doPush(Item item) {
         item.setCanBePushed(false);
         item.setCanBePulled(true);
-        NonStoryPrinter.print("You have pushed " + item.getName() + ".");
+        NonStoryPrinter.print( item.getDescriptionOfCommand("push") );
 
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        puzzleCompletedAndXPRewards();
     }
 
     public static void doPush(NPC npc){
         npc.setCanBePushed(false);
         npc.setCanBePulled(true);
-        NonStoryPrinter.print("You have pushed " + npc.getName() + ".");
+        NonStoryPrinter.print( npc.getDescriptionOfCommand("push")  );
 
+        puzzleCompletedAndXPRewards();
+    }
+
+    private static void puzzleCompletedAndXPRewards(){
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         player.getCurrentLevel().incrementPuzzlesSolvedCount();

@@ -36,7 +36,7 @@ public class InputValidation {
                 validateAndHandle3Words(validInputList);
                 break;
             default:
-                NonStoryPrinter.print("Try using less words.\n");
+                NonStoryPrinter.print("Try using less words.");
         }
     }
 

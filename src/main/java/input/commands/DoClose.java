@@ -6,49 +6,44 @@ import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
-import util.ExistenceCheck;
 
 public class DoClose {
     public static void doClose(Item item) {
-        if (!ExistenceCheck.doesItExist(item, "The item you are trying to close doesn't exist.")) return;
-        if (item.getCanBeClosed()) {
-            // Since we are closing item it cannot be closed again; we are switching from open state to closed
-            item.setCanBeClosed(false);
-            item.setCanBeOpened(true);
-            NonStoryPrinter.print("You have closed " + item.getName() + ".");
+        // Since we are closing item it cannot be closed again; we are switching from open state to closed
+        item.setCanBeClosed(false);
+        item.setCanBeOpened(true);
 
-            // Puzzle completed
-            PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-            player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        //print command's description
+        NonStoryPrinter.print(item.getDescriptionOfCommand("close"));
 
-            // Get XP reward from puzzle
-            PlayerLevellingProgression.addXPReward();
-        }
+        close();
     }
 
     public static void doClose(NPC npc) {
-        if (!ExistenceCheck.doesItExist(npc, "The npc you are trying to close doesn't exist.")) return;
-        if (npc.getCanBeClosed()) {
-            // Since we are closing npc it cannot be closed again; we are switching from open state to closed
-            npc.setCanBeClosed(false);
-            npc.setCanBeOpened(true);
-            NonStoryPrinter.print("You have closed " + npc.getName() + ".");
+        // Since we are closing npc it cannot be closed again; we are switching from open state to closed
+        npc.setCanBeClosed(false);
+        npc.setCanBeOpened(true);
 
-            // Puzzle completed
-            PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-            player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        close();
 
-            // Get XP reward from puzzle
-            PlayerLevellingProgression.addXPReward();
-        }
+        //print command's description
+        NonStoryPrinter.print(npc.getDescriptionOfCommand("close"));
     }
 
     public static void doCloseItemWithItem (Item itemToClose, Item itemToCloseWith) {
-        // Since we are closing item it cannot be closed again; we are switching from open state to closed
+        // Since we are closing npc it cannot be closed again; we are switching from open state to closed
         itemToClose.setCanBeClosed(false);
-        itemToClose.setCanBeOpened(true);
-        NonStoryPrinter.print("You have closed " + itemToClose.getName() + " using your " + itemToCloseWith.getName() + ".");
 
+        //delete itemToCloseWith from inventory
+        InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCloseWith);
+
+        //print command's description
+        NonStoryPrinter.print(itemToClose.getDescriptionOfCommand("close"));
+
+        close();
+    }
+
+    private static void close(){
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         player.getCurrentLevel().incrementPuzzlesSolvedCount();

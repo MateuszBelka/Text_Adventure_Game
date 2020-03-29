@@ -8,10 +8,16 @@ import initialisation.InitOfClassesThroughSaveFile;
 import input.combatValidation.CombatValidation;
 import output.NonStoryPrinter;
 
+import static input.commands.DoBreak.doBreakWithoutItem;
+
 public class DoAttack {
     public static void doAttack(Item item) {
-        // Remove item from game if it can be broken
-        DoBreak.doBreakWithoutItem(item);
+        // Print command description. Remove item from game if it can be broken
+        NonStoryPrinter.print( item.getDescriptionOfCommand("attack") );
+
+        if (item.getCanBeBrokenWithoutItem()){
+            doBreakWithoutItem(item);
+        }
     }
 
     public static void doAttack(NPC npc) {
@@ -20,9 +26,5 @@ public class DoAttack {
         if (BattleSequence.inCombat()) {
             CombatValidation.validator("attack");
         }
-    }
-
-    public static void doAttack(){
-        NonStoryPrinter.print("What or who would you like to attack?");
     }
 }

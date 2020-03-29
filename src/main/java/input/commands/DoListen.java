@@ -8,22 +8,29 @@ import output.NonStoryPrinter;
 public class DoListen {
 
     public static void doListen() {
+        //listens within location by printing description
         NonStoryPrinter.print(InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getTextForListening());
     }
 
     public static void doListenTo(Item item){
-        NonStoryPrinter.print(item.getTextForListening());
+        //listens to item by printing description
+        NonStoryPrinter.print( item.getDescriptionOfCommand("listen") );
     }
 
     public static void doListenTo(NPC npc){
-        NonStoryPrinter.print(npc.getTextForListening());
+        //listens to npc by printing description
+        NonStoryPrinter.print( npc.getDescriptionOfCommand("listen") );
     }
 
     public static void doListenToNPCWithItem(NPC npc, Item item){
-        NonStoryPrinter.print("Thanks to your " + item.getName() + " you can hear " + npc.getName() + ". " + npc.getTextForListening());
+        //listens with an item to npc, and prints description
+        NonStoryPrinter.print("Listening with " + item.getName() + " to " + npc.getName() + ":");
+        NonStoryPrinter.print( npc.getDescriptionOfCommand("listen") );
     }
 
     public static void doListenToItemWithItem(Item itemToListenTo, Item itemToListenWith){
-        NonStoryPrinter.print("Thanks to your " + itemToListenWith.getName() + " you can hear " + itemToListenTo.getName() + ". " + itemToListenTo.getTextForListening());
+        //listens with an item to an item, and prints description
+        NonStoryPrinter.print("Listening with " + itemToListenWith.getName() + " to " + itemToListenTo.getName() + ":");
+        NonStoryPrinter.print( itemToListenTo.getDescriptionOfCommand("listen") );
     }
 }

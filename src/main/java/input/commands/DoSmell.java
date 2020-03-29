@@ -11,10 +11,10 @@ public class DoSmell {
     }
 
     public static void doSmell(Item item) {
-        NonStoryPrinter.print(item.getTextForSmelling());
+        NonStoryPrinter.print(item.getDescriptionOfCommand("smell"));
     }
 
     public static void doSmell(NPC npc) {
-        NonStoryPrinter.print(npc.getTextForSmelling());
+        NonStoryPrinter.print(npc.getDescriptionOfCommand("smell"));
     }
 }

@@ -24,6 +24,7 @@ import static input.commands.DoMove.doMove;
 import static input.commands.DoPickUp.doPickUp;
 import static input.commands.DoRead.doRead;
 import static input.commands.DoSave.doSave;
+import static input.commands.DoSmell.doSmell;
 import static input.commands.DoTalkWith.doTalkWith;
 import static input.commands.DoHelp.doHelp;
 import static input.validation.InputValidation.*;
@@ -58,12 +59,18 @@ public class HandlerOf1Word {
                 check = true;
             }
         }
-        if (!check) { NonStoryPrinter.print("Cannot use " + command.toLowerCase() + " this way. Try [help]. \n"); }
+        if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + "] this way. Try [help]. "); }
     }
 
     private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
 
         switch (command) {
+            case "SMELL":
+                doSmell();
+                break;
+            case "LISTEN":
+                doListen();
+                break;
             case "HELP":
                 doHelp();
                 break;
@@ -71,19 +78,15 @@ public class HandlerOf1Word {
             case "QUIT":
                 doExit(actionEvent);
                 break;
+            case "BACKTRACK":
             case "BACK":
                 doBack();
-            case "ATTACK":
-                doAttack();
                 break;
             case "READ":
                 handleReadCommand();
                 break;
             case "SAVE":
                 doSave();
-                break;
-            case "LISTEN":
-                doListen();
                 break;
             case "LOAD":
                 doLoad(actionEvent);
@@ -97,7 +100,7 @@ public class HandlerOf1Word {
                 doLook();
                 break;
             default: NonStoryPrinter.print("This command cannot be used that way. Enter \"help\" for an overview " +
-                    "of how to use commands.\n");
+                    "of how to use commands.");
         }
     }
 
@@ -117,7 +120,7 @@ public class HandlerOf1Word {
         if (amountOfReadableItems == 1){
             doRead(itemToRead);
         }
-        else{ NonStoryPrinter.print("Please be more specific. Try writing: read [thing]\n"); }
+        else{ NonStoryPrinter.print("Please be more specific. Try writing: read [thing]"); }
     }
 
     private static void handle1Item(Item item){
@@ -128,7 +131,7 @@ public class HandlerOf1Word {
             doConsume(item);
         }
         else{
-            NonStoryPrinter.print("Please be more specific. Check [help]. \n");
+            NonStoryPrinter.print("Please be more specific. Check [help]. ");
         }
     }
 
@@ -137,7 +140,7 @@ public class HandlerOf1Word {
             doTalkWith(npc);
         }
         else {
-            NonStoryPrinter.print("Cannot talk with " + npc.getName() + ".\n");
+            NonStoryPrinter.print("Cannot talk with " + npc.getName() + ".");
         }
     }
 

@@ -25,5 +25,6 @@ public enum Commands {
     LISTEN,
     UNLOCK,
     JUMP,
-    HELP
+    HELP,
+    BACK, BACKTRACK
 }
