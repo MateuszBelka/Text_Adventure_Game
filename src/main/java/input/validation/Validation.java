@@ -20,7 +20,7 @@ public class Validation {
      */
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
         if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
-            gameEndedScenario(input, actionEvent);
+            GameProgression.gameEndedScenario(input, actionEvent);
         } else {
             String[] inputList = inputParser(input);
 
@@ -38,22 +38,6 @@ public class Validation {
 
     public static HashMap<String, String> compileValidList(String[] inputList){
         return WordValidation.wordValidator(inputList);
-    }
-
-    private static void gameEndedScenario(String input, ActionEvent actionEvent) throws IOException {
-        switch(input) {
-            case "Quit":
-                Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
-                primaryStage.close();
-                break;
-            case "Menu":
-                //todo: clear all vars if possible
-                UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
-                break;
-            default:
-                NonStoryPrinter.print("Wrong command!");
-                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
-        }
     }
 
 }
