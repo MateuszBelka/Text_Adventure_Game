@@ -20,7 +20,7 @@ public class Validation {
 
             HashMap<String, String> validInputList = compileValidList(inputList);
 
-            InputValidation.inputValidator(validInputList);
+            InputValidation.inputValidator(validInputList, actionEvent);
         }
     }
 

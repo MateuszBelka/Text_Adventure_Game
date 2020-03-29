@@ -1,7 +1,12 @@
 package input.commands;
 
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
+
 public class DoExit {
-    public static void doExit (){
-        //todo: ask if user wants to save game. if yes, doSave();. Then close system down.
+    public static void doExit (ActionEvent actionEvent){
+        Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+        primaryStage.close();
     }
 }
