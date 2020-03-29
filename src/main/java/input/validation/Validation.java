@@ -16,7 +16,7 @@ public class Validation {
      */
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
         if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
-            GameProgression.gameEndedScenario(input, actionEvent);
+            GameProgression.inputValidationAfterGameOver(input, actionEvent);
         } else {
             String[] inputList = inputParser(input);
 

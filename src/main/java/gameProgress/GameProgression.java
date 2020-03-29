@@ -43,7 +43,7 @@ public class GameProgression {
         NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 
-    public static void gameEndedScenario(String input, ActionEvent actionEvent) throws IOException {
+    public static void inputValidationAfterGameOver(String input, ActionEvent actionEvent) throws IOException {
         switch(input) {
             case "Quit":
                 Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
