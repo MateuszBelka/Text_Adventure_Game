@@ -32,17 +32,33 @@ public class PlayerLevellingProgression {
                 // Increment Player level
                 incrementPlayerLevel();
 
-                // Scale maxXP and XPReward
-                increaseMaximumXP();
-                increaseXPReward();
+                // Scale stats for level up
+                levelUPScaling();
             }
         }
-
     }
+
     private static void incrementPlayerLevel() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1);
         NonStoryPrinter.print("You reached level " + playerStats.getPlayerLevel());
+    }
+
+    private static void levelUPScaling() {
+        increaseMaximumXP();
+        increaseXPReward();
+        increaseMaximumHP();
+        increaseDamage();
+    }
+
+    private static void increaseMaximumHP() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setMaxHealth((int) Math.round(playerStats.getMaxHealth() * 1.2));
+    }
+
+    private static void increaseDamage() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setDamage((int) Math.round(playerStats.getDamage() * 1.2));
     }
 
     private static void increaseXPReward() {

@@ -14,7 +14,7 @@ public class DoMove {
     public static void doMove (Location location){
         InitOfClassesThroughSaveFile.getPlayerStats().addLocationToMovedLocationsList(location);
         InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocation(location);
-//        PlayerHungerProgression.decreaseCurrentHunger();
+        PlayerHungerProgression.decreaseCurrentHunger();
 
         BattleSequence.shouldPlayerEnterCombat();
     }

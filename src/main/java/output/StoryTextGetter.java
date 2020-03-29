@@ -68,9 +68,12 @@ public class StoryTextGetter {
         }
     }
 
-    private static void addListOfEntitiesInLocationIfFirstPrint(){
-            listToPrint.add(addListOfItems());
-            listToPrint.add(addListOfNPCs());
+    private static void addListOfEntitiesInLocationIfFirstPrint() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+
+        if (playerStats.getCurrentLocation().getListOfItems().size() > 0) listToPrint.add(addListOfItems());
+        if (playerStats.getCurrentLocation().getListOfFriendlyNPCs().size() > 0) listToPrint.add(addListOfNPCs());
+
     }
 
     private static String addListOfItems(){

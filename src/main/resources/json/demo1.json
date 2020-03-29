@@ -96,7 +96,6 @@
       ],
       "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
-        "south": 1,
         "north": 2
       },
       "description": "temporary description for location0.",
@@ -110,7 +109,9 @@
       "listOfEnemyNPCsIDs": [
         1
       ],
-      "listOfConnectedLocationsIDs": {},
+      "listOfConnectedLocationsIDs": {
+        "south": 1
+      },
       "description": "temporary description for location1.",
       "name": "location1",
       "firstTimeEnteringLocation": true
@@ -178,7 +179,7 @@
     "currentLocationID": 1,
     "currentLevelID": 1,
     "listOfMovedLocations": [],
-    "damage": 0,
+    "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
