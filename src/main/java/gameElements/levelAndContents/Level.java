@@ -86,10 +86,12 @@ public class Level {
     public void setNextLevelID(Level nextLevelID) {
         this.nextLevelID = nextLevelID;
     }
+    public void setTotalPuzzleCount(int totalPuzzleCount) {
+        this.totalPuzzleCount = totalPuzzleCount;
+    }
 
-
-    public void setTotalPuzzleCount() {
-        //todo
+    public void incrementPuzzlesSolvedCount() {
+        setPuzzlesSolvedCount(getTotalPuzzleCount() + 1);
     }
 
     public boolean descriptionPrintedOnce (){

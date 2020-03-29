@@ -41,7 +41,6 @@ abstract public class Entity {
     Item itemToOpenWith;
     Item itemToBeOpened;
     Item itemToCloseWith;
-    Item itemToBeClosed;
 
     //Getter + Setter
     public int getId() {
@@ -348,13 +347,6 @@ abstract public class Entity {
         this.itemToCloseWith = itemToCloseWith;
     }
 
-    public Item getItemToBeClosed() {
-        return itemToBeClosed;
-    }
-
-    public void setItemToBeClosed(Item itemToBeClosed) {
-        this.itemToBeClosed = itemToBeClosed;
-    }
 
     public boolean descriptionPrintedOnce (){
         if (firstTimeEnteringLocation.equals(true)){

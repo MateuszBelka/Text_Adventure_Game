@@ -1,7 +1,6 @@
 package gameElements.battle;
 
 import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
@@ -71,7 +70,7 @@ public class BattleSequence {
         // If enemy is dead then set current enemy to null and receive xp
         if (enemy.getCurrentHealth() <= 0) {
             setCurrentEnemy(null);
-            PlayerLevellingProgression.increaseCurrentXP();
+            PlayerLevellingProgression.addXPReward();
         }
     }
 
