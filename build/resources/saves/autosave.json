@@ -1,0 +1,208 @@
+{
+  "items": [
+    {
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBePickedUp": true,
+      "canBeDropped": false,
+      "canBeUnlockedByItem": false,
+      "canBeListenedWith": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "canBeCutWith": false,
+      "canBeRead": false,
+      "canBreak": false,
+      "id": 1,
+      "name": "item0",
+      "description": "temporary description for item0",
+      "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item0",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": false,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
+    },
+    {
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBePickedUp": true,
+      "canBeDropped": false,
+      "canBeUnlockedByItem": false,
+      "canBeListenedWith": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "canBeCutWith": false,
+      "canBeRead": false,
+      "canBreak": false,
+      "id": 2,
+      "name": "item1",
+      "description": "temporary description for item1",
+      "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item1",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": false,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "description": "test description for level0",
+      "name": "test name for level0",
+      "firstTimeEnteringLevel": false,
+      "startLocationID": 1,
+      "totalPuzzleCount": 5,
+      "puzzlesSolvedCount": 0
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "listOfItemsIDs": [
+        1,
+        2
+      ],
+      "listOfFriendlyNPCsIDs": [
+        1
+      ],
+      "listOfEnemyNPCsIDs": [],
+      "listOfConnectedLocationsIDs": {
+        "south": 1,
+        "north": 2
+      },
+      "description": "temporary description for location0.",
+      "name": "location0",
+      "firstTimeEnteringLocation": false
+    },
+    {
+      "id": 2,
+      "listOfItemsIDs": [],
+      "listOfFriendlyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        1
+      ],
+      "listOfConnectedLocationsIDs": {},
+      "description": "temporary description for location1.",
+      "name": "location1",
+      "firstTimeEnteringLocation": false
+    }
+  ],
+  "friendlyNPCs": [
+    {
+      "canAttack": false,
+      "percentChanceToShowUpAtLocationSwitch": 0,
+      "damage": 0,
+      "currentHealth": 0,
+      "id": 1,
+      "name": "Henry",
+      "description": "test description for Henry",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": false,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
+    }
+  ],
+  "enemyNPCs": [
+    {
+      "canAttack": true,
+      "percentChanceToShowUpAtLocationSwitch": 0,
+      "damage": 5,
+      "currentHealth": 50,
+      "id": 1,
+      "name": "Skeleton",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": true,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "canBeUsedByItem": false,
+      "canBeAttacked": true,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "canBeCut": false,
+      "canBeUsed": false
+    }
+  ],
+  "inventory": {},
+  "playerStats": {
+    "currentLocationID": 2,
+    "currentLevelID": 1,
+    "listOfMovedLocations": [
+      {
+        "id": 2,
+        "listOfItemsIDs": [],
+        "listOfFriendlyNPCsIDs": [],
+        "listOfEnemyNPCsIDs": [
+          1
+        ],
+        "listOfConnectedLocationsIDs": {},
+        "description": "temporary description for location1.",
+        "name": "location1",
+        "firstTimeEnteringLocation": false
+      }
+    ],
+    "damage": 0,
+    "maximumXP": 100,
+    "maxHealth": 100,
+    "maxHunger": 100,
+    "currentHunger": 100,
+    "hungerDrain": 10,
+    "foodHungerIncrease": 15,
+    "foodHealthIncrease": 10,
+    "maxPlayerLevel": 100,
+    "hungerDamage": 20,
+    "currentXP": 0,
+    "currentHealth": 100,
+    "playerLevel": 1
+  }
+}

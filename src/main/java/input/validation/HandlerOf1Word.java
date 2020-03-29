@@ -58,7 +58,7 @@ public class HandlerOf1Word {
                 check = true;
             }
         }
-        if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + " this way. Try [help]. \n"); }
+        if (!check) { NonStoryPrinter.print("Cannot use " + command.toLowerCase() + " this way. Try [help]. \n"); }
     }
 
     private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
