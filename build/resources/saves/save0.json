@@ -18,7 +18,7 @@
       "description": "temporary description for item0",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item0",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": false,
+      "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -54,7 +54,7 @@
       "description": "temporary description for item1",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item1",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": false,
+      "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -96,7 +96,6 @@
       ],
       "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
-        "south": 1,
         "north": 2
       },
       "description": "temporary description for location0.",
@@ -110,7 +109,9 @@
       "listOfEnemyNPCsIDs": [
         1
       ],
-      "listOfConnectedLocationsIDs": {},
+      "listOfConnectedLocationsIDs": {
+        "south": 1
+      },
       "description": "temporary description for location1.",
       "name": "location1",
       "firstTimeEnteringLocation": true
@@ -126,7 +127,7 @@
       "name": "Henry",
       "description": "test description for Henry",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": false,
+      "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -148,7 +149,7 @@
   "enemyNPCs": [
     {
       "canAttack": true,
-      "percentChanceToShowUpAtLocationSwitch": 0,
+      "percentChanceToShowUpAtLocationSwitch": 100,
       "damage": 5,
       "currentHealth": 50,
       "id": 1,
@@ -178,7 +179,7 @@
     "currentLocationID": 1,
     "currentLevelID": 1,
     "listOfMovedLocations": [],
-    "damage": 0,
+    "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
