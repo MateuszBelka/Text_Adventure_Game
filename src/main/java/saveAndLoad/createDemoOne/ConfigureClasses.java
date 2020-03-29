@@ -102,6 +102,7 @@ public class ConfigureClasses {
         NPC npc0 = InitOfClassesThroughSaveFile.getEnemyNPCs().get(0);
 
         npc0.setName("Skeleton");
+        npc0.setPercentChanceToShowUpAtLocationSwitch(100);
         npc0.setCanAttack(true);
         npc0.setCanBeAttacked(true);
         npc0.setDamage(5);

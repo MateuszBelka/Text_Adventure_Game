@@ -17,7 +17,7 @@ public class PlayerStats {
     private transient Inventory inventory;
 
     public ArrayList<Location> listOfMovedLocations = new ArrayList<>();
-    private int damage = 20;
+    private int damage = 15;
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
