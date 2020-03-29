@@ -22,7 +22,7 @@ public class DoMove {
             if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
                 BattleSequence.initCombat(enemy);
                 if (BattleSequence.inCombat()) {
-                    NonStoryPrinter.print("A " + enemy.getName() + " saw you move and initiated a fight!");
+                    NonStoryPrinter.print("A " + enemy.getName() + " saw you enter and initiated a fight!");
                     NonStoryPrinter.print("Press [1] or [Attack] to defeat the foe!");
                 }
                 break;

@@ -18,15 +18,14 @@ public class Validation {
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
         //ActionEvent is necessary to quit UI or switch scenes
 //        if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
-////            gameEndedScenario(input, actionEvent);
+//            gameEndedScenario(input, actionEvent);
 //        }
 //        else {
             String[] inputList = inputParser(input);
 
             HashMap<String, String> validInputList = compileValidList(inputList);
-            System.out.println(validInputList);
 
-//            InputValidation.inputValidator(validInputList);
+            InputValidation.inputValidator(validInputList);
 //        }
     }
 
@@ -51,7 +50,7 @@ public class Validation {
                 UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
                 break;
             default:
-                NonStoryPrinter.print("Wrong command!");
+                NonStoryPrinter.print("Game has ended.");
                 NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again.");
         }
     }

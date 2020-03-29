@@ -27,7 +27,6 @@ public class WordValidation {
 
     private static void commandValidator(String word, HashMap<String, String> validInputList){
         Commands[] listOfCommands = Commands.values();
-        word = word.toUpperCase();
 
         for (Commands command : listOfCommands) {
             if (word.equals(command.toString())) {
@@ -38,7 +37,6 @@ public class WordValidation {
 
     private static void directionValidator(String word, HashMap<String, String> validInputList){
         Directions[] listOfDirections = Directions.values();
-        word = word.toUpperCase();
 
         for (Directions direction : listOfDirections) {
             if (word.equals(direction.toString())) {
@@ -59,7 +57,7 @@ public class WordValidation {
                                                              HashMap<String, String> validInputList,
                                                              ArrayList<Item> list){
         for (Item item : list) {
-            String itemName = item.getName();
+            String itemName = item.getName().toUpperCase();
             if (word.equals(itemName)) {
                 validInputList.put(word, "item");
             }
@@ -71,7 +69,7 @@ public class WordValidation {
         ArrayList<NPC> listOfNPCsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfFriendlyNPCs();
 
         for (NPC npc : listOfNPCsInPlayersCurrentLocation) {
-            String npcName = npc.getName();
+            String npcName = npc.getName().toUpperCase();
             if (word.equals(npcName)) {
                 validInputList.put(word, "npc");
             }

@@ -1,8 +1,10 @@
 package input.validation;
 
 import gameElements.levelAndContents.Item;
+import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,57 +37,61 @@ public class HandlerOf2Words {
         NPC npc = getNPC(validInputList);
         String direction = getDirection(validInputList);
 
-        if (validInputList.containsKey("item") && validInputList.containsKey("npc")) {
+        if (validInputList.containsValue("item") && validInputList.containsValue("npc")) {
+            assert npc != null;
             validateAndHandleItemAndNPCCombination(item, npc);
         }
-        else if (validInputList.containsKey("command") && validInputList.containsKey("item")){
+        else if (validInputList.containsValue("command") && validInputList.containsValue("item")){
+            assert command != null;
             validateAndHandleCommandAndItemCombination(command, item);
         }
-        else if (validInputList.containsKey("command") && validInputList.containsKey("npc")){
+        else if (validInputList.containsValue("command") && validInputList.containsValue("npc")){
+            assert command != null;
             validateAndHandleCommandAndNPCCombination(command, npc);
         }
-        else if (validInputList.containsKey("direction") && validInputList.containsKey("command")){
+        else if (validInputList.containsValue("direction") && validInputList.containsValue("command")){
+            assert command != null;
             validateAndHandleCommandAndDirectionCombination(command, direction);
         }
         else {
-            //todo: print "You cannot do that. Try in the form [command] + [thing] ( + [thing] )"
+            NonStoryPrinter.print("Unrecognized input. Try in the form [command] (+ [thing] ( + [thing] ) )\n");
         }
     }
 
     private static void validateAndHandleItemAndNPCCombination(Item item, NPC npc){
-        // todo: consider input: attack skeleton with sword
-        if(npc.getItemToBeUsedOn().equals(item)){
+        if (npc.getItemToBeUsedOn() == null){
+            NonStoryPrinter.print(npc.getName() + " does not need " + item.getName() + ".\n");
+        }
+        else if(npc.getItemToBeUsedOn().equals(item)){
             if(item.getCanBeGiven()){
                 doGiveItemToNPC(item, npc);
             }
             else if (item.getCanBeUsedOnNPC()){
                 doUseItemOnNPC(item, npc);
             }
-            else{
-                //todo:print: "Cannot give or use " + itemName + " to " + npcName + "."
-            }
         }
+        else { NonStoryPrinter.print("Wrong item for " + npc.getName() + ".\n"); }
 
-        ArrayList<Item> itemsInLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems();
+        Location currentLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation();
+        ArrayList<Item> itemsInLocation = currentLocation.getListOfItems();
         for (Item itemInLocation : itemsInLocation){
             if (itemInLocation.equals(item)){
-                //todo: print: "Cannot do that. Maybe try to pick " + item + " up first?"
+                NonStoryPrinter.print("Cannot do that. Maybe try to pick " + item.getName() + " up first?\n");
             }
         }
     }
 
     private static void validateAndHandleCommandAndItemCombination(String command, Item item){
-        //todo: "look at milk"
         switch (command){
             case "USE":
                 if (item.getCanBeUsed()) { doUse(item); }
-                else {/*todo: print: itemName + " cannot be used ."*/}
+                else { NonStoryPrinter.print("Cannot use " + item.getName() + ".\n"); }
                 break;
             case "EAT":
             case "DRINK":
             case "CONSUME":
                 if (item.getCanBeConsumed()){ doConsume(item); }
-                else {/*todo: print: "Cannot consume * + itemName + "."*/}
+                else { NonStoryPrinter.print("Cannot consume " + item.getName() + ".\n"); }
                 break;
             case "TAKE":
             case "PICK":
@@ -93,79 +99,85 @@ public class HandlerOf2Words {
             case "GET":
             case "PICKUP":
                 if (item.getCanBePickedUp()){ doPickUp(item); }
-                else { /*todo: print: "Cannot pick up * + itemName + "."*/ }
+                else { NonStoryPrinter.print("Cannot pick up " + item.getName() + ".\n"); }
                 break;
             case "DROP":
                 if (item.getCanBeDropped()) { doDrop(item); }
-                else {/*todo: print: "Cannot drop " + itemName + "."*/}
+                else { NonStoryPrinter.print("Cannot drop " + item.getName() + ".\n"); }
                 break;
             case "READ":
                 if (item.getCanBeRead()) { doRead(item); }
-                else { /*todo: print: "Cannot read * + itemName + "."*/ }
+                else { NonStoryPrinter.print("Cannot read " + item.getName() + ".\n"); }
                 break;
             case "LOOK":
             case "OBSERVE":
             case "EXAMINE":
                 if (item.getCanBeExamined()) { doExamine(item); }
-                else { /*todo: print: "Cannot examine * + itemName + "."*/ }
+                else { NonStoryPrinter.print("Cannot examine " + item.getName() + ".\n"); }
                 break;
             case "SMELL":
                 if (item.getCanBeSmelled()) { doSmell(item); }
-                else { /*todo: print: itemName + " cannot be smelled."*/ }
+                else { NonStoryPrinter.print(item.getName() + " does not have a particular smell.\n"); }
                 break;
             case "PUSH":
                 if (item.getCanBePushed()) { doPush(item); }
-                else { /*todo: print: itemName + " cannot be pushed."*/ }
+                else { NonStoryPrinter.print("Cannot push " + item.getName() + ".\n"); }
                 break;
             case "PULL":
                 if (item.getCanBePulled()) { doPull(item); }
-                else { /*todo: print: itemName + " cannot be pulled."*/ }
+                else { NonStoryPrinter.print("Cannot pull " + item.getName() + ".\n"); }
                 break;
             case "LISTEN":
                 if (item.getCanBeListenedTo()) { doListenTo(item); }
-                else { /*todo: print: itemName + " cannot be listened to."*/ }
+                else { NonStoryPrinter.print("Nothing in particular is heard, when listening to "
+                        + item.getName() + ".\n"); }
                 break;
             case "TALK":
                 if (item.getCanBeTalkedWith()) { doTalkWith(item); }
-                else { /*todo: print: itemName + " cannot be talked to."*/ }
+                else { NonStoryPrinter.print(item.getName() + " cannot be talked to.\n"); }
                 break;
             case "OPEN":
                 if (item.getCanBeOpened()) { doOpen(item); }
-                else { /*todo: print: itemName + " cannot be opened."*/}
+                else { NonStoryPrinter.print(item.getName() + " cannot be opened.\n"); }
                 break;
             case "CLOSE":
                 if (item.getCanBeClosed()) { doClose(item); }
-                else { /*todo: print: itemName + " cannot be closed."*/}
+                else { NonStoryPrinter.print(item.getName() + " cannot be closed.\n"); }
                 break;
             case "CUT":
                 cutItemCommand(item);
                 break;
             case "ATTACK":
                 if (item.getCanBeAttacked()) { doAttack(item); }
-                else { /*todo: print: itemName + " cannot be attacked."*/}
+                else { NonStoryPrinter.print(item.getName() + " cannot be attacked.\n"); }
                 break;
             case "BREAK":
                 if (item.getCanBeBrokenWithoutItem()) { doBreakWithoutItem(item); }
-                else { /*todo: print: itemName + " cannot be broken."*/}
+                else { NonStoryPrinter.print(item.getName() + " cannot be broken. " +
+                        "It might be possible to break, with another item. \n"); }
                 break;
             default:
-                //todo: print: "Cannot do that."
+                NonStoryPrinter.print( "Cannot use [" + command.toLowerCase() + "] this way. Try [help].\n" );
         }
     }
 
     private static void cutItemCommand(Item item){
         ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        boolean check = false;
 
         if (item.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){
                 if (item.getItemToCutWith().equals(itemInInventory)){
                     doCutWith(item, itemInInventory);
+                    check = true ;
                 }
             }
-            //todo: else give message that user doesn't have the right item to cut?
+            if (!check){
+                NonStoryPrinter.print("Don't have the right item to cut " + item.getName() + " with.\n");
+            }
         }
         else{
-            //todo: print: item.getName() + " cannot be cut."
+            NonStoryPrinter.print(item.getName() + " cannot be cut.\n");
         }
     }
 
@@ -173,72 +185,77 @@ public class HandlerOf2Words {
         switch (command) {
             case "LISTEN":
                 if (npc.getCanBeListenedTo()) { doListenTo(npc); }
-                else { /*todo: print: npcName + " cannot be listened to."*/ }
+                else { NonStoryPrinter.print(npc.getName() + " cannot be listened to.\n"); }
                 break;
             case "TALK":
                 if (npc.getCanBeTalkedWith()) { doTalkWith(npc); }
-                else { /*todo: print: npcName + " cannot be talked to."*/ }
+                else { NonStoryPrinter.print(npc.getName() + " cannot be talked to.\n"); }
                 break;
             case "ATTACK":
                 if (npc.getCanBeAttacked()) { doAttack(npc); }
-                else { /*todo: print: npcName + " cannot be attacked."*/}
+                else { NonStoryPrinter.print(npc.getName() + " cannot be attacked.\n"); }
                 break;
             case "SMELL":
                 if (npc.getCanBeSmelled()) { doSmell(npc); }
-                else { /*todo: print: npcName + " cannot be smelled."*/ }
+                else { NonStoryPrinter.print(npc.getName() + " does not have a particular smell.\n"); }
                 break;
             case "PUSH":
                 if (npc.getCanBePushed()) { doPush(npc); }
-                else { /*todo: print: npcName + " cannot be pushed."*/ }
+                else { NonStoryPrinter.print(npc.getName() + " cannot be pushed.\n"); }
                 break;
             case "PULL":
                 if (npc.getCanBePulled()) { doPull(npc); }
-                else { /*todo: print: npcName + " cannot be pulled."*/ }
+                else { NonStoryPrinter.print(npc.getName() + " cannot be pulled.\n"); }
                 break;
             case "OBSERVE":
             case "EXAMINE":
                 if (npc.getCanBeExamined()) { doExamine(npc); }
-                else { /*todo: print: "Cannot examine * + npcName + "."*/ }
+                else { NonStoryPrinter.print("Cannot examine " + npc.getName() + ".\n"); }
                 break;
             case "USE":
                 if (npc.getCanBeUsed()) { doUse(npc); }
-                else {/*todo: print: npcName + " cannot be used ."*/}
+                else { NonStoryPrinter.print(npc.getName() + " cannot be used.\n"); }
                 break;
             case "EAT":
             case "DRINK":
             case "CONSUME":
                 if (npc.getCanBeConsumed()) { doConsume(npc); }
-                else {/*todo: print: "Cannot consume * + npcName + "."*/}
+                else { NonStoryPrinter.print("Cannot consume " + npc.getName() + ".\n"); }
                 break;
             case "OPEN":
                 if (npc.getCanBeOpened()) { doOpen(npc); }
-                else { /*todo: print: itemName + " cannot be opened."*/}
+                else { NonStoryPrinter.print(npc.getName() + " cannot be opened.\n"); }
                 break;
             case "CLOSE":
                 if (npc.getCanBeClosed()) { doClose(npc); }
-                else { /*todo: print: itemName + " cannot be closed."*/}
+                else { NonStoryPrinter.print(npc.getName() + " cannot be closed.\n"); }
                 break;
             case "CUT":
                 cutNPCCommand(npc);
                 break;
             default:
-                //todo: print: "Cannot do that."
+                NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + "] with [" + npc.getName() +
+                        "] that way. Refer to [help].");
         }
     }
 
     private static void cutNPCCommand(NPC npc){
         ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        boolean check = false;
 
         if (npc.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){
                 if (npc.getItemToCutWith().equals(itemInInventory)){
                     doCutWith(npc, itemInInventory);
+                    check = true;
                 }
             }
-            //todo: else give message that user doesn't have the right item to cut?
+            if (!check){
+                NonStoryPrinter.print("Don't have the right item to cut " + npc.getName() + " with.\n");
+            }
         }
         else{
-            //todo: print: item.getName() + " cannot be cut."
+            NonStoryPrinter.print(npc.getName() + " cannot be cut.\n");
         }
     }
 
@@ -251,7 +268,7 @@ public class HandlerOf2Words {
                 handle1Direction(direction);
                 break;
             default:
-                //todo: print: "Cannot " + command + " to " + direction + "."
+                NonStoryPrinter.print("Cannot " + command.toLowerCase() + " to " + direction.toLowerCase() + ".\n");
         }
     }
 }

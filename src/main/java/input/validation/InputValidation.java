@@ -3,6 +3,7 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
+import output.NonStoryPrinter;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +20,9 @@ public class InputValidation {
         int listSize = validInputList.size();
 
         switch (listSize){
+            case 0:
+                NonStoryPrinter.print("?");
+                break;
             case 1:
                 validateAndHandle1Word(validInputList);
                 break;
@@ -29,19 +33,18 @@ public class InputValidation {
                 validateAndHandle3Words(validInputList);
                 break;
             default:
-                {/* todo: print "try using less words" */}
+                NonStoryPrinter.print("Try using less words.\n");
         }
     }
 
     protected static String getKeyInValidInputList(HashMap<String, String> validInputList, String value){
-        HashSet<String> keys = new HashSet<>();
+        HashSet<String> key = new HashSet<>();
         for (Map.Entry<String, String> entry : validInputList.entrySet()){
             if (Objects.equals(value, entry.getValue())){
-                keys.add(entry.getKey());
-                return deleteFirstAndLastChar(keys.toString());
+                key.add(entry.getKey());
             }
         }
-        return "";
+        return deleteFirstAndLastChar(key.toString());
     }
 
     private static String deleteFirstAndLastChar(String value){
@@ -52,22 +55,27 @@ public class InputValidation {
     }
 
     protected static Item getItem(HashMap<String, String> validInputList){
-        if (validInputList.containsKey("item")){
-            String itemName = getKeyInValidInputList(validInputList, "item");
-            return Item.getItemByName(itemName);
+        String itemName = null;
+        if (validInputList.containsValue("item")){
+            itemName = getKeyInValidInputList(validInputList, "item");
+            if (itemName.contains(",")){
+                StringBuilder stringBuilder = new StringBuilder(itemName);
+                int index= stringBuilder.indexOf(",");
+                itemName = stringBuilder.substring(0, index);
+            }
         }
-        else return null;
+        return Item.getItemByName(itemName);
     }
 
     protected static String getCommand(HashMap<String, String> validInputList){
-        if (validInputList.containsKey("command")){
+        if (validInputList.containsValue("command")){
             return getKeyInValidInputList(validInputList, "command");
         }
         else return null;
     }
 
     protected static NPC getNPC(HashMap<String, String> validInputList){
-        if (validInputList.containsKey("npc")){
+        if (validInputList.containsValue("npc")){
             String npcName = getKeyInValidInputList(validInputList, "npc");
             return NPC.getNPCByName(npcName);
         }
@@ -75,7 +83,7 @@ public class InputValidation {
     }
 
     protected static String getDirection(HashMap<String, String> validInputList){
-        if (validInputList.containsKey("direction")){
+        if (validInputList.containsValue("direction")){
             return getKeyInValidInputList(validInputList, "direction");
         }
         else return null;

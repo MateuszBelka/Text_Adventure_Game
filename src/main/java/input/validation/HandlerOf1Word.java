@@ -4,6 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,6 +21,7 @@ import static input.commands.DoPickUp.doPickUp;
 import static input.commands.DoRead.doRead;
 import static input.commands.DoSave.doSave;
 import static input.commands.DoTalkWith.doTalkWith;
+import static input.commands.doHelp.doHelp;
 import static input.validation.InputValidation.*;
 
 public class HandlerOf1Word {
@@ -44,16 +46,23 @@ public class HandlerOf1Word {
     }
 
     private static void handle1Command(String command){
+        boolean check = false;
         for (CommandsWith1ValidWord validCommand : CommandsWith1ValidWord.values()) {
-            if (validCommand.toString().equals(command)) {
+            String validCommandString = validCommand.toString();
+            if (validCommandString.equals(command)) {
                 doCommand(command);
+                check = true;
             }
-            else {/*todo: print message "try writing [" + word + "] + [item]"*/}
         }
+        if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + " this way. Try [help]. \n"); }
     }
 
     private static void doCommand(String command){
+
         switch (command) {
+            case "HELP":
+                doHelp();
+                break;
             case "EXIT":
             case "QUIT":
                 doExit();
@@ -76,12 +85,13 @@ public class HandlerOf1Word {
             case "INVENTORY":
                 doInventoryLookUp();
                 break;
-            case "JUMP": //todo: print message about having jumped in the air.
+            case "JUMP": NonStoryPrinter.print("Nice jump! \n");
                 break;
             case "LOOK":
                 doLook();
                 break;
-            default: //todo: print: "This command cannot be used that way. Enter "help" for an overview of how to use commands. "
+            default: NonStoryPrinter.print("This command cannot be used that way. Enter \"help\" for an overview " +
+                    "of how to use commands.\n");
         }
     }
 
@@ -101,20 +111,18 @@ public class HandlerOf1Word {
         if (amountOfReadableItems == 1){
             doRead(itemToRead);
         }
-        else{
-            //todo: print: "Try Read + [thing] "
-        }
+        else{ NonStoryPrinter.print("Please be more specific. Try writing: read [thing]\n"); }
     }
 
     private static void handle1Item(Item item){
         if (item.getCanBePickedUp()){
             doPickUp(item);
         }
-        if (item.getCanBeConsumed()){
+        else if (item.getCanBeConsumed()){
             doConsume(item);
         }
         else{
-            //todo: print "Please be more specific. Use [command] + [thing] (+ [thing])"
+            NonStoryPrinter.print("Please be more specific. Check [help]. \n");
         }
     }
 
@@ -123,7 +131,7 @@ public class HandlerOf1Word {
             doTalkWith(npc);
         }
         else {
-            //todo: print "Cannot talk with " + word + "."
+            NonStoryPrinter.print("Cannot talk with " + npc.getName() + ".\n");
         }
     }
 
@@ -137,7 +145,7 @@ public class HandlerOf1Word {
             doMove(location);
         }
         else {
-            //todo: print "Cannot go this way."
+            NonStoryPrinter.print("Cannot go this way.");
         }
     }
 }

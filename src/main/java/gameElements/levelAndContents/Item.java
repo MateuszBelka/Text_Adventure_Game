@@ -23,15 +23,17 @@ public class Item extends Entity {
 
     public static Item getItemByName(String name){
         Item searchedItem = null;
-        ArrayList<Item> listOfItemsInCurrentLoc = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems();
+        Location currentLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation();
+        ArrayList<Item> listOfItemsInCurrentLoc = currentLocation.getListOfItems();
+
         for (Item item : listOfItemsInCurrentLoc){
-            if (item.getName().equals(name)){
+            if (item.getName().toUpperCase().equals(name)){
                 searchedItem = item;
             }
         }
         ArrayList<Item> listOfItemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
         for (Item item : listOfItemsInInventory){
-            if (item.getName().equals(name)){
+            if (item.getName().toUpperCase().equals(name)){
                 searchedItem = item;
             }
         }

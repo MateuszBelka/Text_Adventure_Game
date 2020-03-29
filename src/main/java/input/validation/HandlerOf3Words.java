@@ -2,6 +2,7 @@ package input.validation;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import output.NonStoryPrinter;
 
 import java.util.HashMap;
 
@@ -19,92 +20,89 @@ import static input.validation.InputValidation.*;
 
 public class HandlerOf3Words {
     protected static void validateAndHandle3Words(HashMap<String, String> validInputList){
+        System.out.println(validInputList);
+        Item item0 = getItem(validInputList);
+        validInputList.remove(item0.getName().toUpperCase());
         Item item1 = getItem(validInputList);
-        validInputList.remove(item1, "item");
-        Item item2 = getItem(validInputList);
         String command = getCommand(validInputList);
-        validInputList.remove(command, "command");
         NPC npc = getNPC(validInputList);
 
-        if (    validInputList.containsValue("command") &&
-                validInputList.containsValue("item")    &&
-                validInputList.containsValue("npc") ) {
-            validateAndHandleCommandItemNpcCombination(command, item1, npc);
+        if (item1!=null){
+            Item item3 = item1;
+            item1 = item0;
+            item0 = item3;
         }
 
-        else if (item2 != null){
-            if (validInputList.containsValue("item") && validInputList.containsValue("command")){
-                validateAndHandleCommandItemItemCombination(command, item1, item2);
-            }
+        if ( (command != null) && (item0 != null) && (npc != null) ) {
+            validateAndHandleCommandItemNpcCombination(command, item0, npc);
         }
-        else {
-            /*todo: print "Input invalid". Try [command] + [thing] + [thing] .*/
+        else if ( (item1 != null) && (command != null) && (item0 != null) ){
+            validateAndHandleCommandItemItemCombination(command, item0, item1);
         }
+        else { NonStoryPrinter.print("Input invalid. Try [command] (+ [thing] (+ [thing] ) ). See [help].\n"); }
     }
 
     private static void validateAndHandleCommandItemNpcCombination(String command, Item item, NPC npc){
         switch (command){
             case "GIVE":
-                if (item.getCanBeGiven() && npc.getNeedsItem() && npc.getItemToGive().equals(item)){
-                    doGiveItemToNPC(item, npc);
-                }
+                if ( (item.getCanBeGiven()) && (npc.getItemToGive().equals(item)) ){
+                        doGiveItemToNPC(item, npc);
+                    }
+                else {NonStoryPrinter.print(item.getName() + " cannot be given, or, " + npc.getName() +
+                        " does not need this item.\n");}
                 break;
             case "USE":
                 if (npc.getCanBeUsedByItem() && item.getCanBeUsedOnNPC()){
                     doUseItemOnNPC(item, npc);
+                }
+                else{ NonStoryPrinter.print(item.getName() + " cannot be used on " + npc.getName() + ".\n");
                 }
                 break;
             case "LISTEN":
                 if (npc.getCanBeListenedTo() && item.getCanBeListenedWith() && npc.getItemToListenWith().equals(item)){
                     doListenToNPCWithItem(npc, item);
                 }
+                else { NonStoryPrinter.print("Cannot listen to "+ npc.getName()+ " with " + item.getName() + ".\n"); }
                 break;
             default:
-                //todo: print: "Cannot do that."
+                NonStoryPrinter.print("Can only give item, use item on, or listen with item, to NPCs. " +
+                        "Try something else.\n");
         }
     }
 
     private static void validateAndHandleCommandItemItemCombination(String command, Item item1, Item item2) {
         switch (command) {
             case "BREAK":
-                if (item1.getCanBreak() && item2.getCanBeBrokenWithItem() && item2.getItemToBreakWith().equals(item1)) {
+                if (item1.getCanBreak() && item2.getCanBeBrokenWithItem() && item2.getItemToBreakWith().equals(item1)){
                     doBreakWithItem(item1, item2);
-                } else {/*"todo: print: Not the right item to break item2.getName() with*/}
+                }
+                else { NonStoryPrinter.print("Not the right item to break " + item2.getName() + " with.\n"); }
                 break;
             case "USE":
-                if (item1.getCanBeUsedByItem() && item2.getCanBeUsedOnItem() && item2.getItemToBeUsedOn().equals(item1)) {
+                if(item1.getCanBeUsedByItem() && item2.getCanBeUsedOnItem() && item2.getItemToBeUsedOn().equals(item1)){
                     doUseItemOnItem(item1, item2);
-                } else {
-                    //todo:print: Not the right item to use on item2.getName().
                 }
+                else { NonStoryPrinter.print("Not the right item to use on " + item2.getName() + ".\n"); }
                 break;
             case "CUT":
-                if (item1.getCanBeCutWith().equals(item2)) {
+                if (item1.getItemToCutWith().equals(item2)) {
                     doCutItemWithItem(item1, item2);
-                } else {
-                    //todo: print: Cannot cut item2.getName() with item1.getName().
                 }
+                else { NonStoryPrinter.print("Cannot cut " + item2.getName() + " with " + item1.getName() + ".\n"); }
                 break;
             case "UNLOCK":
                 if (item1.getItemToUnlock().equals(item2) && item1.getCanBeUnlockedByItem()) {
                     doUnlockItemWithItem(item1, item2);
-                } else {
-                    //todo: print: item2.getName() cannot be unlocked with item1.getName();
                 }
+                else { NonStoryPrinter.print(item2.getName() + " cannot be unlocked with " + item1.getName() + ".\n"); }
                 break;
             case "OPEN":
-                if (item1.getItemToOpenWith().equals(item2)) {
-                    doOpenItemWithItem(item1, item2);
-                } else {
-                    //todo: print: wrong item to open with.
-                }
+                if (item1.getItemToOpenWith().equals(item2)) { doOpenItemWithItem(item1, item2); }
+                else { NonStoryPrinter.print("Wrong item to open" + item2.getName() + " with.\n"); }
                 break;
             case "CLOSE":
-                if (item1.getItemToCloseWith().equals(item2)) {
-                    doCloseItemWithItem(item1, item2);
-                } else {
-                    //todo: print: item2.getName() doesn't close item1.getName().
-                }
+                if (item1.getItemToCloseWith().equals(item2)) { doCloseItemWithItem(item1, item2); }
+                else { NonStoryPrinter.print(item1.getName() + " doesn't close " + item2.getName() + ".\n"); }
                 break;
             case "LISTEN":
                 if (item1.getItemToListenWith().equals(item2)) {
@@ -112,7 +110,7 @@ public class HandlerOf3Words {
                 }
                 break;
             default:
-                //todo:print: Cannot do that.
+                NonStoryPrinter.print("Cannot use " + command.toLowerCase() + " this way. Try [help].\n");
         }
     }
 }

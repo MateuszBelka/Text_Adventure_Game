@@ -64,7 +64,7 @@ public class Engine {
             CombatPrinter.printCombat();
         } else {
             // Update Game through Input Validation
-            Validation.validator(input, actionEvent);
+            Validation.validator(input.toUpperCase(), actionEvent);
 
             // Check if player has finished the current level
             GameProgression.checkLevelProgression();

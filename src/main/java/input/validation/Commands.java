@@ -23,5 +23,7 @@ public enum Commands {
     BREAK,
     CUT,
     LISTEN,
-    UNLOCK
+    UNLOCK,
+    JUMP,
+    HELP
 }

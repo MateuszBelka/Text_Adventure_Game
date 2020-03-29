@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 public class DoPickUp {
     public static void doPickUp(Item item){
@@ -9,5 +10,6 @@ public class DoPickUp {
         InitOfClassesThroughSaveFile.getInventory().addToInventory(item);
         item.setCanBePickedUp(false);
         item.setCanBeDropped(true);
+        NonStoryPrinter.print(item.getName() + " picked up.");
     }
 }

@@ -32,7 +32,7 @@ public class NPC extends Entity {
         NPC searchedNPC = null;
 
         for (NPC npc : listOfNpcsOnLocation){
-            if (npc.getName().equals(name)){
+            if (npc.getName().toUpperCase().equals(name)){
                 searchedNPC = npc;
             }
         }

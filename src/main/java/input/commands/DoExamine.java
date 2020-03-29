@@ -2,13 +2,14 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import output.NonStoryPrinter;
 
 public class DoExamine {
     public static void doExamine (Item item){
-        //todo: print:  item.getTextForExamining();    (maybe in collectionOfallclasses..)
+        NonStoryPrinter.print(item.getDescription());
     }
 
     public static void doExamine (NPC npc){
-        //todo: print:  npc.getTextForExamining();    (maybe in collectionOfallclasses..)
+        NonStoryPrinter.print(npc.getDescription());
     }
 }
