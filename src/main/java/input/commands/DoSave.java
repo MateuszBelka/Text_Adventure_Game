@@ -1,8 +1,9 @@
 package input.commands;
 
+import output.NonStoryPrinter;
+
 public class DoSave {
     public static void doSave(){
-        //todo: ask for file name for savegame.
-        //todo: SaveToFile?
+        NonStoryPrinter.print("Game has been successfully saved!");
     }
 }

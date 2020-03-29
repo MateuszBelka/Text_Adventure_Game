@@ -31,10 +31,16 @@ public class NonStoryPrinter {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         TextArea terminal = adventure.getTerminal();
 
-        for (String lineOfText : getListToPrint()) {
-            terminal.appendText(lineOfText + "\n");
+        // Format and Print all gathered text to terminal
+        if (!getListToPrint().isEmpty()) {
+            terminal.appendText("\n");
+            for (String lineOfText : getListToPrint()) {
+                terminal.appendText(lineOfText + "\n");
+            }
         }
-        terminal.appendText("\n");
+        terminal.appendText("\n\n");
+
+        // Clear text to print for next game loop
         setListToPrint(new ArrayList<>());
     }
 }

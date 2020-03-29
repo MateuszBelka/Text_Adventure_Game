@@ -6,6 +6,9 @@ import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
+
+import java.util.Random;
 
 public class BattleSequence {
     /*
@@ -65,6 +68,25 @@ public class BattleSequence {
         if (enemy.getCurrentHealth() <= 0) {
             setCurrentEnemy(null);
             PlayerLevellingProgression.increaseCurrentXP();
+        }
+    }
+
+    /*
+     * Checks if player should enter combat and with whom after moving to new location
+     */
+    public static void shouldPlayerEnterCombat() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+        Random r = new Random();
+        for (NPC enemy : player.getCurrentLocation().getListOfEnemyNPCs()) {
+            int diceRoll0To100 = r.nextInt(101);
+            if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
+                BattleSequence.initCombat(enemy);
+                if (BattleSequence.inCombat()) {
+                    NonStoryPrinter.print("A " + enemy.getName() + " saw you move and initiated a fight!");
+                    NonStoryPrinter.print("Type [1] or [Attack] to defeat the foe!");
+                }
+                break;
+            }
         }
     }
 }
