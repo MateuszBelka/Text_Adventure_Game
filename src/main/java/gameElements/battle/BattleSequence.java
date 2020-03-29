@@ -62,6 +62,9 @@ public class BattleSequence {
 
         int damage = player.getDamage();
 
+        // Reduce player hunger as a result of conducting an action
+        PlayerHungerProgression.decreaseCurrentHunger();
+
         // Inflict damage on enemy
         enemy.setCurrentHealth(Math.max(enemy.getCurrentHealth() - damage, 0));
 
