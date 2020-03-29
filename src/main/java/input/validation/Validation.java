@@ -5,13 +5,14 @@ import gameProgress.GameProgression;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 
 
 public class Validation {
     //todo: deal with uppercase/lowercase input
 
-    public static void validator(String input, ActionEvent actionEvent) throws IOException {
+    public static void validator(String input, ActionEvent actionEvent) throws IOException, URISyntaxException {
         if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
             GameProgression.inputValidationAfterGameOver(input, actionEvent);
         }

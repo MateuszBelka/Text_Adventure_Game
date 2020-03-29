@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ui.controllers.LoadGame">
+<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/" xmlns:fx="http://javafx.com/fxml" fx:controller="ui.controllers.LoadGame">
     <children>
         <Region VBox.vgrow="ALWAYS" />
         <HBox>
@@ -26,7 +26,7 @@
         <HBox minHeight="-Infinity" minWidth="-Infinity">
             <children>
                 <Region HBox.hgrow="ALWAYS" />
-                <Label text="Select Existing Save:" textFill="WHITE">
+                <Label text="Select Explicit Save:" textFill="WHITE">
                     <font>
                         <Font size="30.0" />
                     </font>
@@ -37,7 +37,14 @@
         <HBox minHeight="-Infinity" minWidth="-Infinity">
             <children>
                 <Region HBox.hgrow="ALWAYS" />
-                <ScrollPane maxHeight="120.0" style="-fx-background: #000000; -fx-border-color: #000000;" />
+                <ScrollPane maxHeight="120.0" style="-fx-background: #000000; -fx-border-color: #000000;">
+               <content>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingSaveButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Save0">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Button>
+               </content></ScrollPane>
                 <Region HBox.hgrow="ALWAYS" />
             </children>
         </HBox>

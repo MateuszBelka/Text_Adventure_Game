@@ -13,8 +13,10 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import output.NonStoryPrinter;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -75,7 +77,7 @@ public class Adventure implements Initializable {
      *
      * ActionEvent is necessary to quit UI or switch scenes
      */
-    public void handleInput(ActionEvent actionEvent) throws IOException {
+    public void handleInput(ActionEvent actionEvent) throws IOException, URISyntaxException {
         //Input Reading
         readAndClearInput();
 
