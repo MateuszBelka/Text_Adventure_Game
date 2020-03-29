@@ -13,8 +13,11 @@ import java.util.ArrayList;
 public class NonStoryPrinter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
-    public static ArrayList<String> getListToPrint() {
+    private static ArrayList<String> getListToPrint() {
         return listToPrint;
+    }
+    private static void setListToPrint(ArrayList<String> listToPrint) {
+        NonStoryPrinter.listToPrint = listToPrint;
     }
 
     /*
@@ -32,5 +35,6 @@ public class NonStoryPrinter {
             terminal.appendText(lineOfText + "\n");
         }
         terminal.appendText("\n");
+        setListToPrint(new ArrayList<>());
     }
 }

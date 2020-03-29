@@ -89,7 +89,7 @@ public class Level {
 
 
     public void setTotalPuzzleCount() {
-
+        //todo
     }
 
     public boolean descriptionPrintedOnce (){

@@ -3,7 +3,13 @@ package gameProgress;
 import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import javafx.event.ActionEvent;
+import javafx.scene.Node;
+import javafx.stage.Stage;
 import output.NonStoryPrinter;
+import ui.UI;
+
+import java.io.IOException;
 
 public class GameProgression {
     public static void checkLevelProgression() {
@@ -35,5 +41,21 @@ public class GameProgression {
         BattleSequence.setCurrentEnemy(null);
         NonStoryPrinter.print("You finished the game! Congratulations!");
         NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+    }
+
+    public static void gameEndedScenario(String input, ActionEvent actionEvent) throws IOException {
+        switch(input) {
+            case "Quit":
+                Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                primaryStage.close();
+                break;
+            case "Menu":
+                //todo: clear all vars if possible
+                UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
+                break;
+            default:
+                NonStoryPrinter.print("Unexpected input!");
+                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+        }
     }
 }
