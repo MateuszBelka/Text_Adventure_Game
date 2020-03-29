@@ -1,4 +1,4 @@
-package input.validation;
+package util;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;

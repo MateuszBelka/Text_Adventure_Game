@@ -2,8 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
-import input.validation.ExistenceCheck;
-import output.NonStoryPrinter;
+import util.ExistenceCheck;
 
 //todo: implement
 public class DoClose {
