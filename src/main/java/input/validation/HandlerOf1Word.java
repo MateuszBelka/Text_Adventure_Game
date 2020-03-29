@@ -88,7 +88,7 @@ public class HandlerOf1Word {
             case "INVENTORY":
                 doInventoryLookUp();
                 break;
-            case "JUMP": NonStoryPrinter.print("Nice jump! \n");
+            case "JUMP": NonStoryPrinter.print("Nice jump!");
                 break;
             case "LOOK":
                 doLook();
