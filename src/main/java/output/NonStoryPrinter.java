@@ -33,7 +33,6 @@ public class NonStoryPrinter {
 
         // Format and Print all gathered text to terminal
         if (!getListToPrint().isEmpty()) {
-            terminal.appendText("\n");
             for (String lineOfText : getListToPrint()) {
                 terminal.appendText(lineOfText + "\n");
             }
