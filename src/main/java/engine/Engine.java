@@ -69,9 +69,9 @@ public class Engine {
             // Output Printing
             CombatPrinter.printCombat();
         } else {
-            boolean isGameCompletedBeforeUserInput = GameProgression.gameCompleted();
+            boolean isGameCompletedBeforeUserInput = GameProgression.isGameCompleted();
 
-            // Update Game through Input Validation
+            // Validate user input and take appropriate action
             Validation.validator(input, actionEvent);
 
             // Check if user input resulted in next level or game finished

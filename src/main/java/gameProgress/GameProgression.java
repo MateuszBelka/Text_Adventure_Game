@@ -23,7 +23,7 @@ public class GameProgression {
     private static void progressLevel() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        if (gameCompleted()) {
+        if (isGameCompleted()) {
             printGameCompleted();
         } else {
             player.setCurrentLevel(player.getCurrentLevel().getNextLevel());
@@ -32,7 +32,7 @@ public class GameProgression {
         }
     }
 
-    public static boolean gameCompleted() {
+    public static boolean isGameCompleted() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         return player.getCurrentLevel().getNextLevel() == null;
     }
