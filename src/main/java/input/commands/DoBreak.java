@@ -4,8 +4,9 @@ import gameElements.levelAndContents.Item;
 import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import input.validation.ExistenceCheck;
+import util.ExistenceCheck;
 import output.NonStoryPrinter;
+import util.RemoveGameElement;
 
 public class DoBreak {
     public static void doBreakWithoutItem(Item item) {
@@ -34,23 +35,10 @@ public class DoBreak {
         // Reduce player hunger as a result of conducting an action
         PlayerHungerProgression.decreaseCurrentHunger();
 
-        // Remove item from location if its there
-        for (Item locationItem : player.getCurrentLocation().getListOfItems()) {
-            if (locationItem.getId() == item.getId()) {
-                player.getCurrentLocation().getListOfItems().remove(item);
-                player.getCurrentLocation().getListOfItemsIDs().remove(item.getId());
-                NonStoryPrinter.print(item.getTextForBreaking());
-                break;
-            }
-        }
-        // Remove item from inventory if its there
-        for (Item inventoryItem : player.getInventory().getListOfItems()) {
-            if (inventoryItem.getId() == item.getId()) {
-                player.getInventory().getListOfItems().remove(item);
-                player.getInventory().getListOfItemsIDs().remove(item.getId());
-                NonStoryPrinter.print(item.getTextForBreaking());
-                break;
-            }
-        }
+        // Remove item from location or inventory
+        RemoveGameElement.remove(item);
+
+        // Print text that should be read when item is broken
+        NonStoryPrinter.print(item.getTextForBreaking());
     }
 }
