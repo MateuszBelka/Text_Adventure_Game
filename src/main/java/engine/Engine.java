@@ -83,7 +83,7 @@ public class Engine {
         }
 
         // Check hunger level and decrease health if necessary
-        PlayerHungerProgression.checkCurrentHunger();
+        if (!PlayerHealthProgression.isDead()) PlayerHungerProgression.checkCurrentHunger();
 
         // Check if player is dead
         if (PlayerHealthProgression.isDead()) PlayerHealthProgression.printDeath();

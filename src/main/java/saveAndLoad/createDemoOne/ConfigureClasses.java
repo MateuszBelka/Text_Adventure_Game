@@ -80,7 +80,7 @@ public class ConfigureClasses {
 
         //Location 1 config
         HashMap<String, Location> location1Connections = new HashMap<>();
-        location0Connections.put("south",location0);
+        location1Connections.put("south",location0);
         location1.setListOfConnectedLocations(location1Connections);
 
         ArrayList<NPC> location1EnemyNPCs = new ArrayList<>();

@@ -43,10 +43,11 @@ public class StoryTextGetter {
             addListOfEntitiesInLocationIfFirstPrint();
         }
     }
-
     private static void addListOfEntitiesInLocationIfFirstPrint(){
         //Adds list of items and npcs in the location, to interact with, into the listToPrint.
+        if (playerStats.getCurrentLocation().getListOfItems().size() > 0 || playerStats.getCurrentLocation().getListOfFriendlyNPCs().size() > 0) {
             listToPrint.add(addListOfItems() + addListOfNPCs());
+        }
     }
 
     private static String addListOfItems(){

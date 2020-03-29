@@ -17,7 +17,7 @@ public class PlayerStats {
     private transient Inventory inventory;
 
     public ArrayList<Location> listOfMovedLocations = new ArrayList<>();
-    private int damage = 0;
+    private int damage = 20;
     private int maximumXP = 100;
     private int maxHealth = 100;
     private int maxHunger = 100;
@@ -100,6 +100,12 @@ public class PlayerStats {
     }
     public void setCurrentXP(int currentXP) {this.currentXP = currentXP;}
     public void setCurrentHealth(int currentHealth) {this.currentHealth = currentHealth;}
+    public void setMaxHealth(int maxHealth) {
+        this.maxHealth = maxHealth;
+    }
+    public void setMaxHunger(int maxHunger) {
+        this.maxHunger = maxHunger;
+    }
     public void setPlayerLevel(int playerLevel) {this.playerLevel = playerLevel;}
     public void setMaximumXP(int maximumXP) {this.maximumXP = maximumXP;}
     public void setCurrentHunger(int currentHunger) { this.currentHunger = currentHunger; }

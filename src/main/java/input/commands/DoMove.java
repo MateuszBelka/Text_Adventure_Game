@@ -3,6 +3,7 @@ package input.commands;
 import gameElements.battle.BattleSequence;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
@@ -15,6 +16,7 @@ public class DoMove {
         // Commences battle if new location contains an enemy npc.
         InitOfClassesThroughSaveFile.getPlayerStats().addLocationToMovedLocationsList(location);
         InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocation(location);
+        PlayerHungerProgression.decreaseCurrentHunger();
 
         BattleSequence.shouldPlayerEnterCombat();
     }

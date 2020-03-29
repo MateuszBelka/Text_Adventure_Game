@@ -18,7 +18,7 @@
       "description": "temporary description for item0",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item0",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": true,
+      "firstTimeEnteringLocation": false,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -54,7 +54,7 @@
       "description": "temporary description for item1",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item1",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": true,
+      "firstTimeEnteringLocation": false,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -78,7 +78,7 @@
       "id": 1,
       "description": "test description for level0",
       "name": "test name for level0",
-      "firstTimeEnteringLevel": true,
+      "firstTimeEnteringLevel": false,
       "startLocationID": 1,
       "totalPuzzleCount": 5,
       "puzzlesSolvedCount": 0
@@ -96,11 +96,12 @@
       ],
       "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
+        "south": 1,
         "north": 2
       },
       "description": "temporary description for location0.",
       "name": "location0",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 2,
@@ -109,12 +110,10 @@
       "listOfEnemyNPCsIDs": [
         1
       ],
-      "listOfConnectedLocationsIDs": {
-        "south": 1
-      },
+      "listOfConnectedLocationsIDs": {},
       "description": "temporary description for location1.",
       "name": "location1",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     }
   ],
   "friendlyNPCs": [
@@ -127,7 +126,7 @@
       "name": "Henry",
       "description": "test description for Henry",
       "descriptionAfterCommand": {},
-      "firstTimeEnteringLocation": true,
+      "firstTimeEnteringLocation": false,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
       "canBeUsedByItem": false,
@@ -176,10 +175,23 @@
   ],
   "inventory": {},
   "playerStats": {
-    "currentLocationID": 1,
+    "currentLocationID": 2,
     "currentLevelID": 1,
-    "listOfMovedLocations": [],
-    "damage": 20,
+    "listOfMovedLocations": [
+      {
+        "id": 2,
+        "listOfItemsIDs": [],
+        "listOfFriendlyNPCsIDs": [],
+        "listOfEnemyNPCsIDs": [
+          1
+        ],
+        "listOfConnectedLocationsIDs": {},
+        "description": "temporary description for location1.",
+        "name": "location1",
+        "firstTimeEnteringLocation": false
+      }
+    ],
+    "damage": 0,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
