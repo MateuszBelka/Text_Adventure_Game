@@ -4,31 +4,26 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
+import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
-import util.ExistenceCheck;
-import util.RemoveGameElement;
 
 public class DoConsume {
     public static void doConsume (Item item) {
-        if (!ExistenceCheck.doesItExist(item, "The item you are trying to consume doesn't exist.")) return;
-        if (item.getCanBeConsumed()) {
-            consumptionEffectsOnPlayer();
-            RemoveGameElement.remove(item);
-            NonStoryPrinter.print("You have consumed " + item.getName() + ".");
-        }
+        //delete item from inventory, updates effects on player, prints description for command
+        InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(item);
+        consumptionEffectsOnPlayer();
+        NonStoryPrinter.print(item.getDescriptionOfCommand("consume"));
     }
 
     public static void doConsume (NPC npc) {
-        if (!ExistenceCheck.doesItExist(npc, "The npc you are trying to consume doesn't exist.")) return;
-        if (npc.getCanBeConsumed()) {
-            consumptionEffectsOnPlayer();
-            RemoveGameElement.remove(npc);
-            NonStoryPrinter.print("You have consumed " + npc.getName() + ".");
-        }
+        //deletes npc from location, updates effects on player, prints description for command
+        InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().deleteFriendlyNPCInList(npc);
+        consumptionEffectsOnPlayer();
+        NonStoryPrinter.print(npc.getDescriptionOfCommand("consume"));
     }
 
     private static void consumptionEffectsOnPlayer() {
-        // Increase player hunger as a result of consuming
+        // Increase player hunger level (=decreases hunger), as a result of consuming
         PlayerHungerProgression.eatFoodHungerIncrease();
         PlayerHealthProgression.eatFoodHealthIncrease();
     }

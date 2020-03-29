@@ -9,8 +9,9 @@ import output.NonStoryPrinter;
 
 public class DoGiveItemToNPC {
     public static void doGiveItemToNPC(Item item, NPC npc) {
+        // deletes item from inventory. Prints command description. Updates puzzles amount. Gives xp reward.
         InitOfClassesThroughSaveFile.getPlayerStats().getInventory().deleteItemFromInventory(item);
-        NonStoryPrinter.print("You gave " + item.getName() + " to " + npc.getName() + ".");
+        NonStoryPrinter.print(npc.getDescriptionOfCommand("give"));
 
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();

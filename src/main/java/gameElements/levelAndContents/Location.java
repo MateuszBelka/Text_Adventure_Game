@@ -22,6 +22,18 @@ public class Location {
 
 
     //Getter + Setter
+    public void deleteItemInList(Item item){
+        listOfItems.remove(item);
+    }
+
+    public void deleteFriendlyNPCInList(NPC npc){
+        listOfFriendlyNPCs.remove(npc);
+    }
+
+    public void deleteEnemyNPCInList(NPC npc){
+        listOfEnemyNPCs.remove(npc);
+    }
+
     public int getId() {
         return id;
     }

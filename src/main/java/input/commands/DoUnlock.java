@@ -6,10 +6,14 @@ import output.NonStoryPrinter;
 
 public class DoUnlock {
     public static void doUnlockItemWithItem (Item itemToUnlock, Item itemToUnlockWith){
+        //deletes itemToUnlockWith from inventory. Updates itemToUnlock's items, and booleans.
+        // Prints command description.
         itemToUnlock.setCanBeUnlockedByItem(false);
-        NonStoryPrinter.print("Unlocked " + itemToUnlock.getName() + ".");
         itemToUnlock.setItemToUnlockWith(null);
         itemToUnlockWith.setItemToUnlock(null);
+
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToUnlockWith);
+
+        NonStoryPrinter.print(itemToUnlock.getDescriptionOfCommand("unlock") );
     }
 }

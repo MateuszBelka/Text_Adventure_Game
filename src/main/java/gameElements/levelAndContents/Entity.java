@@ -4,43 +4,43 @@ import java.util.HashMap;
 
 abstract public class Entity {
     private int id;
-    String name;
-    String description;
-    String descriptionAfterPuzzleComplete;
-    HashMap<String, String> descriptionAfterCommand = new HashMap<>();
-    String textForReading; //can be put in "descriptionAfterCommand"
-    String textForTalking; //can be put in "descriptionAfterCommand"
-    String textForExamining; //can be put in "descriptionAfterCommand"
-    String textForSmelling; //can be put in "descriptionAfterCommand"
-    String textForBreaking; //can be put in "descriptionAfterCommand"
-    String textForListening; //can be put in "descriptionAfterCommand"
-    Boolean firstTimeEnteringLocation = true; //Used for printing descriptions, once. Just like in Zork.
-    Boolean canBeConsumed = false;
-    Boolean canBeUsedOnItem = false;
-    Item itemToBeUsedOn;
-    Boolean canBeUsedByItem = false;
-    Item itemToBeUsedBy;
-    Boolean canBeAttacked = false;
-    Boolean canBeTalkedWith = false;
-    Boolean canBeListenedTo = false;
-    Boolean canBeSmelled = false;
-    Boolean canBeOpened = false;
-    Boolean canBeClosed = false;
-    Boolean canBeExamined = false;
-    Boolean needsItem = false;
-    Boolean canBeUsedOnNPC = false;
-    Boolean canBePushed = false;
-    Boolean canBePulled = false;
-    Item itemToCutWith;
-    Boolean canBeCut = false;
-    Boolean canBeUsed = false;
-    NPC npcToGiveItemTo;
-    Item itemToListenWith;
-    Item itemToUnlockWith;
-    Item itemToUnlock;
-    Item itemToOpenWith;
-    Item itemToBeOpened;
-    Item itemToCloseWith;
+    private String name;
+    private String description;
+    private String descriptionAfterPuzzleComplete;
+    private HashMap<String, String> descriptionAfterCommand = new HashMap<>();
+//    private String textForReading; //can be put in "descriptionAfterCommand"
+//    private String textForTalking; //can be put in "descriptionAfterCommand"
+//    private String textForExamining; //can be put in "descriptionAfterCommand"
+//    private String textForSmelling; //can be put in "descriptionAfterCommand"
+//    private String textForBreaking; //can be put in "descriptionAfterCommand"
+//    private String textForListening; //can be put in "descriptionAfterCommand"
+    private Boolean firstTimeEnteringLocation = true; //Used for printing descriptions, once. Just like in Zork.
+    private Boolean canBeConsumed = false;
+    private Boolean canBeUsedOnItem = false;
+    private Item itemToBeUsedOn;
+    private Boolean canBeUsedByItem = false;
+    private Item itemToBeUsedBy;
+    private Boolean canBeAttacked = false;
+    private Boolean canBeTalkedWith = false;
+    private Boolean canBeListenedTo = false;
+    private Boolean canBeSmelled = false;
+    private Boolean canBeOpened = false;
+    private Boolean canBeClosed = false;
+    private Boolean canBeExamined = false;
+    private Boolean needsItem = false;
+    private Boolean canBeUsedOnNPC = false;
+    private Boolean canBePushed = false;
+    private Boolean canBePulled = false;
+    private Item itemToCutWith;
+    private Boolean canBeCut = false;
+    private Boolean canBeUsed = false;
+    private NPC npcToGiveItemTo;
+    private Item itemToListenWith;
+    private Item itemToUnlockWith;
+    private Item itemToUnlock;
+    private Item itemToOpenWith;
+    private Item itemToBeOpened;
+    private Item itemToCloseWith;
 
     //Getter + Setter
     public int getId() {
@@ -75,53 +75,57 @@ abstract public class Entity {
         this.descriptionAfterPuzzleComplete = descriptionAfterPuzzleComplete;
     }
 
-    public String getTextForReading() {
-        return textForReading;
+    public String getDescriptionOfCommand(String command){
+        return descriptionAfterCommand.get(command);
     }
 
-    public void setTextForReading(String textForReading) {
-        this.textForReading = textForReading;
-    }
-
-    public String getTextForTalking() {
-        return textForTalking;
-    }
-
-    public void setTextForTalking(String textForTalking) {
-        this.textForTalking = textForTalking;
-    }
-
-    public String getTextForExamining() {
-        return textForExamining;
-    }
-
-    public void setTextForExamining(String textForExamining) {
-        this.textForExamining = textForExamining;
-    }
-
-    public String getTextForSmelling() {
-        return textForSmelling;
-    }
-
-    public void setTextForSmelling(String textForSmelling) {
-        this.textForSmelling = textForSmelling;
-    }
-
-    public String getTextForBreaking() {
-        return textForBreaking;
-    }
-
-    public void setTextForBreaking(String textForBreaking) {
-        this.textForBreaking = textForBreaking;
-    }
-
-    public String getTextForListening() {
-        return textForListening;
-    }
-
-    public void setTextForListening(String textForListening) {
-        this.textForListening = textForListening;
-    }
+//    public String getTextForReading() {
+//        return textForReading;
+//    }
+//
+//    public void setTextForReading(String textForReading) {
+//        this.textForReading = textForReading;
+//    }
+//
+//    public String getTextForTalking() {
+//        return textForTalking;
+//    }
+//
+//    public void setTextForTalking(String textForTalking) {
+//        this.textForTalking = textForTalking;
+//    }
+//
+//    public String getTextForExamining() {
+//        return textForExamining;
+//    }
+//
+//    public void setTextForExamining(String textForExamining) {
+//        this.textForExamining = textForExamining;
+//    }
+//
+//    public String getTextForSmelling() {
+//        return textForSmelling;
+//    }
+//
+//    public void setTextForSmelling(String textForSmelling) {
+//        this.textForSmelling = textForSmelling;
+//    }
+//
+//    public String getTextForBreaking() {
+//        return textForBreaking;
+//    }
+//
+//    public void setTextForBreaking(String textForBreaking) {
+//        this.textForBreaking = textForBreaking;
+//    }
+//
+//    public String getTextForListening() {
+//        return textForListening;
+//    }
+//
+//    public void setTextForListening(String textForListening) {
+//        this.textForListening = textForListening;
+//    }
 
     public HashMap<String, String> getDescriptionAfterCommand() {
         return descriptionAfterCommand;

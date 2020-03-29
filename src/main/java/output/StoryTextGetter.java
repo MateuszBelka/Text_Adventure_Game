@@ -11,12 +11,12 @@ public class StoryTextGetter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
     public static ArrayList<String> compileStoryText(){
-        //compiles the description of level, location, with its items and npcs, as well as a list
-        // of entities for user to interact with, to the listToPrint.
+        //compiles the description of level and/or location,
+        // with a list of entities for user to interact with, to the listToPrint.
         listToPrint.clear();
 
         addLevelTextIfFirstPrint();
-        addLocationItemsAndNpcsTextAndListOfEntitiesIfFirstPrint();
+        addLocationTextAndListOfEntitiesIfFirstPrint();
 
         return listToPrint;
     }
@@ -32,48 +32,25 @@ public class StoryTextGetter {
         }
     }
 
-    private static void addLocationItemsAndNpcsTextAndListOfEntitiesIfFirstPrint(){
-        //This long-named method adds a description of location, its items, its npcs, and a list of the names of those
-        //items and npcs that the user can interact with. Adds all these to the listToPrint.
+    private static void addLocationTextAndListOfEntitiesIfFirstPrint(){
+        //This method adds a description of location, and a list of the names of those
+        //items and npcs that the user can interact with, to the listToPrint.
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Boolean firstPrintOfLocation = playerStats.getCurrentLocation().descriptionPrintedOnce();
 
         if (firstPrintOfLocation) {
             listToPrint.add(playerStats.getCurrentLocation().getDescription());
-            addItemsTextsIfFirstPrint();
-            addNPCsTextsIfFirstPrint();
             addListOfEntitiesInLocationIfFirstPrint();
         }
     }
 
-    private static void addItemsTextsIfFirstPrint(){
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        for (int i = 0; i < playerStats.getCurrentLocation().getListOfItems().size(); i++){
-            Boolean firstPrintOfItem = playerStats.getCurrentLocation().getListOfItems().get(i).descriptionPrintedOnce();
-
-            if (firstPrintOfItem) {
-                listToPrint.add(playerStats.getCurrentLocation().getListOfItems().get(i).getDescription());
-            }
-        }
-    }
-
-    private static void addNPCsTextsIfFirstPrint(){
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        for (int i = 0; i < playerStats.getCurrentLocation().getListOfFriendlyNPCs().size(); i++){
-            Boolean firstPrintOfNPC = playerStats.getCurrentLocation().getListOfFriendlyNPCs().get(i).descriptionPrintedOnce();
-
-            if (firstPrintOfNPC) {
-                listToPrint.add(playerStats.getCurrentLocation().getListOfFriendlyNPCs().get(i).getDescription());
-            }
-        }
-    }
-
     private static void addListOfEntitiesInLocationIfFirstPrint(){
-            listToPrint.add(addListOfItems());
-            listToPrint.add(addListOfNPCs());
+        //Adds list of items and npcs in the location, to interact with, into the listToPrint.
+            listToPrint.add(addListOfItems() + addListOfNPCs());
     }
 
     private static String addListOfItems(){
+        //Adds list of items from the location to listToPrint.
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfItems = new StringBuilder();
         ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
@@ -86,6 +63,7 @@ public class StoryTextGetter {
     }
 
     private static String addListOfNPCs(){
+        //Adds list of npcs from the location to listToPrint.
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         StringBuilder compiledListOfNPCs = new StringBuilder();
         ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfFriendlyNPCs();

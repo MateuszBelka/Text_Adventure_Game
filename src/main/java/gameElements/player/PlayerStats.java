@@ -2,6 +2,8 @@ package gameElements.player;
 
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
+import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 import java.util.ArrayList;
 
@@ -124,7 +126,14 @@ public class PlayerStats {
     public void addLocationToMovedLocationsList(Location location) { listOfMovedLocations.add(location); }
 
     public  void setCurrentLocationToPreviousLocation() {
-        Location previousLocation = listOfMovedLocations.get(listOfMovedLocations.size() - 1);
-        setCurrentLocation(previousLocation);
+        if (listOfMovedLocations.size() > 0){
+            Location previousLocation = listOfMovedLocations.get(listOfMovedLocations.size() - 1);
+            setCurrentLocation(previousLocation);
+            NonStoryPrinter.print("Backtracked to previous location.");
+        }
+        else{
+            PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+            NonStoryPrinter.print("Not yet moved: cannot backtrack.");
+        }
     }
 }

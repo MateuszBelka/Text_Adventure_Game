@@ -5,6 +5,6 @@ import output.NonStoryPrinter;
 
 public class DoRead {
     public static void doRead(Item item) {
-        NonStoryPrinter.print(item.getTextForReading());
+        NonStoryPrinter.print( item.getDescriptionOfCommand("read") );
     }
 }
