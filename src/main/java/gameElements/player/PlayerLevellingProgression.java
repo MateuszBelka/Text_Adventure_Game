@@ -15,7 +15,7 @@ public class PlayerLevellingProgression {
         PlayerLevellingProgression.xpReward = xpReward;
     }
 
-    public static void increaseCurrentXP() {
+    public static void addXPReward() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
         final int newCurrentXP = playerStats.getCurrentXP() + getXpReward();
@@ -23,21 +23,30 @@ public class PlayerLevellingProgression {
         NonStoryPrinter.print("You receive " + getXpReward() + " XP!");
         if (playerStats.getMaximumXP() > newCurrentXP) {
             playerStats.setCurrentXP(newCurrentXP);
-        }
-        else {
+        } else {
+            // Don't increase players level is they hit max lvl
             if (playerStats.getMaxPlayerLevel() > playerStats.getPlayerLevel()) {
+                // Add leftover xp to new level
                 playerStats.setCurrentXP(newCurrentXP - playerStats.getMaximumXP());
+
+                // Increment Player level
                 incrementPlayerLevel();
+
+                // Scale maxXP and XPReward
                 increaseMaximumXP();
+                increaseXPReward();
             }
         }
 
-        setXpReward((int) Math.round(getXpReward() * 1.1));
     }
     private static void incrementPlayerLevel() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1);
         NonStoryPrinter.print("You reached level " + playerStats.getPlayerLevel());
+    }
+
+    private static void increaseXPReward() {
+        setXpReward((int) Math.round(getXpReward() * 1.1));
     }
 
     private static void increaseMaximumXP() {

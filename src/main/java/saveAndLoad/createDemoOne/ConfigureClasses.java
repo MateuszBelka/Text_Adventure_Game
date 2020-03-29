@@ -48,7 +48,7 @@ public class ConfigureClasses {
         level0.setDescription("test description for level0");
         level0.setName("test name for level0");
         level0.setFirstTimeEnteringLevel(true);
-        level0.setTotalPuzzleCount();
+        level0.setTotalPuzzleCount(5);
         level0.setStartLocation(location0);
     }
 
