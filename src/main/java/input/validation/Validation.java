@@ -12,16 +12,16 @@ public class Validation {
     //todo: deal with uppercase/lowercase input
 
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
-//        if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
-//            GameProgression.inputValidationAfterGameOver(input, actionEvent);
-//        }
-//        else {
+        if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
+            GameProgression.inputValidationAfterGameOver(input, actionEvent);
+        }
+        else {
             String[] inputList = inputParser(input);
 
             HashMap<String, String> validInputList = compileValidList(inputList);
 
             InputValidation.inputValidator(validInputList);
-//        }
+        }
     }
 
     private static String[] inputParser(String input){
