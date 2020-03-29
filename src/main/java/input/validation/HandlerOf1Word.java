@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import output.NonStoryPrinter;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -30,7 +31,7 @@ import static input.validation.InputValidation.*;
 
 public class HandlerOf1Word {
 
-    protected static void validateAndHandle1Word(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException {
+    protected static void validateAndHandle1Word(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException, URISyntaxException {
         if (validInputList.containsValue("command")) {
             String command = getCommand(validInputList);
             handle1Command(command, actionEvent);
@@ -49,7 +50,7 @@ public class HandlerOf1Word {
         }
     }
 
-    private static void handle1Command(String command, ActionEvent actionEvent) throws IOException {
+    private static void handle1Command(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
         boolean check = false;
         for (CommandsWith1ValidWord validCommand : CommandsWith1ValidWord.values()) {
             String validCommandString = validCommand.toString();
@@ -61,7 +62,7 @@ public class HandlerOf1Word {
         if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + "] this way. Try [help]. "); }
     }
 
-    private static void doCommand(String command, ActionEvent actionEvent) throws IOException {
+    private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
 
         switch (command) {
             case "SMELL":

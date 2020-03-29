@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import output.NonStoryPrinter;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -18,7 +19,7 @@ import static input.validation.HandlerOf3Words.*;
 
 public class InputValidation {
 
-    public static void inputValidator(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException {
+    public static void inputValidator(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException, URISyntaxException {
         int listSize = validInputList.size();
 
         switch (listSize){

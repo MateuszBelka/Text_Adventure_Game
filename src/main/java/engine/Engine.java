@@ -4,6 +4,7 @@ import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
 import gameProgress.GameProgression;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.commands.DoSave;
@@ -17,6 +18,7 @@ import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Engine {
     private static int inputsUntilAutoSave = 5;
@@ -48,7 +50,7 @@ public class Engine {
      *
      * ActionEvent is necessary to quit UI or switch scenes
      */
-    public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException {
+    public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException, URISyntaxException {
         // Forward user input to terminal
         UserInputPrinter.printUserInput(input);
 
@@ -95,10 +97,10 @@ public class Engine {
         adventure.updateUIElements();
     }
 
-    private static void autoSaveCheck() {
+    private static void autoSaveCheck() throws URISyntaxException {
         // Auto Save every 5th input
         if (getInputsUntilAutoSave() == 0) {
-            DoSave.doSave();
+            DoSave.doAutoSave();
             setInputsUntilAutoSave(5);
         } else {
             setInputsUntilAutoSave(getInputsUntilAutoSave() - 1);

@@ -38,6 +38,7 @@ import gameElements.levelAndContents.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 
 import java.io.*;
 import java.net.URL;
@@ -47,18 +48,39 @@ import java.util.Map;
 
 public class Load {
 
-    /*
-     * Parameters: String with the location of json file
-     * containing information about CollectionOfAllClasses
-     *
-     * Creates an instance of CollectionOfAllClasses
-     * which contains information required to reconstruct
-     * a game from any moment in terms of player's progress.
-     *
-     * Since all variables of CollectionOfAllClasses are static
-     * the actual instance
-     */
-    public static void loadGameSave(String fileName) throws IOException {
+    public static void loadGameFromSave(String filePath) throws IOException {
+        // Create instances of all classes and populate majority of their variables using provided Json file.
+        initializeClassesFromJsonSave(filePath);
+
+        // Convert ID variables to their expected object references.
+        decodeIDsToObjects();
+
+        // Regardless of json let player see descriptions
+        configPrintingDescriptions();
+    }
+
+    private static void initializeClassesFromJsonSave(String filePath) throws IOException {
+        /*
+         * Create a GsonBuilder instance required to change default settings of Gson
+         * Allow the serialization of static fields by setting exclusion setting to ONLY transient
+         * For debugging purposes make the Json file in human-readable style
+         */
+        Gson gson = new GsonBuilder()
+                .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
+                .setPrettyPrinting()
+                .create();
+
+        // Open json file
+        BufferedReader input = new BufferedReader(new FileReader(filePath));
+
+        // Populate static variables of CollectionOfAllClasses from json file.
+        InitOfClassesThroughSaveFile loadNewGameObjects = gson.fromJson(input, InitOfClassesThroughSaveFile.class);
+
+        // Since all variables within CollectionOfAllClasses are static the object is not longer needed
+        loadNewGameObjects = null;
+    }
+
+    public static void loadGame(String fileName) throws IOException {
         // Create instances of all classes and populate majority of their variables using provided Json file.
         initializeClassesFromJson(fileName);
 
@@ -213,9 +235,20 @@ public class Load {
             location.setListOfConnectedLocations(newListOfConnectedLocations);
         }
     }
+
+    private static void configPrintingDescriptions() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+
+        player.getCurrentLevel().setFirstTimeEnteringLevel(true);
+        player.getCurrentLocation().setFirstTimeEnteringLocation(true);
+        for (int i = 0; i < player.getCurrentLocation().getListOfItems().size(); i++) {
+            player.getCurrentLocation().getListOfItems().get(i).setFirstTimeEnteringLocation(true);
+        }
+        for (int i = 0; i < player.getCurrentLocation().getListOfFriendlyNPCs().size(); i++) {
+            player.getCurrentLocation().getListOfFriendlyNPCs().get(i).setFirstTimeEnteringLocation(true);
+        }
+    }
 }
-
-
 
 
 
