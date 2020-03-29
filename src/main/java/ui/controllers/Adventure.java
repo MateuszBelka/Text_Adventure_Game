@@ -94,7 +94,7 @@ public class Adventure implements Initializable {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
         // Update health
-        int healthPercent = playerStats.getCurrentHealth()/playerStats.getMaximumXP();
+        double healthPercent = playerStats.getCurrentHealth() * 1.0 / playerStats.getMaximumXP();
         String currentHealth = Integer.toString(playerStats.getCurrentHealth());
         String maxHealth = Integer.toString(playerStats.getMaximumXP());
 
@@ -102,7 +102,7 @@ public class Adventure implements Initializable {
         healthText.setText(currentHealth + "/" + maxHealth);
 
         // Update hunger
-        int hungerPercent = playerStats.getCurrentHunger()/playerStats.getMaxHunger();
+        double hungerPercent = playerStats.getCurrentHunger() * 1.0 / playerStats.getMaxHunger();
         String currentHunger = Integer.toString(playerStats.getCurrentHunger());
         String maxHunger = Integer.toString(playerStats.getMaxHunger());
 
@@ -110,7 +110,7 @@ public class Adventure implements Initializable {
         hungerText.setText(currentHunger + "/" + maxHunger);
 
         // Update experience
-        int xpPercent = playerStats.getCurrentXP()/playerStats.getMaximumXP();
+        double xpPercent = playerStats.getCurrentXP() * 1.0 / playerStats.getMaximumXP();
         String currentXP = Integer.toString(playerStats.getCurrentXP());
         String maxXP = Integer.toString(playerStats.getMaximumXP());
 

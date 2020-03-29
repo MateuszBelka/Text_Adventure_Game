@@ -149,7 +149,7 @@
   "enemyNPCs": [
     {
       "canAttack": true,
-      "percentChanceToShowUpAtLocationSwitch": 0,
+      "percentChanceToShowUpAtLocationSwitch": 100,
       "damage": 5,
       "currentHealth": 50,
       "id": 1,
