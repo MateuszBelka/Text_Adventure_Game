@@ -79,7 +79,9 @@
       "description": "test description for level0",
       "name": "test name for level0",
       "firstTimeEnteringLevel": true,
-      "startLocationID": 1
+      "startLocationID": 1,
+      "totalPuzzleCount": 0,
+      "puzzlesSolvedCount": 0
     }
   ],
   "locations": [
@@ -183,8 +185,11 @@
     "maxHealth": 100,
     "maxHunger": 100,
     "currentHunger": 100,
+    "hungerDrain": 10,
+    "foodHungerIncrease": 15,
+    "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
-    "HUNGER_DAMAGE": 0,
+    "hungerDamage": 20,
     "currentXP": 0,
     "currentHealth": 100,
     "playerLevel": 1

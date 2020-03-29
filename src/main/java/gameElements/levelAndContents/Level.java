@@ -68,9 +68,6 @@ public class Level {
     public int getTotalPuzzleCount() {
         return totalPuzzleCount;
     }
-    public void setTotalPuzzleCount(int totalPuzzleCount) {
-        this.totalPuzzleCount = totalPuzzleCount;
-    }
     public int getPuzzlesSolvedCount() {
         return puzzlesSolvedCount;
     }
@@ -88,6 +85,11 @@ public class Level {
     }
     public void setNextLevelID(Level nextLevelID) {
         this.nextLevelID = nextLevelID;
+    }
+
+
+    public void setTotalPuzzleCount() {
+        //todo
     }
 
     public boolean descriptionPrintedOnce (){

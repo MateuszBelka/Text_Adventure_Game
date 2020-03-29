@@ -13,8 +13,11 @@ import java.util.ArrayList;
 public class NonStoryPrinter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
-    public static ArrayList<String> getListToPrint() {
+    private static ArrayList<String> getListToPrint() {
         return listToPrint;
+    }
+    private static void setListToPrint(ArrayList<String> listToPrint) {
+        NonStoryPrinter.listToPrint = listToPrint;
     }
 
     /*
@@ -28,14 +31,16 @@ public class NonStoryPrinter {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         TextArea terminal = adventure.getTerminal();
 
-        for (String lineOfText : getListToPrint()) {
-            terminal.appendText(lineOfText + "\n");
+        // Format and Print all gathered text to terminal
+        if (!getListToPrint().isEmpty()) {
+            terminal.appendText("\n");
+            for (String lineOfText : getListToPrint()) {
+                terminal.appendText(lineOfText + "\n");
+            }
         }
-        terminal.appendText("\n");
-        clearListToPrint();
-    }
+        terminal.appendText("\n\n");
 
-    public static void clearListToPrint(){
-        listToPrint.clear();
+        // Clear text to print for next game loop
+        setListToPrint(new ArrayList<>());
     }
 }

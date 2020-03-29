@@ -48,7 +48,7 @@ public class WordValidation {
     private static void itemValidator(String word, HashMap<String, String> validInputList) {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         ArrayList<Item> listOfItemsInPlayersCurrentLocation = playerStats.getCurrentLocation().getListOfItems();
-        ArrayList<Item> listOfInventoryItems = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        ArrayList<Item> listOfInventoryItems = InitOfClassesThroughSaveFile.getInventory().getListOfItems();
         addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfItemsInPlayersCurrentLocation);
         addItemToValidInputListIfFoundInPassedList(word, validInputList, listOfInventoryItems);
     }

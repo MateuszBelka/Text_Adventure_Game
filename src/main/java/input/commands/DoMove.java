@@ -14,19 +14,6 @@ public class DoMove {
         InitOfClassesThroughSaveFile.getPlayerStats().addLocationToMovedLocationsList(location);
         InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocation(location);
 
-        //Check for combat
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        Random r = new Random();
-        for (NPC enemy : player.getCurrentLocation().getListOfEnemyNPCs()) {
-            int diceRoll0To100 = r.nextInt(101);
-            if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
-                BattleSequence.initCombat(enemy);
-                if (BattleSequence.inCombat()) {
-                    NonStoryPrinter.print("A " + enemy.getName() + " saw you enter and initiated a fight!");
-                    NonStoryPrinter.print("Press [1] or [Attack] to defeat the foe!");
-                }
-                break;
-            }
-        }
+        BattleSequence.shouldPlayerEnterCombat();
     }
 }

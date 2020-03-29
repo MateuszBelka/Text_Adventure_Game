@@ -6,6 +6,9 @@ import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
+
+import java.util.Random;
 
 public class BattleSequence {
     /*
@@ -25,6 +28,7 @@ public class BattleSequence {
     // Call when player changes rooms and there is enemy inside
     public static void initCombat(NPC enemy) {
         if (enemy.getCanBeAttacked()) setCurrentEnemy(enemy);
+        else NonStoryPrinter.print("You cannot attack " + enemy.getName() + "!");
     }
 
     // Can be used to check if player is in combat at the moment
@@ -58,6 +62,9 @@ public class BattleSequence {
 
         int damage = player.getDamage();
 
+        // Reduce player hunger as a result of conducting an action
+        PlayerHungerProgression.decreaseCurrentHunger();
+
         // Inflict damage on enemy
         enemy.setCurrentHealth(Math.max(enemy.getCurrentHealth() - damage, 0));
 
@@ -65,6 +72,25 @@ public class BattleSequence {
         if (enemy.getCurrentHealth() <= 0) {
             setCurrentEnemy(null);
             PlayerLevellingProgression.increaseCurrentXP();
+        }
+    }
+
+    /*
+     * Checks if player should enter combat and with whom after moving to new location
+     */
+    public static void shouldPlayerEnterCombat() {
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+        Random r = new Random();
+        for (NPC enemy : player.getCurrentLocation().getListOfEnemyNPCs()) {
+            int diceRoll0To100 = r.nextInt(101);
+            if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
+                BattleSequence.initCombat(enemy);
+                if (BattleSequence.inCombat()) {
+                    NonStoryPrinter.print("A " + enemy.getName() + " saw you move and initiated a fight!");
+                    NonStoryPrinter.print("Type [1] or [Attack] to defeat the foe!");
+                }
+                break;
+            }
         }
     }
 }
