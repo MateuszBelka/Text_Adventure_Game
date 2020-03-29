@@ -80,7 +80,7 @@
       "name": "test name for level0",
       "firstTimeEnteringLevel": true,
       "startLocationID": 1,
-      "totalPuzzleCount": 0,
+      "totalPuzzleCount": 5,
       "puzzlesSolvedCount": 0
     }
   ],
@@ -173,9 +173,7 @@
       "canBeUsed": false
     }
   ],
-  "inventory": {
-    "listOfPickupableItems": []
-  },
+  "inventory": {},
   "playerStats": {
     "currentLocationID": 1,
     "currentLevelID": 1,

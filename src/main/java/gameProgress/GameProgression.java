@@ -1,6 +1,7 @@
 package gameProgress;
 
 import gameElements.battle.BattleSequence;
+import gameElements.levelAndContents.Level;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import javafx.event.ActionEvent;
@@ -34,7 +35,8 @@ public class GameProgression {
 
     public static boolean isGameCompleted() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        return player.getCurrentLevel().getNextLevel() == null;
+        Level currentLevel = player.getCurrentLevel();
+        return (currentLevel.getNextLevel() == null && currentLevel.getPuzzlesSolvedCount() == currentLevel.getTotalPuzzleCount());
     }
 
     private static void printGameCompleted() {
