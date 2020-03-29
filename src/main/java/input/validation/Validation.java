@@ -3,10 +3,6 @@ package input.validation;
 import gameElements.player.PlayerHealthProgression;
 import gameProgress.GameProgression;
 import javafx.event.ActionEvent;
-import javafx.scene.Node;
-import javafx.stage.Stage;
-import output.NonStoryPrinter;
-import ui.UI;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,7 +15,7 @@ public class Validation {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
-        if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
+        if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
             GameProgression.gameEndedScenario(input, actionEvent);
         } else {
             String[] inputList = inputParser(input);

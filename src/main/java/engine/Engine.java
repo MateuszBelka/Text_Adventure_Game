@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import output.NonStoryPrinter;
 import output.StoryTextPrinter;
+import output.UserInputPrinter;
 import output.combat.CombatPrinter;
 import ui.controllers.Adventure;
 
@@ -36,7 +37,7 @@ public class Engine {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
 
         StoryTextPrinter.printStory(terminal);
-        adventure.getTerminal().appendText("\n"); //newline
+        NonStoryPrinter.printToTerminal();
         adventure.updateUIElements();
     }
 
@@ -48,7 +49,12 @@ public class Engine {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException {
+        // Forward user input to terminal
+        UserInputPrinter.printUserInput(input);
+
+        // Check if game should be auto-saved
         autoSaveCheck();
+
         /*
          * We analyse and process information differently when player is in combat
          * As in different inputs are allowed and we print different information
@@ -63,11 +69,13 @@ public class Engine {
             // Output Printing
             CombatPrinter.printCombat();
         } else {
-            // Update Game through Input Validation
+            boolean isGameCompletedBeforeUserInput = GameProgression.isGameCompleted();
+
+            // Validate user input and take appropriate action
             Validation.validator(input, actionEvent);
 
-            // Check if player has finished the current level
-            GameProgression.checkLevelProgression();
+            // Check if user input resulted in next level or game finished
+            if (!isGameCompletedBeforeUserInput) GameProgression.checkLevelProgression();
 
             // Output Printing
             StoryTextPrinter.printStory(terminal);
