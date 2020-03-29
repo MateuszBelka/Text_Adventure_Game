@@ -33,7 +33,7 @@ public class GameProgression {
 
     private static void printGameCompleted() {
         BattleSequence.setCurrentEnemy(null);
-        NonStoryPrinter.print("You finished the game! Congratulations!");
-        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+//        NonStoryPrinter.print("You finished the game! Congratulations!");
+//        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 }

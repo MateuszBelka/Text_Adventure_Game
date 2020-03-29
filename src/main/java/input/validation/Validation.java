@@ -15,19 +15,19 @@ import java.util.HashMap;
 public class Validation {
     //todo: deal with uppercase/lowercase input
 
-    /*
-     * ActionEvent is necessary to quit UI or switch scenes
-     */
     public static void validator(String input, ActionEvent actionEvent) throws IOException {
-        if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
-            gameEndedScenario(input, actionEvent);
-        } else {
+        //ActionEvent is necessary to quit UI or switch scenes
+//        if (PlayerHealthProgression.isDead() || GameProgression.gameCompleted()) {
+////            gameEndedScenario(input, actionEvent);
+//        }
+//        else {
             String[] inputList = inputParser(input);
 
             HashMap<String, String> validInputList = compileValidList(inputList);
+            System.out.println(validInputList);
 
-            InputValidation.inputValidator(validInputList);
-        }
+//            InputValidation.inputValidator(validInputList);
+//        }
     }
 
     private static String[] inputParser(String input){
@@ -52,7 +52,7 @@ public class Validation {
                 break;
             default:
                 NonStoryPrinter.print("Wrong command!");
-                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again.");
         }
     }
 

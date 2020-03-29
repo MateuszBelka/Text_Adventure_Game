@@ -32,5 +32,10 @@ public class NonStoryPrinter {
             terminal.appendText(lineOfText + "\n");
         }
         terminal.appendText("\n");
+        clearListToPrint();
+    }
+
+    public static void clearListToPrint(){
+        listToPrint.clear();
     }
 }
