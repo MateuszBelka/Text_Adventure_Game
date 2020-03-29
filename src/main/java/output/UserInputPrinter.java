@@ -10,6 +10,6 @@ public class UserInputPrinter {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         TextArea terminal = adventure.getTerminal();
 
-        terminal.appendText("[>] " + input + "\n");
+        terminal.appendText("[>] " + input);
     }
 }
