@@ -5,6 +5,7 @@ import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
+import output.NonStoryPrinter;
 import util.ExistenceCheck;
 
 public class DoClose {
@@ -13,6 +14,8 @@ public class DoClose {
         if (item.getCanBeClosed()) {
             // Since we are closing item it cannot be closed again; we are switching from open state to closed
             item.setCanBeClosed(false);
+            item.setCanBeOpened(true);
+            NonStoryPrinter.print("You have closed " + item.getName() + ".");
 
             // Puzzle completed
             PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
@@ -28,6 +31,8 @@ public class DoClose {
         if (npc.getCanBeClosed()) {
             // Since we are closing npc it cannot be closed again; we are switching from open state to closed
             npc.setCanBeClosed(false);
+            npc.setCanBeOpened(true);
+            NonStoryPrinter.print("You have closed " + npc.getName() + ".");
 
             // Puzzle completed
             PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
@@ -39,18 +44,16 @@ public class DoClose {
     }
 
     public static void doCloseItemWithItem (Item itemToClose, Item itemToCloseWith) {
-        if (!ExistenceCheck.doesItExist(itemToCloseWith, itemToClose, "Either the item you want to close or the item you need to close with doesn't exist.")) return;
-        //todo: Need Clarification on itemToCloseWith and itemToBeClosed vars in Entity
-        if (itemToClose.getCanBeClosed() && itemToClose.getItemToCloseWith().getId() == itemToCloseWith.getId()) {
-            // Since we are closing npc it cannot be closed again; we are switching from open state to closed
-            itemToClose.setCanBeClosed(false);
+        // Since we are closing item it cannot be closed again; we are switching from open state to closed
+        itemToClose.setCanBeClosed(false);
+        itemToClose.setCanBeOpened(true);
+        NonStoryPrinter.print("You have closed " + itemToClose.getName() + " using your " + itemToCloseWith.getName() + ".");
 
-            // Puzzle completed
-            PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-            player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        // Puzzle completed
+        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
+        player.getCurrentLevel().incrementPuzzlesSolvedCount();
 
-            // Get XP reward from puzzle
-            PlayerLevellingProgression.addXPReward();
-        }
+        // Get XP reward from puzzle
+        PlayerLevellingProgression.addXPReward();
     }
 }

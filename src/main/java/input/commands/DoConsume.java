@@ -4,6 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
+import output.NonStoryPrinter;
 import util.ExistenceCheck;
 import util.RemoveGameElement;
 
@@ -13,6 +14,7 @@ public class DoConsume {
         if (item.getCanBeConsumed()) {
             consumptionEffectsOnPlayer();
             RemoveGameElement.remove(item);
+            NonStoryPrinter.print("You have consumed " + item.getName() + ".");
         }
     }
 
@@ -21,6 +23,7 @@ public class DoConsume {
         if (npc.getCanBeConsumed()) {
             consumptionEffectsOnPlayer();
             RemoveGameElement.remove(npc);
+            NonStoryPrinter.print("You have consumed " + npc.getName() + ".");
         }
     }
 

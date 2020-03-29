@@ -4,8 +4,10 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
+import javafx.event.ActionEvent;
 import output.NonStoryPrinter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,15 +24,15 @@ import static input.commands.DoPickUp.doPickUp;
 import static input.commands.DoRead.doRead;
 import static input.commands.DoSave.doSave;
 import static input.commands.DoTalkWith.doTalkWith;
-import static input.commands.doHelp.doHelp;
+import static input.commands.DoHelp.doHelp;
 import static input.validation.InputValidation.*;
 
 public class HandlerOf1Word {
 
-    protected static void validateAndHandle1Word(HashMap<String, String> validInputList){
+    protected static void validateAndHandle1Word(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException {
         if (validInputList.containsValue("command")) {
             String command = getCommand(validInputList);
-            handle1Command(command);
+            handle1Command(command, actionEvent);
         }
         if (validInputList.containsValue("item")) {
             Item item = getItem(validInputList);
@@ -46,19 +48,19 @@ public class HandlerOf1Word {
         }
     }
 
-    private static void handle1Command(String command){
+    private static void handle1Command(String command, ActionEvent actionEvent) throws IOException {
         boolean check = false;
         for (CommandsWith1ValidWord validCommand : CommandsWith1ValidWord.values()) {
             String validCommandString = validCommand.toString();
             if (validCommandString.equals(command)) {
-                doCommand(command);
+                doCommand(command, actionEvent);
                 check = true;
             }
         }
         if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + " this way. Try [help]. \n"); }
     }
 
-    private static void doCommand(String command){
+    private static void doCommand(String command, ActionEvent actionEvent) throws IOException {
 
         switch (command) {
             case "HELP":
@@ -66,7 +68,7 @@ public class HandlerOf1Word {
                 break;
             case "EXIT":
             case "QUIT":
-                doExit();
+                doExit(actionEvent);
                 break;
             case "BACK":
                 doBack();
@@ -83,7 +85,7 @@ public class HandlerOf1Word {
                 doListen();
                 break;
             case "LOAD":
-                doLoad();
+                doLoad(actionEvent);
                 break;
             case "INVENTORY":
                 doInventoryLookUp();

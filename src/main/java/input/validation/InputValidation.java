@@ -3,8 +3,10 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
+import javafx.event.ActionEvent;
 import output.NonStoryPrinter;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,7 +18,7 @@ import static input.validation.HandlerOf3Words.*;
 
 public class InputValidation {
 
-    public static void inputValidator(HashMap<String, String> validInputList){
+    public static void inputValidator(HashMap<String, String> validInputList, ActionEvent actionEvent) throws IOException {
         int listSize = validInputList.size();
 
         switch (listSize){
@@ -24,7 +26,7 @@ public class InputValidation {
                 NonStoryPrinter.print("No valid input detected.");
                 break;
             case 1:
-                validateAndHandle1Word(validInputList);
+                validateAndHandle1Word(validInputList, actionEvent);
                 break;
             case 2:
                 validateAndHandle2Words(validInputList);

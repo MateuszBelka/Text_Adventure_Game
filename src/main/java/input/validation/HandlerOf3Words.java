@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 import static input.commands.DoBreak.doBreakWithItem;
 import static input.commands.DoClose.doCloseItemWithItem;
-import static input.commands.DoCut.doCutItemWithItem;
+import static input.commands.DoCut.doCutWith;
 import static input.commands.DoGiveItemToNPC.doGiveItemToNPC;
 import static input.commands.DoListen.doListenToItemWithItem;
 import static input.commands.DoListen.doListenToNPCWithItem;
@@ -86,7 +86,7 @@ public class HandlerOf3Words {
                 break;
             case "CUT":
                 if (item1.getItemToCutWith().equals(item2)) {
-                    doCutItemWithItem(item1, item2);
+                    doCutWith(item1, item2);
                 }
                 else { NonStoryPrinter.print("Cannot cut " + item2.getName() + " with " + item1.getName() + ".\n"); }
                 break;
