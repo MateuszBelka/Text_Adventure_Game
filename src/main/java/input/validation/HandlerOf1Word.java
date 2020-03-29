@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import static input.commands.DoAttack.doAttack;
+import static input.commands.DoBack.doBack;
 import static input.commands.DoConsume.doConsume;
 import static input.commands.DoExit.doExit;
 import static input.commands.DoGetInventory.doInventoryLookUp;
@@ -67,6 +68,8 @@ public class HandlerOf1Word {
             case "QUIT":
                 doExit();
                 break;
+            case "BACK":
+                doBack();
             case "ATTACK":
                 doAttack();
                 break;

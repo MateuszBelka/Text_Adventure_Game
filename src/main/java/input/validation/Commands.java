@@ -2,7 +2,7 @@ package input.validation;
 
 public enum Commands {
     RUN, MOVE, GO, WALK,
-    QUIT,
+    QUIT, EXIT,
     SAVE, LOAD,
     INVENTORY,
     LOOK,

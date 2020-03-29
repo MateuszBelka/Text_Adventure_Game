@@ -33,10 +33,10 @@ public class HandlerOf3Words {
             item0 = item3;
         }
 
-        if ( (command != null) && (item0 != null) && (npc != null) ) {
+        if ( (command != null) && (npc != null) ) {
             validateAndHandleCommandItemNpcCombination(command, item0, npc);
         }
-        else if ( (item1 != null) && (command != null) && (item0 != null) ){
+        else if ( (item1 != null) && (command != null) ){
             validateAndHandleCommandItemItemCombination(command, item0, item1);
         }
         else { NonStoryPrinter.print("Input invalid. Try [command] (+ [thing] (+ [thing] ) ). See [help].\n"); }
@@ -45,11 +45,11 @@ public class HandlerOf3Words {
     private static void validateAndHandleCommandItemNpcCombination(String command, Item item, NPC npc){
         switch (command){
             case "GIVE":
-                if ( (item.getCanBeGiven()) && (npc.getItemToGive().equals(item)) ){
-                        doGiveItemToNPC(item, npc);
-                    }
-                else {NonStoryPrinter.print(item.getName() + " cannot be given, or, " + npc.getName() +
-                        " does not need this item.\n");}
+                if (item.getCanBeGiven()) {
+                    if (npc.getItemToGive().equals(item)) { doGiveItemToNPC(item, npc); }
+                    else { NonStoryPrinter.print(npc.getName() + " does not need " + item.getName() + ".\n"); }
+                }
+                else {NonStoryPrinter.print(item.getName() + " cannot be given away.\n");}
                 break;
             case "USE":
                 if (npc.getCanBeUsedByItem() && item.getCanBeUsedOnNPC()){
