@@ -154,7 +154,7 @@ public class HandlerOf2Words {
     }
 
     private static void cutItemCommand(Item item){
-        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getListOfItems();
 
         if (item.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){
@@ -227,7 +227,7 @@ public class HandlerOf2Words {
     }
 
     private static void cutNPCCommand(NPC npc){
-        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        ArrayList<Item> itemsInInventory = InitOfClassesThroughSaveFile.getInventory().getListOfItems();
 
         if (npc.getCanBeCut()){
             for (Item itemInInventory : itemsInInventory){

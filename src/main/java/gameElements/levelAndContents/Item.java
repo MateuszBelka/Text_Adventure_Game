@@ -29,7 +29,7 @@ public class Item extends Entity {
                 searchedItem = item;
             }
         }
-        ArrayList<Item> listOfItemsInInventory = InitOfClassesThroughSaveFile.getInventory().getItemsInInventory();
+        ArrayList<Item> listOfItemsInInventory = InitOfClassesThroughSaveFile.getInventory().getListOfItems();
         for (Item item : listOfItemsInInventory){
             if (item.getName().equals(name)){
                 searchedItem = item;

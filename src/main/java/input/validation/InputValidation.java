@@ -3,6 +3,7 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerStats;
+import output.NonStoryPrinter;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -29,7 +30,7 @@ public class InputValidation {
                 validateAndHandle3Words(validInputList);
                 break;
             default:
-                {/* todo: print "try using less words" */}
+                NonStoryPrinter.print("Invalid input! Try using less words.");
         }
     }
 
