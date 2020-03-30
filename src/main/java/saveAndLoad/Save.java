@@ -5,13 +5,13 @@ import com.google.gson.GsonBuilder;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import gameElements.levelAndContents.NPC;
-import gameElements.player.Inventory;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.InterfaceAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -286,6 +286,7 @@ public class Save {
             InitOfClassesThroughSaveFile saveGameObjects = new InitOfClassesThroughSaveFile();
             FileWriter fileWriter = new FileWriter(fileName);
             Gson gson = new GsonBuilder()
+                    .registerTypeAdapter(NPC.class, new NPCClassAdapter())
                     .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
                     .setPrettyPrinting()
                     .create();

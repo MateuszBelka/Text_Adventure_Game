@@ -1,5 +1,6 @@
 package gameElements.levelAndContents;
 
+import gameElements.levelAndContents.npc.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
 
 import java.util.ArrayList;

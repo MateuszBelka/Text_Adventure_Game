@@ -3,7 +3,9 @@ package saveAndLoad.createDemoOne;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.EnemyNPC;
+import gameElements.levelAndContents.npc.NPC;
+import gameElements.levelAndContents.npc.NPCFactory;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
@@ -59,7 +61,7 @@ public class InitClasses {
 
     public static ArrayList<NPC> initFriendlyNPC() {
         ArrayList<NPC> listOfNPCs = new ArrayList<>();
-        NPC npc = new NPC();
+        NPC npc = NPCFactory.getNPC("friendlyNPC");
 
         listOfNPCs.add(npc);
         return listOfNPCs;
@@ -67,7 +69,7 @@ public class InitClasses {
 
     public static ArrayList<NPC> initEnemyNPC() {
         ArrayList<NPC> listOfNPCs = new ArrayList<>();
-        NPC npc = new NPC();
+        NPC npc = NPCFactory.getNPC("enemyNPC");
 
         listOfNPCs.add(npc);
         return listOfNPCs;

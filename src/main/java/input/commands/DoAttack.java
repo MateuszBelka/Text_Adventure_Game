@@ -2,9 +2,7 @@ package input.commands;
 
 import gameElements.battle.BattleSequence;
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerStats;
-import initialisation.InitOfClassesThroughSaveFile;
+import gameElements.levelAndContents.npc.NPC;
 import input.combatValidation.CombatValidation;
 import output.NonStoryPrinter;
 

@@ -1,5 +1,7 @@
 package gameElements.levelAndContents;
 
+import gameElements.levelAndContents.npc.NPC;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 

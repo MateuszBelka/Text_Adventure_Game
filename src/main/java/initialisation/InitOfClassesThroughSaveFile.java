@@ -1,5 +1,6 @@
 package initialisation;
 
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.*;
 import gameElements.levelAndContents.*;
 
