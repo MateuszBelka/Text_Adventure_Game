@@ -27,7 +27,6 @@ import java.util.ResourceBundle;
  */
 public class Adventure implements Initializable {
 
-    private String inputString;
     @FXML
     private TextField input;
     @FXML
@@ -48,19 +47,11 @@ public class Adventure implements Initializable {
     private Label levelText;
 
     //Get Methods
-    public String getInputString() {
-        return inputString;
-    }
     public TextField getInput() {
         return input;
     }
     public TextArea getTerminal() {
         return terminal;
-    }
-
-    //Set Methods
-    private void setInputString(String inputString) {
-        this.inputString = inputString;
     }
 
     /* Present initial story output to user when the scene is loaded
@@ -78,15 +69,8 @@ public class Adventure implements Initializable {
      * ActionEvent is necessary to quit UI or switch scenes
      */
     public void handleInput(ActionEvent actionEvent) throws IOException, URISyntaxException {
-        //Input Reading
-        readAndClearInput();
-
         //main game loop call
-        Engine.progressGame(getInputString(), getTerminal(), actionEvent);
-    }
-
-    public void readAndClearInput() {
-        setInputString(getInput().getText());
+        Engine.progressGame(getInput().getText(), getTerminal(), actionEvent);
         getInput().clear();
     }
 
