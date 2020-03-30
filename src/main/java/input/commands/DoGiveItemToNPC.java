@@ -15,11 +15,7 @@ public class DoGiveItemToNPC {
         NonStoryPrinter.print(npc.getDescriptionOfCommand("give"));
 
         // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     private DoGiveItemToNPC(){} //hiding the implicit public constructor

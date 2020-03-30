@@ -46,11 +46,7 @@ public class DoClose {
 
     private static void close(){
         // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     private DoClose(){} //hiding the implicit public constructor

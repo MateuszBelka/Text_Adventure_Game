@@ -15,7 +15,7 @@ public class DoOpen {
         item.setCanBeClosed(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     public static void doOpen (NPC npc){
@@ -24,7 +24,7 @@ public class DoOpen {
         npc.setCanBeClosed(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     public static void doOpenItemWithItem (Item itemToOpen, Item itemToOpenWith){
@@ -34,16 +34,7 @@ public class DoOpen {
         NonStoryPrinter.print("You have opened " + itemToOpen.getName() + " using " + itemToOpenWith.getName() + ":");
         NonStoryPrinter.print( itemToOpen.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
-    }
-
-    private static void puzzleCompletedAndXPReward(){
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     private DoOpen(){} //hiding the implicit public constructor

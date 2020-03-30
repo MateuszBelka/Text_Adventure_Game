@@ -14,7 +14,7 @@ public class DoPull {
         item.setCanBePushed(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("pull") );
 
-        incrementPuzzleCountAndGiveXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     public static void doPull (NPC npc){
@@ -22,16 +22,7 @@ public class DoPull {
         npc.setCanBePushed(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("npc") );
 
-        incrementPuzzleCountAndGiveXPReward();
-    }
-
-    private static void incrementPuzzleCountAndGiveXPReward(){
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     private DoPull(){} //hiding the implicit public constructor

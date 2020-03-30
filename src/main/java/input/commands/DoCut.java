@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -14,6 +15,9 @@ public class DoCut {
         npcToBeCut.setCanBeCut(false);
         npcToBeCut.setDescription( npcToBeCut.getDescriptionOfCommand("cut") );
         NonStoryPrinter.print(npcToBeCut.getDescription());
+
+        // Puzzle count up and xp
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     public static void doCutItemWithItem(Item itemToBeCut, Item itemToCutWith) {
@@ -23,6 +27,9 @@ public class DoCut {
         itemToBeCut.setCanBeCut(false);
         itemToBeCut.setDescription( itemToBeCut.getDescriptionOfCommand("cut") );
         NonStoryPrinter.print(itemToBeCut.getDescription());
+
+        // Puzzle count up and xp
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
     }
 
     private DoCut(){} //hiding the implicit public constructor
