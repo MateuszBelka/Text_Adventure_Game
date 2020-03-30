@@ -34,6 +34,7 @@ public class PlayerStats {
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
     private int xpReward = 10;
+    private int puzzlesSolvedCount = 0;
 
 
     //Get Methods
@@ -88,6 +89,9 @@ public class PlayerStats {
     public int getMaxPlayerLevel() {
         return maxPlayerLevel;
     }
+    public int getPuzzlesSolvedCount() {
+        return puzzlesSolvedCount;
+    }
 
     //Set Methods
     public void setCurrentLevel(Level currentLevel) {
@@ -137,6 +141,9 @@ public class PlayerStats {
     }
     public void setXpReward(int xpReward) {
         this.xpReward = xpReward;
+    }
+    public void setPuzzlesSolvedCount(int puzzlesSolvedCount) {
+        this.puzzlesSolvedCount = puzzlesSolvedCount;
     }
 
     public void addLocationToMovedLocationsList(Location location) { listOfMovedLocations.add(location); }
