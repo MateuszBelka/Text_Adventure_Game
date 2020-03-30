@@ -13,8 +13,8 @@ public class DoHelp {
                 "[back] or [backtrack]\n" +
                 "[break] [item] \n" +
                 "[break] [item] with [item] \n" +
-                "([consume] or [eat] or [drink]) [item]\n" +
-                "([consume] or [eat] or [drink]) [npc]\n" +
+                "( [consume] or [eat] or [drink] ) [item]\n" +
+                "( [consume] or [eat] or [drink] ) [npc]\n" +
                 "[close] [item] with [item]\n" +
                 "[close] [item]\n" +
                 "[close] [npc]\n" +
@@ -37,11 +37,11 @@ public class DoHelp {
                 "[listen]\n" +
                 "[load]\n" +
                 "[look]\n" +
-                "([move] or [run] or [walk] or [go]) to a [direction]\n" +
+                "( [move] or [run] or [walk] or [go] ) to a [direction]\n" +
                 "[open] [item] with [item]\n" +
                 "[open] [item]\n" +
                 "[open] [npc]\n" +
-                "([pick] or [pickup] or [take] or [grab] or [get]) [item]\n" +
+                "( [pick] or [pickup] or [take] or [grab] or [get] ) [item]\n" +
                 "[pull] [item]\n" +
                 "[pull] [npc]\n" +
                 "[push] [item]\n" +
