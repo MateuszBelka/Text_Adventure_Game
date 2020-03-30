@@ -12,8 +12,6 @@ import java.util.HashMap;
 
 
 public class Validation {
-    //todo: deal with uppercase/lowercase input
-
     public static void validator(String input, ActionEvent actionEvent) throws IOException, URISyntaxException {
         //Checks if player is dead of if game is completed. If not:
         // parses input (we can refer to them as "words"),

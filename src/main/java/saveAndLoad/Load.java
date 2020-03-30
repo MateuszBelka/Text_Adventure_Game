@@ -34,11 +34,10 @@ import com.google.gson.GsonBuilder;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
 
 import java.io.*;
 import java.net.URL;
@@ -95,6 +94,7 @@ public class Load {
          * For debugging purposes make the Json file in human-readable style
          */
         Gson gson = new GsonBuilder()
+                .registerTypeAdapter(NPC.class, new NPCClassAdapter())
                 .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
                 .setPrettyPrinting()
                 .create();

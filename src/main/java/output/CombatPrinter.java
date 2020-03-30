@@ -1,7 +1,7 @@
 package output;
 
 import gameElements.battle.BattleSequence;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;

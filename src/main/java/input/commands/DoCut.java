@@ -1,8 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerHungerProgression;
+import gameElements.levelAndContents.npc.NPC;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
@@ -18,10 +17,7 @@ public class DoCut {
         NonStoryPrinter.print(npcToBeCut.getDescription());
 
         // Puzzle count up and xp
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     public static void doCutItemWithItem(Item itemToBeCut, Item itemToCutWith) {
@@ -33,10 +29,7 @@ public class DoCut {
         NonStoryPrinter.print(itemToBeCut.getDescription());
 
         // Puzzle count up and xp
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     private DoCut(){} //hiding the implicit public constructor

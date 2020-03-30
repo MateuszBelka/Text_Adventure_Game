@@ -2,7 +2,6 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.player.PlayerHungerProgression;
-import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
@@ -25,10 +24,7 @@ public class DoBreak {
 
     private static void removeItemByBreakingIt(Item item) {
         //increments solved puzzle count
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
 
         // Removes item from location.
         InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().deleteItemInList(item);

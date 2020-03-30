@@ -3,7 +3,7 @@ package saveAndLoad.createDemoOne;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.Inventory;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
@@ -11,7 +11,6 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//todo: update Init, Config, Save & Load in accordance to chance to gameElements
 public class ConfigureClasses {
     public static void configureEverything() {
         //File Dependent

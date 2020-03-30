@@ -1,6 +1,6 @@
 package gameElements.battle;
 
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;

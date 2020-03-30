@@ -1,7 +1,7 @@
 package input.validation;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 

@@ -1,8 +1,7 @@
 package input.validation;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerStats;
+import gameElements.levelAndContents.npc.NPC;
 import javafx.event.ActionEvent;
 import output.NonStoryPrinter;
 
