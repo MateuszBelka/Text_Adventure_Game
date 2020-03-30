@@ -27,5 +27,6 @@ public enum Commands {
     JUMP,
     HELP,
     BACK, BACKTRACK,
-    DIRECTIONS
+    DIRECTIONS,
+    MENU
 }
