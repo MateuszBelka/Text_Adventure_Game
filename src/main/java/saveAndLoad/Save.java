@@ -124,7 +124,9 @@ public class Save {
 
     private static void connectLevelsToLevels() {
         for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
-            level.setNextLevelID(level.getNextLevel().getId());
+            if (level.getNextLevel() != null) {
+                level.setNextLevelID(level.getNextLevel().getId());
+            }
         }
     }
 
@@ -179,10 +181,10 @@ public class Save {
     private static void connectItemsToNPCs() {
         for (Item item : InitOfClassesThroughSaveFile.getItems()) {
             for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
-                if (item.getNpcToListenWithItemTo().getId() == npc.getId()) {
+                if (item.getNpcToListenWithItemTo() != null && item.getNpcToListenWithItemTo().getId() == npc.getId()) {
                     item.setNpcToListenWithItemToID(npc.getId());
                 }
-                if (item.getNpcToGiveItemTo().getId() == npc.getId()) {
+                if (item.getNpcToGiveItemTo() != null && item.getNpcToGiveItemTo().getId() == npc.getId()) {
                     item.setNpcToGiveItemToID(npc.getId());
                 }
             }
@@ -192,34 +194,34 @@ public class Save {
     private static void connectItemsToItems() {
         for (Item item : InitOfClassesThroughSaveFile.getItems()) {
             for (Item itemToConnect : InitOfClassesThroughSaveFile.getItems()) {
-                if (item.getItemToBreakWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToBreakWith() != null && item.getItemToBreakWith().getId() == itemToConnect.getId()) {
                     item.setItemToBreakWithID(itemToConnect.getId());
                 }
-                if (item.getItemToBeUsedBy().getId() == itemToConnect.getId()) {
+                if (item.getItemToBeUsedBy() != null && item.getItemToBeUsedBy().getId() == itemToConnect.getId()) {
                     item.setItemToBeUsedByID(itemToConnect.getId());
                 }
-                if (item.getItemToBeUsedOn().getId() == itemToConnect.getId()) {
+                if (item.getItemToBeUsedOn() != null && item.getItemToBeUsedOn().getId() == itemToConnect.getId()) {
                     item.setItemToBeUsedOnID(itemToConnect.getId());
                 }
-                if (item.getItemToCutWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToCutWith() != null && item.getItemToCutWith().getId() == itemToConnect.getId()) {
                     item.setItemToCutWithID(itemToConnect.getId());
                 }
-                if (item.getItemToListenWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToListenWith() != null && item.getItemToListenWith().getId() == itemToConnect.getId()) {
                     item.setItemToListenWithID(itemToConnect.getId());
                 }
-                if (item.getItemToUnlockWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToUnlockWith() != null && item.getItemToUnlockWith().getId() == itemToConnect.getId()) {
                     item.setItemToUnlockWithID(itemToConnect.getId());
                 }
-                if (item.getItemToUnlock().getId() == itemToConnect.getId()) {
+                if (item.getItemToUnlock() != null && item.getItemToUnlock().getId() == itemToConnect.getId()) {
                     item.setItemToUnlockID(itemToConnect.getId());
                 }
-                if (item.getItemToOpenWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToOpenWith() != null && item.getItemToOpenWith().getId() == itemToConnect.getId()) {
                     item.setItemToOpenWithID(itemToConnect.getId());
                 }
-                if (item.getItemToBeOpened().getId() == itemToConnect.getId()) {
+                if (item.getItemToBeOpened() != null && item.getItemToBeOpened().getId() == itemToConnect.getId()) {
                     item.setItemToBeOpenedID(itemToConnect.getId());
                 }
-                if (item.getItemToCloseWith().getId() == itemToConnect.getId()) {
+                if (item.getItemToCloseWith() != null && item.getItemToCloseWith().getId() == itemToConnect.getId()) {
                     item.setItemToCloseWithID(itemToConnect.getId());
                 }
             }
@@ -229,7 +231,7 @@ public class Save {
     private static void connectNPCToNPC() {
         for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
             for (NPC npcToConnect : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
-                if (npc.getNpcToGiveItemTo().getId() == npcToConnect.getId()) {
+                if (npc.getNpcToGiveItemTo() != null && npc.getNpcToGiveItemTo().getId() == npcToConnect.getId()) {
                     npc.setNpcToGiveItemToID(npcToConnect.getId());
                 }
             }
@@ -239,34 +241,34 @@ public class Save {
     private static void connectNPCToItems() {
         for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
             for (Item item : InitOfClassesThroughSaveFile.getItems()) {
-                if (npc.getItemToGive().getId() == item.getId()) {
+                if (npc.getItemToGive() != null && npc.getItemToGive().getId() == item.getId()) {
                     npc.setItemToGiveID(item.getId());
                 }
-                if (npc.getItemToBeUsedBy().getId() == item.getId()) {
+                if (npc.getItemToBeUsedBy() != null && npc.getItemToBeUsedBy().getId() == item.getId()) {
                     npc.setItemToBeUsedByID(item.getId());
                 }
-                if (npc.getItemToBeUsedOn().getId() == item.getId()) {
+                if (npc.getItemToBeUsedOn() != null && npc.getItemToBeUsedOn().getId() == item.getId()) {
                     npc.setItemToBeUsedOnID(item.getId());
                 }
-                if (npc.getItemToCutWith().getId() == item.getId()) {
+                if (npc.getItemToCutWith() != null && npc.getItemToCutWith().getId() == item.getId()) {
                     npc.setItemToCutWithID(item.getId());
                 }
-                if (npc.getItemToListenWith().getId() == item.getId()) {
+                if (npc.getItemToListenWith() != null && npc.getItemToListenWith().getId() == item.getId()) {
                     npc.setItemToListenWithID(item.getId());
                 }
-                if (npc.getItemToUnlockWith().getId() == item.getId()) {
+                if (npc.getItemToUnlockWith() != null && npc.getItemToUnlockWith().getId() == item.getId()) {
                     npc.setItemToUnlockWithID(item.getId());
                 }
-                if (npc.getItemToUnlock().getId() == item.getId()) {
+                if (npc.getItemToUnlock() != null && npc.getItemToUnlock().getId() == item.getId()) {
                     npc.setItemToUnlockID(item.getId());
                 }
-                if (npc.getItemToOpenWith().getId() == item.getId()) {
+                if (npc.getItemToOpenWith() != null && npc.getItemToOpenWith().getId() == item.getId()) {
                     npc.setItemToOpenWithID(item.getId());
                 }
-                if (npc.getItemToBeOpened().getId() == item.getId()) {
+                if (npc.getItemToBeOpened() != null && npc.getItemToBeOpened().getId() == item.getId()) {
                     npc.setItemToBeOpenedID(item.getId());
                 }
-                if (npc.getItemToCloseWith().getId() == item.getId()) {
+                if (npc.getItemToCloseWith() != null && npc.getItemToCloseWith().getId() == item.getId()) {
                     npc.setItemToCloseWithID(item.getId());
                 }
             }
