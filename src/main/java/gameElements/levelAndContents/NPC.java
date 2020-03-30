@@ -5,8 +5,9 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 
 public class NPC extends Entity {
-    Boolean canAttack = false;
-    Item itemToGive;
+    private Boolean canAttack = false;
+    private transient Item itemToGive;
+    private int itemToGiveID;
     private int percentChanceToShowUpAtLocationSwitch;
     private int damage;
     private int currentHealth;
@@ -56,5 +57,11 @@ public class NPC extends Entity {
     }
     public void setPercentChanceToShowUpAtLocationSwitch(int percentChanceToShowUpAtLocationSwitch) {
         this.percentChanceToShowUpAtLocationSwitch = percentChanceToShowUpAtLocationSwitch;
+    }
+    public int getItemToGiveID() {
+        return itemToGiveID;
+    }
+    public void setItemToGiveID(int itemToGiveID) {
+        this.itemToGiveID = itemToGiveID;
     }
 }

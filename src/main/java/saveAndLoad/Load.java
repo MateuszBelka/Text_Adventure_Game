@@ -112,19 +112,21 @@ public class Load {
     }
 
     private static void decodeIDsToObjects() {
-        /*
-         * TODO:
-         *  -Item
-         *  -NPC
-         */
         connectPlayerToLocation();
         connectPlayerToLevel();
+        connectPlayerToLocations();
         connectPlayerToInventory();
         connectLevelsToLocation();
+        connectLevelsToLevels();
         connectLocationsToItems();
         connectLocationsToFriendlyNPCs();
         connectLocationsToEnemyNPCs();
         connectLocationsToHashMap();
+        connectItemsToItems();
+        connectItemsToNPCs();
+        connectNPCToItems();
+        connectNPCToNPC();
+        connectInventoryToItems();
     }
 
     private static void connectPlayerToLocation() {
@@ -145,6 +147,18 @@ public class Load {
         }
     }
 
+    private static void connectPlayerToLocations() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        for (int listLocationID : playerStats.getListOfMovedLocationsIDs()) {
+            for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
+                if (listLocationID == location.getId()) {
+                    playerStats.getListOfMovedLocations().add(location);
+                    break;
+                }
+            }
+        }
+    }
+
     private static void connectPlayerToInventory() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         Inventory inv = InitOfClassesThroughSaveFile.getInventory();
@@ -160,6 +174,17 @@ public class Load {
             for (Location location : InitOfClassesThroughSaveFile.getLocations()) {
                 if (level.getStartLocationID() == location.getId()) {
                     level.setStartLocation(location);
+                    break;
+                }
+            }
+        }
+    }
+
+    private static void connectLevelsToLevels() {
+        for (Level level : InitOfClassesThroughSaveFile.getLevels()) {
+            for (Level levelToAssign : InitOfClassesThroughSaveFile.getLevels()) {
+                if (level.getNextLevelID() == levelToAssign.getId()) {
+                    level.setNextLevel(levelToAssign);
                     break;
                 }
             }
@@ -233,6 +258,113 @@ public class Load {
             }
 
             location.setListOfConnectedLocations(newListOfConnectedLocations);
+        }
+    }
+
+    private static void connectItemsToItems() {
+        for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+            for (Item itemToConnect : InitOfClassesThroughSaveFile.getItems()) {
+                if (item.getItemToBreakWithID() == itemToConnect.getId()) {
+                    item.setItemToBreakWith(itemToConnect);
+                }
+                if (item.getItemToBeUsedByID() == itemToConnect.getId()) {
+                    item.setItemToBeUsedBy(itemToConnect);
+                }
+                if (item.getItemToBeUsedOnID() == itemToConnect.getId()) {
+                    item.setItemToBeUsedOn(itemToConnect);
+                }
+                if (item.getItemToCutWithID() == itemToConnect.getId()) {
+                    item.setItemToCutWith(itemToConnect);
+                }
+                if (item.getItemToListenWithID() == itemToConnect.getId()) {
+                    item.setItemToListenWith(itemToConnect);
+                }
+                if (item.getItemToUnlockWithID() == itemToConnect.getId()) {
+                    item.setItemToUnlockWith(itemToConnect);
+                }
+                if (item.getItemToUnlockID() == itemToConnect.getId()) {
+                    item.setItemToUnlock(itemToConnect);
+                }
+                if (item.getItemToOpenWithID() == itemToConnect.getId()) {
+                    item.setItemToOpenWith(itemToConnect);
+                }
+                if (item.getItemToBeOpenedID() == itemToConnect.getId()) {
+                    item.setItemToBeOpened(itemToConnect);
+                }
+                if (item.getItemToCloseWithID() == itemToConnect.getId()) {
+                    item.setItemToCloseWith(itemToConnect);
+                }
+            }
+        }
+    }
+
+    private static void connectItemsToNPCs() {
+        for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+            for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+                if (item.getNpcToListenWithItemToID() == npc.getId()) {
+                    item.setNpcToListenWithItemTo(npc);
+                }
+                if (item.getNpcToGiveItemToID() == npc.getId()) {
+                    item.setNpcToGiveItemTo(npc);
+                }
+            }
+        }
+    }
+
+    private static void connectNPCToItems() {
+        for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+            for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+                if (npc.getItemToGiveID() == item.getId()) {
+                    npc.setItemToGive(item);
+                }
+                if (npc.getItemToBeUsedByID() == item.getId()) {
+                    npc.setItemToBeUsedBy(item);
+                }
+                if (npc.getItemToBeUsedOnID() == item.getId()) {
+                    npc.setItemToBeUsedOn(item);
+                }
+                if (npc.getItemToCutWithID() == item.getId()) {
+                    npc.setItemToCutWith(item);
+                }
+                if (npc.getItemToListenWithID() == item.getId()) {
+                    npc.setItemToListenWith(item);
+                }
+                if (npc.getItemToUnlockWithID() == item.getId()) {
+                    npc.setItemToUnlockWith(item);
+                }
+                if (npc.getItemToUnlockID() == item.getId()) {
+                    npc.setItemToUnlock(item);
+                }
+                if (npc.getItemToOpenWithID() == item.getId()) {
+                    npc.setItemToOpenWith(item);
+                }
+                if (npc.getItemToBeOpenedID() == item.getId()) {
+                    npc.setItemToBeOpened(item);
+                }
+                if (npc.getItemToCloseWithID() == item.getId()) {
+                    npc.setItemToCloseWith(item);
+                }
+            }
+        }
+    }
+
+    private static void connectNPCToNPC() {
+        for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+            for (NPC npcToConnect : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+                if (npc.getNpcToGiveItemToID() == npcToConnect.getId()) {
+                    npc.setNpcToGiveItemTo(npcToConnect);
+                }
+            }
+        }
+    }
+
+    private static void connectInventoryToItems() {
+        for (int inventoryItemID : InitOfClassesThroughSaveFile.getInventory().getListOfItemsIDs()) {
+            for (Item item : InitOfClassesThroughSaveFile.getItems()) {
+                if (inventoryItemID == item.getId()) {
+                    InitOfClassesThroughSaveFile.getInventory().getListOfItems().add(item);
+                }
+            }
         }
     }
 

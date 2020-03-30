@@ -5,20 +5,22 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 
 public class Item extends Entity {
-    Boolean canBeBrokenWithItem = false;
-    Boolean canBeBrokenWithoutItem = false;
-    Boolean canBePickedUp = false;
-    Boolean canBeDropped = false;
-    Boolean canBeUnlockedByItem = false;
-    Boolean canBeListenedWith = false;
-    Boolean canBeTurnedOn = false;
-    Boolean canBeTurnedOff = false;
-    Boolean canBeGiven = false;
-    Boolean canBeCutWith = false;
-    Boolean canBeRead = false;
-    Boolean canBreak = false;
-    NPC npcToListenWithItemTo;
-    Item itemToBreakWith;
+    private Boolean canBeBrokenWithItem = false;
+    private Boolean canBeBrokenWithoutItem = false;
+    private Boolean canBePickedUp = false;
+    private Boolean canBeDropped = false;
+    private Boolean canBeUnlockedByItem = false;
+    private Boolean canBeListenedWith = false;
+    private Boolean canBeTurnedOn = false;
+    private Boolean canBeTurnedOff = false;
+    private Boolean canBeGiven = false;
+    private Boolean canBeCutWith = false;
+    private Boolean canBeRead = false;
+    private Boolean canBreak = false;
+    private transient NPC npcToListenWithItemTo;
+    private int npcToListenWithItemToID;
+    private transient Item itemToBreakWith;
+    private int itemToBreakWithID;
 
 
     public static Item getItemByName(String name){
@@ -145,4 +147,20 @@ public class Item extends Entity {
     public void setCanBePickedUp(Boolean canBePickedUp) { this.canBePickedUp = canBePickedUp; }
 
     public void setCanBeDropped(Boolean canBeDropped) { this.canBeDropped = canBeDropped; }
+
+    public int getNpcToListenWithItemToID() {
+        return npcToListenWithItemToID;
+    }
+
+    public void setNpcToListenWithItemToID(int npcToListenWithItemToID) {
+        this.npcToListenWithItemToID = npcToListenWithItemToID;
+    }
+
+    public int getItemToBreakWithID() {
+        return itemToBreakWithID;
+    }
+
+    public void setItemToBreakWithID(int itemToBreakWithID) {
+        this.itemToBreakWithID = itemToBreakWithID;
+    }
 }
