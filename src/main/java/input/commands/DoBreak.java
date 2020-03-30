@@ -16,15 +16,16 @@ public class DoBreak {
 
     public static void doBreakWithItem(Item itemToBreakWith, Item itemToBeBroken) {
         //Deletes itemToBreakWith from inventory, deletes itemToBeBroken from current location.
-        //Prints description for breaking.
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToBreakWith);
         removeItemByBreakingIt(itemToBeBroken);
+
+        //Prints description for breaking.
         printText(itemToBeBroken);
     }
 
     private static void removeItemByBreakingIt(Item item) {
         //increments solved puzzle count
-        PuzzleProgression.incrementPuzzlesSolvedCount();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
 
         // Reduces player hunger as a result of conducting an action.
         PlayerHungerProgression.decreaseCurrentHunger();

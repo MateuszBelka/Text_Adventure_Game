@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
@@ -14,7 +15,10 @@ public class DoPush {
         item.setCanBePulled(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("push") );
 
-        incrementPuzzleCountAndGiveXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doPush(NPC npc){
@@ -22,16 +26,10 @@ public class DoPush {
         npc.setCanBePulled(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("push")  );
 
-        incrementPuzzleCountAndGiveXPReward();
-    }
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
 
-    private static void incrementPuzzleCountAndGiveXPReward(){
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     private DoPush(){} //hiding the implicit public constructor

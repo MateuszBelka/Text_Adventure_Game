@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
@@ -15,7 +16,10 @@ public class DoOpen {
         item.setCanBeClosed(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doOpen (NPC npc){
@@ -24,7 +28,10 @@ public class DoOpen {
         npc.setCanBeClosed(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doOpenItemWithItem (Item itemToOpen, Item itemToOpenWith){
@@ -34,16 +41,10 @@ public class DoOpen {
         NonStoryPrinter.print("You have opened " + itemToOpen.getName() + " using " + itemToOpenWith.getName() + ":");
         NonStoryPrinter.print( itemToOpen.getDescriptionOfCommand("open") );
 
-        puzzleCompletedAndXPReward();
-    }
+        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
 
-    private static void puzzleCompletedAndXPReward(){
-        // Puzzle completed
-        PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        PuzzleProgression.incrementPuzzlesSolvedCount();
-
-        // Get XP reward from puzzle
-        PlayerLevellingProgression.addXPReward();
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     private DoOpen(){} //hiding the implicit public constructor
