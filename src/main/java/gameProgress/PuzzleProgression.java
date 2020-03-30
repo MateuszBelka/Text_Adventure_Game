@@ -5,16 +5,18 @@ import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 
 public class PuzzleProgression {
-    private static int puzzlesSolvedCount = 0;
 
     public static void resetPuzzlesSolvedCount() {
-        puzzlesSolvedCount = 0;
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setPuzzlesSolvedCount(0);
     }
     public static void incrementPuzzlesSolvedCount() {
-        puzzlesSolvedCount++;
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setPuzzlesSolvedCount(playerStats.getPuzzlesSolvedCount() + 1);
     }
     public static int getPuzzlesSolvedCount() {
-        return puzzlesSolvedCount;
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        return playerStats.getPuzzlesSolvedCount();
     }
 
 
