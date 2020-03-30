@@ -68,7 +68,7 @@ public class HandlerOf1Word {
 
         switch (command) {
             case "MENU":
-                doGoToMenu();
+                doGoToMenu(actionEvent);
                 break;
             case "DIRECTIONS":
                 doDirections();
