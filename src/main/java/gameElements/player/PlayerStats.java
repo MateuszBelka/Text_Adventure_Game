@@ -22,7 +22,7 @@ public class PlayerStats {
     private int maxHealth = 100;
     private int maxHunger = 100;
     private int currentHunger = maxHunger;
-    private int hungerDrain = 10;
+    private int hungerDrain = 5;
     private int foodHungerIncrease = 15;
     private int foodHealthIncrease = 10;
 
