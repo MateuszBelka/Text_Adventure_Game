@@ -11,9 +11,9 @@ public class Level {
     private int startLocationID;
     private transient ArrayList<Location> listOfLocations;
     private ArrayList<Integer> listOfLocationsIDs;
-    private int totalPuzzleCount;
+    private int totalPuzzleCount = 0;
     private transient Level nextLevel;
-    private Level nextLevelID;
+    private int nextLevelID;
 
     // Getter + Setter
     public int getId() {
@@ -77,10 +77,10 @@ public class Level {
     public void setNextLevel(Level nextLevel) {
         this.nextLevel = nextLevel;
     }
-    public Level getNextLevelID() {
+    public int getNextLevelID() {
         return nextLevelID;
     }
-    public void setNextLevelID(Level nextLevelID) {
+    public void setNextLevelID(int nextLevelID) {
         this.nextLevelID = nextLevelID;
     }
 

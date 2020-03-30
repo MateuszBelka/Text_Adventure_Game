@@ -8,18 +8,14 @@ abstract public class Entity {
     private String description;
     private String descriptionAfterPuzzleComplete;
     private HashMap<String, String> descriptionAfterCommand = new HashMap<>();
-//    private String textForReading; //can be put in "descriptionAfterCommand"
-//    private String textForTalking; //can be put in "descriptionAfterCommand"
-//    private String textForExamining; //can be put in "descriptionAfterCommand"
-//    private String textForSmelling; //can be put in "descriptionAfterCommand"
-//    private String textForBreaking; //can be put in "descriptionAfterCommand"
-//    private String textForListening; //can be put in "descriptionAfterCommand"
     private Boolean firstTimeEnteringLocation = true; //Used for printing descriptions, once. Just like in Zork.
     private Boolean canBeConsumed = false;
     private Boolean canBeUsedOnItem = false;
-    private Item itemToBeUsedOn;
+    private transient Item itemToBeUsedOn;
+    private int itemToBeUsedOnID;
     private Boolean canBeUsedByItem = false;
-    private Item itemToBeUsedBy;
+    private transient Item itemToBeUsedBy;
+    private int itemToBeUsedByID;
     private Boolean canBeAttacked = false;
     private Boolean canBeTalkedWith = false;
     private Boolean canBeListenedTo = false;
@@ -31,16 +27,24 @@ abstract public class Entity {
     private Boolean canBeUsedOnNPC = false;
     private Boolean canBePushed = false;
     private Boolean canBePulled = false;
-    private Item itemToCutWith;
+    private transient Item itemToCutWith;
+    private int itemToCutWithID;
     private Boolean canBeCut = false;
     private Boolean canBeUsed = false;
-    private NPC npcToGiveItemTo;
-    private Item itemToListenWith;
-    private Item itemToUnlockWith;
-    private Item itemToUnlock;
-    private Item itemToOpenWith;
-    private Item itemToBeOpened;
-    private Item itemToCloseWith;
+    private transient NPC npcToGiveItemTo;
+    private int npcToGiveItemToID;
+    private transient Item itemToListenWith;
+    private int itemToListenWithID;
+    private transient Item itemToUnlockWith;
+    private int itemToUnlockWithID;
+    private transient Item itemToUnlock;
+    private int itemToUnlockID;
+    private transient Item itemToOpenWith;
+    private int itemToOpenWithID;
+    private transient Item itemToBeOpened;
+    private int itemToBeOpenedID;
+    private transient Item itemToCloseWith;
+    private int itemToCloseWithID;
 
     //Getter + Setter
     public int getId() {
@@ -78,54 +82,6 @@ abstract public class Entity {
     public String getDescriptionOfCommand(String command){
         return descriptionAfterCommand.get(command);
     }
-
-//    public String getTextForReading() {
-//        return textForReading;
-//    }
-//
-//    public void setTextForReading(String textForReading) {
-//        this.textForReading = textForReading;
-//    }
-//
-//    public String getTextForTalking() {
-//        return textForTalking;
-//    }
-//
-//    public void setTextForTalking(String textForTalking) {
-//        this.textForTalking = textForTalking;
-//    }
-//
-//    public String getTextForExamining() {
-//        return textForExamining;
-//    }
-//
-//    public void setTextForExamining(String textForExamining) {
-//        this.textForExamining = textForExamining;
-//    }
-//
-//    public String getTextForSmelling() {
-//        return textForSmelling;
-//    }
-//
-//    public void setTextForSmelling(String textForSmelling) {
-//        this.textForSmelling = textForSmelling;
-//    }
-//
-//    public String getTextForBreaking() {
-//        return textForBreaking;
-//    }
-//
-//    public void setTextForBreaking(String textForBreaking) {
-//        this.textForBreaking = textForBreaking;
-//    }
-//
-//    public String getTextForListening() {
-//        return textForListening;
-//    }
-//
-//    public void setTextForListening(String textForListening) {
-//        this.textForListening = textForListening;
-//    }
 
     public HashMap<String, String> getDescriptionAfterCommand() {
         return descriptionAfterCommand;
@@ -351,18 +307,83 @@ abstract public class Entity {
         this.itemToCloseWith = itemToCloseWith;
     }
 
-
-    public boolean descriptionPrintedOnce (){
-        if (firstTimeEnteringLocation.equals(true)){
-            firstTimeEnteringLocation = false;
-            return true;
-        }
-        return firstTimeEnteringLocation;
+    public int getItemToBeUsedOnID() {
+        return itemToBeUsedOnID;
     }
 
-    public void changeDescriptionWhenPuzzleCompleted (){
-        description = descriptionAfterPuzzleComplete;
-
+    public void setItemToBeUsedOnID(int itemToBeUsedOnID) {
+        this.itemToBeUsedOnID = itemToBeUsedOnID;
     }
 
+    public int getItemToBeUsedByID() {
+        return itemToBeUsedByID;
+    }
+
+    public void setItemToBeUsedByID(int itemToBeUsedByID) {
+        this.itemToBeUsedByID = itemToBeUsedByID;
+    }
+
+    public int getItemToCutWithID() {
+        return itemToCutWithID;
+    }
+
+    public void setItemToCutWithID(int itemToCutWithID) {
+        this.itemToCutWithID = itemToCutWithID;
+    }
+
+    public int getNpcToGiveItemToID() {
+        return npcToGiveItemToID;
+    }
+
+    public void setNpcToGiveItemToID(int npcToGiveItemToID) {
+        this.npcToGiveItemToID = npcToGiveItemToID;
+    }
+
+    public int getItemToListenWithID() {
+        return itemToListenWithID;
+    }
+
+    public void setItemToListenWithID(int itemToListenWithID) {
+        this.itemToListenWithID = itemToListenWithID;
+    }
+
+    public int getItemToUnlockWithID() {
+        return itemToUnlockWithID;
+    }
+
+    public void setItemToUnlockWithID(int itemToUnlockWithID) {
+        this.itemToUnlockWithID = itemToUnlockWithID;
+    }
+
+    public int getItemToUnlockID() {
+        return itemToUnlockID;
+    }
+
+    public void setItemToUnlockID(int itemToUnlockID) {
+        this.itemToUnlockID = itemToUnlockID;
+    }
+
+    public int getItemToOpenWithID() {
+        return itemToOpenWithID;
+    }
+
+    public void setItemToOpenWithID(int itemToOpenWithID) {
+        this.itemToOpenWithID = itemToOpenWithID;
+    }
+
+    public int getItemToBeOpenedID() {
+        return itemToBeOpenedID;
+    }
+
+    public void setItemToBeOpenedID(int itemToBeOpenedID) {
+        this.itemToBeOpenedID = itemToBeOpenedID;
+    }
+
+    public int getItemToCloseWithID() {
+        return itemToCloseWithID;
+    }
+
+    public void setItemToCloseWithID(int itemToCloseWithID) {
+        this.itemToCloseWithID = itemToCloseWithID;
+    }
 }
