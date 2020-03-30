@@ -1,16 +1,10 @@
 package input.commands;
 
-import input.validation.Commands;
 import output.NonStoryPrinter;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 public class DoHelp {
-    //todo: help should give not only a list of commands, but also how to use them.
     public static void doHelp () {
+        //prints an overview of the commands and the syntax to use them.
 
         String helpText = "";
         StringBuilder stringBuilder = new StringBuilder(helpText);
@@ -75,19 +69,8 @@ public class DoHelp {
         stringBuilder.append("[direction] : moves to direction\n");
         stringBuilder.append("_____________________________________________________________\n");
 
-
         helpText = stringBuilder.toString();
 
-
-//        List<String> listOfCommands = Stream.of(Commands.values())
-//                .map(Enum::name)
-//                .collect(Collectors.toList());
-//        StringBuilder listOfCommandsOneLine = new StringBuilder();
-//
-//        for(String command : listOfCommands) {
-//            listOfCommandsOneLine.append(command).append(", ");
-//        }
-//
         NonStoryPrinter.print(helpText);
     }
 
