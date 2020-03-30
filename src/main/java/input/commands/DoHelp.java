@@ -7,69 +7,66 @@ public class DoHelp {
         //prints an overview of the commands and the syntax to use them.
 
         String helpText = "";
-        StringBuilder stringBuilder = new StringBuilder(helpText);
-        stringBuilder.append("_____________________________________________________________\n\n");
-        stringBuilder.append("Overview of commands and syntax :\n");
-        stringBuilder.append("[attack] [item]\n");
-        stringBuilder.append("[attack] [npc]\n");
-        stringBuilder.append("[back] or [backtrack]\n");
-        stringBuilder.append("[break] [item] \n");
-        stringBuilder.append("[break] [item] with [item] \n");
-        stringBuilder.append("([consume] or [eat] or [drink]) [item]\n");
-        stringBuilder.append("([consume] or [eat] or [drink]) [npc]\n");
-        stringBuilder.append("[close] [item] with [item]\n");
-        stringBuilder.append("[close] [item]\n");
-        stringBuilder.append("[close] [npc]\n");
-        stringBuilder.append("[consume] [npc]\n");
-        stringBuilder.append("[cut] [item] with [item]\n");
-        stringBuilder.append("[cut] [item]\n");
-        stringBuilder.append("[cut] [npc] with [item]\n");
-        stringBuilder.append("[cut] [npc]\n");
-        stringBuilder.append("[drop] [item]\n");
-        stringBuilder.append("[examine] [item]\n");
-        stringBuilder.append("[examine] [npc]\n");
-        stringBuilder.append("[give] [item] to [npc] \n");
-        stringBuilder.append("[help]\n");
-        stringBuilder.append("[inventory]\n");
-        stringBuilder.append("[jump]\n");
-        stringBuilder.append("[listen] to [item] with [item]\n");
-        stringBuilder.append("[listen] to [item]\n");
-        stringBuilder.append("[listen] to [npc] with [item]\n");
-        stringBuilder.append("[listen] to [npc]\n");
-        stringBuilder.append("[listen]\n");
-        stringBuilder.append("[load]\n");
-        stringBuilder.append("[look]\n");
-        stringBuilder.append("([move] or [run] or [walk] or [go]) to a [direction]\n");
-        stringBuilder.append("[open] [item] with [item]\n");
-        stringBuilder.append("[open] [item]\n");
-        stringBuilder.append("[open] [npc]\n");
-        stringBuilder.append("([pick] or [pickup] or [take] or [grab] or [get]) [item]\n");
-        stringBuilder.append("[pull] [item]\n");
-        stringBuilder.append("[pull] [npc]\n");
-        stringBuilder.append("[push] [item]\n");
-        stringBuilder.append("[push] [npc]\n");
-        stringBuilder.append("[quit] or [exit]\n");
-        stringBuilder.append("[read] [item]\n");
-        stringBuilder.append("[save]\n");
-        stringBuilder.append("[smell] [item]\n");
-        stringBuilder.append("[smell] [npc]\n");
-        stringBuilder.append("[smell]\n");
-        stringBuilder.append("[talk] with [item]\n");
-        stringBuilder.append("[talk] with [npc]\n");
-        stringBuilder.append("[unlock] [item] with [item]\n");
-        stringBuilder.append("[use] [character] \n");
-        stringBuilder.append("[use] [item] \n");
-        stringBuilder.append("[use] [item] on [character] \n");
-        stringBuilder.append("[use] [item] on [item] \n");
 
-        stringBuilder.append("_____________________________________________________________\n");
-        stringBuilder.append("\nShortcut commands :\n");
-        stringBuilder.append("[item] : Picks up if not in inventory, consumes if in inventory\n");
-        stringBuilder.append("[npc] : Talks with npc\n");
-        stringBuilder.append("[direction] : moves to direction\n");
-        stringBuilder.append("_____________________________________________________________\n");
-
-        helpText = stringBuilder.toString();
+         helpText = "_____________________________________________________________\n" +
+                "\nOverview of commands and syntax :\n" +
+                "[attack] [item]\n" +
+                "[attack] [npc]\n" +
+                "[back] or [backtrack]\n" +
+                "[break] [item] \n" +
+                "[break] [item] with [item] \n" +
+                "([consume] or [eat] or [drink]) [item]\n" +
+                "([consume] or [eat] or [drink]) [npc]\n" +
+                "[close] [item] with [item]\n" +
+                "[close] [item]\n" +
+                "[close] [npc]\n" +
+                "[consume] [npc]\n" +
+                "[cut] [item] with [item]\n" +
+                "[cut] [item]\n" +
+                "[cut] [npc] with [item]\n" +
+                "[cut] [npc]\n" +
+                "[drop] [item]\n" +
+                "[examine] [item]\n" +
+                "[examine] [npc]\n" +
+                "[give] [item] to [npc] \n" +
+                "[help]\n" +
+                "[inventory]\n" +
+                "[jump]\n" +
+                "[listen] to [item] with [item]\n" +
+                "[listen] to [item]\n" +
+                "[listen] to [npc] with [item]\n" +
+                "[listen] to [npc]\n" +
+                "[listen]\n" +
+                "[load]\n" +
+                "[look]\n" +
+                "([move] or [run] or [walk] or [go]) to a [direction]\n" +
+                "[open] [item] with [item]\n" +
+                "[open] [item]\n" +
+                "[open] [npc]\n" +
+                "([pick] or [pickup] or [take] or [grab] or [get]) [item]\n" +
+                "[pull] [item]\n" +
+                "[pull] [npc]\n" +
+                "[push] [item]\n" +
+                "[push] [npc]\n" +
+                "[quit] or [exit]\n" +
+                "[read] [item]\n" +
+                "[save]\n" +
+                "[smell] [item]\n" +
+                "[smell] [npc]\n" +
+                "[smell]\n" +
+                "[talk] with [item]\n" +
+                "[talk] with [npc]\n" +
+                "[unlock] [item] with [item]\n" +
+                "[use] [character] \n" +
+                "[use] [item] \n" +
+                "[use] [item] on [character] \n" +
+                "[use] [item] on [item] \n" +
+                "_____________________________________________________________\n" +
+                "\nShortcut commands :\n" +
+                "[item] : Picks up if not in inventory, consumes if in inventory\n" +
+                "[npc] : Talks with npc\n" +
+                "[direction] : moves to direction\n" +
+                "_____________________________________________________________\n";
 
         NonStoryPrinter.print(helpText);
     }
