@@ -47,7 +47,7 @@ public class Adventure implements Initializable {
     private Label levelText;
 
     //Get Methods
-    public TextField getInput() {
+    private TextField getInput() {
         return input;
     }
     public TextArea getTerminal() {

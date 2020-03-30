@@ -31,6 +31,8 @@ public class NonStoryPrinter {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         TextArea terminal = adventure.getTerminal();
 
+        print("\nWhat would you like to do?");
+
         // Format and Print all gathered text to terminal
         if (!getListToPrint().isEmpty()) {
             for (String lineOfText : getListToPrint()) {
