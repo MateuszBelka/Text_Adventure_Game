@@ -3,6 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerStats;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -18,9 +19,13 @@ public class DoBreak {
         //Prints description for breaking.
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToBreakWith);
         removeItemByBreakingIt(itemToBeBroken);
+        printText(itemToBeBroken);
     }
 
     private static void removeItemByBreakingIt(Item item) {
+        //increments solved puzzle count
+        PuzzleProgression.incrementPuzzlesSolvedCount();
+
         // Reduces player hunger as a result of conducting an action.
         PlayerHungerProgression.decreaseCurrentHunger();
 
@@ -33,4 +38,6 @@ public class DoBreak {
         String description = item.getDescriptionOfCommand("break");
         NonStoryPrinter.print(description);
     }
+
+    private DoBreak(){} //hiding the implicit public constructor
 }

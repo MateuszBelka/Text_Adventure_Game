@@ -11,6 +11,9 @@ import java.util.HashMap;
 public class WordValidation {
 
     public static HashMap<String, String> wordValidator(String[] inputList) {
+        //Input is checked per word, if it is a valid command, a valid direction,
+        // a valid item in currentLocation or inventory, and a valid npc in currentLocation.
+        //returns this list of valid words.
         HashMap<String, String> validInputList = new HashMap<>();
 
         for (String word : inputList) {

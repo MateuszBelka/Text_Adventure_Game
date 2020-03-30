@@ -9,4 +9,6 @@ public class DoExit {
         Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
         primaryStage.close();
     }
+
+    private DoExit(){} //hiding the implicit public constructor
 }

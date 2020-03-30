@@ -12,7 +12,6 @@ public class Level {
     private transient ArrayList<Location> listOfLocations;
     private ArrayList<Integer> listOfLocationsIDs;
     private int totalPuzzleCount;
-    private int puzzlesSolvedCount;
     private transient Level nextLevel;
     private Level nextLevelID;
 
@@ -65,14 +64,12 @@ public class Level {
     public void setListOfLocationsIDs(ArrayList<Integer> listOfLocationsIDs) {
         this.listOfLocationsIDs = listOfLocationsIDs;
     }
+
     public int getTotalPuzzleCount() {
         return totalPuzzleCount;
     }
-    public int getPuzzlesSolvedCount() {
-        return puzzlesSolvedCount;
-    }
-    public void setPuzzlesSolvedCount(int puzzlesSolvedCount) {
-        this.puzzlesSolvedCount = puzzlesSolvedCount;
+    public void setTotalPuzzleCount(int totalPuzzleCount) {
+        this.totalPuzzleCount = totalPuzzleCount;
     }
     public Level getNextLevel() {
         return nextLevel;
@@ -85,13 +82,6 @@ public class Level {
     }
     public void setNextLevelID(Level nextLevelID) {
         this.nextLevelID = nextLevelID;
-    }
-    public void setTotalPuzzleCount(int totalPuzzleCount) {
-        this.totalPuzzleCount = totalPuzzleCount;
-    }
-
-    public void incrementPuzzlesSolvedCount() {
-        setPuzzlesSolvedCount(getTotalPuzzleCount() + 1);
     }
 
     public boolean descriptionPrintedOnce (){

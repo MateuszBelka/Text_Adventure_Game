@@ -16,7 +16,7 @@ public class GameProgression {
     public static void checkLevelProgression() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        if (player.getCurrentLevel().getPuzzlesSolvedCount() == player.getCurrentLevel().getTotalPuzzleCount()) {
+        if (PuzzleProgression.getPuzzlesSolvedCount() == player.getCurrentLevel().getTotalPuzzleCount()) {
             progressLevel();
         }
     }
@@ -29,6 +29,7 @@ public class GameProgression {
         } else {
             player.setCurrentLevel(player.getCurrentLevel().getNextLevel());
             player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
+            PuzzleProgression.resetPuzzlesSolvedCount();
             NonStoryPrinter.print("Congratulations! You've made it to next step of your journey!");
         }
     }
@@ -36,13 +37,14 @@ public class GameProgression {
     public static boolean isGameCompleted() {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         Level currentLevel = player.getCurrentLevel();
-        return (currentLevel.getNextLevel() == null && currentLevel.getPuzzlesSolvedCount() == currentLevel.getTotalPuzzleCount());
+        return (currentLevel.getNextLevel() == null &&
+                PuzzleProgression.getPuzzlesSolvedCount() == currentLevel.getTotalPuzzleCount());
     }
 
     private static void printGameCompleted() {
         BattleSequence.setCurrentEnemy(null);
-//        NonStoryPrinter.print("You finished the game! Congratulations!");
-//        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+        NonStoryPrinter.print("You finished the game! Congratulations!");
+        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 
     public static void inputValidationAfterGameOver(String input, ActionEvent actionEvent) throws IOException {

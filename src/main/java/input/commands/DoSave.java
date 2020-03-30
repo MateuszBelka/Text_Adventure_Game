@@ -24,4 +24,6 @@ public class DoSave {
         Save.writeGameSave(path);
         NonStoryPrinter.print("Autosave completed!");
     }
+
+    private DoSave(){} //hiding the implicit public constructor
 }

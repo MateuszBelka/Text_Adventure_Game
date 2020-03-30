@@ -4,6 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -13,7 +14,7 @@ public class DoPull {
         item.setCanBePushed(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("pull") );
 
-        puzzleCompletedAndXPReward();
+        incrementPuzzleCountAndGiveXPReward();
     }
 
     public static void doPull (NPC npc){
@@ -21,15 +22,17 @@ public class DoPull {
         npc.setCanBePushed(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("npc") );
 
-        puzzleCompletedAndXPReward();
+        incrementPuzzleCountAndGiveXPReward();
     }
 
-    private static void puzzleCompletedAndXPReward(){
+    private static void incrementPuzzleCountAndGiveXPReward(){
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        PuzzleProgression.incrementPuzzlesSolvedCount();
 
         // Get XP reward from puzzle
         PlayerLevellingProgression.addXPReward();
     }
+
+    private DoPull(){} //hiding the implicit public constructor
 }

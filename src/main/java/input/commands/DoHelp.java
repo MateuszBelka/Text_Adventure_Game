@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DoHelp {
+    //todo: help should give not only a list of commands, but also how to use them.
     public static void doHelp () {
         NonStoryPrinter.print("The following commands are available to you:");
 
@@ -22,4 +23,6 @@ public class DoHelp {
 
         NonStoryPrinter.print(listOfCommandsOneLine.toString());
     }
+
+    private DoHelp(){} //hiding the implicit public constructor
 }

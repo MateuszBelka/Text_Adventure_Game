@@ -17,4 +17,6 @@ public class DoSmell {
     public static void doSmell(NPC npc) {
         NonStoryPrinter.print(npc.getDescriptionOfCommand("smell"));
     }
+
+    private DoSmell(){} //hiding the implicit public constructor
 }

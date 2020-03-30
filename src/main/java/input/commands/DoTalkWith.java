@@ -13,4 +13,5 @@ public class DoTalkWith {
         NonStoryPrinter.print(item.getDescriptionOfCommand("talk"));
     }
 
+    private DoTalkWith(){} //hiding the implicit public constructor
 }

@@ -15,6 +15,10 @@ public class Validation {
     //todo: deal with uppercase/lowercase input
 
     public static void validator(String input, ActionEvent actionEvent) throws IOException, URISyntaxException {
+        //Checks if player is dead of if game is completed. If not:
+        // parses input (we can refer to them as "words"),
+        // validates through wordvalidaor if the words contain a valid command, item, npc, or direction,
+        // and then sends the validated input to inputvalidator (where it will be validated for logic).
         if (PlayerHealthProgression.isDead() || GameProgression.isGameCompleted()) {
             GameProgression.inputValidationAfterGameOver(input, actionEvent);
         }

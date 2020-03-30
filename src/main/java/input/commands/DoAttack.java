@@ -27,4 +27,6 @@ public class DoAttack {
             CombatValidation.validator("attack");
         }
     }
+
+    private DoAttack(){} //hiding the implicit public constructor
 }

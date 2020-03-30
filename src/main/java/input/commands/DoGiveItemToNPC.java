@@ -4,6 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -15,9 +16,11 @@ public class DoGiveItemToNPC {
 
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        PuzzleProgression.incrementPuzzlesSolvedCount();
 
         // Get XP reward from puzzle
         PlayerLevellingProgression.addXPReward();
     }
+
+    private DoGiveItemToNPC(){} //hiding the implicit public constructor
 }

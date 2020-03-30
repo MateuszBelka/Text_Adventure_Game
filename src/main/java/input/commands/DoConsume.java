@@ -27,4 +27,6 @@ public class DoConsume {
         PlayerHungerProgression.eatFoodHungerIncrease();
         PlayerHealthProgression.eatFoodHealthIncrease();
     }
+
+    private DoConsume(){} //hiding the implicit public constructor
 }

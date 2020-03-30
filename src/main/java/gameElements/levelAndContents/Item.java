@@ -136,19 +136,13 @@ public class Item extends Entity {
         this.canBeUnlockedByItem = canBeUnlockedByItem;
     }
 
-    public void setCanBeBrokenWithItem(Boolean canBeBrokenWithItem) {
-        this.canBeBrokenWithItem = canBeBrokenWithItem;
-    }
+    public void setCanBeBrokenWithItem(Boolean canBeBrokenWithItem) { this.canBeBrokenWithItem = canBeBrokenWithItem; }
 
     public void setCanBeBrokenWithoutItem(Boolean canBeBrokenWithoutItem) {
         this.canBeBrokenWithoutItem = canBeBrokenWithoutItem;
     }
 
-    public void setCanBePickedUp(Boolean canBePickedUp) {
-        this.canBePickedUp = canBePickedUp;
-    }
+    public void setCanBePickedUp(Boolean canBePickedUp) { this.canBePickedUp = canBePickedUp; }
 
-    public void setCanBeDropped(Boolean canBeDropped) {
-        this.canBeDropped = canBeDropped;
-    }
+    public void setCanBeDropped(Boolean canBeDropped) { this.canBeDropped = canBeDropped; }
 }

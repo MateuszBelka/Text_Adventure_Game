@@ -13,4 +13,6 @@ public class DoPickUp {
         item.setCanBeDropped(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("pickup") );
     }
+
+    private DoPickUp(){} //hiding the implicit public constructor
 }

@@ -20,4 +20,6 @@ public class DoMove {
 
         BattleSequence.shouldPlayerEnterCombat();
     }
+
+    private DoMove(){} //hiding the implicit public constructor
 }

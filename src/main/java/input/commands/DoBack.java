@@ -11,4 +11,6 @@ public class DoBack {
         // Change player location to previous one
         InitOfClassesThroughSaveFile.getPlayerStats().setCurrentLocationToPreviousLocation();
     }
+
+    private DoBack(){} //hiding the implicit public constructor
 }

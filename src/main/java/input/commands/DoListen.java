@@ -33,4 +33,6 @@ public class DoListen {
         NonStoryPrinter.print("Listening with " + itemToListenWith.getName() + " to " + itemToListenTo.getName() + ":");
         NonStoryPrinter.print( itemToListenTo.getDescriptionOfCommand("listen") );
     }
+
+    private DoListen(){} //hiding the implicit public constructor
 }

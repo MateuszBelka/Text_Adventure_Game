@@ -29,4 +29,6 @@ public class DoLook {
         NonStoryPrinter.print(currentLocation.getDescription());
         NonStoryPrinter.print(listToPrint);
     }
+
+    private DoLook(){} //hiding the implicit public constructor
 }

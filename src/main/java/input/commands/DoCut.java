@@ -25,5 +25,5 @@ public class DoCut {
         NonStoryPrinter.print(itemToBeCut.getDescription());
     }
 
-
+    private DoCut(){} //hiding the implicit public constructor
 }

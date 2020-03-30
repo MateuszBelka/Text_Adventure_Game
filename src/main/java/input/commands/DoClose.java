@@ -4,6 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -46,9 +47,11 @@ public class DoClose {
     private static void close(){
         // Puzzle completed
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
-        player.getCurrentLevel().incrementPuzzlesSolvedCount();
+        PuzzleProgression.incrementPuzzlesSolvedCount();
 
         // Get XP reward from puzzle
         PlayerLevellingProgression.addXPReward();
     }
+
+    private DoClose(){} //hiding the implicit public constructor
 }

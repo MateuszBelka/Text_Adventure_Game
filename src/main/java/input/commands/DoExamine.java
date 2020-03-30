@@ -12,4 +12,6 @@ public class DoExamine {
     public static void doExamine (NPC npc){
         NonStoryPrinter.print(npc.getDescription());
     }
+
+    private DoExamine(){} //hiding the implicit public constructor
 }

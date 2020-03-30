@@ -23,4 +23,6 @@ public class DoGetInventory {
             NonStoryPrinter.print(inventoryList);
         }
     }
+
+    private DoGetInventory(){} //hiding the implicit public constructor
 }

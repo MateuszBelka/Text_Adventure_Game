@@ -16,4 +16,6 @@ public class DoUnlock {
 
         NonStoryPrinter.print(itemToUnlock.getDescriptionOfCommand("unlock") );
     }
+
+    private DoUnlock(){} //hiding the implicit public constructor
 }
