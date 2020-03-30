@@ -16,7 +16,9 @@ public class PlayerStats {
 
     private transient Inventory inventory;
 
-    public ArrayList<Location> listOfMovedLocations = new ArrayList<>();
+    private transient ArrayList<Location> listOfMovedLocations = new ArrayList<>();
+    private ArrayList<Integer> listOfMovedLocationsIDs = new ArrayList<>();
+
     private int damage = 15;
     private int maximumXP = 100;
     private int maxHealth = 100;
@@ -26,12 +28,6 @@ public class PlayerStats {
     private int foodHungerIncrease = 15;
     private int foodHealthIncrease = 10;
 
-    /*
-     * Dev Comment from Matt:
-     * Imo the only edge case should be int size but that goes for everything.
-     * Not sure what is the purpose of this variable.
-     * If somebody wants to be level 100 000, why not?
-     */
     private int maxPlayerLevel = 100;
     private int hungerDamage = 20;
     private int currentXP = 0;
@@ -39,6 +35,12 @@ public class PlayerStats {
     private int playerLevel = 1;
 
     //Get Methods
+    public ArrayList<Location> getListOfMovedLocations() {
+        return listOfMovedLocations;
+    }
+    public ArrayList<Integer> getListOfMovedLocationsIDs() {
+        return listOfMovedLocationsIDs;
+    }
     public Location getCurrentLocation() {
         return currentLocation;
     }

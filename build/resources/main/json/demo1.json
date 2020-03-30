@@ -13,6 +13,8 @@
       "canBeCutWith": false,
       "canBeRead": false,
       "canBreak": false,
+      "npcToListenWithItemToID": 0,
+      "itemToBreakWithID": 0,
       "id": 1,
       "name": "item0",
       "description": "temporary description for item0",
@@ -21,7 +23,9 @@
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
+      "itemToBeUsedOnID": 0,
       "canBeUsedByItem": false,
+      "itemToBeUsedByID": 0,
       "canBeAttacked": false,
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
@@ -33,8 +37,16 @@
       "canBeUsedOnNPC": false,
       "canBePushed": false,
       "canBePulled": false,
+      "itemToCutWithID": 0,
       "canBeCut": false,
-      "canBeUsed": false
+      "canBeUsed": false,
+      "npcToGiveItemToID": 0,
+      "itemToListenWithID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 0,
+      "itemToOpenWithID": 0,
+      "itemToBeOpenedID": 0,
+      "itemToCloseWithID": 0
     },
     {
       "canBeBrokenWithItem": false,
@@ -49,6 +61,8 @@
       "canBeCutWith": false,
       "canBeRead": false,
       "canBreak": false,
+      "npcToListenWithItemToID": 0,
+      "itemToBreakWithID": 0,
       "id": 2,
       "name": "item1",
       "description": "temporary description for item1",
@@ -57,7 +71,9 @@
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
+      "itemToBeUsedOnID": 0,
       "canBeUsedByItem": false,
+      "itemToBeUsedByID": 0,
       "canBeAttacked": false,
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
@@ -69,8 +85,16 @@
       "canBeUsedOnNPC": false,
       "canBePushed": false,
       "canBePulled": false,
+      "itemToCutWithID": 0,
       "canBeCut": false,
-      "canBeUsed": false
+      "canBeUsed": false,
+      "npcToGiveItemToID": 0,
+      "itemToListenWithID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 0,
+      "itemToOpenWithID": 0,
+      "itemToBeOpenedID": 0,
+      "itemToCloseWithID": 0
     }
   ],
   "levels": [
@@ -81,7 +105,7 @@
       "firstTimeEnteringLevel": true,
       "startLocationID": 1,
       "totalPuzzleCount": 5,
-      "puzzlesSolvedCount": 0
+      "nextLevelID": 0
     }
   ],
   "locations": [
@@ -120,6 +144,7 @@
   "friendlyNPCs": [
     {
       "canAttack": false,
+      "itemToGiveID": 0,
       "percentChanceToShowUpAtLocationSwitch": 0,
       "damage": 0,
       "currentHealth": 0,
@@ -130,7 +155,9 @@
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
+      "itemToBeUsedOnID": 0,
       "canBeUsedByItem": false,
+      "itemToBeUsedByID": 0,
       "canBeAttacked": false,
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
@@ -142,13 +169,22 @@
       "canBeUsedOnNPC": false,
       "canBePushed": false,
       "canBePulled": false,
+      "itemToCutWithID": 0,
       "canBeCut": false,
-      "canBeUsed": false
+      "canBeUsed": false,
+      "npcToGiveItemToID": 0,
+      "itemToListenWithID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 0,
+      "itemToOpenWithID": 0,
+      "itemToBeOpenedID": 0,
+      "itemToCloseWithID": 0
     }
   ],
   "enemyNPCs": [
     {
       "canAttack": true,
+      "itemToGiveID": 0,
       "percentChanceToShowUpAtLocationSwitch": 100,
       "damage": 5,
       "currentHealth": 50,
@@ -158,7 +194,9 @@
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
       "canBeUsedOnItem": false,
+      "itemToBeUsedOnID": 0,
       "canBeUsedByItem": false,
+      "itemToBeUsedByID": 0,
       "canBeAttacked": true,
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
@@ -170,21 +208,29 @@
       "canBeUsedOnNPC": false,
       "canBePushed": false,
       "canBePulled": false,
+      "itemToCutWithID": 0,
       "canBeCut": false,
-      "canBeUsed": false
+      "canBeUsed": false,
+      "npcToGiveItemToID": 0,
+      "itemToListenWithID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 0,
+      "itemToOpenWithID": 0,
+      "itemToBeOpenedID": 0,
+      "itemToCloseWithID": 0
     }
   ],
   "inventory": {},
   "playerStats": {
     "currentLocationID": 1,
     "currentLevelID": 1,
-    "listOfMovedLocations": [],
-    "damage": 20,
+    "listOfMovedLocationsIDs": [],
+    "damage": 15,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
     "currentHunger": 100,
-    "hungerDrain": 10,
+    "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
