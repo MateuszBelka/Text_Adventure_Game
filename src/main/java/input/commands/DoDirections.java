@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class DoDirections {
+    //todo: rename class and method to "doGetDirections", adjust in Handlerof1word
     public static void doDirections(){
         //prints the possible directions to go to, from current location
 
