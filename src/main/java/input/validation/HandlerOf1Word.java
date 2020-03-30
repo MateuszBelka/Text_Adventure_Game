@@ -18,6 +18,7 @@ import static input.commands.DoConsume.doConsume;
 import static input.commands.DoDirections.doDirections;
 import static input.commands.DoExit.doExit;
 import static input.commands.DoGetInventory.doInventoryLookUp;
+import static input.commands.DoGoToMenu.doGoToMenu;
 import static input.commands.DoListen.doListen;
 import static input.commands.DoLoad.doLoad;
 import static input.commands.DoLook.doLook;
@@ -66,6 +67,9 @@ public class HandlerOf1Word {
     private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
 
         switch (command) {
+            case "MENU":
+                doGoToMenu();
+                break;
             case "DIRECTIONS":
                 doDirections();
                 break;
