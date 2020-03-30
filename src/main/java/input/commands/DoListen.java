@@ -1,7 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 

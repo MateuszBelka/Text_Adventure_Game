@@ -1,8 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
-import gameElements.player.PlayerHungerProgression;
+import gameElements.levelAndContents.npc.NPC;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;

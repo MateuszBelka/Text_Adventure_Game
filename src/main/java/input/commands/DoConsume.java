@@ -1,7 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
-import gameElements.levelAndContents.NPC;
+import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
 import initialisation.InitOfClassesThroughSaveFile;
