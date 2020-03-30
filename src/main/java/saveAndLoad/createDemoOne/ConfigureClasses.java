@@ -11,7 +11,6 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//todo: update Init, Config, Save & Load in accordance to chance to gameElements
 public class ConfigureClasses {
     public static void configureEverything() {
         //File Dependent
