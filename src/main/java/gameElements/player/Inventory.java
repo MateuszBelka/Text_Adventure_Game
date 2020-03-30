@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Inventory {
 
     private transient ArrayList<Item> listOfItems = new ArrayList<>();
-    private ArrayList<Integer> listOfItemsIDs;
+    private ArrayList<Integer> listOfItemsIDs = new ArrayList<>();
 
     //Get Methods
     public ArrayList<Item> getListOfItems() {return listOfItems;}
