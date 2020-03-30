@@ -6,9 +6,7 @@ public class DoHelp {
     public static void doHelp () {
         //prints an overview of the commands and the syntax to use them.
 
-        String helpText = "";
-
-         helpText = "_____________________________________________________________\n" +
+         String helpText = "_____________________________________________________________\n" +
                 "\nOverview of commands and syntax :\n" +
                 "[attack] [item]\n" +
                 "[attack] [npc]\n" +
