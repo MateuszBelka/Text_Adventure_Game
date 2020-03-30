@@ -3,10 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerHungerProgression;
-import gameElements.player.PlayerLevellingProgression;
-import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
-import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
 public class DoOpen {
@@ -16,10 +13,7 @@ public class DoOpen {
         item.setCanBeClosed(true);
         NonStoryPrinter.print( item.getDescriptionOfCommand("open") );
 
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     public static void doOpen (NPC npc){
@@ -28,10 +22,7 @@ public class DoOpen {
         npc.setCanBeClosed(true);
         NonStoryPrinter.print( npc.getDescriptionOfCommand("open") );
 
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     public static void doOpenItemWithItem (Item itemToOpen, Item itemToOpenWith){
@@ -41,10 +32,7 @@ public class DoOpen {
         NonStoryPrinter.print("You have opened " + itemToOpen.getName() + " using " + itemToOpenWith.getName() + ":");
         NonStoryPrinter.print( itemToOpen.getDescriptionOfCommand("open") );
 
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     private DoOpen(){} //hiding the implicit public constructor

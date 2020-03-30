@@ -3,8 +3,6 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
 import gameElements.player.PlayerHungerProgression;
-import gameElements.player.PlayerLevellingProgression;
-import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
@@ -16,10 +14,7 @@ public class DoGiveItemToNPC {
         NonStoryPrinter.print(npc.getDescriptionOfCommand("give"));
 
         // Puzzle completed
-        PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
-
-        // Reduces player hunger as a result of conducting an action.
-        PlayerHungerProgression.decreaseCurrentHunger();
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     private DoGiveItemToNPC(){} //hiding the implicit public constructor

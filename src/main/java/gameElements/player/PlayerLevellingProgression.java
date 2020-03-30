@@ -3,9 +3,7 @@ package gameElements.player;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
-//todo: increaseCurrentXP on puzzle completion
 public class PlayerLevellingProgression {
-
 
     public static void addXPReward() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();

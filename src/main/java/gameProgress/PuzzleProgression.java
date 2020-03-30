@@ -1,5 +1,6 @@
 package gameProgress;
 
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
@@ -20,12 +21,15 @@ public class PuzzleProgression {
     }
 
 
-    public static void incrementPuzzleCountAndGiveXPReward(){
+    public static void incrementPuzzleCountGiveXPDrainHunger(){
         // Puzzle completed
         incrementPuzzlesSolvedCount();
 
         // Get XP reward from puzzle
         PlayerLevellingProgression.addXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
 }
