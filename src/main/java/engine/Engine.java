@@ -4,7 +4,6 @@ import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
 import gameProgress.GameProgression;
-import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.commands.DoSave;
@@ -14,7 +13,7 @@ import javafx.scene.control.TextArea;
 import output.NonStoryPrinter;
 import output.StoryTextPrinter;
 import output.UserInputPrinter;
-import output.combat.CombatPrinter;
+import output.CombatPrinter;
 import ui.controllers.Adventure;
 
 import java.io.IOException;

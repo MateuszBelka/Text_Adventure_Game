@@ -1,4 +1,4 @@
-package output.combat;
+package output;
 
 import gameElements.battle.BattleSequence;
 import gameElements.levelAndContents.NPC;
