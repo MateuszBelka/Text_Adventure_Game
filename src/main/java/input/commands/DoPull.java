@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import gameProgress.PuzzleProgression;
@@ -15,6 +16,9 @@ public class DoPull {
         NonStoryPrinter.print( item.getDescriptionOfCommand("pull") );
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doPull (NPC npc){
@@ -23,6 +27,9 @@ public class DoPull {
         NonStoryPrinter.print( npc.getDescriptionOfCommand("npc") );
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     private DoPull(){} //hiding the implicit public constructor

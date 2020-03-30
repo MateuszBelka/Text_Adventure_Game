@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.NPC;
+import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameProgress.PuzzleProgression;
 import output.NonStoryPrinter;
@@ -12,6 +13,9 @@ public class DoUse {
         NonStoryPrinter.print("You have used " + item.getName() + ".");
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doUse(NPC npc) {
@@ -19,6 +23,9 @@ public class DoUse {
         NonStoryPrinter.print("You have used " + npc.getName() + ".");
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doUseItemOnNPC(Item item, NPC npc) {
@@ -26,6 +33,9 @@ public class DoUse {
         NonStoryPrinter.print("You have used " + item.getName() + " on " + npc.getName() + ".");
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     public static void doUseItemOnItem(Item item1, Item item2) {
@@ -33,6 +43,9 @@ public class DoUse {
         NonStoryPrinter.print("You have used " + item1.getName() + " on " + item2.getName() + ".");
 
         PuzzleProgression.incrementPuzzleCountAndGiveXPReward();
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
     }
 
     private DoUse(){} //hiding the implicit public constructor

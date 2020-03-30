@@ -1,6 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
+import gameElements.player.PlayerHungerProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
@@ -11,6 +12,9 @@ public class DoUnlock {
         itemToUnlock.setCanBeUnlockedByItem(false);
         itemToUnlock.setItemToUnlockWith(null);
         itemToUnlockWith.setItemToUnlock(null);
+
+        // Reduces player hunger as a result of conducting an action.
+        PlayerHungerProgression.decreaseCurrentHunger();
 
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToUnlockWith);
 

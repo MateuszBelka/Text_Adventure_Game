@@ -1,6 +1,7 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
+import gameElements.player.PlayerHungerProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.NonStoryPrinter;
 
