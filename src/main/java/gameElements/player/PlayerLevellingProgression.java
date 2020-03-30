@@ -6,21 +6,13 @@ import output.NonStoryPrinter;
 //todo: increaseCurrentXP on puzzle completion
 public class PlayerLevellingProgression {
 
-    private static int xpReward = 10;
-
-    public static int getXpReward() {
-        return xpReward;
-    }
-    public static void setXpReward(int xpReward) {
-        PlayerLevellingProgression.xpReward = xpReward;
-    }
 
     public static void addXPReward() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
 
-        final int newCurrentXP = playerStats.getCurrentXP() + getXpReward();
+        final int newCurrentXP = playerStats.getCurrentXP() + playerStats.getXpReward();
 
-        NonStoryPrinter.print("You receive " + getXpReward() + " XP!");
+        NonStoryPrinter.print("You receive " + playerStats.getXpReward() + " XP!");
         if (playerStats.getMaximumXP() > newCurrentXP) {
             playerStats.setCurrentXP(newCurrentXP);
         } else {
@@ -62,7 +54,8 @@ public class PlayerLevellingProgression {
     }
 
     private static void increaseXPReward() {
-        setXpReward((int) Math.round(getXpReward() * 1.1));
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        playerStats.setXpReward((int) Math.round(playerStats.getXpReward() * 1.1));
     }
 
     private static void increaseMaximumXP() {

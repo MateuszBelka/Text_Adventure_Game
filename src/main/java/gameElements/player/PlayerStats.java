@@ -33,8 +33,13 @@ public class PlayerStats {
     private int currentXP = 0;
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
+    private int xpReward = 10;
+
 
     //Get Methods
+    public int getXpReward() {
+        return xpReward;
+    }
     public ArrayList<Location> getListOfMovedLocations() {
         return listOfMovedLocations;
     }
@@ -129,6 +134,9 @@ public class PlayerStats {
     }
     public void setMaxPlayerLevel(int maxPlayerLevel) {
         this.maxPlayerLevel = maxPlayerLevel;
+    }
+    public void setXpReward(int xpReward) {
+        this.xpReward = xpReward;
     }
 
     public void addLocationToMovedLocationsList(Location location) { listOfMovedLocations.add(location); }
