@@ -26,5 +26,6 @@ public enum Commands {
     UNLOCK,
     JUMP,
     HELP,
-    BACK, BACKTRACK
+    BACK, BACKTRACK,
+    DIRECTIONS
 }

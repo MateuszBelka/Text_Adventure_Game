@@ -15,6 +15,7 @@ import java.util.HashMap;
 import static input.commands.DoAttack.doAttack;
 import static input.commands.DoBack.doBack;
 import static input.commands.DoConsume.doConsume;
+import static input.commands.DoDirections.doDirections;
 import static input.commands.DoExit.doExit;
 import static input.commands.DoGetInventory.doInventoryLookUp;
 import static input.commands.DoListen.doListen;
@@ -65,6 +66,9 @@ public class HandlerOf1Word {
     private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
 
         switch (command) {
+            case "DIRECTIONS":
+                doDirections();
+                break;
             case "SMELL":
                 doSmell();
                 break;
