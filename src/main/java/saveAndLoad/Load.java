@@ -294,6 +294,14 @@ public class Load {
                 if (item.getItemToCloseWithID() == itemToConnect.getId()) {
                     item.setItemToCloseWith(itemToConnect);
                 }
+                if (!item.getItemsToDropOnBreakIDs().isEmpty()) {
+                    for (int itemToDropOnBreakID : item.getItemsToDropOnBreakIDs()) {
+                        if (itemToDropOnBreakID == itemToConnect.getId()) {
+                            item.getItemsToDropOnBreak().add(itemToConnect);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

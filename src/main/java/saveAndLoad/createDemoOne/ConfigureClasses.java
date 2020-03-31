@@ -27,16 +27,23 @@ public class ConfigureClasses {
     public static void configureItems() {
         Item item0 = InitOfClassesThroughSaveFile.getItems().get(0);
         Item item1 = InitOfClassesThroughSaveFile.getItems().get(1);
+        Item item2 = InitOfClassesThroughSaveFile.getItems().get(2);
 
         item0.setName("item0");
         item0.setDescription("temporary description for item0");
         item0.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item0");
         item0.setCanBePickedUp(true);
+        item0.setCanBreak(true);
+        item0.setCanBeBrokenWithoutItem(true);
+        item0.getItemsToDropOnBreak().add(item2);
 
         item1.setName("item1");
         item1.setDescription("temporary description for item1");
         item1.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item1");
         item1.setCanBePickedUp(true);
+
+        item2.setName("item2");
+        item2.setCanBePickedUp(true);
     }
 
     public static void configureLevels() {

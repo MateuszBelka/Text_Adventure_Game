@@ -2,9 +2,9 @@
   "items": [
     {
       "canBeBrokenWithItem": false,
-      "canBeBrokenWithoutItem": false,
-      "canBePickedUp": false,
-      "canBeDropped": true,
+      "canBeBrokenWithoutItem": true,
+      "canBePickedUp": true,
+      "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeTurnedOn": false,
@@ -12,9 +12,13 @@
       "canBeGiven": false,
       "canBeCutWith": false,
       "canBeRead": false,
-      "canBreak": false,
+      "canBreak": true,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 0,
+      "itemsToDropOnBreakIDs": [
+        3,
+        3
+      ],
       "id": 1,
       "name": "item0",
       "description": "temporary description for item0",
@@ -63,10 +67,58 @@
       "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 0,
+      "itemsToDropOnBreakIDs": [],
       "id": 2,
       "name": "item1",
       "description": "temporary description for item1",
       "descriptionAfterPuzzleComplete": "temporary description for puzzle complete for item1",
+      "descriptionAfterCommand": {},
+      "firstTimeEnteringLocation": true,
+      "canBeConsumed": false,
+      "canBeUsedOnItem": false,
+      "itemToBeUsedOnID": 0,
+      "canBeUsedByItem": false,
+      "itemToBeUsedByID": 0,
+      "canBeAttacked": false,
+      "canBeTalkedWith": false,
+      "canBeListenedTo": false,
+      "canBeSmelled": false,
+      "canBeOpened": false,
+      "canBeClosed": false,
+      "canBeExamined": false,
+      "needsItem": false,
+      "canBeUsedOnNPC": false,
+      "canBePushed": false,
+      "canBePulled": false,
+      "itemToCutWithID": 0,
+      "canBeCut": false,
+      "canBeUsed": false,
+      "npcToGiveItemToID": 0,
+      "itemToListenWithID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 0,
+      "itemToOpenWithID": 0,
+      "itemToBeOpenedID": 0,
+      "itemToCloseWithID": 0
+    },
+    {
+      "canBeBrokenWithItem": false,
+      "canBeBrokenWithoutItem": false,
+      "canBePickedUp": true,
+      "canBeDropped": false,
+      "canBeUnlockedByItem": false,
+      "canBeListenedWith": false,
+      "canBeTurnedOn": false,
+      "canBeTurnedOff": false,
+      "canBeGiven": false,
+      "canBeCutWith": false,
+      "canBeRead": false,
+      "canBreak": false,
+      "npcToListenWithItemToID": 0,
+      "itemToBreakWithID": 0,
+      "itemsToDropOnBreakIDs": [],
+      "id": 3,
+      "name": "item2",
       "descriptionAfterCommand": {},
       "firstTimeEnteringLocation": true,
       "canBeConsumed": false,
@@ -112,7 +164,8 @@
     {
       "id": 1,
       "listOfItemsIDs": [
-        2
+        2,
+        3
       ],
       "listOfFriendlyNPCsIDs": [
         1
@@ -191,7 +244,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 5,
-        "currentHealth": 35,
+        "currentHealth": 5,
         "id": 1,
         "name": "Skeleton",
         "descriptionAfterCommand": {},
@@ -226,9 +279,7 @@
     }
   ],
   "inventory": {
-    "listOfItemsIDs": [
-      1
-    ]
+    "listOfItemsIDs": []
   },
   "playerStats": {
     "currentLocationID": 2,
@@ -240,16 +291,16 @@
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
-    "currentHunger": 90,
+    "currentHunger": 75,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 0,
-    "currentHealth": 95,
+    "currentXP": 10,
+    "currentHealth": 85,
     "playerLevel": 1,
     "xpReward": 10,
-    "puzzlesSolvedCount": 0
+    "puzzlesSolvedCount": 1
   }
 }

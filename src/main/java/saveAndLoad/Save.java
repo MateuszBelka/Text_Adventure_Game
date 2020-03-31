@@ -224,6 +224,14 @@ public class Save {
                 if (item.getItemToCloseWith() != null && item.getItemToCloseWith().getId() == itemToConnect.getId()) {
                     item.setItemToCloseWithID(itemToConnect.getId());
                 }
+                if (!item.getItemsToDropOnBreak().isEmpty()) {
+                    for (Item itemsToDropOnBreak : item.getItemsToDropOnBreak()) {
+                        if (itemsToDropOnBreak.getId() == itemToConnect.getId()) {
+                            item.getItemsToDropOnBreakIDs().add(itemToConnect.getId());
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

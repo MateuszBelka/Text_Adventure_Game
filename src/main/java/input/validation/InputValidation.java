@@ -62,7 +62,7 @@ public class InputValidation {
             itemName = getKeyInValidInputList(validInputList, "item");
             if (itemName.contains(",")){
                 StringBuilder stringBuilder = new StringBuilder(itemName);
-                int index= stringBuilder.indexOf(",");
+                int index = stringBuilder.indexOf(",");
                 itemName = stringBuilder.substring(0, index);
             }
         }

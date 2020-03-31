@@ -28,6 +28,16 @@ public class DoBreak {
 
         // Removes item from location.
         InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().deleteItemInList(item);
+
+        if (!item.getItemsToDropOnBreak().isEmpty()) {
+            for (Item newlyAddedItem : item.getItemsToDropOnBreak()) {
+                InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems().add(newlyAddedItem);
+                NonStoryPrinter.print(newlyAddedItem.getName() + " was found within " + item.getName() + ".");
+                if (newlyAddedItem.getCanBePickedUp()) {
+                    NonStoryPrinter.print(newlyAddedItem.getName() + " can now be picked up!");
+                }
+            }
+        }
     }
 
     private static void printText(Item item){
