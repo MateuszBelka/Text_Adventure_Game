@@ -24,11 +24,11 @@ public class InitClasses {
     }
 
     public static PlayerStats initPlayer() {
-        return new PlayerStats();
+        return PlayerStats.getInstance();
     }
 
     public static Inventory initInventory() {
-        return new Inventory();
+        return Inventory.getInstance();
     }
 
     public static ArrayList<Level> initLevels() {
