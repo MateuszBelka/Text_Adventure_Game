@@ -27,15 +27,15 @@
                 <Region HBox.hgrow="ALWAYS" />
                 <VBox minHeight="-Infinity" minWidth="-Infinity" spacing="50.0" HBox.hgrow="NEVER">
                     <children>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGameButtonClicked" prefHeight="60.0" prefWidth="200.0" text="New Game">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#newGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="New Game">
                             <font>
                                 <Font size="30.0" />
                             </font></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadGameButtonClicked" prefHeight="60.0" prefWidth="200.0" text="Load Game">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Load Game">
                             <font>
                                 <Font size="30.0" />
                             </font></Button>
-                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="60.0" prefWidth="200.0" text="Quit">
+                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#quitButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Quit">
                             <font>
                                 <Font size="30.0" />
                             </font></Button>
