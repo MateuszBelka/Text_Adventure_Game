@@ -8,6 +8,18 @@ import output.NonStoryPrinter;
 import java.util.ArrayList;
 
 public class PlayerStats {
+
+    private static PlayerStats instance;
+
+    private PlayerStats(){};
+
+    public static PlayerStats getInstance() {
+        if (instance == null) {
+            instance = new PlayerStats();
+        }
+        return instance;
+    }
+
     private transient Location currentLocation;
     private int currentLocationID;
 

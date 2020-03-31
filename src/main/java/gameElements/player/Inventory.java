@@ -6,6 +6,18 @@ import java.util.ArrayList;
 
 public class Inventory {
 
+    private static Inventory instance;
+
+    private Inventory(){};
+
+    public static Inventory getInstance() {
+        if (instance == null) {
+            instance = new Inventory();
+        }
+        return instance;
+    }
+
+
     private transient ArrayList<Item> listOfItems = new ArrayList<>();
     private ArrayList<Integer> listOfItemsIDs = new ArrayList<>();
 
