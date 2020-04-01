@@ -53,8 +53,6 @@ public class Engine {
         // Forward user input to terminal
         UserInputPrinter.printUserInput(input);
 
-        // Check if game should be auto-saved
-        autoSaveCheck();
         /*
          * We analyse and process information differently when player is in combat
          * As in different inputs are allowed and we print different information
@@ -69,6 +67,9 @@ public class Engine {
             // Output Printing
             CombatPrinter.printCombat();
         } else {
+            // Check if game should be auto-saved
+            autoSaveCheck();
+
             boolean isGameCompletedBeforeUserInput = GameProgression.isGameCompleted();
 
             // Update Game through Input Validation
