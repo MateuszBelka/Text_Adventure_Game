@@ -2,9 +2,8 @@ package input.commands;
 
 import gameElements.levelAndContents.Location;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -24,6 +23,6 @@ public class DoGetDirections {
         }
         directionsToPrint = stringBuilder.toString();
 
-        NonStoryPrinter.print(directionsToPrint);
+        InteractionPrinter.print(directionsToPrint);
     }
 }

@@ -7,7 +7,7 @@ import initialisation.InitOfClassesThroughSaveFile;
 
 import java.util.ArrayList;
 
-public class StoryTextGetter {
+public class DescriptionGetter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
     public static ArrayList<String> compileStoryText(){
@@ -28,6 +28,7 @@ public class StoryTextGetter {
         Boolean firstPrintOfLevel = playerStats.getCurrentLevel().descriptionPrintedOnce();
 
         if (firstPrintOfLevel) {
+            listToPrint.add("[" + playerStats.getCurrentLevel().getName() + "]");
             listToPrint.add(playerStats.getCurrentLevel().getDescription());
         }
     }
@@ -39,6 +40,7 @@ public class StoryTextGetter {
         Boolean firstPrintOfLocation = playerStats.getCurrentLocation().descriptionPrintedOnce();
 
         if (firstPrintOfLocation) {
+            listToPrint.add("[" + playerStats.getCurrentLocation().getName() + "]");
             listToPrint.add(playerStats.getCurrentLocation().getDescription());
             addListOfEntitiesInLocationIfFirstPrint();
         }
@@ -46,34 +48,17 @@ public class StoryTextGetter {
     private static void addListOfEntitiesInLocationIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         //Adds list of items and npcs in the location, to interact with, into the listToPrint.
-        if (playerStats.getCurrentLocation().getListOfItems().size() > 0 || playerStats.getCurrentLocation().getListOfFriendlyNPCs().size() > 0) {
-            listToPrint.add(addListOfItems() + addListOfNPCs());
+        if (playerStats.getCurrentLocation().getListOfItems().size() > 0) {
+            for (Item item : playerStats.getCurrentLocation().getListOfItems()) {
+                listToPrint.add("[" + item.getName() + "]");
+                listToPrint.add(item.getDescription());
+            }
         }
-    }
-
-    private static String addListOfItems(){
-        //Adds list of items from the location to listToPrint.
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        StringBuilder compiledListOfItems = new StringBuilder();
-        ArrayList<Item> listOfItems = playerStats.getCurrentLocation().getListOfItems();
-
-        for (int i = 0; i < listOfItems.size(); i++){
-            String itemToAdd = "[" + listOfItems.get(i).getName() + "] ";
-            compiledListOfItems.append(itemToAdd);
+        if (playerStats.getCurrentLocation().getListOfFriendlyNPCs().size() > 0) {
+            for (NPC npc : playerStats.getCurrentLocation().getListOfFriendlyNPCs()) {
+                listToPrint.add("[" + npc.getName() + "]");
+                listToPrint.add(npc.getDescription());
+            }
         }
-        return compiledListOfItems.toString();
-    }
-
-    private static String addListOfNPCs(){
-        //Adds list of npcs from the location to listToPrint.
-        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-        StringBuilder compiledListOfNPCs = new StringBuilder();
-        ArrayList<NPC> listOfNPCs = playerStats.getCurrentLocation().getListOfFriendlyNPCs();
-
-        for (int i = 0; i < listOfNPCs.size(); i++){
-            String itemToAdd = "<" + listOfNPCs.get(i).getName() + "> ";
-            compiledListOfNPCs.append(itemToAdd);
-        }
-        return compiledListOfNPCs.toString();
     }
 }

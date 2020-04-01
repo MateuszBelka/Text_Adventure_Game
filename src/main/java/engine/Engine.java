@@ -10,8 +10,8 @@ import input.commands.DoSave;
 import input.validation.Validation;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
-import output.NonStoryPrinter;
-import output.StoryTextPrinter;
+import output.InteractionPrinter;
+import output.DescriptionPrinter;
 import output.UserInputPrinter;
 import output.CombatPrinter;
 import ui.controllers.Adventure;
@@ -37,8 +37,8 @@ public class Engine {
     public static void initializeGameScene(TextArea terminal) {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
 
-        StoryTextPrinter.printStory(terminal);
-        NonStoryPrinter.printToTerminal();
+        DescriptionPrinter.printStory(terminal);
+        InteractionPrinter.printToTerminal();
         adventure.updateUIElements();
     }
 
@@ -78,7 +78,7 @@ public class Engine {
             if (!isGameCompletedBeforeUserInput) GameProgression.checkLevelProgression();
 
             // Output Printing
-            StoryTextPrinter.printStory(terminal);
+            DescriptionPrinter.printStory(terminal);
         }
 
         // Check hunger level and decrease health if necessary
@@ -88,7 +88,7 @@ public class Engine {
         if (PlayerHealthProgression.isDead()) PlayerHealthProgression.printDeath();
 
         // Print unique text (non-Story and non-Combat)
-        NonStoryPrinter.printToTerminal();
+        InteractionPrinter.printToTerminal();
 
 
         // Update UI elements with new information

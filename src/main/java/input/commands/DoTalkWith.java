@@ -2,15 +2,15 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoTalkWith {
     public static void  doTalkWith(NPC npc) {
-        NonStoryPrinter.print(npc.getDescriptionOfCommand("talk"));
+        InteractionPrinter.print(npc.getDescriptionOfCommand("talk"));
     }
 
     public static void  doTalkWith(Item item) {
-        NonStoryPrinter.print(item.getDescriptionOfCommand("talk"));
+        InteractionPrinter.print(item.getDescriptionOfCommand("talk"));
     }
 
     private DoTalkWith(){} //hiding the implicit public constructor

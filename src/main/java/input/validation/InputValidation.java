@@ -3,7 +3,7 @@ package input.validation;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import javafx.event.ActionEvent;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -23,7 +23,7 @@ public class InputValidation {
 
         switch (listSize){
             case 0:
-                NonStoryPrinter.print("No valid input detected.");
+                InteractionPrinter.print("No valid input detected.");
                 break;
             case 1:
                 validateAndHandle1Word(validInputList, actionEvent);
@@ -35,7 +35,7 @@ public class InputValidation {
                 validateAndHandle3Words(validInputList);
                 break;
             default:
-                NonStoryPrinter.print("Try using less words.");
+                InteractionPrinter.print("Try using less words.");
         }
     }
 

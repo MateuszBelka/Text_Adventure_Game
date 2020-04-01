@@ -1,6 +1,6 @@
 package input.commands;
 
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoHelp {
     public static void doHelp () {
@@ -66,7 +66,7 @@ public class DoHelp {
                 "[direction] : moves to direction\n" +
                 "_____________________________________________________________\n";
 
-        NonStoryPrinter.print(helpText);
+        InteractionPrinter.print(helpText);
     }
 
     private DoHelp(){} //hiding the implicit public constructor

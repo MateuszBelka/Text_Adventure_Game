@@ -1,6 +1,6 @@
 package input.commands;
 
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 import saveAndLoad.Save;
 
 import java.io.File;
@@ -9,12 +9,12 @@ import java.net.URISyntaxException;
 public class DoSave {
     public static void doSave() throws URISyntaxException {
         saveLogic("save0");
-        NonStoryPrinter.print("Game has been successfully saved!");
+        InteractionPrinter.print("Game has been successfully saved!");
     }
 
     public static void doAutoSave() throws URISyntaxException {
         saveLogic("autosave");
-        NonStoryPrinter.print("Autosave completed!");
+        InteractionPrinter.print("Autosave completed!");
     }
 
     private static void saveLogic(String jsonFileName) throws URISyntaxException {

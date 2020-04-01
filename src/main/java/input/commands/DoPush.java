@@ -3,13 +3,13 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import gameProgress.PuzzleProgression;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoPush {
     public static void doPush(Item item) {
         item.setCanBePushed(false);
         item.setCanBePulled(true);
-        NonStoryPrinter.print( item.getDescriptionOfCommand("push") );
+        InteractionPrinter.print( item.getDescriptionOfCommand("push") );
 
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
@@ -17,7 +17,7 @@ public class DoPush {
     public static void doPush(NPC npc){
         npc.setCanBePushed(false);
         npc.setCanBePulled(true);
-        NonStoryPrinter.print( npc.getDescriptionOfCommand("push")  );
+        InteractionPrinter.print( npc.getDescriptionOfCommand("push")  );
 
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }

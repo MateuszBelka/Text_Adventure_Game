@@ -1,10 +1,9 @@
 package input.commands;
 
 import gameElements.levelAndContents.Item;
-import gameElements.player.PlayerHungerProgression;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoBreak {
     public static void doBreakWithoutItem(Item item) {
@@ -32,9 +31,9 @@ public class DoBreak {
         if (!item.getItemsToDropOnBreak().isEmpty()) {
             for (Item newlyAddedItem : item.getItemsToDropOnBreak()) {
                 InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems().add(newlyAddedItem);
-                NonStoryPrinter.print(newlyAddedItem.getName() + " was found within " + item.getName() + ".");
+                InteractionPrinter.print(newlyAddedItem.getName() + " was found within " + item.getName() + ".");
                 if (newlyAddedItem.getCanBePickedUp()) {
-                    NonStoryPrinter.print(newlyAddedItem.getName() + " can now be picked up!");
+                    InteractionPrinter.print(newlyAddedItem.getName() + " can now be picked up!");
                 }
             }
         }
@@ -43,7 +42,7 @@ public class DoBreak {
     private static void printText(Item item){
         // Prints text for when item is broken.
         String description = item.getDescriptionOfCommand("break");
-        NonStoryPrinter.print(description);
+        InteractionPrinter.print(description);
     }
 
     private DoBreak(){} //hiding the implicit public constructor

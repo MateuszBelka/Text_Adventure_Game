@@ -4,14 +4,14 @@ import gameElements.battle.BattleSequence;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import input.combatValidation.CombatValidation;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import static input.commands.DoBreak.doBreakWithoutItem;
 
 public class DoAttack {
     public static void doAttack(Item item) {
         // Print command description. Remove item from game if it can be broken
-        NonStoryPrinter.print( item.getDescriptionOfCommand("attack") );
+        InteractionPrinter.print( item.getDescriptionOfCommand("attack") );
 
         if (item.getCanBeBrokenWithoutItem()){
             doBreakWithoutItem(item);

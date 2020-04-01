@@ -5,7 +5,7 @@ import gameElements.player.PlayerHungerProgression;
 import gameElements.player.PlayerLevellingProgression;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.util.Random;
 
@@ -27,7 +27,7 @@ public class BattleSequence {
     // Call when player changes rooms and there is enemy inside
     public static void initCombat(NPC enemy) {
         if (enemy.getCanBeAttacked()) setCurrentEnemy(enemy);
-        else NonStoryPrinter.print("You cannot attack " + enemy.getName() + "!");
+        else InteractionPrinter.print("You cannot attack " + enemy.getName() + "!");
     }
 
     // Can be used to check if player is in combat at the moment
@@ -81,7 +81,7 @@ public class BattleSequence {
             // Enemy becomes friendly after fight (requires 2 NPC objects of the same name)
             if (enemy.getNPCSpawnedAfterBattle() != null) {
                 player.getCurrentLocation().getListOfFriendlyNPCs().add(enemy.getNPCSpawnedAfterBattle());
-                NonStoryPrinter.print(enemy.getNPCSpawnedAfterBattle().getName() + " can now be interacted with.");
+                InteractionPrinter.print(enemy.getNPCSpawnedAfterBattle().getName() + " can now be interacted with.");
             }
 
             setCurrentEnemy(null);
@@ -99,8 +99,8 @@ public class BattleSequence {
             if (enemy.getPercentChanceToShowUpAtLocationSwitch() >= diceRoll0To100) {
                 BattleSequence.initCombat(enemy);
                 if (BattleSequence.inCombat()) {
-                    NonStoryPrinter.print("A " + enemy.getName() + " saw you move and initiated a fight!");
-                    NonStoryPrinter.print("Type [1] or [Attack] to defeat the foe!");
+                    InteractionPrinter.print("A " + enemy.getName() + " saw you move and initiated a fight!");
+                    InteractionPrinter.print("Type [1] or [Attack] to defeat the foe!");
                 }
                 break;
             }

@@ -7,7 +7,7 @@ import initialisation.InitOfClassesThroughSaveFile;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 import ui.UI;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ public class GameProgression {
             player.setCurrentLevel(player.getCurrentLevel().getNextLevel());
             player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
             PuzzleProgression.resetPuzzlesSolvedCount();
-            NonStoryPrinter.print("Congratulations! You've made it to next step of your journey!");
+            InteractionPrinter.print("Congratulations! You've made it to next step of your journey!");
         }
     }
 
@@ -43,8 +43,8 @@ public class GameProgression {
 
     private static void printGameCompleted() {
         BattleSequence.setCurrentEnemy(null);
-        NonStoryPrinter.print("You finished the game! Congratulations!");
-        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+        InteractionPrinter.print("You finished the game! Congratulations!");
+        InteractionPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 
     public static void inputValidationAfterGameOver(String input, ActionEvent actionEvent) throws IOException {
@@ -57,8 +57,8 @@ public class GameProgression {
                 UI.changeToNewScene("/fxml/welcome.fxml", actionEvent);
                 break;
             default:
-                NonStoryPrinter.print("Unexpected input!");
-                NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+                InteractionPrinter.print("Unexpected input!");
+                InteractionPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
         }
     }
 }

@@ -5,7 +5,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.util.ArrayList;
 
@@ -26,8 +26,8 @@ public class DoLook {
             listToPrint = listToPrint + "<" + npc.getName() + "> ";
         }
 
-        NonStoryPrinter.print(currentLocation.getDescription());
-        NonStoryPrinter.print(listToPrint);
+        InteractionPrinter.print(currentLocation.getDescription());
+        InteractionPrinter.print(listToPrint);
     }
 
     private DoLook(){} //hiding the implicit public constructor
