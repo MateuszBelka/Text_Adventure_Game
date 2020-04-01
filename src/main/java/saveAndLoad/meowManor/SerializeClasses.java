@@ -15,8 +15,7 @@ public class SerializeClasses {
         if (projectPath.equals("build\\classes\\java\\main")) { // IDE
             path = path.substring(0, path.length() - 23);
         }
-
-        path += "src\\main\\resources\\json\\MeowManor.json";
+        path += "src\\main\\resources\\json\\meowmanor.json";
 
         Save.writeGameSave(path);
     }

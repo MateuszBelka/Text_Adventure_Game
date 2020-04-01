@@ -225,12 +225,16 @@ public class Save {
                     item.setItemToCloseWithID(itemToConnect.getId());
                 }
                 if (!item.getItemsToDropOnBreak().isEmpty()) {
+                    ArrayList<Integer> newIDList = new ArrayList<>();
+
                     for (Item itemsToDropOnBreak : item.getItemsToDropOnBreak()) {
                         if (itemsToDropOnBreak.getId() == itemToConnect.getId()) {
-                            item.getItemsToDropOnBreakIDs().add(itemToConnect.getId());
+                            newIDList.add(itemToConnect.getId());
                             break;
                         }
                     }
+
+                    item.setItemsToDropOnBreakIDs(newIDList);
                 }
             }
         }
@@ -313,9 +317,11 @@ public class Save {
     }
 
     private static void connectInventoryToItems() {
+        ArrayList<Integer> newIDList = new ArrayList<>();
         for (Item inventoryItem : InitOfClassesThroughSaveFile.getInventory().getListOfItems()) {
-            InitOfClassesThroughSaveFile.getInventory().getListOfItemsIDs().add(inventoryItem.getId());
+            newIDList.add(inventoryItem.getId());
         }
+        InitOfClassesThroughSaveFile.getInventory().setListOfItemsIDs(newIDList);
     }
 
     private static void populateJsonWithClasses(String fileName) {
