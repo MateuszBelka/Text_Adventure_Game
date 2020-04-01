@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.InterfaceAddress;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -224,18 +225,15 @@ public class Save {
                 if (item.getItemToCloseWith() != null && item.getItemToCloseWith().getId() == itemToConnect.getId()) {
                     item.setItemToCloseWithID(itemToConnect.getId());
                 }
-                if (!item.getItemsToDropOnBreak().isEmpty()) {
-                    ArrayList<Integer> newIDList = new ArrayList<>();
+            }
+            if (!item.getItemsToDropOnBreak().isEmpty()) {
+                ArrayList<Integer> newIDList = new ArrayList<>();
 
-                    for (Item itemsToDropOnBreak : item.getItemsToDropOnBreak()) {
-                        if (itemsToDropOnBreak.getId() == itemToConnect.getId()) {
-                            newIDList.add(itemToConnect.getId());
-                            break;
-                        }
-                    }
-
-                    item.setItemsToDropOnBreakIDs(newIDList);
+                for (Item itemsToDropOnBreak : item.getItemsToDropOnBreak()) {
+                    newIDList.add(itemsToDropOnBreak.getId());
                 }
+
+                item.setItemsToDropOnBreakIDs(newIDList);
             }
         }
     }
