@@ -31,8 +31,8 @@ public class LoadGame {
         String buttonText = ((Button)actionEvent.getSource()).getText().toLowerCase();
 
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-        path = path.substring(0, path.length() - 32);
-        path += "resources\\saves\\" + buttonText + ".json";
+        path = path.substring(0, path.length() - 24);
+        path += "\\build\\resources\\saves\\" + buttonText + ".json";
 
         Load.loadGameFromSave(path);
         UI.changeToNewScene("/fxml/adventure.fxml", actionEvent);

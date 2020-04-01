@@ -13,7 +13,7 @@ public abstract class NPC extends Entity {
     protected int percentChanceToShowUpAtLocationSwitch;
     protected int damage;
     protected int currentHealth;
-    protected NPC NPCSpawnedAfterBattle;
+    protected transient NPC NPCSpawnedAfterBattle;
     protected int NPCSpawnedAfterBattleID;
 
     public Boolean getCanAttack() {

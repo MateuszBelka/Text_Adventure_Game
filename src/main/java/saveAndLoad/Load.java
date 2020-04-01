@@ -65,6 +65,7 @@ public class Load {
          * For debugging purposes make the Json file in human-readable style
          */
         Gson gson = new GsonBuilder()
+                .registerTypeAdapter(NPC.class, new NPCClassAdapter())
                 .excludeFieldsWithModifiers(java.lang.reflect.Modifier.TRANSIENT)
                 .setPrettyPrinting()
                 .create();

@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class PlayerStats {
 
-    private static PlayerStats instance;
+    private transient static PlayerStats instance;
 
     private PlayerStats(){};
 

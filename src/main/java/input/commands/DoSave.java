@@ -19,6 +19,7 @@ public class DoSave {
 
     private static void saveLogic(String jsonFileName) throws URISyntaxException {
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+        jsonFileName = jsonFileName.toLowerCase();
 
         String projectPath = path.substring(path.length() - 23);
         // Different absolute path for IDE and for JAR

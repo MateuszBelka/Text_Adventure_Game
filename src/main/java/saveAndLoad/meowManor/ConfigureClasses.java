@@ -66,7 +66,7 @@ public class ConfigureClasses {
         fishTank.setName("Fish_Tank");
         fishTank.setDescription("The fish tank is huge, " +
                 "and it looks like the owner put jewels " +
-                "at the bottom rather than rocks…");
+                "at the bottom rather than rocks...");
         fishTank.setCanBeBrokenWithItem(true);
         fishTank.setItemToBreakWith(rock);
         fishTank.getDescriptionAfterCommand().put("break","Water is going everywhere, but " +
@@ -296,7 +296,7 @@ public class ConfigureClasses {
         // christofur
         christofur.setName("Christofur");
         christofur.setDescription("A large, majestic grey cat. It has " +
-                "a collar on, with a tag that says <Christofur>. He seems… a bit suspicious, yet kind enough.");
+                "a collar on, with a tag that says <Christofur>. He seems... a bit suspicious, yet kind enough.");
         Item canOfTuna = InitOfClassesThroughSaveFile.getItems().get(8);
         christofur.setItemToGive(canOfTuna);
         christofur.getDescriptionAfterCommand().put("give","Tuna! How Meowonderful! " +
@@ -311,7 +311,7 @@ public class ConfigureClasses {
                 "is... Kitty? Not very creative, but it is cute.");
         kitty.setCanBeTalkedWith(true);
         kitty.getDescriptionAfterCommand().put("talk","I have been looking for Patches but I can't find him " +
-                "anywhere! I have heard he has locked himself away somewhere…");
+                "anywhere! I have heard he has locked himself away somewhere...");
 
         // bartholomeow
         bartholomeow.setName("Bartholomeow");
@@ -353,7 +353,7 @@ public class ConfigureClasses {
                 "Only Patches would be able to afford a bedroom so lavish. \n" +
                 "Ahh, I knew the day would come in which a human would make it here. I have been waiting. " +
                 "Living in the lap of luxury, is nice, but I was beginning to become bored. Sure, you can run off " +
-                "and tell all of your hairless human friends what it is like in here… if you can defeat me first!!");
+                "and tell all of your hairless human friends what it is like in here... if you can defeat me first!!");
         patchesEnemy.setNPCSpawnedAfterBattle(patchesFriendly);
         patchesEnemy.setPercentChanceToShowUpAtLocationSwitch(100);
         patchesEnemy.setCanAttack(true);
