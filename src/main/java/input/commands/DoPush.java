@@ -8,7 +8,6 @@ import output.InteractionPrinter;
 public class DoPush {
     public static void doPush(Item item) {
         item.setCanBePushed(false);
-        item.setCanBePulled(true);
         InteractionPrinter.print( item.getDescriptionOfCommand("push") );
 
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
@@ -16,7 +15,6 @@ public class DoPush {
 
     public static void doPush(NPC npc){
         npc.setCanBePushed(false);
-        npc.setCanBePulled(true);
         InteractionPrinter.print( npc.getDescriptionOfCommand("push")  );
 
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();

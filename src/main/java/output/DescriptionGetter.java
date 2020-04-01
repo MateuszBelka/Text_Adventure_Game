@@ -48,12 +48,22 @@ public class DescriptionGetter {
     private static void addListOfEntitiesInLocationIfFirstPrint(){
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         //Adds list of items and npcs in the location, to interact with, into the listToPrint.
+        getItemDescriptions();
+        getNPCDescriptions();
+    }
+
+    private static void getItemDescriptions() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         if (playerStats.getCurrentLocation().getListOfItems().size() > 0) {
             for (Item item : playerStats.getCurrentLocation().getListOfItems()) {
                 listToPrint.add("[" + item.getName() + "]");
                 listToPrint.add(item.getDescription());
             }
         }
+    }
+
+    private static void getNPCDescriptions() {
+        PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         if (playerStats.getCurrentLocation().getListOfFriendlyNPCs().size() > 0) {
             for (NPC npc : playerStats.getCurrentLocation().getListOfFriendlyNPCs()) {
                 listToPrint.add("[" + npc.getName() + "]");

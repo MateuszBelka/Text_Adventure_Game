@@ -43,7 +43,10 @@ public class PlayerLevellingProgression {
 
     private static void increaseMaximumHP() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        int oldMaxHP = playerStats.getMaxHealth();
         playerStats.setMaxHealth((int) Math.round(playerStats.getMaxHealth() * 1.2));
+        int hpDiff = playerStats.getMaxHealth() - oldMaxHP;
+        playerStats.setCurrentHealth(playerStats.getCurrentHealth() + hpDiff);
     }
 
     private static void increaseDamage() {

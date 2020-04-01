@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
@@ -14,11 +12,11 @@
         <HBox>
             <children>
                 <Region HBox.hgrow="ALWAYS" />
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#createGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Create Game">
-                    <font>
-                        <Font size="30.0" />
-                    </font>
-                </Button>
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="DevDemo">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
                 <Region HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
@@ -26,26 +24,11 @@
         <HBox minHeight="-Infinity" minWidth="-Infinity">
             <children>
                 <Region HBox.hgrow="ALWAYS" />
-                <Label text="Select Existing Game:" textFill="WHITE">
-                    <font>
-                        <Font size="30.0" />
-                    </font>
-                </Label>
-                <Region HBox.hgrow="ALWAYS" />
-            </children>
-        </HBox>
-        <HBox minHeight="-Infinity" minWidth="-Infinity">
-            <children>
-                <Region HBox.hgrow="ALWAYS" />
-                <ScrollPane style="-fx-background: #000000; -fx-border-color: #000000;">
-                    <content>
-                        <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Demo1">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Button>
-                    </content>
-                </ScrollPane>
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="MeowManor">
+                      <font>
+                          <Font size="30.0" />
+                      </font>
+                  </Button>
                 <Region HBox.hgrow="ALWAYS" />
             </children>
         </HBox>

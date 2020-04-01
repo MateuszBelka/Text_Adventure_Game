@@ -34,9 +34,11 @@ public class InitClasses {
         ArrayList<Level> listOfLevels = new ArrayList<>();
         Level level1 = new Level();
         Level level2 = new Level();
+        Level level3 = new Level();
 
         listOfLevels.add(level1);
         listOfLevels.add(level2);
+        listOfLevels.add(level3);
         return listOfLevels;
     }
 
@@ -66,14 +68,14 @@ public class InitClasses {
         Item fishTank = new Item();
         Item bagOfCatTreats = new Item();
         Item cart = new Item();
-        Item signOnDoor = new Item();
+        Item door = new Item();
+        Item milk = new Item();
 
         //pickupable
         Item rock = new Item();
         Item fishShapedKey = new Item();
-        Item clippers = new Item();
+        Item salmon = new Item();
         Item canOfTuna = new Item();
-        Item laserPointer = new Item();
 
         //Starting inv items
         Item redBull = new Item();
@@ -83,29 +85,29 @@ public class InitClasses {
         listOfItems.add(fishTank);
         listOfItems.add(bagOfCatTreats);
         listOfItems.add(cart);
-        listOfItems.add(signOnDoor);
+        listOfItems.add(door);
         listOfItems.add(rock);
         listOfItems.add(fishShapedKey);
-        listOfItems.add(clippers);
+        listOfItems.add(salmon);
         listOfItems.add(canOfTuna);
-        listOfItems.add(laserPointer);
         listOfItems.add(redBull);
         listOfItems.add(kitKat);
+        listOfItems.add(milk);
         return listOfItems;
     }
 
     public static ArrayList<NPC> initFriendlyNPC() {
         ArrayList<NPC> listOfNPCs = new ArrayList<>();
-        NPC milk = NPCFactory.getNPC("friendlyNPC");
         NPC christofur = NPCFactory.getNPC("friendlyNPC");
         NPC bartholomeow = NPCFactory.getNPC("friendlyNPC");
         NPC patches = NPCFactory.getNPC("friendlyNPC");
+        NPC kitty = NPCFactory.getNPC("friendlyNPC");
 
 
-        listOfNPCs.add(milk);
         listOfNPCs.add(christofur);
         listOfNPCs.add(bartholomeow);
         listOfNPCs.add(patches);
+        listOfNPCs.add(kitty);
         return listOfNPCs;
     }
 

@@ -38,6 +38,7 @@ public class Engine {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
 
         DescriptionPrinter.printStory(terminal);
+        InteractionPrinter.print("\nIf you need any help type [help].");
         InteractionPrinter.printToTerminal();
         adventure.updateUIElements();
     }

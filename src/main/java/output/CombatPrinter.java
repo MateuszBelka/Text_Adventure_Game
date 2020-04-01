@@ -5,6 +5,7 @@ import gameElements.levelAndContents.npc.NPC;
 import gameElements.player.PlayerStats;
 import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
+import input.combatValidation.CombatValidation;
 import javafx.scene.control.TextArea;
 import ui.controllers.Adventure;
 
@@ -19,10 +20,14 @@ public class CombatPrinter {
         ArrayList<String> listToPrint = new ArrayList<>();
 
 
-        listToPrint.add("You dealt " + player.getDamage() + " points of damage to your enemy.");
+        if (CombatValidation.attacked) {
+            listToPrint.add("You dealt " + player.getDamage() + " points of damage to your enemy.");
+            if (BattleSequence.inCombat()) {
+                listToPrint.add("Your enemy: " + enemy.getName() + " now has " + enemy.getCurrentHealth() + " health points.");
+            }
+        }
         // If player is still in combat after damaging enemy then it means the enemy is alive and also hit player
         if (BattleSequence.inCombat()) {
-            listToPrint.add("Your enemy: " + enemy.getName() + " now has " + enemy.getCurrentHealth() + " health points.");
             listToPrint.add("Your enemy: " + enemy.getName() + " has hit you for " + enemy.getDamage() + " points of damage.");
         } else {
             if (player.getCurrentHealth() > 0) {

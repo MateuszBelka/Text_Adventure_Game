@@ -10,7 +10,7 @@ public class CreateGame {
     /*
      * Only run once to create the json file with our demo.
      */
-    public static void createDemo() throws URISyntaxException {
+    public static void createGame() throws URISyntaxException {
         InitClasses.initEverything();
         ConfigureClasses.configureEverything();
         SerializeClasses.serializeGame();

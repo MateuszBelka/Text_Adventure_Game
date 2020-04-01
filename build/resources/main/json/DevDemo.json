@@ -248,6 +248,7 @@
         "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Skeleton",
+        "description": "Big scary skeleton is attacking you!",
         "descriptionAfterCommand": {},
         "firstTimeEnteringLocation": true,
         "canBeConsumed": false,

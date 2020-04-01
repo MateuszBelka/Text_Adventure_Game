@@ -26,7 +26,10 @@ public class BattleSequence {
 
     // Call when player changes rooms and there is enemy inside
     public static void initCombat(NPC enemy) {
-        if (enemy.getCanBeAttacked()) setCurrentEnemy(enemy);
+        if (enemy.getCanBeAttacked()) {
+            setCurrentEnemy(enemy);
+            InteractionPrinter.print(enemy.getDescription());
+        }
         else InteractionPrinter.print("You cannot attack " + enemy.getName() + "!");
     }
 

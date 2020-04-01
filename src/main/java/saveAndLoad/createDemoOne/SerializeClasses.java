@@ -16,7 +16,7 @@ public class SerializeClasses {
             path = path.substring(0, path.length() - 23);
         }
 
-        path += "src\\main\\resources\\json\\demo1.json";
+        path += "src\\main\\resources\\json\\DevDemo.json";
 
         Save.writeGameSave(path);
     }
