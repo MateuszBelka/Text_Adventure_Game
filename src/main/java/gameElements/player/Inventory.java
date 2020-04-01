@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Inventory {
 
-    private transient static Inventory instance;
+    private static Inventory instance;
 
     private Inventory(){};
 
