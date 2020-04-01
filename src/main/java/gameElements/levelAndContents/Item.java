@@ -12,8 +12,6 @@ public class Item extends Entity {
     private Boolean canBeDropped = false;
     private Boolean canBeUnlockedByItem = false;
     private Boolean canBeListenedWith = false;
-    private Boolean canBeTurnedOn = false;
-    private Boolean canBeTurnedOff = false;
     private Boolean canBeGiven = false;
     private Boolean canBeCutWith = false;
     private Boolean canBeRead = false;
@@ -67,14 +65,6 @@ public class Item extends Entity {
         return canBeListenedWith;
     }
 
-    public Boolean getCanBeTurnedOn() {
-        return canBeTurnedOn;
-    }
-
-    public Boolean getCanBeTurnedOff() {
-        return canBeTurnedOff;
-    }
-
     public Boolean getCanBeGiven() {
         return canBeGiven;
     }
@@ -121,14 +111,6 @@ public class Item extends Entity {
 
     public void setCanBeGiven(Boolean canBeGiven) {
         this.canBeGiven = canBeGiven;
-    }
-
-    public void setCanBeTurnedOn(Boolean canBeTurnedOn) {
-        this.canBeTurnedOn = canBeTurnedOn;
-    }
-
-    public void setCanBeTurnedOff(Boolean canBeTurnedOff) {
-        this.canBeTurnedOff = canBeTurnedOff;
     }
 
     public void setCanBeListenedWith(Boolean canBeListenedWith) {
