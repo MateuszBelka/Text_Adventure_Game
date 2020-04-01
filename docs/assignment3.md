@@ -2,16 +2,26 @@
 
 Maximum number of words for this document: 18000
 
-**IMPORTANT**: In this assignment you will fully model and impement your system. The idea is that you improve your UML models and Java implementation by (i) applying (a subset of) the studied design patterns and (ii) adding any relevant implementation-specific details (e.g., classes with “technical purposes” which are not part of the domain of the system). The goal here is to improve the system in terms of maintainability, readability, evolvability, etc.    
+**IMPORTANT**: In this assignment you will fully model and implement your system. The idea is that you improve your UML models and Java implementation by (i) applying (a subset of) the studied design patterns and (ii) adding any relevant implementation-specific details (e.g., classes with “technical purposes” which are not part of the domain of the system). The goal here is to improve the system in terms of maintainability, readability, evolvability, etc.    
 
 **Format**: establish formatting conventions when describing your models in this document. For example, you style the name of each class in bold, whereas the attributes, operations, and associations as underlined text, objects are in italic, etc.
 
 ### Summary of changes of Assignment 2
-Author(s): `name of the team member(s) responsible for this section`
+Author(s): Ece Doganer
 
-Provide a bullet list summarizing all the changes you performed in Assignment 2 for addressing our feedback.
-
-Maximum number of words for this section: 1000
+- For A1 and A2 phase, we had received heavy feedback on our functional features list, and quality requirements. This is now revised in full detail. We now have a total of 43 features. A big portion of it, are instructions and their issued game mechanics. Multiple features the TA has stated missing, are now described. Some QR are moved to features. A better distinction is made between core and bonus features. In general, more detail and care is added to explain our multitude of features.
+- Pickupable Items and Static items is fully revised according to TA's feedback. These classes are changed into one Item class. This Item class has 'traits' per object, so an item might be pickup-able or immovable.
+- Input Validation is fully revised, according to TA's feedback. Also, is divided into multiple classes with different responsibilities. Enumeration is used. Multiple instructions in one input, is not followed through, as suggested. Use of trigger words is described in detail, in A1.
+- Player class is broken up into multiple classes with different responsiblities, according to TA's feedback.
+- Initializer class is broken up into multiple classes with different responsiblities, according to TA's feedback.
+- Level class is broken up into multiple classes with different responsiblities, according to TA's feedback.
+- We have renamed Room class with Location class.
+- We have changed the way 'puzzles' are solved. Previously, there were only two ways of solving a puzzle: interacting with a static item by writing its name, or, using a pickupable item on a static item, by writing both their names on the terminal. The idea there, was that our GUI would be clickable, thus player didn't need to ever type anything. We have moved away from this idea. Firstly, TA did not like it. Secondly, the broad experience that Zork gives, through making multiple command available, was not respected. Our new approach is to have a combination of trigger words, as described in A1. Solving puzzles can now be a multitude of interactions. See A1's Puzzles feature for a description.
+- Game class is deleted, and its contents and responsibilities have been moved, partly to GameProgression, which deals with level and puzzle progress.
+- Following the Zork-clone train of thought, our output is revised. We now print level description and location description, with the items and npcs descriptions in this location, once. Then, these descriptions can be asked again. Also, performing valid interactions now prints a specific description for that interaction with that entity (item or npc).
+- Items and NPCs have an abstract class, Entity. Their common attributes and resulting methods, are shared.
+- All diagrams are updated.
+- All descriptions of those diagrams are updated. 
 
 ### Application of design patterns
 Author(s): `name of the team member(s) responsible for this section`
