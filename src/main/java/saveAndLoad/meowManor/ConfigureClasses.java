@@ -312,6 +312,10 @@ public class ConfigureClasses {
         kitty.setCanBeTalkedWith(true);
         kitty.getDescriptionAfterCommand().put("talk","I have been looking for Patches but I can't find him " +
                 "anywhere! I have heard he has locked himself away somewhere...");
+        kitty.setCanBeAttacked(true);
+        kitty.setCanAttack(true);
+        kitty.setDamage(5);
+        kitty.setCurrentHealth(30);
 
         // bartholomeow
         bartholomeow.setName("Bartholomeow");
