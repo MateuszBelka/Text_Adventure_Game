@@ -2,6 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import gameElements.player.PlayerHungerProgression;
+import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
 import output.InteractionPrinter;
 
@@ -19,6 +20,8 @@ public class DoUnlock {
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToUnlockWith);
 
         InteractionPrinter.print(itemToUnlock.getDescriptionOfCommand("unlock") );
+
+        PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
     }
 
     private DoUnlock(){} //hiding the implicit public constructor
