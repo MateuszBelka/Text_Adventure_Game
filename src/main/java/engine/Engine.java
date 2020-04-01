@@ -6,10 +6,13 @@ import gameElements.player.PlayerHungerProgression;
 import gameProgress.GameProgression;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
+import input.commands.DoGoToMenu;
 import input.commands.DoSave;
 import input.validation.Validation;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import output.InteractionPrinter;
 import output.DescriptionPrinter;
 import output.UserInputPrinter;
@@ -53,40 +56,49 @@ public class Engine {
         // Forward user input to terminal
         UserInputPrinter.printUserInput(input);
 
-        /*
-         * We analyse and process information differently when player is in combat
-         * As in different inputs are allowed and we print different information
-         */
-        if (BattleSequence.inCombat()) {
-            // Update Game through Input Validation
-            CombatValidation.validator(input);
+        if (!PlayerHealthProgression.isDead()) {
+            /*
+             * We analyse and process information differently when player is in combat
+             * As in different inputs are allowed and we print different information
+             */
+            if (BattleSequence.inCombat()) {
+                // Update Game through Input Validation
+                CombatValidation.validator(input);
 
-            // Player gets hit by enemy -- ONLY does something when it combat
-            BattleSequence.enemyAttack();
+                // Player gets hit by enemy -- ONLY does something when it combat
+                BattleSequence.enemyAttack();
 
-            // Output Printing
-            CombatPrinter.printCombat();
+                // Output Printing
+                CombatPrinter.printCombat();
+            } else {
+                // Check if game should be auto-saved
+                autoSaveCheck();
+
+                boolean isGameCompletedBeforeUserInput = GameProgression.isGameCompleted();
+
+                // Update Game through Input Validation
+                Validation.validator(input.toUpperCase(), actionEvent);
+
+                // Check if player has finished the current level
+                if (!isGameCompletedBeforeUserInput) GameProgression.checkLevelProgression();
+
+                // Output Printing
+                DescriptionPrinter.printStory(terminal);
+            }
+
+            // Check hunger level and decrease health if necessary
+            PlayerHungerProgression.checkCurrentHunger();
         } else {
-            // Check if game should be auto-saved
-            autoSaveCheck();
-
-            boolean isGameCompletedBeforeUserInput = GameProgression.isGameCompleted();
-
-            // Update Game through Input Validation
-            Validation.validator(input.toUpperCase(), actionEvent);
-
-            // Check if player has finished the current level
-            if (!isGameCompletedBeforeUserInput) GameProgression.checkLevelProgression();
-
-            // Output Printing
-            DescriptionPrinter.printStory(terminal);
+            // Death Scenario
+            switch (input) {
+                case "menu":
+                    DoGoToMenu.doGoToMenu(actionEvent);
+                case "quit":
+                    Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                    primaryStage.close();
+            }
+            PlayerHealthProgression.printDeath();
         }
-
-        // Check hunger level and decrease health if necessary
-        if (!PlayerHealthProgression.isDead()) PlayerHungerProgression.checkCurrentHunger();
-
-        // Check if player is dead
-        if (PlayerHealthProgression.isDead()) PlayerHealthProgression.printDeath();
 
         // Print unique text (non-Story and non-Combat)
         InteractionPrinter.printToTerminal();
