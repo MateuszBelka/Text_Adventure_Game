@@ -63,7 +63,9 @@
       "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 6,
-      "itemsToDropOnBreakIDs": [],
+      "itemsToDropOnBreakIDs": [
+        8
+      ],
       "id": 2,
       "name": "Fish_Tank",
       "description": "The fish tank is huge, and it looks like the owner put jewels at the bottom rather than rocks...",
@@ -840,8 +842,8 @@
         "canAttack": true,
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 0,
-        "damage": 10,
-        "currentHealth": 50,
+        "damage": 5,
+        "currentHealth": 30,
         "NPCSpawnedAfterBattleID": 0,
         "id": 4,
         "name": "Kitty",

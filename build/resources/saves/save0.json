@@ -63,7 +63,9 @@
       "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 6,
-      "itemsToDropOnBreakIDs": [],
+      "itemsToDropOnBreakIDs": [
+        8
+      ],
       "id": 2,
       "name": "Fish_Tank",
       "description": "The fish tank is huge, and it looks like the owner put jewels at the bottom rather than rocks...",
@@ -248,8 +250,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
@@ -345,8 +347,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": true,
@@ -617,7 +619,6 @@
     {
       "id": 1,
       "listOfItemsIDs": [
-        2,
         9
       ],
       "listOfFriendlyNPCsIDs": [],
@@ -636,7 +637,6 @@
       "id": 2,
       "listOfItemsIDs": [
         4,
-        6,
         3,
         12
       ],
@@ -651,7 +651,7 @@
       },
       "description": "You are in the beautiful gard of Meow Manor establishment. It is blooming with all sorts of flowers",
       "name": "Garden",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 3,
@@ -837,11 +837,11 @@
     {
       "type": "FriendlyNPC",
       "properties": {
-        "canAttack": false,
+        "canAttack": true,
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 0,
-        "damage": 0,
-        "currentHealth": 0,
+        "damage": 5,
+        "currentHealth": 30,
         "NPCSpawnedAfterBattleID": 0,
         "id": 4,
         "name": "Kitty",
@@ -855,7 +855,7 @@
         "itemToBeUsedOnID": 0,
         "canBeUsedByItem": false,
         "itemToBeUsedByID": 0,
-        "canBeAttacked": false,
+        "canBeAttacked": true,
         "canBeTalkedWith": true,
         "canBeListenedTo": false,
         "canBeSmelled": false,
@@ -1015,8 +1015,8 @@
       ]
     },
     "listOfItemsIDs": [
-      10,
-      11
+      11,
+      8
     ]
   },
   "playerStats": {
@@ -1042,7 +1042,12 @@
     },
     "currentLocationID": 1,
     "currentLevelID": 1,
-    "listOfMovedLocationsIDs": [],
+    "listOfMovedLocationsIDs": [
+      2,
+      1,
+      2,
+      1
+    ],
     "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
@@ -1053,10 +1058,10 @@
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 0,
+    "currentXP": 40,
     "currentHealth": 100,
     "playerLevel": 1,
     "xpReward": 40,
-    "puzzlesSolvedCount": 0
+    "puzzlesSolvedCount": 1
   }
 }
