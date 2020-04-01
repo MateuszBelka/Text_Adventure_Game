@@ -248,8 +248,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
@@ -634,22 +634,19 @@
       "id": 2,
       "listOfItemsIDs": [
         4,
-        6,
         3,
         12
       ],
       "listOfFriendlyNPCsIDs": [
         1
       ],
-      "listOfEnemyNPCsIDs": [
-        3
-      ],
+      "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
         "east": 1
       },
       "description": "You are in the beautiful gard of Meow Manor establishment. It is blooming with all sorts of flowers",
       "name": "Garden",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 3,
@@ -661,13 +658,15 @@
         2,
         4
       ],
-      "listOfEnemyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        3
+      ],
       "listOfConnectedLocationsIDs": {
         "west": 1
       },
       "description": "You are in the private office of Meow Manor establishment. There are plenty of ripped books all around you. You wonder who could have done that...",
       "name": "The Study",
-      "firstTimeEnteringLocation": false
+      "firstTimeEnteringLocation": true
     },
     {
       "id": 4,
@@ -833,11 +832,11 @@
     {
       "type": "FriendlyNPC",
       "properties": {
-        "canAttack": false,
+        "canAttack": true,
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 0,
-        "damage": 0,
-        "currentHealth": 0,
+        "damage": 5,
+        "currentHealth": 30,
         "NPCSpawnedAfterBattleID": 0,
         "id": 4,
         "name": "Kitty",
@@ -851,7 +850,7 @@
         "itemToBeUsedOnID": 0,
         "canBeUsedByItem": false,
         "itemToBeUsedByID": 0,
-        "canBeAttacked": false,
+        "canBeAttacked": true,
         "canBeTalkedWith": true,
         "canBeListenedTo": false,
         "canBeSmelled": false,
@@ -1012,7 +1011,8 @@
     },
     "listOfItemsIDs": [
       10,
-      11
+      11,
+      6
     ]
   },
   "playerStats": {
@@ -1036,68 +1036,24 @@
       "xpReward": 40,
       "puzzlesSolvedCount": 0
     },
-    "currentLocationID": 3,
+    "currentLocationID": 1,
     "currentLevelID": 1,
     "listOfMovedLocationsIDs": [
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3,
-      1,
-      3
+      2,
+      1
     ],
     "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
-    "currentHunger": 0,
+    "currentHunger": 75,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
     "currentXP": 80,
-    "currentHealth": 5,
+    "currentHealth": 95,
     "playerLevel": 1,
     "xpReward": 40,
     "puzzlesSolvedCount": 0

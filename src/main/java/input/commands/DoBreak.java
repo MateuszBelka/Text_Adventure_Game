@@ -28,6 +28,7 @@ public class DoBreak {
         // Removes item from location.
         InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().deleteItemInList(item);
 
+        System.out.println("test");
         if (!item.getItemsToDropOnBreak().isEmpty()) {
             for (Item newlyAddedItem : item.getItemsToDropOnBreak()) {
                 InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getListOfItems().add(newlyAddedItem);
