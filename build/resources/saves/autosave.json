@@ -63,7 +63,9 @@
       "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 6,
-      "itemsToDropOnBreakIDs": [],
+      "itemsToDropOnBreakIDs": [
+        8
+      ],
       "id": 2,
       "name": "Fish_Tank",
       "description": "The fish tank is huge, and it looks like the owner put jewels at the bottom rather than rocks...",
@@ -621,7 +623,9 @@
         9
       ],
       "listOfFriendlyNPCsIDs": [],
-      "listOfEnemyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        3
+      ],
       "listOfConnectedLocationsIDs": {
         "east": 3,
         "west": 2
@@ -640,7 +644,9 @@
       "listOfFriendlyNPCsIDs": [
         1
       ],
-      "listOfEnemyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        3
+      ],
       "listOfConnectedLocationsIDs": {
         "east": 1
       },
@@ -966,7 +972,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 30,
         "damage": 5,
-        "currentHealth": 0,
+        "currentHealth": 40,
         "NPCSpawnedAfterBattleID": 0,
         "id": 3,
         "name": "WildCat",
@@ -1040,20 +1046,22 @@
     "currentLevelID": 1,
     "listOfMovedLocationsIDs": [
       2,
+      1,
+      2,
       1
     ],
     "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
-    "currentHunger": 75,
+    "currentHunger": 90,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 80,
-    "currentHealth": 95,
+    "currentXP": 0,
+    "currentHealth": 100,
     "playerLevel": 1,
     "xpReward": 40,
     "puzzlesSolvedCount": 0

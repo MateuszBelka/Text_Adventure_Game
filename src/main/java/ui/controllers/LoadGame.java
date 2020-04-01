@@ -19,11 +19,16 @@ import java.net.URL;
 public class LoadGame {
     public void autoSaveButtonClicked(ActionEvent actionEvent) throws IOException, URISyntaxException {
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-        path = path.substring(0, path.length() - 32);
-        path += "resources\\saves\\autosave.json";
+        String projectPath = path.substring(path.length() - 23);
+        // Different absolute path for IDE and for JAR
+        if (projectPath.equals("build\\classes\\java\\main")) { // IDE
+            path = path.substring(0, path.length() - 23);
+        } else { // JAR
+            path = path.substring(0, path.length() - 38);
+        }
+        path += "build\\resources\\saves\\autosave.json";
 
         Load.loadGameFromSave(path);
-
         UI.changeToNewScene("/fxml/adventure.fxml", actionEvent);
     }
 
@@ -31,8 +36,15 @@ public class LoadGame {
         String buttonText = ((Button)actionEvent.getSource()).getText().toLowerCase();
 
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
-        path = path.substring(0, path.length() - 24);
-        path += "\\build\\resources\\saves\\" + buttonText + ".json";
+
+        String projectPath = path.substring(path.length() - 23);
+        // Different absolute path for IDE and for JAR
+        if (projectPath.equals("build\\classes\\java\\main")) { // IDE
+            path = path.substring(0, path.length() - 23);
+        } else { // JAR
+            path = path.substring(0, path.length() - 38);
+        }
+        path += "build\\resources\\saves\\save0.json";
 
         Load.loadGameFromSave(path);
         UI.changeToNewScene("/fxml/adventure.fxml", actionEvent);

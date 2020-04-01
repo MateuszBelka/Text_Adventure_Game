@@ -250,8 +250,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": false,
-      "canBeDropped": true,
+      "canBePickedUp": true,
+      "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
@@ -347,8 +347,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": false,
-      "canBeDropped": true,
+      "canBePickedUp": true,
+      "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": true,
@@ -591,7 +591,7 @@
       "id": 1,
       "description": "The ground floor of Meow Manor. You get goosebumps by just looking around.",
       "name": "Ground Floor",
-      "firstTimeEnteringLevel": false,
+      "firstTimeEnteringLevel": true,
       "startLocationID": 1,
       "totalPuzzleCount": 1000,
       "nextLevelID": 2
@@ -619,6 +619,7 @@
     {
       "id": 1,
       "listOfItemsIDs": [
+        2,
         9
       ],
       "listOfFriendlyNPCsIDs": [],
@@ -631,12 +632,13 @@
       },
       "description": "You are in the foyer of Meow Manor establishment.",
       "name": "Foyer",
-      "firstTimeEnteringLocation": false
+      "firstTimeEnteringLocation": true
     },
     {
       "id": 2,
       "listOfItemsIDs": [
         4,
+        6,
         3,
         12
       ],
@@ -651,7 +653,7 @@
       },
       "description": "You are in the beautiful gard of Meow Manor establishment. It is blooming with all sorts of flowers",
       "name": "Garden",
-      "firstTimeEnteringLocation": false
+      "firstTimeEnteringLocation": true
     },
     {
       "id": 3,
@@ -1008,46 +1010,15 @@
     }
   ],
   "inventory": {
-    "instance": {
-      "listOfItemsIDs": [
-        10,
-        11
-      ]
-    },
     "listOfItemsIDs": [
-      11,
-      8
+      10,
+      11
     ]
   },
   "playerStats": {
-    "instance": {
-      "currentLocationID": 1,
-      "currentLevelID": 1,
-      "listOfMovedLocationsIDs": [],
-      "damage": 20,
-      "maximumXP": 100,
-      "maxHealth": 100,
-      "maxHunger": 100,
-      "currentHunger": 100,
-      "hungerDrain": 5,
-      "foodHungerIncrease": 15,
-      "foodHealthIncrease": 10,
-      "maxPlayerLevel": 100,
-      "hungerDamage": 20,
-      "currentXP": 0,
-      "currentHealth": 100,
-      "playerLevel": 1,
-      "xpReward": 40,
-      "puzzlesSolvedCount": 0
-    },
     "currentLocationID": 1,
     "currentLevelID": 1,
-    "listOfMovedLocationsIDs": [
-      2,
-      1,
-      2,
-      1
-    ],
+    "listOfMovedLocationsIDs": [],
     "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
@@ -1058,10 +1029,10 @@
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 40,
+    "currentXP": 0,
     "currentHealth": 100,
     "playerLevel": 1,
     "xpReward": 40,
-    "puzzlesSolvedCount": 1
+    "puzzlesSolvedCount": 0
   }
 }

@@ -112,8 +112,11 @@ The key challenges related to Assignment 3 implementation were revolving around 
 During the majority of our work on source work we mostly manage to implement solutions from first attempt without the need of system overhauls. However, there is one exception which is the input validation logic. The overarching idea was to analyse words one by one and try to segregate them such that we know which part of our system the word belongs. The shortcoming of this approach, which we failed to recognise early, was that certain elements of our storyline might be longer than one word. The most notable example of that are names of game elements. The workaround we implemented for that is that player can input the first word that is part of the game element's name and our system would then properly assign it it's intended meaning. However, this is obviously less than desirable implementation of the system due to it's quirkiness and irrational input expectations from user. The temporary solution put in place for our game was to categorize the game elements which would be called by their name through user input and change their names such that spaces are replaced by other characters such as underscore. Due to late realization of this shortcoming we were unable to redesign our input validation system to accommodate for names longer than one word.
   
 The class needed for executing our system is found at: "\src\main\java\Main.java". This class is responsible for forwarding the initial program start up method call to appropriate method within our front-end UI class. We believe it allows a person who looks at our source code for the first time to navigate through the chain of method calls easier.  
-The fat jar can be found at: "\build\libs\software-design-vu-2020.jar". It is crucial to never relocate this file from it's original location as that **will** result in loss of save files. Since jar is write only, we were unable to include save files, which are created dynamically during gameplay, as part of the jar executable.  
-*Video Placeholder*
+The fat jar can be found at: "\build\libs\software-design-vu-2020.jar". It is crucial to never relocate this file from it's original location as that will result in loss of save files. Since jar is write only, we were unable to include save files, which are created dynamically during gameplay, as part of the jar executable.
+
+
+Click image to watch short video of our game!
+[![30sec Video Presentation](https://i.imgur.com/PnZiE5f.png)](https://youtu.be/ydla-xiwkoM)
 
 > Word Count 0/2000
 
