@@ -1,7 +1,7 @@
 package gameElements.player;
 
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class PlayerHungerProgression {
 
@@ -22,13 +22,13 @@ public class PlayerHungerProgression {
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
         if (player.getCurrentHunger() <= 10 && player.getCurrentHunger() > 0) {
             //return additional message that will warn a player character being close to starving
-            NonStoryPrinter.print("Be careful! You are getting hungry.");
+            InteractionPrinter.print("Be careful! You are getting hungry.");
         }
         else if (player.getCurrentHunger() == 0) {
             player.setCurrentHealth(Math.max(player.getCurrentHealth() - player.getHungerDamage(), 0));
             //return warning message that a character is starving and starts to lose health
-            NonStoryPrinter.print("You have lost " + player.getHungerDamage() + " health points due to hunger!");
-            NonStoryPrinter.print("You are starving! Eat something.");
+            InteractionPrinter.print("You have lost " + player.getHungerDamage() + " health points due to hunger!");
+            InteractionPrinter.print("You are starving! Eat something.");
         }
     }
 }

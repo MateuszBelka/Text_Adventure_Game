@@ -3,7 +3,7 @@ package gameElements.player;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.util.ArrayList;
 
@@ -45,7 +45,7 @@ public class PlayerStats {
     private int currentXP = 0;
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
-    private int xpReward = 10;
+    private int xpReward = 40;
     private int puzzlesSolvedCount = 0;
 
 
@@ -164,11 +164,11 @@ public class PlayerStats {
         if (listOfMovedLocations.size() > 0){
             Location previousLocation = listOfMovedLocations.get(listOfMovedLocations.size() - 1);
             setCurrentLocation(previousLocation);
-            NonStoryPrinter.print("Backtracked to previous location.");
+            InteractionPrinter.print("Backtracked to previous location.");
         }
         else{
             PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
-            NonStoryPrinter.print("Not yet moved: cannot backtrack.");
+            InteractionPrinter.print("Not yet moved: cannot backtrack.");
         }
     }
 }

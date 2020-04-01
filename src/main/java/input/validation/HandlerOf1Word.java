@@ -5,7 +5,7 @@ import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.npc.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
 import javafx.event.ActionEvent;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -61,7 +61,7 @@ public class HandlerOf1Word {
                 check = true;
             }
         }
-        if (!check) { NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + "] this way. Try [help]. "); }
+        if (!check) { InteractionPrinter.print("Cannot use [" + command.toLowerCase() + "] this way. Try [help]. "); }
     }
 
     private static void doCommand(String command, ActionEvent actionEvent) throws IOException, URISyntaxException {
@@ -102,12 +102,12 @@ public class HandlerOf1Word {
             case "INVENTORY":
                 doInventoryLookUp();
                 break;
-            case "JUMP": NonStoryPrinter.print("Nice jump!");
+            case "JUMP": InteractionPrinter.print("Nice jump!");
                 break;
             case "LOOK":
                 doLook();
                 break;
-            default: NonStoryPrinter.print("This command cannot be used that way. Enter \"help\" for an overview " +
+            default: InteractionPrinter.print("This command cannot be used that way. Enter \"help\" for an overview " +
                     "of how to use commands.");
         }
     }
@@ -128,7 +128,7 @@ public class HandlerOf1Word {
         if (amountOfReadableItems == 1){
             doRead(itemToRead);
         }
-        else{ NonStoryPrinter.print("Please be more specific. Try writing: read [thing]"); }
+        else{ InteractionPrinter.print("Please be more specific. Try writing: read [thing]"); }
     }
 
     private static void handle1Item(Item item){
@@ -139,7 +139,7 @@ public class HandlerOf1Word {
             doConsume(item);
         }
         else{
-            NonStoryPrinter.print("Please be more specific. Check [help]. ");
+            InteractionPrinter.print("Please be more specific. Check [help]. ");
         }
     }
 
@@ -148,7 +148,7 @@ public class HandlerOf1Word {
             doTalkWith(npc);
         }
         else {
-            NonStoryPrinter.print("Cannot talk with " + npc.getName() + ".");
+            InteractionPrinter.print("Cannot talk with " + npc.getName() + ".");
         }
     }
 
@@ -162,7 +162,7 @@ public class HandlerOf1Word {
             doMove(location);
         }
         else {
-            NonStoryPrinter.print("Cannot go this way.");
+            InteractionPrinter.print("Cannot go this way.");
         }
     }
 }

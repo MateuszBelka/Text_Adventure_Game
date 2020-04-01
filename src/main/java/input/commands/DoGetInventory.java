@@ -2,7 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.util.ArrayList;
 
@@ -17,10 +17,10 @@ public class DoGetInventory {
         }
 
         if (inventoryList.equals("Inventory: ")){
-            NonStoryPrinter.print("Inventory is empty.");
+            InteractionPrinter.print("Inventory is empty.");
         }
         else{
-            NonStoryPrinter.print(inventoryList);
+            InteractionPrinter.print(inventoryList);
         }
     }
 

@@ -1,4 +1,4 @@
-package saveAndLoad.createDemoOne;
+package saveAndLoad.meowManor;
 
 import input.commands.DoSave;
 import saveAndLoad.Save;
@@ -7,7 +7,7 @@ import java.io.File;
 import java.net.URISyntaxException;
 
 public class SerializeClasses {
-    public static void serializeDemo() throws URISyntaxException {
+    public static void serializeGame() throws URISyntaxException {
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
 
         String projectPath = path.substring(path.length() - 23);
@@ -16,7 +16,7 @@ public class SerializeClasses {
             path = path.substring(0, path.length() - 23);
         }
 
-        path += "src\\main\\resources\\json\\DevDemo.json";
+        path += "src\\main\\resources\\json\\MeowManor.json";
 
         Save.writeGameSave(path);
     }

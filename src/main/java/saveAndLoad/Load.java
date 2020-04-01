@@ -294,6 +294,14 @@ public class Load {
                 if (item.getItemToCloseWithID() == itemToConnect.getId()) {
                     item.setItemToCloseWith(itemToConnect);
                 }
+                if (!item.getItemsToDropOnBreakIDs().isEmpty()) {
+                    for (int itemToDropOnBreakID : item.getItemsToDropOnBreakIDs()) {
+                        if (itemToDropOnBreakID == itemToConnect.getId()) {
+                            item.getItemsToDropOnBreak().add(itemToConnect);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
@@ -349,10 +357,39 @@ public class Load {
     }
 
     private static void connectNPCToNPC() {
-        for (NPC npc : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
-            for (NPC npcToConnect : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
-                if (npc.getNpcToGiveItemToID() == npcToConnect.getId()) {
-                    npc.setNpcToGiveItemTo(npcToConnect);
+        for (NPC friendlyNPC : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+            for (NPC friendlyNPCToConnect : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+                if (friendlyNPC.getNpcToGiveItemToID() == friendlyNPCToConnect.getId()) {
+                    friendlyNPC.setNpcToGiveItemTo(friendlyNPCToConnect);
+                }
+                if (friendlyNPC.getNPCSpawnedAfterBattleID() == friendlyNPCToConnect.getId()) {
+                    friendlyNPC.setNPCSpawnedAfterBattle(friendlyNPCToConnect);
+                }
+            }
+            for (NPC enemyNPCToConnect : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
+                if (friendlyNPC.getNpcToGiveItemToID() == enemyNPCToConnect.getId()) {
+                    friendlyNPC.setNpcToGiveItemTo(enemyNPCToConnect);
+                }
+                if (friendlyNPC.getNPCSpawnedAfterBattleID() == enemyNPCToConnect.getId()) {
+                    friendlyNPC.setNPCSpawnedAfterBattle(enemyNPCToConnect);
+                }
+            }
+        }
+        for (NPC enemyNPC : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
+            for (NPC friendlyNPCToConnect : InitOfClassesThroughSaveFile.getFriendlyNPCs()) {
+                if (enemyNPC.getNpcToGiveItemToID() == friendlyNPCToConnect.getId()) {
+                    enemyNPC.setNpcToGiveItemTo(friendlyNPCToConnect);
+                }
+                if (enemyNPC.getNPCSpawnedAfterBattleID() == friendlyNPCToConnect.getId()) {
+                    enemyNPC.setNPCSpawnedAfterBattle(friendlyNPCToConnect);
+                }
+            }
+            for (NPC enemyNPCToConnect : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
+                if (enemyNPC.getNpcToGiveItemToID() == enemyNPCToConnect.getId()) {
+                    enemyNPC.setNpcToGiveItemTo(enemyNPCToConnect);
+                }
+                if (enemyNPC.getNPCSpawnedAfterBattleID() == enemyNPCToConnect.getId()) {
+                    enemyNPC.setNPCSpawnedAfterBattle(enemyNPCToConnect);
                 }
             }
         }

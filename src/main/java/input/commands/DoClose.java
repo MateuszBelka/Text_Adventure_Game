@@ -4,7 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoClose {
     public static void doClose(Item item) {
@@ -13,7 +13,7 @@ public class DoClose {
         item.setCanBeOpened(true);
 
         //print command's description
-        NonStoryPrinter.print(item.getDescriptionOfCommand("close"));
+        InteractionPrinter.print(item.getDescriptionOfCommand("close"));
 
         close();
     }
@@ -26,7 +26,7 @@ public class DoClose {
         close();
 
         //print command's description
-        NonStoryPrinter.print(npc.getDescriptionOfCommand("close"));
+        InteractionPrinter.print(npc.getDescriptionOfCommand("close"));
     }
 
     public static void doCloseItemWithItem (Item itemToClose, Item itemToCloseWith) {
@@ -37,7 +37,7 @@ public class DoClose {
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCloseWith);
 
         //print command's description
-        NonStoryPrinter.print(itemToClose.getDescriptionOfCommand("close"));
+        InteractionPrinter.print(itemToClose.getDescriptionOfCommand("close"));
 
         close();
     }
