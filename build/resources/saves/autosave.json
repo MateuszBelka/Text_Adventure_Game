@@ -3,12 +3,10 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": false,
-      "canBeDropped": true,
+      "canBePickedUp": true,
+      "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
-      "canBeTurnedOn": false,
-      "canBeTurnedOff": false,
       "canBeGiven": false,
       "canBeCutWith": false,
       "canBeRead": false,
@@ -55,8 +53,6 @@
       "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
-      "canBeTurnedOn": false,
-      "canBeTurnedOff": false,
       "canBeGiven": false,
       "canBeCutWith": false,
       "canBeRead": false,
@@ -112,6 +108,7 @@
     {
       "id": 1,
       "listOfItemsIDs": [
+        1,
         2
       ],
       "listOfFriendlyNPCsIDs": [
@@ -137,7 +134,7 @@
       },
       "description": "temporary description for location1.",
       "name": "location1",
-      "firstTimeEnteringLocation": false
+      "firstTimeEnteringLocation": true
     }
   ],
   "friendlyNPCs": [
@@ -191,7 +188,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 5,
-        "currentHealth": 35,
+        "currentHealth": 50,
         "id": 1,
         "name": "Skeleton",
         "descriptionAfterCommand": {},
@@ -226,28 +223,24 @@
     }
   ],
   "inventory": {
-    "listOfItemsIDs": [
-      1
-    ]
+    "listOfItemsIDs": []
   },
   "playerStats": {
-    "currentLocationID": 2,
+    "currentLocationID": 1,
     "currentLevelID": 1,
-    "listOfMovedLocationsIDs": [
-      2
-    ],
+    "listOfMovedLocationsIDs": [],
     "damage": 15,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
-    "currentHunger": 90,
+    "currentHunger": 100,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
     "currentXP": 0,
-    "currentHealth": 95,
+    "currentHealth": 100,
     "playerLevel": 1,
     "xpReward": 10,
     "puzzlesSolvedCount": 0
