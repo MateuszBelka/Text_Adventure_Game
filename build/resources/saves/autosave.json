@@ -54,7 +54,7 @@
     },
     {
       "canBeBrokenWithItem": false,
-      "canBeBrokenWithoutItem": false,
+      "canBeBrokenWithoutItem": true,
       "canBePickedUp": true,
       "canBeDropped": false,
       "canBeUnlockedByItem": false,
@@ -164,7 +164,6 @@
     {
       "id": 1,
       "listOfItemsIDs": [
-        2,
         3
       ],
       "listOfFriendlyNPCsIDs": [
@@ -202,6 +201,7 @@
         "percentChanceToShowUpAtLocationSwitch": 0,
         "damage": 0,
         "currentHealth": 0,
+        "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Henry",
         "description": "test description for Henry",
@@ -244,7 +244,8 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 5,
-        "currentHealth": 5,
+        "currentHealth": 20,
+        "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Skeleton",
         "descriptionAfterCommand": {},
@@ -297,10 +298,10 @@
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 10,
-    "currentHealth": 85,
+    "currentXP": 80,
+    "currentHealth": 90,
     "playerLevel": 1,
-    "xpReward": 10,
-    "puzzlesSolvedCount": 1
+    "xpReward": 40,
+    "puzzlesSolvedCount": 2
   }
 }

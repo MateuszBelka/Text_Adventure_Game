@@ -40,6 +40,7 @@ public class ConfigureClasses {
         item1.setName("item1");
         item1.setDescription("temporary description for item1");
         item1.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item1");
+        item1.setCanBeBrokenWithoutItem(true);
         item1.setCanBePickedUp(true);
 
         item2.setName("item2");

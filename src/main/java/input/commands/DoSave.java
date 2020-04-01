@@ -26,7 +26,6 @@ public class DoSave {
             path = path.substring(0, path.length() - 23);
         } else { // JAR
             path = path.substring(0, path.length() - 38);
-
         }
 
         path += "build\\resources\\saves\\" + jsonFileName + ".json";

@@ -69,8 +69,22 @@ public class BattleSequence {
 
         // If enemy is dead then set current enemy to null and receive xp
         if (enemy.getCurrentHealth() <= 0) {
-            setCurrentEnemy(null);
             PlayerLevellingProgression.addXPReward();
+
+            // Remove NPC from Location after being defeated
+            if (player.getCurrentLocation().getListOfFriendlyNPCs().contains(enemy)) {
+                player.getCurrentLocation().getListOfFriendlyNPCs().remove(enemy);
+            } else if (player.getCurrentLocation().getListOfEnemyNPCs().contains(enemy)) {
+                player.getCurrentLocation().getListOfEnemyNPCs().remove(enemy);
+            }
+
+            // Enemy becomes friendly after fight (requires 2 NPC objects of the same name)
+            if (enemy.getNPCSpawnedAfterBattle() != null) {
+                player.getCurrentLocation().getListOfFriendlyNPCs().add(enemy.getNPCSpawnedAfterBattle());
+                NonStoryPrinter.print(enemy.getNPCSpawnedAfterBattle().getName() + " can now be interacted with.");
+            }
+
+            setCurrentEnemy(null);
         }
     }
 

@@ -45,7 +45,7 @@ public class PlayerStats {
     private int currentXP = 0;
     private int currentHealth = maxHealth;
     private int playerLevel = 1;
-    private int xpReward = 10;
+    private int xpReward = 40;
     private int puzzlesSolvedCount = 0;
 
 

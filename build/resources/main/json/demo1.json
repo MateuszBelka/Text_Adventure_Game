@@ -53,7 +53,7 @@
     },
     {
       "canBeBrokenWithItem": false,
-      "canBeBrokenWithoutItem": false,
+      "canBeBrokenWithoutItem": true,
       "canBePickedUp": true,
       "canBeDropped": false,
       "canBeUnlockedByItem": false,
@@ -201,6 +201,7 @@
         "percentChanceToShowUpAtLocationSwitch": 0,
         "damage": 0,
         "currentHealth": 0,
+        "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Henry",
         "description": "test description for Henry",
@@ -244,6 +245,7 @@
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 5,
         "currentHealth": 50,
+        "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Skeleton",
         "descriptionAfterCommand": {},
@@ -297,7 +299,7 @@
     "currentXP": 0,
     "currentHealth": 100,
     "playerLevel": 1,
-    "xpReward": 10,
+    "xpReward": 40,
     "puzzlesSolvedCount": 0
   }
 }

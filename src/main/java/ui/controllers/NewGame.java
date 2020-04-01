@@ -7,9 +7,10 @@ import saveAndLoad.createDemoOne.CreateDemo;
 import ui.UI;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class NewGame {
-    public void createGameButtonClicked(ActionEvent actionEvent) throws IOException {
+    public void createGameButtonClicked(ActionEvent actionEvent) throws IOException, URISyntaxException {
         CreateDemo.createDemo();
         UI.changeToNewScene("/fxml/adventure.fxml", actionEvent);
     }
