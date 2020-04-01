@@ -10,14 +10,14 @@ import java.util.ArrayList;
  * Responsible for printing additional information after story text
  * as part of game logic you can call addToPrinting in order to have something printed to terminal
  */
-public class NonStoryPrinter {
+public class InteractionPrinter {
     private static ArrayList<String> listToPrint = new ArrayList<>();
 
     private static ArrayList<String> getListToPrint() {
         return listToPrint;
     }
     private static void setListToPrint(ArrayList<String> listToPrint) {
-        NonStoryPrinter.listToPrint = listToPrint;
+        InteractionPrinter.listToPrint = listToPrint;
     }
 
     /*
@@ -30,8 +30,6 @@ public class NonStoryPrinter {
     public static void printToTerminal() {
         Adventure adventure = InitOfStoryIndependentClasses.getAdventure();
         TextArea terminal = adventure.getTerminal();
-
-        print("\nWhat would you like to do?");
 
         // Format and Print all gathered text to terminal
         if (!getListToPrint().isEmpty()) {

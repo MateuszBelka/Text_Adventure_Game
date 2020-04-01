@@ -20,6 +20,8 @@ public class Item extends Entity {
     private int npcToListenWithItemToID;
     private transient Item itemToBreakWith;
     private int itemToBreakWithID;
+    private transient ArrayList<Item> itemsToDropOnBreak = new ArrayList<>();
+    private ArrayList<Integer> itemsToDropOnBreakIDs = new ArrayList<>();
 
 
     public static Item getItemByName(String name){
@@ -41,109 +43,101 @@ public class Item extends Entity {
         return searchedItem;
     }
 
+
     public Boolean getCanBeBrokenWithItem() {
         return canBeBrokenWithItem;
     }
-
+    public void setCanBeBrokenWithItem(Boolean canBeBrokenWithItem) {
+        this.canBeBrokenWithItem = canBeBrokenWithItem;
+    }
     public Boolean getCanBeBrokenWithoutItem() {
         return canBeBrokenWithoutItem;
     }
-
-    public Boolean getCanBePickedUp() {
-        return canBePickedUp;
-    }
-
-    public Boolean getCanBeDropped() {
-        return canBeDropped;
-    }
-
-    public Boolean getCanBeUnlockedByItem() {
-        return canBeUnlockedByItem;
-    }
-
-    public Boolean getCanBeListenedWith() {
-        return canBeListenedWith;
-    }
-
-    public Boolean getCanBeGiven() {
-        return canBeGiven;
-    }
-
-    public Boolean getCanBeCutWith() {
-        return canBeCutWith;
-    }
-
-    public Boolean getCanBeRead() {
-        return canBeRead;
-    }
-
-    public NPC getNpcToListenWithItemTo() {
-        return npcToListenWithItemTo;
-    }
-
-    public Boolean getCanBreak() {
-        return canBreak;
-    }
-
-    public Item getItemToBreakWith() {
-        return itemToBreakWith;
-    }
-
-    public void setItemToBreakWith(Item itemToBreakWith) {
-        this.itemToBreakWith = itemToBreakWith;
-    }
-
-    public void setCanBreak(Boolean canBreak) {
-        this.canBreak = canBreak;
-    }
-
-    public void setNpcToListenWithItemTo(NPC npcToListenWithItemTo) {
-        this.npcToListenWithItemTo = npcToListenWithItemTo;
-    }
-
-    public void setCanBeRead(Boolean canBeRead) {
-        this.canBeRead = canBeRead;
-    }
-
-    public void setCanBeCutWith(Boolean canBeCutWith) {
-        this.canBeCutWith = canBeCutWith;
-    }
-
-    public void setCanBeGiven(Boolean canBeGiven) {
-        this.canBeGiven = canBeGiven;
-    }
-
-    public void setCanBeListenedWith(Boolean canBeListenedWith) {
-        this.canBeListenedWith = canBeListenedWith;
-    }
-
-    public void setCanBeUnlockedByItem(Boolean canBeUnlockedByItem) {
-        this.canBeUnlockedByItem = canBeUnlockedByItem;
-    }
-
-    public void setCanBeBrokenWithItem(Boolean canBeBrokenWithItem) { this.canBeBrokenWithItem = canBeBrokenWithItem; }
-
     public void setCanBeBrokenWithoutItem(Boolean canBeBrokenWithoutItem) {
         this.canBeBrokenWithoutItem = canBeBrokenWithoutItem;
     }
-
-    public void setCanBePickedUp(Boolean canBePickedUp) { this.canBePickedUp = canBePickedUp; }
-
-    public void setCanBeDropped(Boolean canBeDropped) { this.canBeDropped = canBeDropped; }
-
+    public Boolean getCanBePickedUp() {
+        return canBePickedUp;
+    }
+    public void setCanBePickedUp(Boolean canBePickedUp) {
+        this.canBePickedUp = canBePickedUp;
+    }
+    public Boolean getCanBeDropped() {
+        return canBeDropped;
+    }
+    public void setCanBeDropped(Boolean canBeDropped) {
+        this.canBeDropped = canBeDropped;
+    }
+    public Boolean getCanBeUnlockedByItem() {
+        return canBeUnlockedByItem;
+    }
+    public void setCanBeUnlockedByItem(Boolean canBeUnlockedByItem) {
+        this.canBeUnlockedByItem = canBeUnlockedByItem;
+    }
+    public Boolean getCanBeListenedWith() {
+        return canBeListenedWith;
+    }
+    public void setCanBeListenedWith(Boolean canBeListenedWith) {
+        this.canBeListenedWith = canBeListenedWith;
+    }
+    public Boolean getCanBeGiven() {
+        return canBeGiven;
+    }
+    public void setCanBeGiven(Boolean canBeGiven) {
+        this.canBeGiven = canBeGiven;
+    }
+    public Boolean getCanBeCutWith() {
+        return canBeCutWith;
+    }
+    public void setCanBeCutWith(Boolean canBeCutWith) {
+        this.canBeCutWith = canBeCutWith;
+    }
+    public Boolean getCanBeRead() {
+        return canBeRead;
+    }
+    public void setCanBeRead(Boolean canBeRead) {
+        this.canBeRead = canBeRead;
+    }
+    public Boolean getCanBreak() {
+        return canBreak;
+    }
+    public void setCanBreak(Boolean canBreak) {
+        this.canBreak = canBreak;
+    }
+    public NPC getNpcToListenWithItemTo() {
+        return npcToListenWithItemTo;
+    }
+    public void setNpcToListenWithItemTo(NPC npcToListenWithItemTo) {
+        this.npcToListenWithItemTo = npcToListenWithItemTo;
+    }
     public int getNpcToListenWithItemToID() {
         return npcToListenWithItemToID;
     }
-
     public void setNpcToListenWithItemToID(int npcToListenWithItemToID) {
         this.npcToListenWithItemToID = npcToListenWithItemToID;
     }
-
+    public Item getItemToBreakWith() {
+        return itemToBreakWith;
+    }
+    public void setItemToBreakWith(Item itemToBreakWith) {
+        this.itemToBreakWith = itemToBreakWith;
+    }
     public int getItemToBreakWithID() {
         return itemToBreakWithID;
     }
-
     public void setItemToBreakWithID(int itemToBreakWithID) {
         this.itemToBreakWithID = itemToBreakWithID;
+    }
+    public ArrayList<Item> getItemsToDropOnBreak() {
+        return itemsToDropOnBreak;
+    }
+    public void setItemsToDropOnBreak(ArrayList<Item> itemsToDropOnBreak) {
+        this.itemsToDropOnBreak = itemsToDropOnBreak;
+    }
+    public ArrayList<Integer> getItemsToDropOnBreakIDs() {
+        return itemsToDropOnBreakIDs;
+    }
+    public void setItemsToDropOnBreakIDs(ArrayList<Integer> itemsToDropOnBreakIDs) {
+        this.itemsToDropOnBreakIDs = itemsToDropOnBreakIDs;
     }
 }

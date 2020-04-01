@@ -8,13 +8,13 @@ import java.util.HashMap;
 public class Location {
     private int id;
     private transient ArrayList<Item> listOfItems = new ArrayList<>();
-    private ArrayList<Integer> listOfItemsIDs;
+    private ArrayList<Integer> listOfItemsIDs = new ArrayList<>();
     private transient ArrayList<NPC> listOfFriendlyNPCs = new ArrayList<>();
-    private ArrayList<Integer> listOfFriendlyNPCsIDs;
+    private ArrayList<Integer> listOfFriendlyNPCsIDs = new ArrayList<>();
     private transient ArrayList<NPC> listOfEnemyNPCs = new ArrayList<>();
-    private ArrayList<Integer> listOfEnemyNPCsIDs;
-    private transient HashMap<String, Location> listOfConnectedLocations;
-    private HashMap<String, Integer> listOfConnectedLocationsIDs;
+    private ArrayList<Integer> listOfEnemyNPCsIDs = new ArrayList<>();
+    private transient HashMap<String, Location> listOfConnectedLocations = new HashMap<>();
+    private HashMap<String, Integer> listOfConnectedLocationsIDs = new HashMap<>();
     private String description;
     private String name;
     private String textForListening;

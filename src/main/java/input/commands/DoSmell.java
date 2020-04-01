@@ -3,19 +3,19 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoSmell {
     public static void doSmell(){
-        NonStoryPrinter.print(InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getTextForSmelling());
+        InteractionPrinter.print(InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation().getTextForSmelling());
     }
 
     public static void doSmell(Item item) {
-        NonStoryPrinter.print(item.getDescriptionOfCommand("smell"));
+        InteractionPrinter.print(item.getDescriptionOfCommand("smell"));
     }
 
     public static void doSmell(NPC npc) {
-        NonStoryPrinter.print(npc.getDescriptionOfCommand("smell"));
+        InteractionPrinter.print(npc.getDescriptionOfCommand("smell"));
     }
 
     private DoSmell(){} //hiding the implicit public constructor

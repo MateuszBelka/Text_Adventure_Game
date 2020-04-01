@@ -4,7 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
 import gameProgress.PuzzleProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoCut {
 
@@ -14,7 +14,7 @@ public class DoCut {
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCutWith);
         npcToBeCut.setCanBeCut(false);
         npcToBeCut.setDescription( npcToBeCut.getDescriptionOfCommand("cut") );
-        NonStoryPrinter.print(npcToBeCut.getDescription());
+        InteractionPrinter.print(npcToBeCut.getDescription());
 
         // Puzzle count up and xp
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();
@@ -26,7 +26,7 @@ public class DoCut {
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToCutWith);
         itemToBeCut.setCanBeCut(false);
         itemToBeCut.setDescription( itemToBeCut.getDescriptionOfCommand("cut") );
-        NonStoryPrinter.print(itemToBeCut.getDescription());
+        InteractionPrinter.print(itemToBeCut.getDescription());
 
         // Puzzle count up and xp
         PuzzleProgression.incrementPuzzleCountGiveXPDrainHunger();

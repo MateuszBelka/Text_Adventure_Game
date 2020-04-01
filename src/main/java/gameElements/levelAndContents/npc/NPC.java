@@ -7,12 +7,14 @@ import initialisation.InitOfClassesThroughSaveFile;
 import java.util.ArrayList;
 
 public abstract class NPC extends Entity {
-    private Boolean canAttack = false;
+    protected Boolean canAttack = false;
     protected transient Item itemToGive;
     protected int itemToGiveID;
     protected int percentChanceToShowUpAtLocationSwitch;
-    private int damage;
-    private int currentHealth;
+    protected int damage;
+    protected int currentHealth;
+    protected transient NPC NPCSpawnedAfterBattle;
+    protected int NPCSpawnedAfterBattleID;
 
     public Boolean getCanAttack() {
         return canAttack;
@@ -37,6 +39,18 @@ public abstract class NPC extends Entity {
     }
     public void setCurrentHealth(int currentHealth) {
         this.currentHealth = currentHealth;
+    }
+    public NPC getNPCSpawnedAfterBattle() {
+        return NPCSpawnedAfterBattle;
+    }
+    public void setNPCSpawnedAfterBattle(NPC NPCSpawnedAfterBattle) {
+        this.NPCSpawnedAfterBattle = NPCSpawnedAfterBattle;
+    }
+    public int getNPCSpawnedAfterBattleID() {
+        return NPCSpawnedAfterBattleID;
+    }
+    public void setNPCSpawnedAfterBattleID(int NPCSpawnedAfterBattleID) {
+        this.NPCSpawnedAfterBattleID = NPCSpawnedAfterBattleID;
     }
 
     public static NPC getNPCByName (String name){

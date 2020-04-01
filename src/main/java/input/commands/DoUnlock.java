@@ -3,7 +3,7 @@ package input.commands;
 import gameElements.levelAndContents.Item;
 import gameElements.player.PlayerHungerProgression;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoUnlock {
     public static void doUnlockItemWithItem (Item itemToUnlock, Item itemToUnlockWith){
@@ -18,7 +18,7 @@ public class DoUnlock {
 
         InitOfClassesThroughSaveFile.getInventory().deleteItemFromInventory(itemToUnlockWith);
 
-        NonStoryPrinter.print(itemToUnlock.getDescriptionOfCommand("unlock") );
+        InteractionPrinter.print(itemToUnlock.getDescriptionOfCommand("unlock") );
     }
 
     private DoUnlock(){} //hiding the implicit public constructor

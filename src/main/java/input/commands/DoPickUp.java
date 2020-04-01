@@ -2,7 +2,7 @@ package input.commands;
 
 import gameElements.levelAndContents.Item;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class DoPickUp {
     public static void doPickUp(Item item){
@@ -11,7 +11,7 @@ public class DoPickUp {
         InitOfClassesThroughSaveFile.getInventory().addToInventory(item);
         item.setCanBePickedUp(false);
         item.setCanBeDropped(true);
-        NonStoryPrinter.print( item.getDescriptionOfCommand("pickup") );
+        InteractionPrinter.print( item.getDescriptionOfCommand("pickup") );
     }
 
     private DoPickUp(){} //hiding the implicit public constructor

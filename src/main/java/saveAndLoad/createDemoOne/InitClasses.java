@@ -53,9 +53,11 @@ public class InitClasses {
         ArrayList<Item> listOfItems = new ArrayList<>();
         Item item0 = new Item();
         Item item1 = new Item();
+        Item item2 = new Item();
 
         listOfItems.add(item0);
         listOfItems.add(item1);
+        listOfItems.add(item2);
         return listOfItems;
     }
 

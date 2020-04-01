@@ -2,7 +2,7 @@ package gameElements.player;
 
 import gameElements.battle.BattleSequence;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class PlayerHealthProgression {
 
@@ -19,8 +19,8 @@ public class PlayerHealthProgression {
 
     public static void printDeath() {
         BattleSequence.setCurrentEnemy(null);
-        NonStoryPrinter.print("You are dead!");
-        NonStoryPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
+        InteractionPrinter.print("You are dead!");
+        InteractionPrinter.print("Type <Quit> to close the game or <Menu> to start again!");
     }
 
 }

@@ -1,6 +1,6 @@
 package input.commands;
 
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 import saveAndLoad.Save;
 
 import java.io.File;
@@ -9,16 +9,17 @@ import java.net.URISyntaxException;
 public class DoSave {
     public static void doSave() throws URISyntaxException {
         saveLogic("save0");
-        NonStoryPrinter.print("Game has been successfully saved!");
+        InteractionPrinter.print("Game has been successfully saved!");
     }
 
     public static void doAutoSave() throws URISyntaxException {
         saveLogic("autosave");
-        NonStoryPrinter.print("Autosave completed!");
+        InteractionPrinter.print("Autosave completed!");
     }
 
     private static void saveLogic(String jsonFileName) throws URISyntaxException {
         String path = new File(DoSave.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getPath();
+        jsonFileName = jsonFileName.toLowerCase();
 
         String projectPath = path.substring(path.length() - 23);
         // Different absolute path for IDE and for JAR
@@ -26,7 +27,6 @@ public class DoSave {
             path = path.substring(0, path.length() - 23);
         } else { // JAR
             path = path.substring(0, path.length() - 38);
-
         }
 
         path += "build\\resources\\saves\\" + jsonFileName + ".json";

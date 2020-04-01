@@ -4,7 +4,7 @@ import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
 import gameElements.levelAndContents.npc.NPC;
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,13 +55,13 @@ public class HandlerOf2Words {
             validateAndHandleCommandAndDirectionCombination(command, direction);
         }
         else {
-            NonStoryPrinter.print("Unrecognized input. Try in the form [command] (+ [thing] ( + [thing] ) )");
+            InteractionPrinter.print("Unrecognized input. Try in the form [command] (+ [thing] ( + [thing] ) )");
         }
     }
 
     private static void validateAndHandleItemAndNPCCombination(Item item, NPC npc){
         if (npc.getItemToBeUsedOn() == null){
-            NonStoryPrinter.print(npc.getName() + " does not need " + item.getName() + ".");
+            InteractionPrinter.print(npc.getName() + " does not need " + item.getName() + ".");
         }
         else if(npc.getItemToGive().equals(item)){
             if(item.getCanBeGiven()){
@@ -71,13 +71,13 @@ public class HandlerOf2Words {
                 doUseItemOnNPC(item, npc);
             }
         }
-        else { NonStoryPrinter.print("Wrong item for " + npc.getName() + "."); }
+        else { InteractionPrinter.print("Wrong item for " + npc.getName() + "."); }
 
         Location currentLocation = InitOfClassesThroughSaveFile.getPlayerStats().getCurrentLocation();
         ArrayList<Item> itemsInLocation = currentLocation.getListOfItems();
         for (Item itemInLocation : itemsInLocation){
             if (itemInLocation.equals(item)){
-                NonStoryPrinter.print("Cannot do that. Maybe try to pick " + item.getName() + " up first?");
+                InteractionPrinter.print("Cannot do that. Maybe try to pick " + item.getName() + " up first?");
             }
         }
     }
@@ -86,13 +86,13 @@ public class HandlerOf2Words {
         switch (command){
             case "USE":
                 if (item.getCanBeUsed()) { doUse(item); }
-                else { NonStoryPrinter.print("Cannot use " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot use " + item.getName() + "."); }
                 break;
             case "EAT":
             case "DRINK":
             case "CONSUME":
                 if (item.getCanBeConsumed()){ doConsume(item); }
-                else { NonStoryPrinter.print("Cannot consume " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot consume " + item.getName() + "."); }
                 break;
             case "TAKE":
             case "PICK":
@@ -100,65 +100,65 @@ public class HandlerOf2Words {
             case "GET":
             case "PICKUP":
                 if (item.getCanBePickedUp()){ doPickUp(item); }
-                else { NonStoryPrinter.print("Cannot pick up " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot pick up " + item.getName() + "."); }
                 break;
             case "DROP":
                 if (item.getCanBeDropped()) { doDrop(item); }
-                else { NonStoryPrinter.print("Cannot drop " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot drop " + item.getName() + "."); }
                 break;
             case "READ":
                 if (item.getCanBeRead()) { doRead(item); }
-                else { NonStoryPrinter.print("Cannot read " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot read " + item.getName() + "."); }
                 break;
             case "LOOK":
             case "OBSERVE":
             case "EXAMINE":
                 if (item.getCanBeExamined()) { doExamine(item); }
-                else { NonStoryPrinter.print("Cannot examine " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot examine " + item.getName() + "."); }
                 break;
             case "SMELL":
                 if (item.getCanBeSmelled()) { doSmell(item); }
-                else { NonStoryPrinter.print(item.getName() + " does not have a particular smell."); }
+                else { InteractionPrinter.print(item.getName() + " does not have a particular smell."); }
                 break;
             case "PUSH":
                 if (item.getCanBePushed()) { doPush(item); }
-                else { NonStoryPrinter.print("Cannot push " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot push " + item.getName() + "."); }
                 break;
             case "PULL":
                 if (item.getCanBePulled()) { doPull(item); }
-                else { NonStoryPrinter.print("Cannot pull " + item.getName() + "."); }
+                else { InteractionPrinter.print("Cannot pull " + item.getName() + "."); }
                 break;
             case "LISTEN":
                 if (item.getCanBeListenedTo()) { doListenTo(item); }
-                else { NonStoryPrinter.print("Nothing in particular is heard, when listening to "
+                else { InteractionPrinter.print("Nothing in particular is heard, when listening to "
                         + item.getName() + "."); }
                 break;
             case "TALK":
                 if (item.getCanBeTalkedWith()) { doTalkWith(item); }
-                else { NonStoryPrinter.print(item.getName() + " cannot be talked to."); }
+                else { InteractionPrinter.print(item.getName() + " cannot be talked to."); }
                 break;
             case "OPEN":
                 if (item.getCanBeOpened()) { doOpen(item); }
-                else { NonStoryPrinter.print(item.getName() + " cannot be opened."); }
+                else { InteractionPrinter.print(item.getName() + " cannot be opened."); }
                 break;
             case "CLOSE":
                 if (item.getCanBeClosed()) { doClose(item); }
-                else { NonStoryPrinter.print(item.getName() + " cannot be closed."); }
+                else { InteractionPrinter.print(item.getName() + " cannot be closed."); }
                 break;
             case "CUT":
                 cutItemCommand(item);
                 break;
             case "ATTACK":
                 if (item.getCanBeAttacked()) { doAttack(item); }
-                else { NonStoryPrinter.print(item.getName() + " cannot be attacked."); }
+                else { InteractionPrinter.print(item.getName() + " cannot be attacked."); }
                 break;
             case "BREAK":
                 if (item.getCanBeBrokenWithoutItem()) { doBreakWithoutItem(item); }
-                else { NonStoryPrinter.print(item.getName() + " cannot be broken. " +
+                else { InteractionPrinter.print(item.getName() + " cannot be broken. " +
                         "It might be possible to break, with another item. "); }
                 break;
             default:
-                NonStoryPrinter.print( "Cannot use [" + command.toLowerCase() + "] this way. Try [help]." );
+                InteractionPrinter.print( "Cannot use [" + command.toLowerCase() + "] this way. Try [help]." );
         }
     }
 
@@ -174,11 +174,11 @@ public class HandlerOf2Words {
                 }
             }
             if (!check){
-                NonStoryPrinter.print("Don't have the right item to cut " + item.getName() + " with.");
+                InteractionPrinter.print("Don't have the right item to cut " + item.getName() + " with.");
             }
         }
         else{
-            NonStoryPrinter.print(item.getName() + " cannot be cut.");
+            InteractionPrinter.print(item.getName() + " cannot be cut.");
         }
     }
 
@@ -186,56 +186,56 @@ public class HandlerOf2Words {
         switch (command) {
             case "LISTEN":
                 if (npc.getCanBeListenedTo()) { doListenTo(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be listened to."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be listened to."); }
                 break;
             case "TALK":
                 if (npc.getCanBeTalkedWith()) { doTalkWith(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be talked to."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be talked to."); }
                 break;
             case "ATTACK":
                 if (npc.getCanBeAttacked()) { doAttack(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be attacked."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be attacked."); }
                 break;
             case "SMELL":
                 if (npc.getCanBeSmelled()) { doSmell(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " does not have a particular smell."); }
+                else { InteractionPrinter.print(npc.getName() + " does not have a particular smell."); }
                 break;
             case "PUSH":
                 if (npc.getCanBePushed()) { doPush(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be pushed."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be pushed."); }
                 break;
             case "PULL":
                 if (npc.getCanBePulled()) { doPull(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be pulled."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be pulled."); }
                 break;
             case "OBSERVE":
             case "EXAMINE":
                 if (npc.getCanBeExamined()) { doExamine(npc); }
-                else { NonStoryPrinter.print("Cannot examine " + npc.getName() + "."); }
+                else { InteractionPrinter.print("Cannot examine " + npc.getName() + "."); }
                 break;
             case "USE":
                 if (npc.getCanBeUsed()) { doUse(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be used."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be used."); }
                 break;
             case "EAT":
             case "DRINK":
             case "CONSUME":
                 if (npc.getCanBeConsumed()) { doConsume(npc); }
-                else { NonStoryPrinter.print("Cannot " + command.toLowerCase() + " " + npc.getName() + "."); }
+                else { InteractionPrinter.print("Cannot " + command.toLowerCase() + " " + npc.getName() + "."); }
                 break;
             case "OPEN":
                 if (npc.getCanBeOpened()) { doOpen(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be opened."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be opened."); }
                 break;
             case "CLOSE":
                 if (npc.getCanBeClosed()) { doClose(npc); }
-                else { NonStoryPrinter.print(npc.getName() + " cannot be closed."); }
+                else { InteractionPrinter.print(npc.getName() + " cannot be closed."); }
                 break;
             case "CUT":
                 cutNPCCommand(npc);
                 break;
             default:
-                NonStoryPrinter.print("Cannot use [" + command.toLowerCase() + "] with [" + npc.getName() +
+                InteractionPrinter.print("Cannot use [" + command.toLowerCase() + "] with [" + npc.getName() +
                         "] that way. Refer to [help].");
         }
     }
@@ -252,11 +252,11 @@ public class HandlerOf2Words {
                 }
             }
             if (!check){
-                NonStoryPrinter.print("Don't have the right item to cut " + npc.getName() + " with.");
+                InteractionPrinter.print("Don't have the right item to cut " + npc.getName() + " with.");
             }
         }
         else{
-            NonStoryPrinter.print(npc.getName() + " cannot be cut.");
+            InteractionPrinter.print(npc.getName() + " cannot be cut.");
         }
     }
 
@@ -269,7 +269,7 @@ public class HandlerOf2Words {
                 handle1Direction(direction);
                 break;
             default:
-                NonStoryPrinter.print("Cannot " + command.toLowerCase() + " to " + direction.toLowerCase() + ".");
+                InteractionPrinter.print("Cannot " + command.toLowerCase() + " to " + direction.toLowerCase() + ".");
         }
     }
 }

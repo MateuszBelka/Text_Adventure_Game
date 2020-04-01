@@ -1,7 +1,7 @@
 package gameElements.player;
 
 import initialisation.InitOfClassesThroughSaveFile;
-import output.NonStoryPrinter;
+import output.InteractionPrinter;
 
 public class PlayerLevellingProgression {
 
@@ -10,7 +10,7 @@ public class PlayerLevellingProgression {
 
         final int newCurrentXP = playerStats.getCurrentXP() + playerStats.getXpReward();
 
-        NonStoryPrinter.print("You receive " + playerStats.getXpReward() + " XP!");
+        InteractionPrinter.print("You receive " + playerStats.getXpReward() + " XP!");
         if (playerStats.getMaximumXP() > newCurrentXP) {
             playerStats.setCurrentXP(newCurrentXP);
         } else {
@@ -31,7 +31,7 @@ public class PlayerLevellingProgression {
     private static void incrementPlayerLevel() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
         playerStats.setPlayerLevel(playerStats.getPlayerLevel() + 1);
-        NonStoryPrinter.print("You reached level " + playerStats.getPlayerLevel());
+        InteractionPrinter.print("You reached level " + playerStats.getPlayerLevel());
     }
 
     private static void levelUPScaling() {
@@ -43,7 +43,10 @@ public class PlayerLevellingProgression {
 
     private static void increaseMaximumHP() {
         PlayerStats playerStats = InitOfClassesThroughSaveFile.getPlayerStats();
+        int oldMaxHP = playerStats.getMaxHealth();
         playerStats.setMaxHealth((int) Math.round(playerStats.getMaxHealth() * 1.2));
+        int hpDiff = playerStats.getMaxHealth() - oldMaxHP;
+        playerStats.setCurrentHealth(playerStats.getCurrentHealth() + hpDiff);
     }
 
     private static void increaseDamage() {
