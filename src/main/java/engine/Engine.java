@@ -6,10 +6,13 @@ import gameElements.player.PlayerHungerProgression;
 import gameProgress.GameProgression;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
+import input.commands.DoGoToMenu;
 import input.commands.DoSave;
 import input.validation.Validation;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import output.InteractionPrinter;
 import output.DescriptionPrinter;
 import output.UserInputPrinter;
@@ -86,6 +89,14 @@ public class Engine {
             // Check hunger level and decrease health if necessary
             PlayerHungerProgression.checkCurrentHunger();
         } else {
+            // Death Scenario
+            switch (input) {
+                case "menu":
+                    DoGoToMenu.doGoToMenu(actionEvent);
+                case "quit":
+                    Stage primaryStage = (Stage)((Node)actionEvent.getSource()).getScene().getWindow();
+                    primaryStage.close();
+            }
             PlayerHealthProgression.printDeath();
         }
 
