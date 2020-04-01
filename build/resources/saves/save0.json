@@ -589,7 +589,7 @@
       "id": 1,
       "description": "The ground floor of Meow Manor. You get goosebumps by just looking around.",
       "name": "Ground Floor",
-      "firstTimeEnteringLevel": true,
+      "firstTimeEnteringLevel": false,
       "startLocationID": 1,
       "totalPuzzleCount": 1000,
       "nextLevelID": 2
@@ -630,7 +630,7 @@
       },
       "description": "You are in the foyer of Meow Manor establishment.",
       "name": "Foyer",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 2,
@@ -1008,12 +1008,38 @@
     }
   ],
   "inventory": {
+    "instance": {
+      "listOfItemsIDs": [
+        10,
+        11
+      ]
+    },
     "listOfItemsIDs": [
       10,
       11
     ]
   },
   "playerStats": {
+    "instance": {
+      "currentLocationID": 1,
+      "currentLevelID": 1,
+      "listOfMovedLocationsIDs": [],
+      "damage": 20,
+      "maximumXP": 100,
+      "maxHealth": 100,
+      "maxHunger": 100,
+      "currentHunger": 100,
+      "hungerDrain": 5,
+      "foodHungerIncrease": 15,
+      "foodHealthIncrease": 10,
+      "maxPlayerLevel": 100,
+      "hungerDamage": 20,
+      "currentXP": 0,
+      "currentHealth": 100,
+      "playerLevel": 1,
+      "xpReward": 40,
+      "puzzlesSolvedCount": 0
+    },
     "currentLocationID": 1,
     "currentLevelID": 1,
     "listOfMovedLocationsIDs": [],

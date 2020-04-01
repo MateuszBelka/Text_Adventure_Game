@@ -63,12 +63,7 @@
       "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 6,
-      "itemsToDropOnBreakIDs": [
-        8,
-        8,
-        8,
-        8
-      ],
+      "itemsToDropOnBreakIDs": [],
       "id": 2,
       "name": "Fish_Tank",
       "description": "The fish tank is huge, and it looks like the owner put jewels at the bottom rather than rocks...",
@@ -301,8 +296,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
@@ -626,7 +621,9 @@
         9
       ],
       "listOfFriendlyNPCsIDs": [],
-      "listOfEnemyNPCsIDs": [],
+      "listOfEnemyNPCsIDs": [
+        3
+      ],
       "listOfConnectedLocationsIDs": {
         "east": 3,
         "west": 2
@@ -654,13 +651,12 @@
       },
       "description": "You are in the beautiful gard of Meow Manor establishment. It is blooming with all sorts of flowers",
       "name": "Garden",
-      "firstTimeEnteringLocation": false
+      "firstTimeEnteringLocation": true
     },
     {
       "id": 3,
       "listOfItemsIDs": [
-        1,
-        7
+        1
       ],
       "listOfFriendlyNPCsIDs": [
         2,
@@ -933,48 +929,6 @@
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 20,
         "currentHealth": 100,
-        "NPCSpawnedAfterBattle": {
-          "type": "EnemyNPC",
-          "properties": {
-            "canAttack": true,
-            "itemToGiveID": 0,
-            "percentChanceToShowUpAtLocationSwitch": 30,
-            "damage": 5,
-            "currentHealth": 0,
-            "NPCSpawnedAfterBattleID": 0,
-            "id": 3,
-            "name": "WildCat",
-            "description": "You stumble upon a crazy cat that is hissing at your louder than could ever imagine a cat can hiss! It is clear he is thirsty for blood!",
-            "descriptionAfterCommand": {},
-            "firstTimeEnteringLocation": true,
-            "canBeConsumed": false,
-            "canBeUsedOnItem": false,
-            "itemToBeUsedOnID": 0,
-            "canBeUsedByItem": false,
-            "itemToBeUsedByID": 0,
-            "canBeAttacked": true,
-            "canBeTalkedWith": false,
-            "canBeListenedTo": false,
-            "canBeSmelled": false,
-            "canBeOpened": false,
-            "canBeClosed": false,
-            "canBeExamined": false,
-            "needsItem": false,
-            "canBeUsedOnNPC": false,
-            "canBePushed": false,
-            "canBePulled": false,
-            "itemToCutWithID": 0,
-            "canBeCut": false,
-            "canBeUsed": false,
-            "npcToGiveItemToID": 0,
-            "itemToListenWithID": 0,
-            "itemToUnlockWithID": 0,
-            "itemToUnlockID": 0,
-            "itemToOpenWithID": 0,
-            "itemToBeOpenedID": 0,
-            "itemToCloseWithID": 0
-          }
-        },
         "NPCSpawnedAfterBattleID": 3,
         "id": 2,
         "name": "Patches",
@@ -1016,7 +970,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 30,
         "damage": 5,
-        "currentHealth": 0,
+        "currentHealth": 40,
         "NPCSpawnedAfterBattleID": 0,
         "id": 3,
         "name": "WildCat",
@@ -1062,12 +1016,7 @@
     "listOfItemsIDs": [
       10,
       11,
-      10,
-      11,
-      10,
-      11,
-      10,
-      11
+      7
     ]
   },
   "playerStats": {
@@ -1091,31 +1040,23 @@
       "xpReward": 40,
       "puzzlesSolvedCount": 0
     },
-    "currentLocationID": 2,
+    "currentLocationID": 3,
     "currentLevelID": 1,
     "listOfMovedLocationsIDs": [
-      3,
-      1,
-      3,
-      1,
-      2,
-      1,
-      2,
-      1,
-      2
+      3
     ],
     "damage": 20,
     "maximumXP": 100,
     "maxHealth": 100,
     "maxHunger": 100,
-    "currentHunger": 55,
+    "currentHunger": 95,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 40,
-    "currentHealth": 95,
+    "currentXP": 0,
+    "currentHealth": 100,
     "playerLevel": 1,
     "xpReward": 40,
     "puzzlesSolvedCount": 0
