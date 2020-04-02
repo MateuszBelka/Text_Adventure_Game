@@ -2,10 +2,6 @@
 
 Maximum number of words for this document: 18000
 
-**IMPORTANT**: In this assignment you will fully model and implement your system. The idea is that you improve your UML models and Java implementation by (i) applying (a subset of) the studied design patterns and (ii) adding any relevant implementation-specific details (e.g., classes with “technical purposes” which are not part of the domain of the system). The goal here is to improve the system in terms of maintainability, readability, evolvability, etc.    
-
-**Format**: establish formatting conventions when describing your models in this document. For example, you style the name of each class in bold, whereas the attributes, operations, and associations as underlined text, objects are in italic, etc.
-
 ### Summary of changes of Assignment 2
 Author(s): `Ece Doganer`
 
@@ -48,14 +44,12 @@ Author(s): Valeriya Komarnitskaya, Ece Doganer, Mateusz Belka
 The class diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
 
 <div align="center">
-    <img src="visual/ClassDiagram1Assignment3.png" width="90%">
+    <img src="visual/ClassDiagram1Assignment3.jpg" width="90%">
 </div>
 
 <div align="center">
-    <img src="visual/ClassDiagram2Assignment3.png" width="90%">
+    <img src="visual/ClassDiagram2Assignment3.jpg" width="90%">
 </div>
-
-The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the **Save** class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations that start with setIDsOf... aim to set the id attributes of respective objects to desired values. Those attributes are then later used by the Load class during the loading of JSON file. EncodeIDsOfObjects is a container operation which aims to localize all calls to further operations which connect instances of one class to another. The purpose of this is to allow during loading to recreate the existing graph of objects which otherwise wouldn't be achievable with unchanged gson library. All of the connect operations replace the objects references to references of the object's id. PopulateJsonWithClasses is an operation which takes all of the classes kept inside **InitOfClassesThroughSaveFile** and serializes them into JSON file. The JSON file has the exact path that was provided in the operation's parameter. **NPCClassAdapter** and it's operations serialize and deserialize are responsible for providing additional functionality to gson library such that it is possible to save and load objects of the abstract class, **NPC**. The Load class's operations aim to reverse the process of the Save class's operations. LoadGameFromSave and LoadGame are responsible for loading information from JSON file to **InitOfClassesThroughSaveFile** class such that this information is now accessible within source code. The two operations differ due to the minor changes in the loading process for games that are stored in resources directory and saves which are stored in the saves directory. DecodeIDsToObjects is a container operations which groups up all calls to methods which transform the id attributes to their intended object references. All of the connect operations reconstruct the intended graph of objects in such a way that no duplicates of objects are creates in the result. The last operation within this class, configPrintingDescriptions is responsible for resetting the value of the boolean attribute firstTimeEnteringLocation of **Items** and **FriendlyNPCs** to true as to allow player to see the descriptions once again. The packages meowManor and demoOne have identical structure and operate on the same principle so they will be discussed together. CreateDemo operation is the public method responsible for initiating the process of creating a game as described in the other files within its package. **InitClasses** class and it's operation initEverything is responsible for calling all other init operations within the class. Those operations in turn aim to create the right number of instances of different classes as to accommodate for the story being presented. Afterward the **ConfigureClasses** class and it's operation configureEverything is responsible for changing the individual attributes of all the recently created objects in such a way as to have a fully functional storyline. **SerializeClasses** class and it's operation serializeDemo is responsible for acquiring the appropriate absolute path and calling the writeGameSave method within **Save** class.
 
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
@@ -110,7 +104,8 @@ Package Engine:<br>
  *+ getAdventure() : Adventure*<br> - getter for UI scene
  *+ setAdventure(adventure : Adventure) : void*<br> - setter for UI scene
  
- Package SaveAndLoad:Save :
+ Package SaveAndLoad:Save :<br>
+ The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the **Save** class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations that start with setIDsOf... aim to set the id attributes of respective objects to desired values. Those attributes are then later used by the Load class during the loading of JSON file. EncodeIDsOfObjects is a container operation which aims to localize all calls to further operations which connect instances of one class to another. The purpose of this is to allow during loading to recreate the existing graph of objects which otherwise wouldn't be achievable with unchanged gson library. All of the connect operations replace the objects references to references of the object's id. PopulateJsonWithClasses is an operation which takes all of the classes kept inside **InitOfClassesThroughSaveFile** and serializes them into JSON file. The JSON file has the exact path that was provided in the operation's parameter. **NPCClassAdapter** and it's operations serialize and deserialize are responsible for providing additional functionality to gson library such that it is possible to save and load objects of the abstract class, **NPC**. The Load class's operations aim to reverse the process of the Save class's operations. LoadGameFromSave and LoadGame are responsible for loading information from JSON file to **InitOfClassesThroughSaveFile** class such that this information is now accessible within source code. The two operations differ due to the minor changes in the loading process for games that are stored in resources directory and saves which are stored in the saves directory. DecodeIDsToObjects is a container operations which groups up all calls to methods which transform the id attributes to their intended object references. All of the connect operations reconstruct the intended graph of objects in such a way that no duplicates of objects are creates in the result. The last operation within this class, configPrintingDescriptions is responsible for resetting the value of the boolean attribute firstTimeEnteringLocation of **Items** and **FriendlyNPCs** to true as to allow player to see the descriptions once again. The packages meowManor and demoOne have identical structure and operate on the same principle so they will be discussed together. CreateDemo operation is the public method responsible for initiating the process of creating a game as described in the other files within its package. **InitClasses** class and it's operation initEverything is responsible for calling all other init operations within the class. Those operations in turn aim to create the right number of instances of different classes as to accommodate for the story being presented. Afterward the **ConfigureClasses** class and it's operation configureEverything is responsible for changing the individual attributes of all the recently created objects in such a way as to have a fully functional storyline. **SerializeClasses** class and it's operation serializeDemo is responsible for acquiring the appropriate absolute path and calling the writeGameSave method within **Save** class.
  *+ writeGameSave(fileName : String ) : void*<br>
  *- setIDsOfObjects() : void*<br>
  *- setIDsOfItems() : void*<br>
@@ -364,8 +359,8 @@ Package Engine:<br>
  *+ doUseItemOnNPC(item : Item, npc : NPC) : void*<br>
  *+ doUseItemOnItem(item1 : Item, item2 : Item)  : void*<br>
  
- Package input:validation:HandlerOf1Word
- *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ Package input:validation:HandlerOf1Word<br>
+ *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void* handles 1 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
  *- handle1Command(command : String , actionEvent : ActionEvent) : void*<br>
  *- doCommand(command : String, actionEvent : ActionEvent) : void*<br>
  *- handleReadCommand() : void*<br>
@@ -373,65 +368,49 @@ Package Engine:<br>
  *- handle1NPC(npc : NPC) : void*<br>
  *# handle1Direction(direction : String) : void*<br>
  
- Package input:validation:HandlerOf2Words 
- *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*<br>
+ Package input:validation:HandlerOf2Words <br>
+ *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*handles 2 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
  *- validateAndHandleItemAndNPCCombination(item : Item, npc : NPC) : void*<br>
  *- validateAndHandleCommandAndItemCombination(command : String, item : Item) : void*<br>
- *- cutItemCommand(item : Item) : void*<br>
+ *- cutItemCommand(item : Item) : void* additional checks for instruction<br>
  *- validateAndHandleCommandAndNPCCombination(command : String, npc : NPC) : void*<br>
- *- cutNPCCommand(npc : NPC) : void*<br>
+ *- cutNPCCommand(npc : NPC) : void* additional checks for instruction<br>
  *- validateAndHandleCommandAndDirectionCombination(command : String, direction : String) : void*<br>
  
- Package input:validation:HandlerOf3Words
- *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void*<br>
- *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void*<br>
- *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void*<br>
+ Package input:validation:HandlerOf3Words<br>
+ *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void* handles 3 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
+ *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void* as stated<br>
+ *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void* as stated<br>
  
- Package input:validation:inputValidation
- *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
- *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String*<br>
- *- deleteFirstAndLastChar(value : String) : String*<br>
- *# getItem(validInputList : HashMap<String, String>) : Item*<br>
- *# getCommand(validInputList : HashMap<String, String>) : String*<br>
- *# getNPC(validInputList : HashMap<String, String>) : NPC*<br>
- *# getDirection(validInputList : HashMap<String, String>) : String*<br>
+ Package input:validation:inputValidation<br>
+ *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void* validates whole input by checking the amount of valid words, and sending through to right handler<br>
+ *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String* gets the word in a hashmap entry<br>
+ *- deleteFirstAndLastChar(value : String) : String* as stated<br>
+ *# getItem(validInputList : HashMap<String, String>) : String* gets the name of an item, from the hashmap<br>
+ *# getCommand(validInputList : HashMap<String, String>) : String* gets the word for the command in the hashmap<br>
+ *# getNPC(validInputList : HashMap<String, String>) : NPC* gets the name of an npc from the hashmap<br>
+ *# getDirection(validInputList : HashMap<String, String>) : String* gets the direction from the hashmap.<br>
  
- Package input:validation:Validation
- *+ validator(String input, ActionEvent actionEvent) : void*<br>
- *- inputParser(String input) : String*<br>
- *+ compileValidList(inputList : String[]) : HashMap<String, String>*<br>
+ Package input:validation:Validation<br>
+ *+ validator(String input, ActionEvent actionEvent) : void* Where validation begins. parses input, sends to wordValidator, gets hashmap back, sends to inputvalidator.<br>
+ *- inputParser(String input) : String* parses input sentence into words<br>
+ *+ compileValidList(inputList : String[]) : HashMap<String, String>* sends to word validation, which sends a hashmap back. Valid words are thus, compiled.<br>
  
- Package input:validation:WordValidation
- *+ wordValidator(inputList : String[]) : HashMap<String, String>*<br>
- *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void*<br>
- *- directionValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
- *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
- *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void*<br>
- *- npcValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
- 
- 
+ Package input:validation:WordValidation<br>
+ *+ wordValidator(inputList : String[]) : HashMap<String, String>* validates words by getting lists from enum Commands, Directions, and from player's currentLocation's items and npcs. Returns a Hashmap containing those words, with a value of "command", "item", "direction", or "npc".<br>
+ *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void* grabs enum Commands and validates if word is equal.<br> 
+ *- directionValidator(word : String, validInputList : HashMap<String, String>) : void* grabs enum Directions and validates if word is equal.<br> 
+ *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*grabs itemlist in player's currentLocation and validates if word is equal.<br> 
+ *- npcValidator(word : String, validInputList : HashMap<String, String>) : void* grabs npclist in player's currentLocation and validates if word is equal.<br> 
+ *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void* adds word as key and the trigger word type as value in the hashmap <br>
  
  
  
  
  
  
-
-This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
-
-`Figure representing the UML class diagram`
-
-For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
-- Brief description about what it represents
-- Brief description of the meaning of each attribute
-- Brief description of the meaning of each operation
-- Brief description of the meaning of each association involving it (each association can be described only once in this deliverable)
-
-Also, you can briefly discuss fragments of previous versions of the class diagram (with figures) in order to show how you evolved from initial versions of the class diagram to the final one.
-
-In this document you have to adhere to the following formatting conventions:
-- the name of each **class** is in bold
-- the *attributes*, *operations*, *associations*, and *objects* are in italic.
+ 
+ 
 
 Maximum number of words for this section: 4000
 
@@ -441,11 +420,11 @@ Author: Mateusz Belka
 The object diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
 
 <div align="center">
-    <img src="visual/ObjectDiagram1Assignment3.png" width="90%">
+    <img src="visual/ObjectDiagram1Assignment3.jpg" width="90%">
 </div>
 
 <div align="center">
-    <img src="visual/ObjectDiagram2Assignment3.png" width="90%">
+    <img src="visual/ObjectDiagram2Assignment3.jpg" width="90%">
 </div>
   
 As opposed to assignment 2, for assignment 3, we were able to prepare a fully functional game and surrounding storyline. As such, a new opportunity arose in the case of object diagram as now we can represent our system during the actual runtime. In a state that the user will be at during certain point in time while playing our game. The purpose of this diagram is to represent an instance at a particular moment, which is concrete in nature. Our object diagram aims to allow for a closer look at our system's behaviour. The objective of such representation of our design is to enable third parties to gain insight into the ongoing information exchanges and manipulations within our software. We believe such information could not be collected by merely exploring the end product.  
@@ -460,7 +439,7 @@ In the runtime scenario presented in our object diagram, the player is positione
 Author(s): Valeriya Komarnitskaya, Taylor Doughty
 
 <div align="center">
-    <img src="visual/TaylorSMDLevel.png" width="90%">
+    <img src="visual/TaylorSMDLevel.jpg" width="90%">
 </div>
 
 [ Package controllers: classes Welcome, NewGame, LoadGame ](https://github.com/Ece-Doganer/Software-Design/blob/Assignment3/docs/visual/diagram.pdf)
@@ -470,15 +449,6 @@ State machine diagram represents states and events that are happening from the m
 The diagram starts with a state called "Game Option Selection" after a user turns on the executable file. It is a menu with three clickable options: "New Game", "Load Game" and "Quit". Depending on the choice you are making, you can have three outcomes as follows: to begin a new game from the start, to continue previously played game and to exit to the desktop. The following structure can be considered as a tree. Then, depending on the choice a player has made, a choice pseudostate is entered. It is necessary because different inputs lead to different states. Guards are checking which command was pressed. 
 If the button "New Game" was pressed, the player is transferred to a state called "Game selection" and sees a screen with three options: "DevDemo", "Meow Manor" and "Back". "DevDemo" and "Meow Manor" are different game stories. "Back" will open the starting screen again, the state called "Game Option Selection". A choice pseudostate determines with a guard which command was pressed. "DevDemo" and "Meow Manor" lead to the pseudostate called "Game State", in which game terminal is open, there is a welcoming text and program is ready for input. When a player types command, a terminal is processing it, outputs a description of the location, items in the room and is waiting for the new input.
 If the button "Load Game" is pressed, then a new state is entered called "Loading Game selection".  A player sees three options as well: "Auto-Save" means that a player will enter the previously played game on the latest auto-saved moment. "Save0" is the name of the game that was saved manually by a player. Save0 is just an indicator; it can be any name that a player will want. For the next state, after a player pressed a command, guards check the input. If the command that was pressed is either "Save0" or "AutoSave", it leads to the state called "GameState". "Back" will take a user to the very first starting screen, a state called "Game option selection". 
-
-This chapter contains the specification of at least 2 UML state machines of your system, together with a textual description of all their elements. Also, remember that classes the describe only data structures (e.g., Coordinate, Position) do not need to have an associated state machine since they can be seen as simple "data containers" without behaviour (they have only stateless objects).
-
-For each state machine you have to provide:
-- the name of the class for which you are representing the internal behavior;
-- a figure representing the part of state machine;
-- a textual description of all its states, transitions, activities, etc. in a narrative manner (you do not need to structure your description into tables in this case). We expect 3-4 lines of text for describing trivial or very simple state machines (e.g., those with one to three states), whereas you will provide longer descriptions (e.g., ~500 words) when describing more complex state machines.
-
-The goal of your state machine diagrams is both descriptive and prescriptive, so put the needed level of detail here, finding the right trade-off between understandability of the models and their precision.
 
 Maximum number of words for this section: 4000
 
