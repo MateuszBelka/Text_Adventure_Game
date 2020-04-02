@@ -24,7 +24,7 @@ Author(s): Ece Doganer
 - All descriptions of those diagrams are updated. 
 
 ### Application of design patterns
-Author(s): `name of the team member(s) responsible for this section`
+Author(s): Valeriya Komarnitskaya
 
 `Figure representing the UML class diagram in which all the applied design patterns are highlighted graphically (for example with a red rectangle/circle with a reference to the ID of the applied design pattern`
 
@@ -32,10 +32,10 @@ For each application of any design pattern you have to provide a table conformin
 
 | ID  | DP1  |
 |---|---|
-| **Design pattern**  | Name of the applied pattern |
-| **Problem**  | A paragraph describing the problem you want to solve |
-| **Solution**  | A paragraph describing why with the application of the design pattern you solve the identified problem |
-| **Intended use**  | A paragraph describing how you intend to use at run-time the objects involved in the applied design patterns (you can refer to small sequence diagrams here if you want to detail how the involved parties interact at run-time |
+| **Design pattern**  | Factory Method |
+| **Problem**  | Designing system is a process in which developer has to take precautions. That means spending a bit more time in the beginning and preparing a basis for a complex system by implementing certain design patterns and methods. It will help to implement vast amount of attributes with maintainable design. The problem that we want to solve is to make a system customizable and adaptable to new features in the game. This way, programming additional features will be less challenging, will not contain hard-coding, thus, will take less time on implementing and debugging on later stages. In our implementation, our main goal was to support maintainability and make a design more customisable and adaptable to the growing number and types of non-playable characters in our text-adventure game. |
+| **Solution**  | Factory method design pattern is a solution for this problem for multiple reasons. Firstly, it allows creation of the object of the class without exposing the logic to the user. It is a crucial for information hiding. Secondly, in order to control the features you want to create, it allows passing arguments to the class. |
+| **Intended use**  | As system gets more complex, more non-playable characters might appear in the further versions of the game that will have different roles in the story. Thus, we are creating different concrete classes that are defining different types of NPC. As follows, the gameElements.levelAndContents.npc generates objects of the classes mentioned before and gets object by passing more specific information about NPC, such as the npc type: FRIENDLYNPC or ENEMYNPC.  |
 | **Constraints**  | Any additional constraints that the application of the design pattern is imposing, if any |
 | **Additional remarks**  | Optional, only if needed |
 
