@@ -43,7 +43,7 @@ For each application of any design pattern you have to provide a table conformin
 Maximum number of words for this section: 2000
 
 ## Class diagram									
-Author(s): Ece Doganer, Valeriya Komarnitskaya
+Author(s): Valeriya Komarnitskaya, Ece Doganer, Mateusz Belka
 
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
@@ -129,13 +129,41 @@ Maximum number of words for this section: 4000
 
 Validating input is a three-step process. First, an input sentence is validated per word. Then, the input as a whole is considered for validation, grouping certain types of inputs together. Beyond the scope of these diagrams is step three, named "logical validation". What is meant with this term is that a final check is done before an input can be handled. This check is different per valid instruction.
 
-![Word Validation Diagram](./visual/WordValidationDiagram.png "Part one of Input Validation : Word Validation Diagram" )
+![Word Validation Diagram](./visual/WordValidation.png "Part one of Input Validation : Word Validation Diagram" )
 
-This diagram begins at the Validation Class. The sole instance of this class receives the input, which needs to be validated. First off, the input is parsed internally. Then, this parsed input is sent to the sole instance of class WordValidator. 
+This diagram begins at the <b>Validation</b> Class. The sole instance of this class receives the input, which needs to be validated. First off, the input is parsed internally. Then, this parsed input is sent to the sole instance of class <b>WordValidator</b>. 
 
-The WordValidator instance needs to do a number of things. Firstly, the 
+The <b>WordValidator</b> instance needs to do a number of things. Firstly, the input sentence is parsed into words. From here on, comparing the words to a list of previously known words, begins. This is done as follows:
 
-![Word Validation Diagram](./visual/InputValidationDiagram.png "Part two of Input Validation : Word Validation Diagram" )
+A word is compared with with a list of other known words. We will call these known words, trigger words. Trigger words can be into grouped into 4 different types: a `[command]`, a `[direction]`, an `[item]`, an `[npc]`. Anything which is not within these 4 types of grouped words, is not understood by the system. An error message will be given if this is the case. It will state that no valid input is detected.
+
+A `[command]` type word for example, is "eat". All possible words in this group, are listed in the enumeration class as constants. The instance of <b>WordValidator</b> will request this list, from the enumeration class <b>Commands</b>.
+
+The same terms apply to `[direction]`: The list of associated trigger words will be requested from the <b>Directions</b> enumeration class.
+
+For the `[item]` and `[npc]` types, the sequence differs. Instead of comparing words with all possible items and non-playable-characters in an interactive story, the following happens: First, <b>InputValidation</b> instance requests the current location of the player, which is stored in the instance of the <b>PlayerStats class</b>. This instance of the class <b>Location</b>, has two lists: a list of items, and a list of non-playable-characters. The instance of <b>WordValidator</b> requests both these lists. This comparison is superior to comparing with all the possible items and non-playable characters, as size of the list to compare will be smaller.
+
+After having collected all the lists with all possible words that are valid, the instance of <b>WordValidator</b> can start comparing. When comparing, a HashMap is made. In this HashMap, the word is noted as a key, and the value belonging to that key, is the type of trigger word. For example, key "eat" would have value "command". Additionally, if the compared word is not listed in the lists of trigger words, nothing will happen.
+
+The <b>WordValidator</b> instance has fulfilled its responsibility: words have now been validated, and the HashMap is sent to the <b>Validation</b> instance. The next step for validating input, can commence.
+
+![Word Validation Diagram](./visual/InputValidation.png "Part two of Input Validation : Word Validation Diagram" )
+
+Valid instructions in this game, have a typical syntax. Instructions can be one word, for example 'save', 'help', or 'look'. Instructions of two words is another possibility. Examples are 'eat apple', 'attack Henry', or 'pull lever'. The third type of syntax for instructions is of three words. Examples are 'open box with key', or 'give book to Henry', where prepositions are ignored. Subsequently, the second step of validating input is to check for the size of the HashMap. 
+
+If the HashMap has no entries, then all compared words were invalid. In this case, a message is shown, which states that no valid input is detected by the validator.
+
+If the HashMap has one entry, the HashMap is sent to the instance of class <b>HandlerOf1Word</b>, which handles one valid word. This word can still be any of  `[command]`, `[direction]`, `[item]`, or `[npc]`.
+
+If the HashMap has two entries, it will be sent to the instance of <b>HandlerOf2Words</b>, respectively.
+
+With three entries, the HashMap is sent to the instance of <b>HandlerOf3Words</b>.
+
+If there are more entries than three, then the syntax is simply is too complicated for the system to handle. A message is then printed, stating to use less words.
+
+By sending the HashMap to the right handlers, or by printing an error message, the responsibility of the <b>InputValidator</b> instance is now fulfilled. This concludes step two of the validation.
+
+> Word count 704/4000
 
 ## Implementation									
 Author: Mateusz Belka
