@@ -48,11 +48,11 @@ Author(s): Valeriya Komarnitskaya, Ece Doganer, Mateusz Belka
 The class diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
 
 <div align="center">
-    <img src="visual/ClassDiagram1Assignment3.png" width="90%">
+    <img src="visual/ClassDiagram1Assignment3.jpg" width="90%">
 </div>
 
 <div align="center">
-    <img src="visual/ClassDiagram2Assignment3.png" width="90%">
+    <img src="visual/ClassDiagram2Assignment3.jpg" width="90%">
 </div>
 
 The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the **Save** class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations that start with setIDsOf... aim to set the id attributes of respective objects to desired values. Those attributes are then later used by the Load class during the loading of JSON file. EncodeIDsOfObjects is a container operation which aims to localize all calls to further operations which connect instances of one class to another. The purpose of this is to allow during loading to recreate the existing graph of objects which otherwise wouldn't be achievable with unchanged gson library. All of the connect operations replace the objects references to references of the object's id. PopulateJsonWithClasses is an operation which takes all of the classes kept inside **InitOfClassesThroughSaveFile** and serializes them into JSON file. The JSON file has the exact path that was provided in the operation's parameter. **NPCClassAdapter** and it's operations serialize and deserialize are responsible for providing additional functionality to gson library such that it is possible to save and load objects of the abstract class, **NPC**. The Load class's operations aim to reverse the process of the Save class's operations. LoadGameFromSave and LoadGame are responsible for loading information from JSON file to **InitOfClassesThroughSaveFile** class such that this information is now accessible within source code. The two operations differ due to the minor changes in the loading process for games that are stored in resources directory and saves which are stored in the saves directory. DecodeIDsToObjects is a container operations which groups up all calls to methods which transform the id attributes to their intended object references. All of the connect operations reconstruct the intended graph of objects in such a way that no duplicates of objects are creates in the result. The last operation within this class, configPrintingDescriptions is responsible for resetting the value of the boolean attribute firstTimeEnteringLocation of **Items** and **FriendlyNPCs** to true as to allow player to see the descriptions once again. The packages meowManor and demoOne have identical structure and operate on the same principle so they will be discussed together. CreateDemo operation is the public method responsible for initiating the process of creating a game as described in the other files within its package. **InitClasses** class and it's operation initEverything is responsible for calling all other init operations within the class. Those operations in turn aim to create the right number of instances of different classes as to accommodate for the story being presented. Afterward the **ConfigureClasses** class and it's operation configureEverything is responsible for changing the individual attributes of all the recently created objects in such a way as to have a fully functional storyline. **SerializeClasses** class and it's operation serializeDemo is responsible for acquiring the appropriate absolute path and calling the writeGameSave method within **Save** class.
@@ -463,11 +463,11 @@ Author: Mateusz Belka
 The object diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
 
 <div align="center">
-    <img src="visual/ObjectDiagram1Assignment3.png" width="90%">
+    <img src="visual/ObjectDiagram1Assignment3.jpg" width="90%">
 </div>
 
 <div align="center">
-    <img src="visual/ObjectDiagram2Assignment3.png" width="90%">
+    <img src="visual/ObjectDiagram2Assignment3.jpg" width="90%">
 </div>
   
 As opposed to assignment 2, for assignment 3, we were able to prepare a fully functional game and surrounding storyline. As such, a new opportunity arose in the case of object diagram as now we can represent our system during the actual runtime. In a state that the user will be at during certain point in time while playing our game. The purpose of this diagram is to represent an instance at a particular moment, which is concrete in nature. Our object diagram aims to allow for a closer look at our system's behaviour. The objective of such representation of our design is to enable third parties to gain insight into the ongoing information exchanges and manipulations within our software. We believe such information could not be collected by merely exploring the end product.  
@@ -482,7 +482,7 @@ In the runtime scenario presented in our object diagram, the player is positione
 Author(s): Valeriya Komarnitskaya, Taylor Doughty
 
 <div align="center">
-    <img src="visual/TaylorSMDLevel.png" width="90%">
+    <img src="visual/TaylorSMDLevel.jpg" width="90%">
 </div>
 
 [ Package controllers: classes Welcome, NewGame, LoadGame ](https://github.com/Ece-Doganer/Software-Design/blob/Assignment3/docs/visual/diagram.pdf)
