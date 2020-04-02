@@ -227,9 +227,143 @@ Package Engine:<br>
  Package Output:UserInputPrinter:
  *+ printUserInput(input : String) : void*<br>
  
+ Package ui:UI:
  
+ Package ui:Controllers:
  
+ Package gameElements:battle:
  
+ Package gameElements:Player:PlayerStats:
+ 
+ Package gameElements:Player:Inventory:
+ 
+ Package gameElements:Player:PlayerHealthProgression:
+ 
+ Package gameElements:Player:PlayerHungerProgression:
+ 
+ Package gameElements:Player:PlayerLevellingProgression:
+ 
+ Package gameElements:levelAndContents:npc:EnemyNPC:
+ 
+ Package gameElements:levelAndContents:npc:FriendlyNPC:
+ 
+ Package gameElements:levelAndContents:npc:NPCFactory:
+ 
+ Package gameElements:levelAndContents:Entity:
+ 
+ Package gameElements:levelAndContents:Item:
+ 
+ Package gameElements:levelAndContents:Level:
+ 
+ Package gameElements:levelAndContents:Location:
+ 
+ Package input:combatValidation:
+ 
+ Package input:commands:DoAttack:
+ 
+ Package input:commands:DoBack:
+ 
+ Package input:commands:DoBreak:
+ 
+ Package input:commands:DoClose:
+ 
+ Package input:commands:DoConsume:
+ 
+ Package input:commands:DoCut:
+ 
+ Package input:commands:DoDrop:
+ 
+ Package input:commands:DoExamine:
+ 
+ Package input:commands:DoExit:
+ 
+ Package input:commands:DoGetDirections:
+ 
+ Package input:commands:DoGetInventory:
+ 
+ Package input:commands:DoGiveItemToNPC:
+ 
+ Package input:commands:DoGoToMenu:
+ 
+ Package input:commands:DoHelp:
+ 
+ Package input:commands:DoListen:
+ 
+ Package input:commands:DoLoad:
+ 
+ Package input:commands:DoLook:
+ 
+ Package input:commands:DoMove:
+ 
+ Package input:commands:DoOpen:
+ 
+ Package input:commands:DoPickUp:
+ 
+ Package input:commands:DoPull:
+ 
+ Package input:commands:DoPush:
+ 
+ Package input:commands:DoRead:
+ 
+ Package input:commands:DoSave:
+ 
+ Package input:commands:DoSmell:
+ 
+ Package input:commands:DoTalkWith:
+ 
+ Package input:commands:DoUnlock:
+ *+ doUnlockItemWithItem (itemToUnlock : Item, itemToUnlockWith : Item) : void*<br>
+ 
+ Package input:commands:DoUse:
+ *+ doUse(item : Item) : void*<br>
+ *+ doUse(npc : NPC) : void*<br>
+ *+ doUseItemOnNPC(item : Item, npc : NPC) : void*<br>
+ *+ doUseItemOnItem(item1 : Item, item2 : Item)  : void*<br>
+ 
+ Package input:validation:HandlerOf1Word
+ *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ *- handle1Command(command : String , actionEvent : ActionEvent) : void*<br>
+ *- doCommand(command : String, actionEvent : ActionEvent) : void*<br>
+ *- handleReadCommand() : void*<br>
+ *- handle1Item(item : Item) : void*<br>
+ *- handle1NPC(npc : NPC) : void*<br>
+ *# handle1Direction(direction : String) : void*<br>
+ 
+ Package input:validation:HandlerOf2Words 
+ *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*<br>
+ *- validateAndHandleItemAndNPCCombination(item : Item, npc : NPC) : void*<br>
+ *- validateAndHandleCommandAndItemCombination(command : String, item : Item) : void*<br>
+ *- cutItemCommand(item : Item) : void*<br>
+ *- validateAndHandleCommandAndNPCCombination(command : String, npc : NPC) : void*<br>
+ *- cutNPCCommand(npc : NPC) : void*<br>
+ *- validateAndHandleCommandAndDirectionCombination(command : String, direction : String) : void*<br>
+ 
+ Package input:validation:HandlerOf3Words
+ *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void*<br>
+ *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void*<br>
+ *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void*<br>
+ 
+ Package input:validation:inputValidation
+ *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String*<br>
+ *- deleteFirstAndLastChar(value : String) : String*<br>
+ *# getItem(validInputList : HashMap<String, String>) : Item*<br>
+ *# getCommand(validInputList : HashMap<String, String>) : String*<br>
+ *# getNPC(validInputList : HashMap<String, String>) : NPC*<br>
+ *# getDirection(validInputList : HashMap<String, String>) : String*<br>
+ 
+ Package input:validation:Validation
+ *+ validator(String input, ActionEvent actionEvent) : void*<br>
+ *- inputParser(String input) : String*<br>
+ *+ compileValidList(inputList : String[]) : HashMap<String, String>*<br>
+ 
+ Package input:validation:WordValidation
+ *+ wordValidator(inputList : String[]) : HashMap<String, String>*<br>
+ *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void*<br>
+ *- directionValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void*<br>
+ *- npcValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
  
  
  
