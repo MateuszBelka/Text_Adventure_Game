@@ -3,14 +3,14 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": true,
-      "canBePickedUp": false,
+      "canBePickedUp": true,
       "canBeDropped": false,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
       "canBeCutWith": false,
       "canBeRead": false,
-      "canBreak": true,
+      "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 0,
       "itemsToDropOnBreakIDs": [],
@@ -18,7 +18,8 @@
       "name": "Anchovies",
       "description": "Gross, canned anchovies? Well, food is food. It doesn\u0027t have a tab to be pulled, so it must be opened another way.",
       "descriptionAfterCommand": {
-        "break": "With brute human force, you were able to open the can. Thankfully, no cat saw you do it.",
+        "break": "With brute human force, you were able to open the can. Unfortunately you spilled everything while opening it. Thankfully, no cat saw you do it.",
+        "pickup": "Very heavy... Must have a lot of food inside...",
         "consume": "Eating anchovies face-first from a can is not what you expected to do on a Tuesday afternoon, but at least you found something to eat.",
         "smell": "Anchovies, those scary slivers of canned fish, have a taste so pungent, so intensely fishy and salty that when served improperly, they can make the heartiest eater recoil from their punch."
       },
@@ -241,8 +242,8 @@
       "canBeUsed": false,
       "npcToGiveItemToID": 0,
       "itemToListenWithID": 0,
-      "itemToUnlockWithID": 7,
-      "itemToUnlockID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 7,
       "itemToOpenWithID": 0,
       "itemToBeOpenedID": 0,
       "itemToCloseWithID": 0
@@ -313,7 +314,6 @@
       "name": "Fish-Shaped_Key",
       "description": "A fish-shaped, gold and diamond-encrusted key.",
       "descriptionAfterCommand": {
-        "unlock": "It worked! The door is open!",
         "pickup": "This key is really heavy... and can cats even open doors with their paws? Anyways, it must be important."
       },
       "firstTimeEnteringLocation": true,
@@ -339,7 +339,7 @@
       "npcToGiveItemToID": 0,
       "itemToListenWithID": 0,
       "itemToUnlockWithID": 0,
-      "itemToUnlockID": 5,
+      "itemToUnlockID": 0,
       "itemToOpenWithID": 0,
       "itemToBeOpenedID": 0,
       "itemToCloseWithID": 0
@@ -593,7 +593,7 @@
       "name": "Ground Floor",
       "firstTimeEnteringLevel": true,
       "startLocationID": 1,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 5,
       "nextLevelID": 2
     },
     {
@@ -602,7 +602,7 @@
       "name": "Second Floor",
       "firstTimeEnteringLevel": true,
       "startLocationID": 4,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 1,
       "nextLevelID": 3
     },
     {
@@ -611,7 +611,7 @@
       "name": "The Attic",
       "firstTimeEnteringLevel": true,
       "startLocationID": 5,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 1,
       "nextLevelID": 0
     }
   ],

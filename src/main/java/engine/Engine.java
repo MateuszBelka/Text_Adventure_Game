@@ -3,7 +3,9 @@ package engine;
 import gameElements.battle.BattleSequence;
 import gameElements.player.PlayerHealthProgression;
 import gameElements.player.PlayerHungerProgression;
+import gameElements.player.PlayerStats;
 import gameProgress.GameProgression;
+import initialisation.InitOfClassesThroughSaveFile;
 import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.commands.DoGoToMenu;
@@ -55,6 +57,10 @@ public class Engine {
     public static void progressGame(String input, TextArea terminal, ActionEvent actionEvent) throws IOException, URISyntaxException {
         // Forward user input to terminal
         UserInputPrinter.printUserInput(input);
+
+
+        //debug
+        InteractionPrinter.print(Integer.toString(InitOfClassesThroughSaveFile.getPlayerStats().getPuzzlesSolvedCount()));
 
         if (!PlayerHealthProgression.isDead()) {
             /*

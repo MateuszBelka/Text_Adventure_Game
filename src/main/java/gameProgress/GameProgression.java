@@ -31,6 +31,7 @@ public class GameProgression {
             player.setCurrentLocation(player.getCurrentLevel().getStartLocation());
             PuzzleProgression.resetPuzzlesSolvedCount();
             InteractionPrinter.print("Congratulations! You've made it to next step of your journey!");
+            BattleSequence.shouldPlayerEnterCombat();
         }
     }
 

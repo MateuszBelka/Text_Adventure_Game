@@ -8,7 +8,6 @@ abstract public class Entity {
     private int id;
     private String name;
     private String description;
-    private String descriptionAfterPuzzleComplete;
     private HashMap<String, String> descriptionAfterCommand = new HashMap<>();
     private Boolean firstTimeEnteringLocation = true; //Used for printing descriptions, once. Just like in Zork.
     private Boolean canBeConsumed = false;
@@ -71,14 +70,6 @@ abstract public class Entity {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getDescriptionAfterPuzzleComplete() {
-        return descriptionAfterPuzzleComplete;
-    }
-
-    public void setDescriptionAfterPuzzleComplete(String descriptionAfterPuzzleComplete) {
-        this.descriptionAfterPuzzleComplete = descriptionAfterPuzzleComplete;
     }
 
     public String getDescriptionOfCommand(String command){

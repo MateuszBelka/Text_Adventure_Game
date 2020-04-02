@@ -42,7 +42,7 @@ public class BattleSequence {
          * No need to inform the called about lack of attack
          * as no unique action is taken in such scenario
          */
-        if (!inCombat() || getCurrentEnemy().getCanAttack()) return;
+        if (!inCombat() || !getCurrentEnemy().getCanAttack()) return;
         int damage = getCurrentEnemy().getDamage();
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
