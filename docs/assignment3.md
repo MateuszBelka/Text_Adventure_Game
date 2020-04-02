@@ -55,8 +55,6 @@ The class diagram is divided into two parts due to the overwhelming amount of in
     <img src="visual/ClassDiagram2Assignment3.jpg" width="90%">
 </div>
 
-The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the **Save** class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations that start with setIDsOf... aim to set the id attributes of respective objects to desired values. Those attributes are then later used by the Load class during the loading of JSON file. EncodeIDsOfObjects is a container operation which aims to localize all calls to further operations which connect instances of one class to another. The purpose of this is to allow during loading to recreate the existing graph of objects which otherwise wouldn't be achievable with unchanged gson library. All of the connect operations replace the objects references to references of the object's id. PopulateJsonWithClasses is an operation which takes all of the classes kept inside **InitOfClassesThroughSaveFile** and serializes them into JSON file. The JSON file has the exact path that was provided in the operation's parameter. **NPCClassAdapter** and it's operations serialize and deserialize are responsible for providing additional functionality to gson library such that it is possible to save and load objects of the abstract class, **NPC**. The Load class's operations aim to reverse the process of the Save class's operations. LoadGameFromSave and LoadGame are responsible for loading information from JSON file to **InitOfClassesThroughSaveFile** class such that this information is now accessible within source code. The two operations differ due to the minor changes in the loading process for games that are stored in resources directory and saves which are stored in the saves directory. DecodeIDsToObjects is a container operations which groups up all calls to methods which transform the id attributes to their intended object references. All of the connect operations reconstruct the intended graph of objects in such a way that no duplicates of objects are creates in the result. The last operation within this class, configPrintingDescriptions is responsible for resetting the value of the boolean attribute firstTimeEnteringLocation of **Items** and **FriendlyNPCs** to true as to allow player to see the descriptions once again. The packages meowManor and demoOne have identical structure and operate on the same principle so they will be discussed together. CreateDemo operation is the public method responsible for initiating the process of creating a game as described in the other files within its package. **InitClasses** class and it's operation initEverything is responsible for calling all other init operations within the class. Those operations in turn aim to create the right number of instances of different classes as to accommodate for the story being presented. Afterward the **ConfigureClasses** class and it's operation configureEverything is responsible for changing the individual attributes of all the recently created objects in such a way as to have a fully functional storyline. **SerializeClasses** class and it's operation serializeDemo is responsible for acquiring the appropriate absolute path and calling the writeGameSave method within **Save** class.
-
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
 note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. For big groups of binary associations, we have added notes, in order not to have too many floating arrows.
@@ -111,6 +109,7 @@ Package Engine:<br>
  *+ setAdventure(adventure : Adventure) : void*<br>
  
  Package SaveAndLoad:Save :<br>
+ The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the **Save** class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations that start with setIDsOf... aim to set the id attributes of respective objects to desired values. Those attributes are then later used by the Load class during the loading of JSON file. EncodeIDsOfObjects is a container operation which aims to localize all calls to further operations which connect instances of one class to another. The purpose of this is to allow during loading to recreate the existing graph of objects which otherwise wouldn't be achievable with unchanged gson library. All of the connect operations replace the objects references to references of the object's id. PopulateJsonWithClasses is an operation which takes all of the classes kept inside **InitOfClassesThroughSaveFile** and serializes them into JSON file. The JSON file has the exact path that was provided in the operation's parameter. **NPCClassAdapter** and it's operations serialize and deserialize are responsible for providing additional functionality to gson library such that it is possible to save and load objects of the abstract class, **NPC**. The Load class's operations aim to reverse the process of the Save class's operations. LoadGameFromSave and LoadGame are responsible for loading information from JSON file to **InitOfClassesThroughSaveFile** class such that this information is now accessible within source code. The two operations differ due to the minor changes in the loading process for games that are stored in resources directory and saves which are stored in the saves directory. DecodeIDsToObjects is a container operations which groups up all calls to methods which transform the id attributes to their intended object references. All of the connect operations reconstruct the intended graph of objects in such a way that no duplicates of objects are creates in the result. The last operation within this class, configPrintingDescriptions is responsible for resetting the value of the boolean attribute firstTimeEnteringLocation of **Items** and **FriendlyNPCs** to true as to allow player to see the descriptions once again. The packages meowManor and demoOne have identical structure and operate on the same principle so they will be discussed together. CreateDemo operation is the public method responsible for initiating the process of creating a game as described in the other files within its package. **InitClasses** class and it's operation initEverything is responsible for calling all other init operations within the class. Those operations in turn aim to create the right number of instances of different classes as to accommodate for the story being presented. Afterward the **ConfigureClasses** class and it's operation configureEverything is responsible for changing the individual attributes of all the recently created objects in such a way as to have a fully functional storyline. **SerializeClasses** class and it's operation serializeDemo is responsible for acquiring the appropriate absolute path and calling the writeGameSave method within **Save** class.
  *+ writeGameSave(fileName : String ) : void*<br>
  *- setIDsOfObjects() : void*<br>
  *- setIDsOfItems() : void*<br>
@@ -365,7 +364,7 @@ Package Engine:<br>
  *+ doUseItemOnItem(item1 : Item, item2 : Item)  : void*<br>
  
  Package input:validation:HandlerOf1Word<br>
- *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void* handles 1 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
  *- handle1Command(command : String , actionEvent : ActionEvent) : void*<br>
  *- doCommand(command : String, actionEvent : ActionEvent) : void*<br>
  *- handleReadCommand() : void*<br>
@@ -374,40 +373,40 @@ Package Engine:<br>
  *# handle1Direction(direction : String) : void*<br>
  
  Package input:validation:HandlerOf2Words <br>
- *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*<br>
+ *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*handles 2 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
  *- validateAndHandleItemAndNPCCombination(item : Item, npc : NPC) : void*<br>
  *- validateAndHandleCommandAndItemCombination(command : String, item : Item) : void*<br>
- *- cutItemCommand(item : Item) : void*<br>
+ *- cutItemCommand(item : Item) : void* additional checks for instruction<br>
  *- validateAndHandleCommandAndNPCCombination(command : String, npc : NPC) : void*<br>
- *- cutNPCCommand(npc : NPC) : void*<br>
+ *- cutNPCCommand(npc : NPC) : void* additional checks for instruction<br>
  *- validateAndHandleCommandAndDirectionCombination(command : String, direction : String) : void*<br>
  
  Package input:validation:HandlerOf3Words<br>
- *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void*<br>
- *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void*<br>
- *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void*<br>
+ *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void* handles 3 valid words by checking if they're commands, items, npcs, directions. Combinations of these, are grouped, and a switch statement is used. Per instruction, some logic checks are done. Only then, it can be handled.<br>
+ *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void* as stated<br>
+ *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void* as stated<br>
  
  Package input:validation:inputValidation<br>
- *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
- *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String*<br>
- *- deleteFirstAndLastChar(value : String) : String*<br>
- *# getItem(validInputList : HashMap<String, String>) : Item*<br>
- *# getCommand(validInputList : HashMap<String, String>) : String*<br>
- *# getNPC(validInputList : HashMap<String, String>) : NPC*<br>
- *# getDirection(validInputList : HashMap<String, String>) : String*<br>
+ *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void* validates whole input by checking the amount of valid words, and sending through to right handler<br>
+ *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String* gets the word in a hashmap entry<br>
+ *- deleteFirstAndLastChar(value : String) : String* as stated<br>
+ *# getItem(validInputList : HashMap<String, String>) : String* gets the name of an item, from the hashmap<br>
+ *# getCommand(validInputList : HashMap<String, String>) : String* gets the word for the command in the hashmap<br>
+ *# getNPC(validInputList : HashMap<String, String>) : NPC* gets the name of an npc from the hashmap<br>
+ *# getDirection(validInputList : HashMap<String, String>) : String* gets the direction from the hashmap.<br>
  
  Package input:validation:Validation<br>
- *+ validator(String input, ActionEvent actionEvent) : void*<br>
- *- inputParser(String input) : String*<br>
- *+ compileValidList(inputList : String[]) : HashMap<String, String>*<br>
+ *+ validator(String input, ActionEvent actionEvent) : void* Where validation begins. parses input, sends to wordValidator, gets hashmap back, sends to inputvalidator.<br>
+ *- inputParser(String input) : String* parses input sentence into words<br>
+ *+ compileValidList(inputList : String[]) : HashMap<String, String>* sends to word validation, which sends a hashmap back. Valid words are thus, compiled.<br>
  
  Package input:validation:WordValidation<br>
  *+ wordValidator(inputList : String[]) : HashMap<String, String>* validates words by getting lists from enum Commands, Directions, and from player's currentLocation's items and npcs. Returns a Hashmap containing those words, with a value of "command", "item", "direction", or "npc".<br>
- *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void*<br>
- *- directionValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
- *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
- *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void*<br>
- *- npcValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void* grabs enum Commands and validates if word is equal.<br> 
+ *- directionValidator(word : String, validInputList : HashMap<String, String>) : void* grabs enum Directions and validates if word is equal.<br> 
+ *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*grabs itemlist in player's currentLocation and validates if word is equal.<br> 
+ *- npcValidator(word : String, validInputList : HashMap<String, String>) : void* grabs npclist in player's currentLocation and validates if word is equal.<br> 
+ *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void* adds word as key and the trigger word type as value in the hashmap <br>
  
  
  
