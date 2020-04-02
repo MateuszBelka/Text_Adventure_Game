@@ -31,7 +31,6 @@ public class ConfigureClasses {
 
         item0.setName("item0");
         item0.setDescription("temporary description for item0");
-        item0.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item0");
         item0.setCanBePickedUp(true);
         item0.setCanBreak(true);
         item0.setCanBeBrokenWithoutItem(true);
@@ -39,7 +38,6 @@ public class ConfigureClasses {
 
         item1.setName("item1");
         item1.setDescription("temporary description for item1");
-        item1.setDescriptionAfterPuzzleComplete("temporary description for puzzle complete for item1");
         item1.setCanBeBrokenWithoutItem(true);
         item1.setCanBePickedUp(true);
 
