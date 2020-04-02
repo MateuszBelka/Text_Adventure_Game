@@ -232,17 +232,18 @@ There are currently four possible inputs: “new game”, “continue”, “hel
 >total words: 624
 
  ####Completing a level
- [Completing a level](https://github.com/Ece-Doganer/Software-Design/blob/Assignment2/docs/visual/StateMachineDiagram_Level.PNG)
+ [Completing a level](https://github.com/Ece-Doganer/Software-Design/blob/Assignment3/docs/visual/SMD_CompletingALevel.PNG)
  
+ 
+The second state machine diagram represents the state changes **Level** should go through in the event that a level is completed. To make it clear, in order for a level to be completed, players must have completed a predefined amount of puzzles specific to that level, and this number of puzzles per level is determined by whatever the interactive story permits. Therefore, this state machine diagram represents what occurs within **Level** when a level is completed, regardless of how many puzzles a specific level may have within an interactive story.
 
-The second state machine diagram represents the state changes **Level** should go through in the event that a level is completed, once the functionality is implemented. To make it clear, in order for a level to be completed, players must successfully action and use items which then leads to the completion of puzzles, earning themselves puzzle points. Once the target amount of puzzle pieces have been earned, the level is then complete.  
+The description of the diagram itself is as follows: 
 
-However, the description of the diagram itself is as follows: After the start of the game, the transition containing event "Level is constructed" fires, in which the level is constructed and the class transitions to the Idle state. While in this state, the state waits for commands. Once a command is received, one of the three guards to the transitions leading to Active are checked, then a transition takes place to the Active state. There are three possible transitions: [command: “pick up *PickupAbleItem*” is used], [command: “use *staticItem*” is used], or [other command is used]. It is necessary for one of these three guards to be checked in order for state Active to verify within **Level** if the command is valid.
+After the start of the game, the transition containing the event "Level is constructed" fires, in which the level is constructed and **Level** transitions to the Idle state. While in this state, the state waits for a command signifying that a puzzle has been completed by the player. Once a command is received, the guard [command received] leading to state Active is checked, and therefore a transition takes place to that state. 
 
-Once this state is entered, upon entry the state validates if the command is correct. What this means, is that it checks whether the issued command can be successfully completed. After this entry action, if the command was deemed invalid, the guard is immediately checked for transition [command is incorrect], and the class then transitions back to the idle state in which it then waits for a command. However, if the command is valid, the active state performs its activity in which <u>puzzlesLeftToSolve</u> is decreased by 1.
+Once this state is entered, upon entry the state decreases the <u>puzzlesLeftToSolve</u> integer within **Level** by 1. After this entry action has commenced, one of two guards are automatically checked and therefore one of their transitions is fired. One of the transitions leads the state back to idle, in which is the guard [<u> puzzlesLeftToSolve</u> =/ 0] is checked, meaning that if the number of puzzles required to progress have not been achieved, **Level** goes back to an idle state in which it continues to wait for a command. The other transition leads the state to the end-point of the state machine diagram, in which the guard is [<u>puzzlesLeftToSolve</u> = 0]. This guard is only checked if the amount of puzzles for the level had been solved. Therefore, if there are no puzzles left for that level, the level in question is completed. 
 
-If there are still more than 0 puzzles remaining for the level after <u>puzzlesLeftToSolve</u> has decreased, the guard [<v>puzzlesLeftToSolve</u> > 0] is checked, which  leads the class back to the idle state. But if <u>puzzlesLeftToSolve</u> are then 0, the transition with the guard [<u>puzzlesLeftToSolve</u> = 0] is checked, which leads to Level Completed, which thus marks the end and therefore the completion of the level.
->total words: 357
+
 
 Maximum number of words for this section: 3000
 
