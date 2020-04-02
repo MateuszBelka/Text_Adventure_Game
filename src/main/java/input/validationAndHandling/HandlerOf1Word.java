@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
@@ -29,7 +29,7 @@ import static input.commands.DoSave.doSave;
 import static input.commands.DoSmell.doSmell;
 import static input.commands.DoTalkWith.doTalkWith;
 import static input.commands.DoHelp.doHelp;
-import static input.validation.InputValidation.*;
+import static input.validationAndHandling.InputValidation.*;
 
 public class HandlerOf1Word {
 

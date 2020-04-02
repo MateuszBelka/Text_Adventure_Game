@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 public enum Commands {
     RUN, MOVE, GO, WALK,

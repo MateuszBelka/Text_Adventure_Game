@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Location;
@@ -28,8 +28,8 @@ import static input.commands.DoTalkWith.doTalkWith;
 import static input.commands.DoUse.doUse;
 import static input.commands.DoUse.doUseItemOnNPC;
 import static input.commands.DoListen.doListenTo;
-import static input.validation.HandlerOf1Word.handle1Direction;
-import static input.validation.InputValidation.*;
+import static input.validationAndHandling.HandlerOf1Word.handle1Direction;
+import static input.validationAndHandling.InputValidation.*;
 
 public class HandlerOf2Words {
     protected static void validateAndHandle2Words(HashMap<String, String> validInputList){

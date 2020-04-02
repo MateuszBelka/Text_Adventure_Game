@@ -7,21 +7,24 @@ Maximum number of words for this document: 18000
 **Format**: establish formatting conventions when describing your models in this document. For example, you style the name of each class in bold, whereas the attributes, operations, and associations as underlined text, objects are in italic, etc.
 
 ### Summary of changes of Assignment 2
-Author(s): Ece Doganer
+Author(s): `Ece Doganer`
 
-- For A1 and A2 phase, we had received heavy feedback on our functional features list, and quality requirements. This is now revised in full detail. We now have a total of 43 features. A big portion of it, are instructions and their issued game mechanics. Multiple features the TA has stated missing, are now described. Some QR are moved to features. A better distinction is made between core and bonus features. In general, more detail and care is added to explain our multitude of features.
+- For A1 and A2 phase, we had received heavy feedback on our functional features list, and quality requirements. This is now revised in full detail. We now have a total of 43 features. Multiple features the TA has stated missing, are now described. Some QR are moved to features. A better distinction is made between core and bonus features. In general, we tried to be straightforward and tried to cover more detail, when explaining our multitude of features.
+- All diagrams are revised.
+- All descriptions of those diagrams are revised accordingly. 
 - Pickupable Items and Static items is fully revised according to TA's feedback. These classes are changed into one Item class. This Item class has 'traits' per object, so an item might be pickup-able or immovable.
-- Input Validation is fully revised, according to TA's feedback. Also, is divided into multiple classes with different responsibilities. Enumeration is used. Multiple instructions in one input, is not followed through, as suggested. Use of trigger words is described in detail, in A1.
-- Player class is broken up into multiple classes with different responsiblities, according to TA's feedback.
-- Initializer class is broken up into multiple classes with different responsiblities, according to TA's feedback.
-- Level class is broken up into multiple classes with different responsiblities, according to TA's feedback.
-- We have renamed Room class with Location class.
-- We have changed the way 'puzzles' are solved. Previously, there were only two ways of solving a puzzle: interacting with a static item by writing its name, or, using a pickupable item on a static item, by writing both their names on the terminal. The idea there, was that our GUI would be clickable, thus player didn't need to ever type anything. We have moved away from this idea. Firstly, TA did not like it. Secondly, the broad experience that Zork gives, through making multiple command available, was not respected. Our new approach is to have a combination of trigger words, as described in A1. Solving puzzles can now be a multitude of interactions. See A1's Puzzles feature for a description.
-- Game class is deleted, and its contents and responsibilities have been moved, partly to GameProgression, which deals with level and puzzle progress.
-- Following the Zork-clone train of thought, our output is revised. We now print level description and location description, with the items and npcs descriptions in this location, once. Then, these descriptions can be asked again. Also, performing valid interactions now prints a specific description for that interaction with that entity (item or npc).
-- Items and NPCs have an abstract class, Entity. Their common attributes and resulting methods, are shared.
-- All diagrams are updated.
-- All descriptions of those diagrams are updated. 
+- Even though input validation was fully functional, TA suggested to change it. Our train of thought previously, was to make it easy to play the game using GUI only. Thus, we would only require two types of items. We have fully revised it according to TA's feedback. The aim now, has been to make a Zork clone. Just like Zork, we tried to make a multitude of inputs, possible.<br><br> Input validation is divided into multiple classes with single responsibilities. Enumeration is used. Multiple instructions in one input, is not followed through, as suggested. Use of trigger words is described in detail, in A1. Being able to customize the response text when issuing input, has been given attention while coming up with a new plan. 
+- Player class is broken up into multiple classes with different responsibilities, according to TA's feedback.
+- Initializer class is broken up into multiple classes with different responsibilities, according to TA's feedback.
+- Level class is broken up into multiple classes with different responsibilities, according to TA's feedback.
+- We have changed the way 'puzzles' are solved, and updated our description accordingly. Previously, there were only two ways of solving a puzzle: interacting with a static item by writing its name, or, using a pickupable item on a static item, by writing both their names on the terminal. The idea there, was that our GUI would be clickable, thus player didn't need to ever type anything. This was our focus, because we wanted to improve gameplay for text-based games, which is frustrating when getting multiple errors when an instruction isn't available. We have moved away from this idea, as suggested in the feedback. TA probably wanted to steer us away from a project that might not be finished, due to focusing on changing gameplay by using GUI entirely. Another good reason to change our approach, is that we have not respected the broad experience that Zork gives, through making multiple command available. Our new approach is to have a combination of trigger words, as described in A1. Solving puzzles can now be a multitude of interactions. See A1's Puzzles feature for a description.
+- Following the Zork-clone train of thought, our output is revised. We now print level description and location description, with the items and npcs descriptions in this location, once. Then, these descriptions can be asked again. Also, performing valid interactions now prints a specific description for that interaction with that entity (item or npc). This description is customisable.
+- Game class is deleted, and the responsibilities is was supposed to have, have been moved. These are now partly in GameProgression, which deals with puzzle progress.
+- Items and NPCs now have an abstract class, Entity. Their common attributes and resulting methods, are shared.
+- We have renamed Room class with Location class (thus, "outside" is a location instead of a room now).
+- Initialisation has been revised, as the whole game now works differently. Feedback for it in the class diagram has been taken into account.
+
+> Word Count 633/2000
 
 ### Application of design patterns
 Author(s): Valeriya Komarnitskaya, Mateusz Belka
@@ -40,7 +43,11 @@ For each application of any design pattern you have to provide a table conformin
 Maximum number of words for this section: 2000
 
 ## Class diagram									
-Author(s): `name of the team member(s) responsible for this section`
+Author(s): Ece Doganer, Valeriya Komarnitskaya
+
+note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
+note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
+note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. Hopefully, it will not be too confusing. 
 
 This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
 

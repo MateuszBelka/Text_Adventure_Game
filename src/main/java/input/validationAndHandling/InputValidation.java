@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
@@ -12,9 +12,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
 
-import static input.validation.HandlerOf1Word.validateAndHandle1Word;
-import static input.validation.HandlerOf2Words.validateAndHandle2Words;
-import static input.validation.HandlerOf3Words.*;
+import static input.validationAndHandling.HandlerOf1Word.validateAndHandle1Word;
+import static input.validationAndHandling.HandlerOf2Words.validateAndHandle2Words;
+import static input.validationAndHandling.HandlerOf3Words.*;
 
 public class InputValidation {
 

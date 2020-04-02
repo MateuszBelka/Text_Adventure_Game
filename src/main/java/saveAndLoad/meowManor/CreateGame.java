@@ -1,9 +1,5 @@
 package saveAndLoad.meowManor;
 
-import saveAndLoad.meowManor.ConfigureClasses;
-import saveAndLoad.meowManor.InitClasses;
-import saveAndLoad.meowManor.SerializeClasses;
-
 import java.net.URISyntaxException;
 
 public class CreateGame {

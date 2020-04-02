@@ -10,7 +10,7 @@ import initialisation.InitOfStoryIndependentClasses;
 import input.combatValidation.CombatValidation;
 import input.commands.DoGoToMenu;
 import input.commands.DoSave;
-import input.validation.Validation;
+import input.validationAndHandling.Validation;
 import javafx.event.ActionEvent;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;

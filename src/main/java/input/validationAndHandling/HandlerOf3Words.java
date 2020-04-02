@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.npc.NPC;
@@ -16,7 +16,7 @@ import static input.commands.DoOpen.doOpenItemWithItem;
 import static input.commands.DoUnlock.doUnlockItemWithItem;
 import static input.commands.DoUse.doUseItemOnItem;
 import static input.commands.DoUse.doUseItemOnNPC;
-import static input.validation.InputValidation.*;
+import static input.validationAndHandling.InputValidation.*;
 
 public class HandlerOf3Words {
     protected static void validateAndHandle3Words(HashMap<String, String> validInputList){

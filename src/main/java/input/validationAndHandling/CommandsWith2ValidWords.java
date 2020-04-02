@@ -1,4 +1,4 @@
-package input.validation;
+package input.validationAndHandling;
 
 public enum CommandsWith2ValidWords {
     TAKE, PICK, PICKUP, GRAB, GET, ATTACK, BATTLE,  READ, DROP, OPEN,

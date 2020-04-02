@@ -11,14 +11,11 @@ import initialisation.InitOfClassesThroughSaveFile;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.InterfaceAddress;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Save {
-
     public static void writeGameSave(String fileName) {
         setIDsOfObjects();
         encodeIDsOfObjects();
