@@ -186,7 +186,7 @@ It is designed for checking only the most important part of the input: the name 
 - <u>playerStats</u> this attribute is tracked so methods don't have the same parameters in.
 - <u>validateInput</u> this is the main method. It issues the other methods. 
 - <u>resetInputHandlerVariables</u> this resets/clears the <u>totalDirInInput</u>, <u>totalPItemsInInput</u>, <u>totalSItemsInInput</u> and <u>listOfValidInputtedWords</u>
-- <u>updateInputHandlerVariables</u> this gives value to <u>playerStats</u>, <u>input<u/>, <u>currentRoom<u/>.
+- <u>updateInputHandlerVariables</u> this gives value to <u>playerStats</u>, <u>input</u>, <u>currentRoom</u>.
 - <u>inputParser</u> a 'sentence' of input is parsed into 'words', that are then saved in input.
 - <u>wordValidator</u> checks 'words' of a 'sentence' of input, after having parsed it. The next 3 methods (written underneath) are called in this method.
 - <u>isWordValidMove</u> checks if word matches with <u>currentRoom</u>'s <u>listOfAvailableDirections</u>. Boolean.
