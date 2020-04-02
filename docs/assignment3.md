@@ -47,7 +47,9 @@ Author(s): Ece Doganer, Valeriya Komarnitskaya
 
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
-note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. Hopefully, it will not be too confusing. 
+note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. For big groups of binary associations, we have added notes, in order not to have too many floating arrows.
+
+ 
 
 This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
 
@@ -121,6 +123,19 @@ For each sequence diagram you have to provide:
 The goal of your sequence diagrams is both descriptive and prescriptive, so put the needed level of detail here, finding the right trade-off between understandability of the models and their precision.
 
 Maximum number of words for this section: 4000
+
+
+#### Two Steps of Input Validation
+
+Validating input is a three-step process. First, an input sentence is validated per word. Then, the input as a whole is considered for validation, grouping certain types of inputs together. Beyond the scope of these diagrams is step three, named "logical validation". What is meant with this term is that a final check is done before an input can be handled. This check is different per valid instruction.
+
+![Word Validation Diagram](./visual/WordValidationDiagram.png "Part one of Input Validation : Word Validation Diagram" )
+
+This diagram begins at the Validation Class. The sole instance of this class receives the input, which needs to be validated. First off, the input is parsed internally. Then, this parsed input is sent to the sole instance of class WordValidator. 
+
+The WordValidator instance needs to do a number of things. Firstly, the 
+
+![Word Validation Diagram](./visual/InputValidationDiagram.png "Part two of Input Validation : Word Validation Diagram" )
 
 ## Implementation									
 Author: Mateusz Belka
