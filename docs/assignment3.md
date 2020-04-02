@@ -69,18 +69,18 @@ Package Engine:<br>
 *+ progressGame(input : String, terminal : TextArea, actionEvent : ActionEvent) : void* <br>
 *- autoSaveCheck() : void* <br>
  
- Package GameProgress:GameProgression :<br>
- *+ checkLevelProgression() : void*<br>
- *- progressLevel() : void*<br>
- *+ isGameCompleted() : boolean*<br>
- *- printGameCompleted() : void*<br>
- *+ inputValidationAfterGameOver(input : String, actionEvent : ActionEvent) : void*<br>
+ Package GameProgress:GameProgression :<br> - responsible for keeping the information about the current progression in the game, levels, rooms, etc.
+ *+ checkLevelProgression() : void*<br> - reponsible for progress of the player's level
+ *- progressLevel() : void*<br> - public operation that is responsible for keeping information about how many of the levels are completed
+ *+ isGameCompleted() : boolean*<br> - checks if game is completed(no puzzles left to solve)
+ *- printGameCompleted() : void*<br> - prints message about the completion of the game
+ *+ inputValidationAfterGameOver(input : String, actionEvent : ActionEvent) : void*<br> - after starvation/defeating by the enemy/low health, input validation is responsible for input from user about the game
  
- Package GameProgress:PuzzleProgression :<br>
- *+ resetPuzzlesSolvedCount() : void*<br>
- *+ incrementPuzzlesSolvedCount() : void*<br>
- *+ getPuzzlesSolvedCount() : int*<br>
- *+ incrementPuzzleCountGiveXPDrainHunger() : void*<br>
+ Package GameProgress:PuzzleProgression :<br> - responsible for keeping the information about the puzzle progression.
+ *+ resetPuzzlesSolvedCount() : void*<br> - resetting the count of solved puzzles(to 0)
+ *+ incrementPuzzlesSolvedCount() : void*<br> - incrementing a number of puzzles that was solved
+ *+ getPuzzlesSolvedCount() : int*<br> - getter for number of solved puzzles
+ *+ incrementPuzzleCountGiveXPDrainHunger() : void*<br> - incrementing number of puzzles left to solve, print XP and hunger drain.
  
  Package Initialisation:InitOfClassesThroughSaveFile:<br> -  is a part of the initialisation package and contains a group of methods and attributes that are responsible for initialisation of the system. It is done by configuration and creation of necessary instances, story-related objects, getters and setters methods.
  *- items : ArrayList<Item>*<br> - a private variable providing information about the items that are in the room or in inventory
