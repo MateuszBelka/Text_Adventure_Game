@@ -49,6 +49,330 @@ note 1: Our tool does not create the compartments (attributes, operations, respo
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
 note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. For big groups of binary associations, we have added notes, in order not to have too many floating arrows.
 
+Package Engine:<br>
+*- inputsUntilAutoSave : int* <br>
+*+ getInputsUntilAutoSave() : int* <br>
+*+ setInputsUntilAutoSave(inputsUntilAutoSave : int) : int* <br>
+*+ initializeGameScene(terminal : TextArea) : void* <br>
+*+ progressGame(input : String, terminal : TextArea, actionEvent : ActionEvent) : void* <br>
+*- autoSaveCheck() : void* <br>
+ 
+ Package GameProgress:GameProgression :<br>
+ *+ checkLevelProgression() : void*<br>
+ *- progressLevel() : void*<br>
+ *+ isGameCompleted() : boolean*<br>
+ *- printGameCompleted() : void*<br>
+ *+ inputValidationAfterGameOver(input : String, actionEvent : ActionEvent) : void*<br>
+ 
+ Package GameProgress:PuzzleProgression :<br>
+ *+ resetPuzzlesSolvedCount() : void*<br>
+ *+ incrementPuzzlesSolvedCount() : void*<br>
+ *+ getPuzzlesSolvedCount() : int*<br>
+ *+ incrementPuzzleCountGiveXPDrainHunger() : void*<br>
+ 
+ Package Initialisation:InitOfClassesThroughSaveFile:<br>
+ *- items : ArrayList<Item>*<br>
+ *- levels : ArrayList<Level>*<br>
+ *- locations : ArrayList<Location>*<br>
+ *- friendlyNPCs : ArrayList<NPC>*<br>
+ *- enemyNPCs : ArrayList<NPC>*<br>
+ *- inventory : Inventory*<br>
+ *- playerStats : PlayerStats*<br>
+ *+ setItems(items : ArrayList<Item>) : void*<br>
+ *+ setLevels(levels : ArrayList<Level>) : void*<br>
+ *+ setLocations(locations : ArrayList<Location>) : void*<br>
+ *+ setFriendlyNPCs(friendlyNPCs : ArrayList<NPC>) : void*<br>
+ *+ getEnemyNPCs() : ArrayList<NPC>*<br>
+ *+ setEnemyNPCs(enemyNPCs : ArrayList<NPC>) : void*<br>
+ *+ setInventory(inventory : Inventory) : void*<br>
+ *+ setPlayerStats(playerStats : PlayerStats) : void*<br>
+ *+ getItems() : ArrayList<Item>*<br>
+ *+ getLevels() : ArrayList<Level>*<br>
+ *+ getLocations() : ArrayList<Location>*<br>
+ *+ getFriendlyNPCs() : ArrayList<NPC>*<br>
+ *+ getInventory() : Inventory*<br>
+ *+ getPlayerStats() : PlayerStats*<br>
+ 
+ Package Initialisation:InitOfStoryIndependentClasses:
+ *- adventure : Adventure*<br>
+ *+ getAdventure() : Adventure*<br>
+ *+ setAdventure(adventure : Adventure) : void*<br>
+ 
+ Package SaveAndLoad:Save :
+ *+ writeGameSave(fileName : String ) : void*<br>
+ *- setIDsOfObjects() : void*<br>
+ *- setIDsOfItems() : void*<br>
+ *- setIDsOfLevels() : void*<br>
+ *- setIDsOfLocations() : void*<br>
+ *- setIDsOfFriendlyNPCs() : void*<br>
+ *- setIDsOfEnemyNPCs() : void*<br>
+ *- encodeIDsOfObjects() : void*<br>
+ *- connectPlayerToLocation() : void*<br>
+ *- connectPlayerToLevel() : void*<br>
+ *- connectPlayerToLocations() : void*<br>
+ *- connectLevelsToLocation() : void*<br>
+ *- connectLevelsToLevels() : void*<br>
+ *- connectLocationsToItems() : void*<br>
+ *- connectLocationsToFriendlyNPCs() : void*<br>
+ *- connectLocationsToEnemyNPCs() : void*<br>
+ *- connectLocationsToHashMap() : void*<br>
+ *- connectItemsToNPCs() : void*<br>
+ *- connectItemsToItems() : void*<br>
+ *- connectNPCToNPC() : void*<br>
+ *- connectNPCToItems() : void*<br>
+ *- connectInventoryToItems() : void*<br>
+ *- populateJsonWithClasses(fileName : String) : void*<br>
+ 
+ Package SaveAndLoad:Load :
+ *+ loadGameFromSave(filePath : String) : void*<br>
+ *- initializeClassesFromJsonSave(filePath : String) : void*<br>
+ *+ loadGame(fileName : String) : void*<br>
+ *- initializeClassesFromJson(fileName : String) : void*<br>
+ *- decodeIDsToObjects() : void*<br>
+ *- connectPlayerToLocation() : void*<br>
+ *- connectPlayerToLevel() : void*<br>
+ *- connectPlayerToLocations() : void*<br>
+ *- connectPlayerToInventory() : void*<br>
+ *- connectLevelsToLocation() : void*<br>
+ *- connectLevelsToLevels() : void*<br>
+ *- connectLocationsToItems() : void*<br>
+ *- connectLocationsToFriendlyNPCs() : void*<br>
+ *- connectLocationsToEnemyNPCs() : void*<br>
+ *- connectLocationsToHashMap() : void*<br>
+ *- connectItemsToItems() : void*<br>
+ *- connectItemsToNPCs() : void*<br>
+ *- connectNPCToItems() : void*<br>
+ *- connectNPCToNPC() : void*<br>
+ *- connectInventoryToItems() : void*<br>
+ *- configPrintingDescriptions() : void*<br>
+ 
+ Package SaveAndLoad:NPCClassAdapter:
+ *+ serialize(src : NPC, typeOfSrc : Type, context : JsonSerializationContext) : JsonElement*<br>
+ *+ deserialize(json : JsonElement, typeOfT : Type, context : JsonDeserializationContext)*<br>
+ 
+ Package SaveAndLoad:MeowManor:ConfigureClasses:
+  *+ configureEverything() : void*<br>
+  *+ configureItems() : void*<br>
+  *+ configureLevels() : void*<br>
+  *+ configureLocations() : void*<br>
+  *+ configureFriendlyNPCs() : void*<br>
+  *- configureEnemyNPCs() : void *<br>
+  *+ configureInventory() : void*<br>
+  *+ configurePlayer() : void*<br>
+  
+  Package SaveAndLoad:MeowManor:CreateGame:
+  *+ createDemo() : void*<br>
+  
+  Package SaveAndLoad:MeowManor:InitClasses:
+  *+ initEverything() : void*<br>
+  *+ initPlayer() : PlayerStats*<br>
+  *+ initInventory() : Inventory*<br>
+  *+ initLevels() : ArrayList<Level>*<br>
+  *+ initLocations() : ArrayList<Location>*<br>
+  *+ initItems() : ArrayList<Item>*<br>
+  *+ initFriendlyNPC() : ArrayList<NPC>*<br>
+  *+ initEnemyNPC() : ArrayList<NPC>*<br>
+  
+  Package SaveAndLoad:MeowManor:SerializeClasses:
+  *+ serializeDemo() : void*<br>
+ 
+ Package SaveAndLoad:DemoOne:ConfigureClasses:
+ *+ configureEverything() : void*<br>
+ *+ configureItems() : void*<br>
+ *+ configureLevels() : void*<br>
+ *+ configureLocations() : void*<br>
+ *+ configureFriendlyNPCs() : void*<br>
+ *- configureEnemyNPCs() : void *<br>
+ *+ configureInventory() : void*<br>
+ *+ configurePlayer() : void*<br>
+ 
+ Package SaveAndLoad:DemoOne:CreateGame:
+ *+ createDemo() : void*<br>
+ 
+ Package SaveAndLoad:DemoOne:InitClasses:
+ *+ initEverything() : void*<br>
+ *+ initPlayer() : PlayerStats*<br>
+ *+ initInventory() : Inventory*<br>
+ *+ initLevels() : ArrayList<Level>*<br>
+ *+ initLocations() : ArrayList<Location>*<br>
+ *+ initItems() : ArrayList<Item>*<br>
+ *+ initFriendlyNPC() : ArrayList<NPC>*<br>
+ *+ initEnemyNPC() : ArrayList<NPC>*<br>
+ 
+ Package SaveAndLoad:DemoOne:SerializeClasses:
+ *+ serializeDemo() : void*<br>
+ 
+ Package Output:CombatPrinter:
+ *+ printCombat() : void*<br>
+ 
+ Package Output:InteractionPrinter:
+ *- listToPrint : ArrayList<String>*<br>
+ *- getListToPrint() : ArrayList<String>*<br>
+ *- setListToPrint(listToPrint : ArrayList<String>) : void*<br>
+ *+ print(newline : String) : void*<br>
+ *+ printToTerminal() : void*<br>
+ 
+ Package Output:DescriptionGetter:
+ *- listToPrint : ArrayList<String>*<br>
+ *+ compileStoryText() : ArrayList<String>*<br>
+ *- addLevelTextIfFirstPrint() : void*<br>
+ *- addLocationTextAndListOfEntitiesIfFirstPrint() : void*<br>
+ *- addListOfEntitiesInLocationIfFirstPrint() : void*<br>
+ *- addListOfItems() : String*<br>
+ *- addListOfNPCs() : String*<br>
+ 
+ Package Output:DescriptionPrinter:
+ *+ printStory(terminal : TextArea) : void*<br>
+ 
+ Package Output:UserInputPrinter:
+ *+ printUserInput(input : String) : void*<br>
+ 
+ Package ui:UI:
+ 
+ Package ui:Controllers:
+ 
+ Package gameElements:battle:
+ 
+ Package gameElements:Player:PlayerStats:
+ 
+ Package gameElements:Player:Inventory:
+ 
+ Package gameElements:Player:PlayerHealthProgression:
+ 
+ Package gameElements:Player:PlayerHungerProgression:
+ 
+ Package gameElements:Player:PlayerLevellingProgression:
+ 
+ Package gameElements:levelAndContents:npc:EnemyNPC:
+ 
+ Package gameElements:levelAndContents:npc:FriendlyNPC:
+ 
+ Package gameElements:levelAndContents:npc:NPCFactory:
+ 
+ Package gameElements:levelAndContents:Entity:
+ 
+ Package gameElements:levelAndContents:Item:
+ 
+ Package gameElements:levelAndContents:Level:
+ 
+ Package gameElements:levelAndContents:Location:
+ 
+ Package input:combatValidation:
+ 
+ Package input:commands:DoAttack:
+ 
+ Package input:commands:DoBack:
+ 
+ Package input:commands:DoBreak:
+ 
+ Package input:commands:DoClose:
+ 
+ Package input:commands:DoConsume:
+ 
+ Package input:commands:DoCut:
+ 
+ Package input:commands:DoDrop:
+ 
+ Package input:commands:DoExamine:
+ 
+ Package input:commands:DoExit:
+ 
+ Package input:commands:DoGetDirections:
+ 
+ Package input:commands:DoGetInventory:
+ 
+ Package input:commands:DoGiveItemToNPC:
+ 
+ Package input:commands:DoGoToMenu:
+ 
+ Package input:commands:DoHelp:
+ 
+ Package input:commands:DoListen:
+ 
+ Package input:commands:DoLoad:
+ 
+ Package input:commands:DoLook:
+ 
+ Package input:commands:DoMove:
+ 
+ Package input:commands:DoOpen:
+ 
+ Package input:commands:DoPickUp:
+ 
+ Package input:commands:DoPull:
+ 
+ Package input:commands:DoPush:
+ 
+ Package input:commands:DoRead:
+ 
+ Package input:commands:DoSave:
+ 
+ Package input:commands:DoSmell:
+ 
+ Package input:commands:DoTalkWith:
+ 
+ Package input:commands:DoUnlock:
+ *+ doUnlockItemWithItem (itemToUnlock : Item, itemToUnlockWith : Item) : void*<br>
+ 
+ Package input:commands:DoUse:
+ *+ doUse(item : Item) : void*<br>
+ *+ doUse(npc : NPC) : void*<br>
+ *+ doUseItemOnNPC(item : Item, npc : NPC) : void*<br>
+ *+ doUseItemOnItem(item1 : Item, item2 : Item)  : void*<br>
+ 
+ Package input:validation:HandlerOf1Word
+ *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ *- handle1Command(command : String , actionEvent : ActionEvent) : void*<br>
+ *- doCommand(command : String, actionEvent : ActionEvent) : void*<br>
+ *- handleReadCommand() : void*<br>
+ *- handle1Item(item : Item) : void*<br>
+ *- handle1NPC(npc : NPC) : void*<br>
+ *# handle1Direction(direction : String) : void*<br>
+ 
+ Package input:validation:HandlerOf2Words 
+ *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*<br>
+ *- validateAndHandleItemAndNPCCombination(item : Item, npc : NPC) : void*<br>
+ *- validateAndHandleCommandAndItemCombination(command : String, item : Item) : void*<br>
+ *- cutItemCommand(item : Item) : void*<br>
+ *- validateAndHandleCommandAndNPCCombination(command : String, npc : NPC) : void*<br>
+ *- cutNPCCommand(npc : NPC) : void*<br>
+ *- validateAndHandleCommandAndDirectionCombination(command : String, direction : String) : void*<br>
+ 
+ Package input:validation:HandlerOf3Words
+ *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void*<br>
+ *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void*<br>
+ *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void*<br>
+ 
+ Package input:validation:inputValidation
+ *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
+ *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String*<br>
+ *- deleteFirstAndLastChar(value : String) : String*<br>
+ *# getItem(validInputList : HashMap<String, String>) : Item*<br>
+ *# getCommand(validInputList : HashMap<String, String>) : String*<br>
+ *# getNPC(validInputList : HashMap<String, String>) : NPC*<br>
+ *# getDirection(validInputList : HashMap<String, String>) : String*<br>
+ 
+ Package input:validation:Validation
+ *+ validator(String input, ActionEvent actionEvent) : void*<br>
+ *- inputParser(String input) : String*<br>
+ *+ compileValidList(inputList : String[]) : HashMap<String, String>*<br>
+ 
+ Package input:validation:WordValidation
+ *+ wordValidator(inputList : String[]) : HashMap<String, String>*<br>
+ *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void*<br>
+ *- directionValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ *- addItemToValidInputListIfFoundInPassedList (word : String, validInputList : HashMap<String, String>, list : ArrayList<Item>) : void*<br>
+ *- npcValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
 
 This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
@@ -122,17 +446,7 @@ Sequence Diagram represents states and events that are arranged in time sequence
 The process starts with the user typing the input to the terminal. For movement, there are four possible ways of moving in eight directions: move/run/go/walk [in direction: North/South/East/West/Northeast/Northwest/Northeast/Southeast/Southwest] or [direction:North/South/East/West/Northeast/Northwest/Northeast/Southeast/Southwest]. We implemented it this way, so a player will have a smaller chance of getting an input error and a higher chance to parse the input. This makes our game more user-friendly and allows a player to choose the most convenient option. After that, the inputted command is passed to the class **Validation**. **Validation** class has three responsibilities. First is checking the input: if the input is valid, parsing the input and checking if the direction is valid in terms of spelling. Second, in order to understand if a player can move in a certain direction, we need to take into account the configuration of rooms. Depending on the room you are in, it is important to request a list of available directions class and check if the inputted direction is within the list. As a result of checks inside **Validation** here are two scenarios: either the input is valid(correct spelling, valid direction, valid movement) or not valid. If it is not valid, the **StoryTextGetter** receives information about it and the user receives a message stating where exactly the input was invalid. If the input is valid, then a function <u>doMove</u> from the class DoMove is called that allows a character to change a location and <u>setCurrentLocation</u> to location. This way, the *movedLocationList* variable is increased by 1. It is important to keep track of the rooms visited due to our backtracking feature. We decrease our hunger points due to the fact that every time we move, we are getting hungrier. In the diagram we show it as if it is decreased by 1 - it is an abstraction. In the implementation, we have a special variable for decreasing hunger level. After that, the **StoryTextGetter** class receives a text to print, which will include a description of the room, items, possible enemies, quests. 
 
 
-This chapter contains the specification of at least 2 UML sequence diagrams of your system, together with a textual description of all its elements. Here you have to focus on specific situations you want to describe. For example, you can describe the interaction of player when performing a key part of the videogame, during a typical execution scenario, in a special case that may happen (e.g., an error situation), when finalizing a fantasy soccer game, etc.
-
-For each sequence diagram you have to provide:
-- a title representing the specific situation you want to describe;
-- a figure representing the sequence diagram;
-- a textual description of all its elements in a narrative manner (you do not need to structure your description into tables in this case). We expect a detailed description of all the interaction partners, their exchanged messages, and the fragments of interaction where they are involved. For each sequence diagram we expect a description of about 300-500 words.
-
-The goal of your sequence diagrams is both descriptive and prescriptive, so put the needed level of detail here, finding the right trade-off between understandability of the models and their precision.
-
-Maximum number of words for this section: 4000
-
+>Word count 378/4000
 
 #### Two Steps of Input Validation
 
@@ -172,7 +486,8 @@ If there are more entries than three, then the syntax is simply is too complicat
 
 By sending the HashMap to the right handlers, or by printing an error message, the responsibility of the <b>InputValidator</b> instance is now fulfilled. This concludes step two of the validation.
 
-> Word count 704/4000
+> Word count 704/4000<br>
+> Word count total for sequence diagram descriptions: 1082/4000 
 
 ## Implementation									
 Author: Mateusz Belka
