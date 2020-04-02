@@ -414,7 +414,27 @@ Package Engine:<br>
  
  
  
+ ####Initialisation: 
+ **InitOfClassesThroughSaveFile** and **InitOfStoryIndependentClasses** is a part of the initialisation package and contains a group of methods and attributes that are responsible for initialisation of the system. It is done by configuration and creation of necessary instances, story-related objects, getters and setters methods.
+ **InitOfClassesThroughSaveFile :** 
+ *items* - a private variable providing information about the items that are in the room or in inventory
+ *levels* - a private variable that contains information about levels in the game
+ *locations* - a private variable referring to the locations in the game and storyline, usually related to the name of the room/some space where the character is located
+ *friendlyNPCs* - a private variable referring to the non-playable characters that is not going to harm a player
+ *enemyNPCs* - a private variable referring to non-playable characters whose aim is to defeat the player
+ *inventory* - a private variable that contains information about items that were picked up by a player and currently are in his/her inventory
+ *playerStats* - a private variable that contains information about a playable character: current health, hunger, level, damage, etc.
+ *setItems*, *getItems* - setter and getter function for items
+ *setLevels*, *getLevels* -  setter and getter function for levels
+ *setLocations*, *getLocations* -  setter and getter function for locations
+ *setFriendlyNPCs*, *getFriendlyNPCs* -  setter and getter function for friendly NPCs
+ *setEnemyNPCs*, *getEnemyNPCs* -  setter and getter function for enemy NPCs
+ *setInventory*, *getInventory* - setter and getter function for player’s inventory
+ *setPlayerStats*, *getPlayerStats* - setter and getter function for player’s characteristics
  
+ **InitOfStoryIndependentClasses :**
+ *adventure* - a private variable that is responsible for UI scene. Without this variable, accessing terminal and input is not possible
+ *getAdventure* and *setAdventure* - getter and setter for UI scene
  
  
  
