@@ -104,6 +104,7 @@ public class HandlerOf1Word {
                 break;
             case "JUMP": InteractionPrinter.print("Nice jump!");
                 break;
+            case "OBSERVE":
             case "LOOK":
                 doLook();
                 break;

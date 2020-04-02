@@ -1,9 +1,6 @@
-import saveAndLoad.createDemoOne.CreateDemo;
 import saveAndLoad.meowManor.CreateGame;
 import ui.*;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.net.URISyntaxException;
 
 public class Main {

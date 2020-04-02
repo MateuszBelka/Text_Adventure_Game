@@ -148,6 +148,7 @@ public class HandlerOf2Words {
             case "CUT":
                 cutItemCommand(item);
                 break;
+            case "BATTLE":
             case "ATTACK":
                 if (item.getCanBeAttacked()) { doAttack(item); }
                 else { InteractionPrinter.print(item.getName() + " cannot be attacked."); }

@@ -1,4 +1,4 @@
-package saveAndLoad.createDemoOne;
+package saveAndLoad.demoOne;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
