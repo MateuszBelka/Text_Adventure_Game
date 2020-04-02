@@ -45,8 +45,14 @@ Maximum number of words for this section: 2000
 ## Class diagram									
 Author(s): Valeriya Komarnitskaya, Ece Doganer, Mateusz Belka
 
+The class diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
+
 <div align="center">
     <img src="visual/ClassDiagram1Assignment3.png" width="90%">
+</div>
+
+<div align="center">
+    <img src="visual/ClassDiagram2Assignment3.png" width="90%">
 </div>
 
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
