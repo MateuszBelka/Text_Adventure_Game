@@ -22,7 +22,7 @@ public class CombatPrinter {
 
         if (CombatValidation.attacked) {
             listToPrint.add("You dealt " + player.getDamage() + " points of damage to your enemy.");
-            if (BattleSequence.inCombat()) {
+            if (BattleSequence.inCombat() && BattleSequence.getCurrentEnemy().getCanAttack()) {
                 listToPrint.add("Your enemy: " + enemy.getName() + " now has " + enemy.getCurrentHealth() + " health points.");
             }
         }
