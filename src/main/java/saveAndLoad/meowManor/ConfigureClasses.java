@@ -178,7 +178,7 @@ public class ConfigureClasses {
         listOfLocationForLevel1.add(theStudy);
         level1.setListOfLocations(listOfLocationForLevel1);
         level1.setNextLevel(level2);
-        level1.setTotalPuzzleCount(5);//fixme
+        level1.setTotalPuzzleCount(5);
 
         //level2
         Location livingRoom = InitOfClassesThroughSaveFile.getLocations().get(3);
@@ -189,7 +189,7 @@ public class ConfigureClasses {
         listOfLocationForLevel2.add(livingRoom);
         level2.setListOfLocations(listOfLocationForLevel2);
         level2.setNextLevel(level3);
-        level2.setTotalPuzzleCount(1);//fixme
+        level2.setTotalPuzzleCount(1);
 
         //level3
         Location meowsterBedroom = InitOfClassesThroughSaveFile.getLocations().get(4);
@@ -200,7 +200,7 @@ public class ConfigureClasses {
         listOfLocationForLevel2.add(meowsterBedroom);
         level2.setListOfLocations(listOfLocationForLevel3);
         level3.setNextLevel(null);
-        level3.setTotalPuzzleCount(1);//fixme
+        level3.setTotalPuzzleCount(1);
     }
 
     public static void configureLocations() {
@@ -338,6 +338,7 @@ public class ConfigureClasses {
         NPC lucky = InitOfClassesThroughSaveFile.getEnemyNPCs().get(0);
         NPC patchesEnemy = InitOfClassesThroughSaveFile.getEnemyNPCs().get(1);
         NPC wildCat = InitOfClassesThroughSaveFile.getEnemyNPCs().get(2);
+
         NPC patchesFriendly = InitOfClassesThroughSaveFile.getFriendlyNPCs().get(2);
 
         lucky.setName("Lucky");
