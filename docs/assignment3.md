@@ -105,12 +105,12 @@ Package Engine:<br>
  *+ getInventory() : Inventory*<br>
  *+ getPlayerStats() : PlayerStats*<br>
  
- Package Initialisation:InitOfStoryIndependentClasses:
+ Package Initialisation:InitOfStoryIndependentClasses:<br>
  *- adventure : Adventure*<br>
  *+ getAdventure() : Adventure*<br>
  *+ setAdventure(adventure : Adventure) : void*<br>
  
- Package SaveAndLoad:Save :
+ Package SaveAndLoad:Save :<br>
  *+ writeGameSave(fileName : String ) : void*<br>
  *- setIDsOfObjects() : void*<br>
  *- setIDsOfItems() : void*<br>
@@ -135,7 +135,7 @@ Package Engine:<br>
  *- connectInventoryToItems() : void*<br>
  *- populateJsonWithClasses(fileName : String) : void*<br>
  
- Package SaveAndLoad:Load :
+ Package SaveAndLoad:Load :<br>
  *+ loadGameFromSave(filePath : String) : void*<br>
  *- initializeClassesFromJsonSave(filePath : String) : void*<br>
  *+ loadGame(fileName : String) : void*<br>
@@ -158,11 +158,11 @@ Package Engine:<br>
  *- connectInventoryToItems() : void*<br>
  *- configPrintingDescriptions() : void*<br>
  
- Package SaveAndLoad:NPCClassAdapter:
+ Package SaveAndLoad:NPCClassAdapter:<br>
  *+ serialize(src : NPC, typeOfSrc : Type, context : JsonSerializationContext) : JsonElement*<br>
  *+ deserialize(json : JsonElement, typeOfT : Type, context : JsonDeserializationContext)*<br>
  
- Package SaveAndLoad:MeowManor:ConfigureClasses:
+ Package SaveAndLoad:MeowManor:ConfigureClasses:<br>
   *+ configureEverything() : void*<br>
   *+ configureItems() : void*<br>
   *+ configureLevels() : void*<br>
@@ -172,10 +172,10 @@ Package Engine:<br>
   *+ configureInventory() : void*<br>
   *+ configurePlayer() : void*<br>
   
-  Package SaveAndLoad:MeowManor:CreateGame:
+  Package SaveAndLoad:MeowManor:CreateGame:<br>
   *+ createDemo() : void*<br>
   
-  Package SaveAndLoad:MeowManor:InitClasses:
+  Package SaveAndLoad:MeowManor:InitClasses:<br>
   *+ initEverything() : void*<br>
   *+ initPlayer() : PlayerStats*<br>
   *+ initInventory() : Inventory*<br>
@@ -185,10 +185,10 @@ Package Engine:<br>
   *+ initFriendlyNPC() : ArrayList<NPC>*<br>
   *+ initEnemyNPC() : ArrayList<NPC>*<br>
   
-  Package SaveAndLoad:MeowManor:SerializeClasses:
+  Package SaveAndLoad:MeowManor:SerializeClasses:<br>
   *+ serializeDemo() : void*<br>
  
- Package SaveAndLoad:DemoOne:ConfigureClasses:
+ Package SaveAndLoad:DemoOne:ConfigureClasses:<br>
  *+ configureEverything() : void*<br>
  *+ configureItems() : void*<br>
  *+ configureLevels() : void*<br>
@@ -198,10 +198,10 @@ Package Engine:<br>
  *+ configureInventory() : void*<br>
  *+ configurePlayer() : void*<br>
  
- Package SaveAndLoad:DemoOne:CreateGame:
+ Package SaveAndLoad:DemoOne:CreateGame:<br>
  *+ createDemo() : void*<br>
  
- Package SaveAndLoad:DemoOne:InitClasses:
+ Package SaveAndLoad:DemoOne:InitClasses:<br>
  *+ initEverything() : void*<br>
  *+ initPlayer() : PlayerStats*<br>
  *+ initInventory() : Inventory*<br>
@@ -211,20 +211,20 @@ Package Engine:<br>
  *+ initFriendlyNPC() : ArrayList<NPC>*<br>
  *+ initEnemyNPC() : ArrayList<NPC>*<br>
  
- Package SaveAndLoad:DemoOne:SerializeClasses:
+ Package SaveAndLoad:DemoOne:SerializeClasses:<br>
  *+ serializeDemo() : void*<br>
  
- Package Output:CombatPrinter:
+ Package Output:CombatPrinter:<br>
  *+ printCombat() : void*<br>
  
- Package Output:InteractionPrinter:
+ Package Output:InteractionPrinter:<br>
  *- listToPrint : ArrayList<String>*<br>
  *- getListToPrint() : ArrayList<String>*<br>
  *- setListToPrint(listToPrint : ArrayList<String>) : void*<br>
  *+ print(newline : String) : void*<br>
  *+ printToTerminal() : void*<br>
  
- Package Output:DescriptionGetter:
+ Package Output:DescriptionGetter:<br>
  *- listToPrint : ArrayList<String>*<br>
  *+ compileStoryText() : ArrayList<String>*<br>
  *- addLevelTextIfFirstPrint() : void*<br>
@@ -233,138 +233,138 @@ Package Engine:<br>
  *- addListOfItems() : String*<br>
  *- addListOfNPCs() : String*<br>
  
- Package Output:DescriptionPrinter:
+ Package Output:DescriptionPrinter:<br>
  *+ printStory(terminal : TextArea) : void*<br>
  
- Package Output:UserInputPrinter:
+ Package Output:UserInputPrinter:<br>
  *+ printUserInput(input : String) : void*<br>
  
- Package ui:UI:
+ Package ui:UI:<br>
  
- Package ui:Controllers:
+ Package ui:Controllers:<br>
  
- Package gameElements:battle:
+ Package gameElements:battle:<br>
  
- Package gameElements:Player:PlayerStats:
+ Package gameElements:Player:PlayerStats:<br>
  
- Package gameElements:Player:Inventory:
+ Package gameElements:Player:Inventory:<br>
  
- Package gameElements:Player:PlayerHealthProgression:
+ Package gameElements:Player:PlayerHealthProgression:<br>
  
- Package gameElements:Player:PlayerHungerProgression:
+ Package gameElements:Player:PlayerHungerProgression:<br>
  
- Package gameElements:Player:PlayerLevellingProgression:
+ Package gameElements:Player:PlayerLevellingProgression:<br>
  
- Package gameElements:levelAndContents:npc:EnemyNPC:
+ Package gameElements:levelAndContents:npc:EnemyNPC:<br>
  
- Package gameElements:levelAndContents:npc:FriendlyNPC:
+ Package gameElements:levelAndContents:npc:FriendlyNPC:<br>
  
- Package gameElements:levelAndContents:npc:NPCFactory:
+ Package gameElements:levelAndContents:npc:NPCFactory:<br>
  
- Package gameElements:levelAndContents:Entity:
+ Package gameElements:levelAndContents:Entity:<br>
  
- Package gameElements:levelAndContents:Item:
+ Package gameElements:levelAndContents:Item:<br>
  
- Package gameElements:levelAndContents:Level:
+ Package gameElements:levelAndContents:Level:<br>
  
- Package gameElements:levelAndContents:Location:
+ Package gameElements:levelAndContents:Location:<br>
  
- Package input:combatValidation:
+ Package input:combatValidation:<br>
  
- Package input:commands:DoAttack:
+ Package input:commands:DoAttack:<br>
  
- Package input:commands:DoBack:
+ Package input:commands:DoBack:<br>
  
- Package input:commands:DoBreak:
+ Package input:commands:DoBreak:<br>
  
- Package input:commands:DoClose:
+ Package input:commands:DoClose:<br>
  
- Package input:commands:DoConsume:
+ Package input:commands:DoConsume:<br>
  
- Package input:commands:DoCut:
+ Package input:commands:DoCut:<br>
  
- Package input:commands:DoDrop:
+ Package input:commands:DoDrop:<br>
  
- Package input:commands:DoExamine:
+ Package input:commands:DoExamine:<br>
  
  
- Package input:commands:DoExit:
+ Package input:commands:DoExit:<br>
  *+ doExit (actionEvent : ActionEvent) : void*<br>
  
- Package input:commands:DoGetDirections:
+ Package input:commands:DoGetDirections:<br>
  *+ doGetDirections() : void*<br>
  
- Package input:commands:DoGetInventory:
+ Package input:commands:DoGetInventory:<br>
  *+ doInventoryLookUp() : void*<br>
  
- Package input:commands:DoGiveItemToNPC:
+ Package input:commands:DoGiveItemToNPC:<br>
  *+ doGiveItemToNPC(item : Item, npc : NPC) : void*<br>
  
- Package input:commands:DoGoToMenu:
+ Package input:commands:DoGoToMenu:<br>
  *+ doGoToMenu(actionEvent : ActionEvent) : void*<br> 
  
- Package input:commands:DoHelp:
+ Package input:commands:DoHelp:<br>
  *+ doHelp() : void*<br>
  
- Package input:commands:DoListen:
+ Package input:commands:DoListen:<br>
  *+ doListen() : void*<br>
  *+ doListenTo(item : Item) : void*<br>
  *+ doListenTo(npc : NPC) : void*<br>
  *+ doListenToNPCWithItem(npc : NPC, item : Item) : void*<br>
  *+ doListenToItemWithItem(itemToListenTo : Item, itemToListenWith : Item) : void*<br>
  
- Package input:commands:DoLoad:
+ Package input:commands:DoLoad:<br>
  *+ doLoad(actionEvent : ActionEvent)*<br>
  
- Package input:commands:DoLook:
+ Package input:commands:DoLook:<br>
  *+ doLook() : void*<br>
  
- Package input:commands:DoMove:
+ Package input:commands:DoMove:<br>
  *+ doMove (location : Location) : void*<br>
  
- Package input:commands:DoOpen:
+ Package input:commands:DoOpen:<br>
  *+ doOpen (item : Item) : void*<br>
  *+ doOpen (npc : NPC) : void*<br>
  *+ doOpenItemWithItem (itemToOpen : Item, itemToOpenWith : Item) : void*<br>
  
- Package input:commands:DoPickUp:
+ Package input:commands:DoPickUp:<br>
  *+ doPickUp(item : Item) : void*<br>
  
- Package input:commands:DoPull:
+ Package input:commands:DoPull:<br>
  *+ doPull (item : Item) : void*<br>
  *+ doPull (npc : NPC) : void*<br>
  
- Package input:commands:DoPush:
+ Package input:commands:DoPush:<br>
  *+ doPush(item : Item) : void*<br>
  *+ doPush(npc : NPC) : void*<br>
  
- Package input:commands:DoRead:
+ Package input:commands:DoRead:<br>
  *+ doRead(item : Item) : void*<br>
  
- Package input:commands:DoSave:
+ Package input:commands:DoSave:<br>
  *+ doSave : void*<br>
  *+ doAutoSave : void*<br>
  *- saveLogic(jsonFileName : String) : void*<br>
  
- Package input:commands:DoSmell:
+ Package input:commands:DoSmell:<br>
  *+ doSmell() : void*<br>
  *+ doSmell(item : Item) : void*<br>
  *+ doSmell(npc : NPC)*<br>
  
- Package input:commands:DoTalkWith:
+ Package input:commands:DoTalkWith:<br>
  *+ doTalkWith(npc : NPC) : void*<br>
  *+ doTalkWith(item : Item) : void*<br>
  
- Package input:commands:DoUnlock:
+ Package input:commands:DoUnlock:<br>
  *+ doUnlockItemWithItem (itemToUnlock : Item, itemToUnlockWith : Item) : void*<br>
  
- Package input:commands:DoUse:
+ Package input:commands:DoUse:<br>
  *+ doUse(item : Item) : void*<br>
  *+ doUse(npc : NPC) : void*<br>
  *+ doUseItemOnNPC(item : Item, npc : NPC) : void*<br>
  *+ doUseItemOnItem(item1 : Item, item2 : Item)  : void*<br>
  
- Package input:validation:HandlerOf1Word
+ Package input:validation:HandlerOf1Word<br>
  *# validateAndHandle1Word(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
  *- handle1Command(command : String , actionEvent : ActionEvent) : void*<br>
  *- doCommand(command : String, actionEvent : ActionEvent) : void*<br>
@@ -373,7 +373,7 @@ Package Engine:<br>
  *- handle1NPC(npc : NPC) : void*<br>
  *# handle1Direction(direction : String) : void*<br>
  
- Package input:validation:HandlerOf2Words 
+ Package input:validation:HandlerOf2Words <br>
  *# validateAndHandle2Words( validInputList : HashMap<String, String>) : void*<br>
  *- validateAndHandleItemAndNPCCombination(item : Item, npc : NPC) : void*<br>
  *- validateAndHandleCommandAndItemCombination(command : String, item : Item) : void*<br>
@@ -382,12 +382,12 @@ Package Engine:<br>
  *- cutNPCCommand(npc : NPC) : void*<br>
  *- validateAndHandleCommandAndDirectionCombination(command : String, direction : String) : void*<br>
  
- Package input:validation:HandlerOf3Words
+ Package input:validation:HandlerOf3Words<br>
  *# validateAndHandle3Words(validInputList : HashMap<String, String>) : void*<br>
  *- validateAndHandleCommandItemNpcCombination(command : String, item : Item, npc : NPC) : void*<br>
  *- validateAndHandleCommandItemItemCombination(command : String, item1 : Item, item2 : Item) : void*<br>
  
- Package input:validation:inputValidation
+ Package input:validation:inputValidation<br>
  *+ inputValidator(validInputList : HashMap<String, String>, actionEvent : ActionEvent) : void*<br>
  *# getKeyInValidInputList(validInputList : HashMap<String, String>, value : String) : String*<br>
  *- deleteFirstAndLastChar(value : String) : String*<br>
@@ -396,13 +396,13 @@ Package Engine:<br>
  *# getNPC(validInputList : HashMap<String, String>) : NPC*<br>
  *# getDirection(validInputList : HashMap<String, String>) : String*<br>
  
- Package input:validation:Validation
+ Package input:validation:Validation<br>
  *+ validator(String input, ActionEvent actionEvent) : void*<br>
  *- inputParser(String input) : String*<br>
  *+ compileValidList(inputList : String[]) : HashMap<String, String>*<br>
  
- Package input:validation:WordValidation
- *+ wordValidator(inputList : String[]) : HashMap<String, String>*<br>
+ Package input:validation:WordValidation<br>
+ *+ wordValidator(inputList : String[]) : HashMap<String, String>* validates words by getting lists from enum Commands, Directions, and from player's currentLocation's items and npcs. Returns a Hashmap containing those words, with a value of "command", "item", "direction", or "npc".<br>
  *- commandValidator(word : String,  validInputList : HashMap<String, String>) : void*<br>
  *- directionValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
  *- itemValidator(word : String, validInputList : HashMap<String, String>) : void*<br>
