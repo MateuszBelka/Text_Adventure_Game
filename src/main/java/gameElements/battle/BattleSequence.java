@@ -34,7 +34,7 @@ public class BattleSequence {
     }
 
     // Can be used to check if player is in combat at the moment
-    public static boolean inCombat() { return currentEnemy != null;}
+    public static boolean inCombat() { return getCurrentEnemy() != null;}
 
     // Call after player input is processed but before output is generated
     public static void enemyAttack() {
@@ -42,7 +42,7 @@ public class BattleSequence {
          * No need to inform the called about lack of attack
          * as no unique action is taken in such scenario
          */
-        if (!inCombat()) return;
+        if (!inCombat() || getCurrentEnemy().getCanAttack()) return;
         int damage = getCurrentEnemy().getDamage();
         PlayerStats player = InitOfClassesThroughSaveFile.getPlayerStats();
 
