@@ -4,13 +4,13 @@
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": true,
       "canBePickedUp": false,
-      "canBeDropped": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
       "canBeCutWith": false,
       "canBeRead": false,
-      "canBreak": true,
+      "canBreak": false,
       "npcToListenWithItemToID": 0,
       "itemToBreakWithID": 0,
       "itemsToDropOnBreakIDs": [],
@@ -18,7 +18,8 @@
       "name": "Anchovies",
       "description": "Gross, canned anchovies? Well, food is food. It doesn\u0027t have a tab to be pulled, so it must be opened another way.",
       "descriptionAfterCommand": {
-        "break": "With brute human force, you were able to open the can. Thankfully, no cat saw you do it.",
+        "break": "With brute human force, you were able to open the can. Unfortunately you spilled everything while opening it. Thankfully, no cat saw you do it.",
+        "pickup": "Very heavy... Must have a lot of food inside...",
         "consume": "Eating anchovies face-first from a can is not what you expected to do on a Tuesday afternoon, but at least you found something to eat.",
         "smell": "Anchovies, those scary slivers of canned fish, have a taste so pungent, so intensely fishy and salty that when served improperly, they can make the heartiest eater recoil from their punch."
       },
@@ -131,8 +132,8 @@
       "canBeTalkedWith": false,
       "canBeListenedTo": false,
       "canBeSmelled": false,
-      "canBeOpened": true,
-      "canBeClosed": false,
+      "canBeOpened": false,
+      "canBeClosed": true,
       "canBeExamined": false,
       "needsItem": false,
       "canBeUsedOnNPC": false,
@@ -185,7 +186,7 @@
       "canBeExamined": false,
       "needsItem": false,
       "canBeUsedOnNPC": false,
-      "canBePushed": true,
+      "canBePushed": false,
       "canBePulled": false,
       "itemToCutWithID": 0,
       "canBeCut": false,
@@ -241,8 +242,8 @@
       "canBeUsed": false,
       "npcToGiveItemToID": 0,
       "itemToListenWithID": 0,
-      "itemToUnlockWithID": 7,
-      "itemToUnlockID": 0,
+      "itemToUnlockWithID": 0,
+      "itemToUnlockID": 7,
       "itemToOpenWithID": 0,
       "itemToBeOpenedID": 0,
       "itemToCloseWithID": 0
@@ -298,8 +299,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": false,
@@ -313,7 +314,6 @@
       "name": "Fish-Shaped_Key",
       "description": "A fish-shaped, gold and diamond-encrusted key.",
       "descriptionAfterCommand": {
-        "unlock": "It worked! The door is open!",
         "pickup": "This key is really heavy... and can cats even open doors with their paws? Anyways, it must be important."
       },
       "firstTimeEnteringLocation": true,
@@ -339,7 +339,7 @@
       "npcToGiveItemToID": 0,
       "itemToListenWithID": 0,
       "itemToUnlockWithID": 0,
-      "itemToUnlockID": 5,
+      "itemToUnlockID": 0,
       "itemToOpenWithID": 0,
       "itemToBeOpenedID": 0,
       "itemToCloseWithID": 0
@@ -347,8 +347,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": true,
@@ -395,8 +395,8 @@
     {
       "canBeBrokenWithItem": false,
       "canBeBrokenWithoutItem": false,
-      "canBePickedUp": true,
-      "canBeDropped": false,
+      "canBePickedUp": false,
+      "canBeDropped": true,
       "canBeUnlockedByItem": false,
       "canBeListenedWith": false,
       "canBeGiven": true,
@@ -593,16 +593,16 @@
       "name": "Ground Floor",
       "firstTimeEnteringLevel": false,
       "startLocationID": 1,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 5,
       "nextLevelID": 2
     },
     {
       "id": 2,
       "description": "The second floor of Meow Manor. Seems too quiet...",
       "name": "Second Floor",
-      "firstTimeEnteringLevel": true,
+      "firstTimeEnteringLevel": false,
       "startLocationID": 4,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 1,
       "nextLevelID": 3
     },
     {
@@ -611,21 +611,16 @@
       "name": "The Attic",
       "firstTimeEnteringLevel": true,
       "startLocationID": 5,
-      "totalPuzzleCount": 1000,
+      "totalPuzzleCount": 1,
       "nextLevelID": 0
     }
   ],
   "locations": [
     {
       "id": 1,
-      "listOfItemsIDs": [
-        2,
-        9
-      ],
+      "listOfItemsIDs": [],
       "listOfFriendlyNPCsIDs": [],
-      "listOfEnemyNPCsIDs": [
-        3
-      ],
+      "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
         "east": 3,
         "west": 2
@@ -656,23 +651,18 @@
     },
     {
       "id": 3,
-      "listOfItemsIDs": [
-        1,
-        7
-      ],
+      "listOfItemsIDs": [],
       "listOfFriendlyNPCsIDs": [
         2,
         4
       ],
-      "listOfEnemyNPCsIDs": [
-        3
-      ],
+      "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {
         "west": 1
       },
       "description": "You are in the private office of Meow Manor establishment. There are plenty of ripped books all around you. You wonder who could have done that...",
       "name": "The Study",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 4,
@@ -680,13 +670,11 @@
         5
       ],
       "listOfFriendlyNPCsIDs": [],
-      "listOfEnemyNPCsIDs": [
-        1
-      ],
+      "listOfEnemyNPCsIDs": [],
       "listOfConnectedLocationsIDs": {},
       "description": "As you enter the living room of the Meow Manor you are astonished by the sheer beauty of everything around you.",
       "name": "Living Room",
-      "firstTimeEnteringLocation": true
+      "firstTimeEnteringLocation": false
     },
     {
       "id": 5,
@@ -888,7 +876,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 100,
         "damage": 10,
-        "currentHealth": 50,
+        "currentHealth": 0,
         "NPCSpawnedAfterBattleID": 0,
         "id": 1,
         "name": "Lucky",
@@ -972,7 +960,7 @@
         "itemToGiveID": 0,
         "percentChanceToShowUpAtLocationSwitch": 30,
         "damage": 5,
-        "currentHealth": 40,
+        "currentHealth": 0,
         "NPCSpawnedAfterBattleID": 0,
         "id": 3,
         "name": "WildCat",
@@ -1018,7 +1006,9 @@
     "listOfItemsIDs": [
       10,
       11,
-      6
+      7,
+      1,
+      8
     ]
   },
   "playerStats": {
@@ -1042,28 +1032,33 @@
       "xpReward": 40,
       "puzzlesSolvedCount": 0
     },
-    "currentLocationID": 1,
-    "currentLevelID": 1,
+    "currentLocationID": 4,
+    "currentLevelID": 2,
     "listOfMovedLocationsIDs": [
+      3,
+      1,
+      3,
+      1,
       2,
+      3,
       1,
       2,
       1
     ],
-    "damage": 20,
-    "maximumXP": 100,
-    "maxHealth": 100,
+    "damage": 29,
+    "maximumXP": 144,
+    "maxHealth": 144,
     "maxHunger": 100,
-    "currentHunger": 90,
+    "currentHunger": 30,
     "hungerDrain": 5,
     "foodHungerIncrease": 15,
     "foodHealthIncrease": 10,
     "maxPlayerLevel": 100,
     "hungerDamage": 20,
-    "currentXP": 0,
-    "currentHealth": 100,
-    "playerLevel": 1,
-    "xpReward": 40,
+    "currentXP": 128,
+    "currentHealth": 119,
+    "playerLevel": 3,
+    "xpReward": 48,
     "puzzlesSolvedCount": 0
   }
 }

@@ -46,7 +46,7 @@ public class HandlerOf3Words {
         switch (command){
             case "GIVE":
                 if (item.getCanBeGiven()) {
-                    if (npc.getItemToGive().equals(item)) { doGiveItemToNPC(item, npc); }
+                    if (npc.getItemToGive() == item) { doGiveItemToNPC(item, npc); }
                     else { InteractionPrinter.print(npc.getName() + " does not need " + item.getName() + "."); }
                 }
                 else {
@@ -86,27 +86,27 @@ public class HandlerOf3Words {
                 else { InteractionPrinter.print("Not the right item to use on " + item2.getName() + "."); }
                 break;
             case "CUT":
-                if (item1.getItemToCutWith().equals(item2)) {
+                if (item1.getItemToCutWith() == item2) {
                     doCutItemWithItem(item1, item2);
                 }
                 else { InteractionPrinter.print("Cannot cut " + item2.getName() + " with " + item1.getName() + "."); }
                 break;
             case "UNLOCK":
-                if (item1.getItemToUnlock().equals(item2) && item1.getCanBeUnlockedByItem()) {
+                if (item1.getItemToUnlock() == item2 && item1.getCanBeUnlockedByItem()) {
                     doUnlockItemWithItem(item1, item2);
                 }
                 else { InteractionPrinter.print(item2.getName() + " cannot be unlocked with " + item1.getName() + "."); }
                 break;
             case "OPEN":
-                if (item1.getItemToOpenWith().equals(item2)) { doOpenItemWithItem(item1, item2); }
+                if (item1.getItemToOpenWith() == item2) { doOpenItemWithItem(item1, item2); }
                 else { InteractionPrinter.print("Wrong item to open" + item2.getName() + " with."); }
                 break;
             case "CLOSE":
-                if (item1.getItemToCloseWith().equals(item2)) { doCloseItemWithItem(item1, item2); }
+                if (item1.getItemToCloseWith() == item2) { doCloseItemWithItem(item1, item2); }
                 else { InteractionPrinter.print(item1.getName() + " doesn't close " + item2.getName() + "."); }
                 break;
             case "LISTEN":
-                if (item1.getItemToListenWith().equals(item2)) {
+                if (item1.getItemToListenWith() == item2) {
                     doListenToItemWithItem(item1, item2);
                 }
                 break;

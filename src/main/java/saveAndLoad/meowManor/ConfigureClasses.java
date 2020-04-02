@@ -48,10 +48,11 @@ public class ConfigureClasses {
         canOfAnchovies.setDescription("Gross, canned anchovies? " +
                 "Well, food is food. It doesn't have a tab to be pulled, " +
                 "so it must be opened another way.");
+        canOfAnchovies.setCanBePickedUp(true);
+        canOfAnchovies.getDescriptionAfterCommand().put("pickup","Very heavy... Must have a lot of food inside...");
         canOfAnchovies.setCanBeBrokenWithoutItem(true);
-        canOfAnchovies.setCanBreak(true);
         canOfAnchovies.getDescriptionAfterCommand().put("break","With brute human force, " +
-                "you were able to open the can. Thankfully, no cat saw you do it.");
+                "you were able to open the can. Unfortunately you spilled everything while opening it. Thankfully, no cat saw you do it.");
         canOfAnchovies.setCanBeConsumed(true);
         canOfAnchovies.getDescriptionAfterCommand().put("consume","Eating anchovies " +
                 "face-first from a can is not what you expected to do on a Tuesday afternoon, " +
@@ -97,7 +98,7 @@ public class ConfigureClasses {
         door.setCanBeRead(true);
         door.getDescriptionAfterCommand().put("read","Definitely NOT Patches' Meowster Bedroom.");
         door.setCanBeUnlockedByItem(true);
-        door.setItemToUnlockWith(fishShapedKey);
+        door.setItemToUnlock(fishShapedKey);
         door.getDescriptionAfterCommand().put("unlock","You opened the door to Meowster Bedroom");
 
         // rock
@@ -113,8 +114,6 @@ public class ConfigureClasses {
         fishShapedKey.setCanBePickedUp(true);
         fishShapedKey.getDescriptionAfterCommand().put("pickup","This key is really heavy... " +
                 "and can cats even open doors with their paws? Anyways, it must be important.");
-        fishShapedKey.setItemToUnlock(door);
-        fishShapedKey.getDescriptionAfterCommand().put("unlock","It worked! The door is open!");
 
         // salmon
         salmon.setName("Salmon");
@@ -179,7 +178,7 @@ public class ConfigureClasses {
         listOfLocationForLevel1.add(theStudy);
         level1.setListOfLocations(listOfLocationForLevel1);
         level1.setNextLevel(level2);
-        level1.setTotalPuzzleCount(1000);//fixme
+        level1.setTotalPuzzleCount(5);//fixme
 
         //level2
         Location livingRoom = InitOfClassesThroughSaveFile.getLocations().get(3);
@@ -190,7 +189,7 @@ public class ConfigureClasses {
         listOfLocationForLevel2.add(livingRoom);
         level2.setListOfLocations(listOfLocationForLevel2);
         level2.setNextLevel(level3);
-        level2.setTotalPuzzleCount(1000);//fixme
+        level2.setTotalPuzzleCount(1);//fixme
 
         //level3
         Location meowsterBedroom = InitOfClassesThroughSaveFile.getLocations().get(4);
@@ -201,7 +200,7 @@ public class ConfigureClasses {
         listOfLocationForLevel2.add(meowsterBedroom);
         level2.setListOfLocations(listOfLocationForLevel3);
         level3.setNextLevel(null);
-        level3.setTotalPuzzleCount(1000);//fixme
+        level3.setTotalPuzzleCount(1);//fixme
     }
 
     public static void configureLocations() {
@@ -325,10 +324,10 @@ public class ConfigureClasses {
         bartholomeow.getDescriptionAfterCommand().put("listen","You listened in, but you can't understand it. " +
                 "It sounds like he is speaking in Latin! What a smart cat.");
 
+        // Patches
         patchesFriendly.setName("Patches");
         patchesFriendly.setDescription("After you defeated Patches he seems to no longer be the blood craving monster he used to be." +
                 " Tho it seems like there is something he wants from you.");
-
         Item salmon = InitOfClassesThroughSaveFile.getItems().get(7);
         patchesFriendly.setItemToGive(salmon);
         patchesFriendly.getDescriptionAfterCommand().put("give","Patches is finally satisfied. His eyes lit up when he saw the salmon" +
@@ -339,7 +338,6 @@ public class ConfigureClasses {
         NPC lucky = InitOfClassesThroughSaveFile.getEnemyNPCs().get(0);
         NPC patchesEnemy = InitOfClassesThroughSaveFile.getEnemyNPCs().get(1);
         NPC wildCat = InitOfClassesThroughSaveFile.getEnemyNPCs().get(2);
-
         NPC patchesFriendly = InitOfClassesThroughSaveFile.getFriendlyNPCs().get(2);
 
         lucky.setName("Lucky");

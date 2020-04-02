@@ -371,9 +371,6 @@ public class Load {
                 if (friendlyNPC.getNpcToGiveItemToID() == enemyNPCToConnect.getId()) {
                     friendlyNPC.setNpcToGiveItemTo(enemyNPCToConnect);
                 }
-                if (friendlyNPC.getNPCSpawnedAfterBattleID() == enemyNPCToConnect.getId()) {
-                    friendlyNPC.setNPCSpawnedAfterBattle(enemyNPCToConnect);
-                }
             }
         }
         for (NPC enemyNPC : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
@@ -388,9 +385,6 @@ public class Load {
             for (NPC enemyNPCToConnect : InitOfClassesThroughSaveFile.getEnemyNPCs()) {
                 if (enemyNPC.getNpcToGiveItemToID() == enemyNPCToConnect.getId()) {
                     enemyNPC.setNpcToGiveItemTo(enemyNPCToConnect);
-                }
-                if (enemyNPC.getNPCSpawnedAfterBattleID() == enemyNPCToConnect.getId()) {
-                    enemyNPC.setNPCSpawnedAfterBattle(enemyNPCToConnect);
                 }
             }
         }
