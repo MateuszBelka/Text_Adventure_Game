@@ -1,4 +1,4 @@
-package saveAndLoad.createDemoOne;
+package saveAndLoad.demoOne;
 
 import input.commands.DoSave;
 import saveAndLoad.Save;

@@ -18,7 +18,6 @@ public enum Commands {
     PULL,
     PUSH,
     CONSUME, EAT, DRINK,
-    ENTER,
     TALK,
     BREAK,
     CUT,

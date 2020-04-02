@@ -1,9 +1,8 @@
-package saveAndLoad.createDemoOne;
+package saveAndLoad.demoOne;
 
 import gameElements.levelAndContents.Item;
 import gameElements.levelAndContents.Level;
 import gameElements.levelAndContents.Location;
-import gameElements.levelAndContents.npc.EnemyNPC;
 import gameElements.levelAndContents.npc.NPC;
 import gameElements.levelAndContents.npc.NPCFactory;
 import gameElements.player.Inventory;
