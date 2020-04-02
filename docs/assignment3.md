@@ -435,25 +435,6 @@ Package Engine:<br>
  **InitOfStoryIndependentClasses :**
  *adventure* - a private variable that is responsible for UI scene. Without this variable, accessing terminal and input is not possible
  *getAdventure* and *setAdventure* - getter and setter for UI scene
- 
- 
- 
-
-This chapter contains the specification of the UML class diagram of your system, together with a textual description of all its elements.
-
-`Figure representing the UML class diagram`
-
-For each class (and data type) in the class diagram you have to provide a paragraph providing the following information:
-- Brief description about what it represents
-- Brief description of the meaning of each attribute
-- Brief description of the meaning of each operation
-- Brief description of the meaning of each association involving it (each association can be described only once in this deliverable)
-
-Also, you can briefly discuss fragments of previous versions of the class diagram (with figures) in order to show how you evolved from initial versions of the class diagram to the final one.
-
-In this document you have to adhere to the following formatting conventions:
-- the name of each **class** is in bold
-- the *attributes*, *operations*, *associations*, and *objects* are in italic.
 
 Maximum number of words for this section: 4000
 
@@ -492,15 +473,6 @@ State machine diagram represents states and events that are happening from the m
 The diagram starts with a state called "Game Option Selection" after a user turns on the executable file. It is a menu with three clickable options: "New Game", "Load Game" and "Quit". Depending on the choice you are making, you can have three outcomes as follows: to begin a new game from the start, to continue previously played game and to exit to the desktop. The following structure can be considered as a tree. Then, depending on the choice a player has made, a choice pseudostate is entered. It is necessary because different inputs lead to different states. Guards are checking which command was pressed. 
 If the button "New Game" was pressed, the player is transferred to a state called "Game selection" and sees a screen with three options: "DevDemo", "Meow Manor" and "Back". "DevDemo" and "Meow Manor" are different game stories. "Back" will open the starting screen again, the state called "Game Option Selection". A choice pseudostate determines with a guard which command was pressed. "DevDemo" and "Meow Manor" lead to the pseudostate called "Game State", in which game terminal is open, there is a welcoming text and program is ready for input. When a player types command, a terminal is processing it, outputs a description of the location, items in the room and is waiting for the new input.
 If the button "Load Game" is pressed, then a new state is entered called "Loading Game selection".  A player sees three options as well: "Auto-Save" means that a player will enter the previously played game on the latest auto-saved moment. "Save0" is the name of the game that was saved manually by a player. Save0 is just an indicator; it can be any name that a player will want. For the next state, after a player pressed a command, guards check the input. If the command that was pressed is either "Save0" or "AutoSave", it leads to the state called "GameState". "Back" will take a user to the very first starting screen, a state called "Game option selection". 
-
-This chapter contains the specification of at least 2 UML state machines of your system, together with a textual description of all their elements. Also, remember that classes the describe only data structures (e.g., Coordinate, Position) do not need to have an associated state machine since they can be seen as simple "data containers" without behaviour (they have only stateless objects).
-
-For each state machine you have to provide:
-- the name of the class for which you are representing the internal behavior;
-- a figure representing the part of state machine;
-- a textual description of all its states, transitions, activities, etc. in a narrative manner (you do not need to structure your description into tables in this case). We expect 3-4 lines of text for describing trivial or very simple state machines (e.g., those with one to three states), whereas you will provide longer descriptions (e.g., ~500 words) when describing more complex state machines.
-
-The goal of your state machine diagrams is both descriptive and prescriptive, so put the needed level of detail here, finding the right trade-off between understandability of the models and their precision.
 
 Maximum number of words for this section: 4000
 
