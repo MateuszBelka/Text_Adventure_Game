@@ -438,10 +438,6 @@ In the runtime scenario presented in our object diagram, the player is positione
 ## State machine diagrams									
 Author(s): Valeriya Komarnitskaya, Taylor Doughty
 
-<div align="center">
-    <img src="visual/TaylorSMDLevel.jpg" width="90%">
-</div>
-
 [ Package controllers: classes Welcome, NewGame, LoadGame ](https://github.com/Ece-Doganer/Software-Design/blob/Assignment3/docs/visual/diagram.pdf)
 
 State machine diagram represents states and events that are happening from the moment a user opens executable until the actual start of the game and the storyline. The decision to implement this part of the process in the diagram was made because, in our opinion, it is crucial to show what happens as a very first thing when the player enters the game, through which states does the game go to load the game. 
@@ -449,6 +445,18 @@ State machine diagram represents states and events that are happening from the m
 The diagram starts with a state called "Game Option Selection" after a user turns on the executable file. It is a menu with three clickable options: "New Game", "Load Game" and "Quit". Depending on the choice you are making, you can have three outcomes as follows: to begin a new game from the start, to continue previously played game and to exit to the desktop. The following structure can be considered as a tree. Then, depending on the choice a player has made, a choice pseudostate is entered. It is necessary because different inputs lead to different states. Guards are checking which command was pressed. 
 If the button "New Game" was pressed, the player is transferred to a state called "Game selection" and sees a screen with three options: "DevDemo", "Meow Manor" and "Back". "DevDemo" and "Meow Manor" are different game stories. "Back" will open the starting screen again, the state called "Game Option Selection". A choice pseudostate determines with a guard which command was pressed. "DevDemo" and "Meow Manor" lead to the pseudostate called "Game State", in which game terminal is open, there is a welcoming text and program is ready for input. When a player types command, a terminal is processing it, outputs a description of the location, items in the room and is waiting for the new input.
 If the button "Load Game" is pressed, then a new state is entered called "Loading Game selection".  A player sees three options as well: "Auto-Save" means that a player will enter the previously played game on the latest auto-saved moment. "Save0" is the name of the game that was saved manually by a player. Save0 is just an indicator; it can be any name that a player will want. For the next state, after a player pressed a command, guards check the input. If the command that was pressed is either "Save0" or "AutoSave", it leads to the state called "GameState". "Back" will take a user to the very first starting screen, a state called "Game option selection". 
+
+<div align="center">
+    <img src="visual/TaylorSMDLevel.jpg" width="90%">
+</div>
+
+The second state machine diagram represents the state changes **Level** should go through in the event that a level is completed. To make it clear, in order for a level to be completed, players must have completed a predefined amount of puzzles specific to that level, and this number of puzzles per level is determined by whatever the interactive story permits. Therefore, this state machine diagram represents what occurs within **Level** when a level is completed, regardless of how many puzzles a specific level may have within an interactive story.
+
+The description of the diagram itself is as follows: 
+
+After the start of the game, the transition containing the event "Level is constructed" fires, in which the level is constructed and **Level** transitions to the Idle state. While in this state, the state waits for a command signifying that a puzzle has been completed by the player. Once a command is received, the guard [command received] leading to state Active is checked, and therefore a transition takes place to that state. 
+
+Once this state is entered, upon entry the state decreases the <u>puzzlesLeftToSolve</u> integer within **Level** by 1. After this entry action has commenced, one of two guards are automatically checked and therefore one of their transitions is fired. One of the transitions leads the state back to idle, in which is the guard [<u> puzzlesLeftToSolve</u> =/ 0] is checked, meaning that if the number of puzzles required to progress have not been achieved, **Level** goes back to an idle state in which it continues to wait for a command. The other transition leads the state to the end-point of the state machine diagram, in which the guard is [<u>puzzlesLeftToSolve</u> = 0]. This guard is only checked if the amount of puzzles for the level had been solved. Therefore, if there are no puzzles left for that level, the level in question is completed.
 
 Maximum number of words for this section: 4000
 
