@@ -45,6 +45,18 @@ Maximum number of words for this section: 2000
 ## Class diagram									
 Author(s): Valeriya Komarnitskaya, Ece Doganer, Mateusz Belka
 
+The class diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
+
+<div align="center">
+    <img src="visual/ClassDiagram1Assignment3.png" width="90%">
+</div>
+
+<div align="center">
+    <img src="visual/ClassDiagram2Assignment3.png" width="90%">
+</div>
+
+The save and load package provides the backend implementation for saving and loading storylines. In the current implementation the package is also responsible for holding information about the included storylines, Dev Demo and Meow Manor. The entire package doesn't contain any attributes; however, it has plethora of operations. Starting with the Save class: writeGameSave is the public method meant to be called by other areas of source code when a save of current state of the game into JSON is wanted. The method requires a parameter with the absolute path for the file that the information is meant to be saved in. The next set of operation within Save class are all private and are called directly or indirectly through writeGameSave method. The six operations 
+
 note 1: Our tool does not create the compartments (attributes, operations, responsibility) of a class, if there is no content in them.
 note 2: All the setters and getters of an attribute are self-explanatory and will not be explained in this class diagram. They will be simply mentioned by name, for completeness.
 note 3: For binary association : Our tool only has a normal line with a floating arrow next to it, instead of a solid-line with an open arrow end. For big groups of binary associations, we have added notes, in order not to have too many floating arrows.
@@ -275,41 +287,73 @@ Package Engine:<br>
  
  Package input:commands:DoExamine:
  
+ 
  Package input:commands:DoExit:
+ *+ doExit (actionEvent : ActionEvent) : void*<br>
  
  Package input:commands:DoGetDirections:
+ *+ doGetDirections() : void*<br>
  
  Package input:commands:DoGetInventory:
+ *+ doInventoryLookUp() : void*<br>
  
  Package input:commands:DoGiveItemToNPC:
+ *+ doGiveItemToNPC(item : Item, npc : NPC) : void*<br>
  
  Package input:commands:DoGoToMenu:
+ *+ doGoToMenu(actionEvent : ActionEvent) : void*<br> 
  
  Package input:commands:DoHelp:
+ *+ doHelp() : void*<br>
  
  Package input:commands:DoListen:
+ *+ doListen() : void*<br>
+ *+ doListenTo(item : Item) : void*<br>
+ *+ doListenTo(npc : NPC) : void*<br>
+ *+ doListenToNPCWithItem(npc : NPC, item : Item) : void*<br>
+ *+ doListenToItemWithItem(itemToListenTo : Item, itemToListenWith : Item) : void*<br>
  
  Package input:commands:DoLoad:
+ *+ doLoad(actionEvent : ActionEvent)*<br>
  
  Package input:commands:DoLook:
+ *+ doLook() : void*<br>
  
  Package input:commands:DoMove:
+ *+ doMove (location : Location) : void*<br>
  
  Package input:commands:DoOpen:
+ *+ doOpen (item : Item) : void*<br>
+ *+ doOpen (npc : NPC) : void*<br>
+ *+ doOpenItemWithItem (itemToOpen : Item, itemToOpenWith : Item) : void*<br>
  
  Package input:commands:DoPickUp:
+ *+ doPickUp(item : Item) : void*<br>
  
  Package input:commands:DoPull:
+ *+ doPull (item : Item) : void*<br>
+ *+ doPull (npc : NPC) : void*<br>
  
  Package input:commands:DoPush:
+ *+ doPush(item : Item) : void*<br>
+ *+ doPush(npc : NPC) : void*<br>
  
  Package input:commands:DoRead:
+ *+ doRead(item : Item) : void*<br>
  
  Package input:commands:DoSave:
+ *+ doSave : void*<br>
+ *+ doAutoSave : void*<br>
+ *- saveLogic(jsonFileName : String) : void*<br>
  
  Package input:commands:DoSmell:
+ *+ doSmell() : void*<br>
+ *+ doSmell(item : Item) : void*<br>
+ *+ doSmell(npc : NPC)*<br>
  
  Package input:commands:DoTalkWith:
+ *+ doTalkWith(npc : NPC) : void*<br>
+ *+ doTalkWith(item : Item) : void*<br>
  
  Package input:commands:DoUnlock:
  *+ doUnlockItemWithItem (itemToUnlock : Item, itemToUnlockWith : Item) : void*<br>
@@ -396,7 +440,7 @@ Maximum number of words for this section: 4000
 ## Object diagrams								
 Author: Mateusz Belka
 
-The object diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience.
+The object diagram is divided into two parts due to the overwhelming amount of information. First part represents the relationships between classes while keeping the classes empty. The second part has no relationships but has all the attributes for classes. Due to the large size of the diagram we also included the original vpp files which can be opened directly from software "visual paradigm" to allow for best viewing experience. Those files can be found at: "docs/diagramsOriginalFormat".
 
 <div align="center">
     <img src="visual/ObjectDiagram1Assignment3.png" width="90%">
@@ -416,6 +460,10 @@ In the runtime scenario presented in our object diagram, the player is positione
 
 ## State machine diagrams									
 Author(s): Valeriya Komarnitskaya, Taylor Doughty
+
+<div align="center">
+    <img src="visual/TaylorSMDLevel.png" width="90%">
+</div>
 
 [ Package controllers: classes Welcome, NewGame, LoadGame ](https://github.com/Ece-Doganer/Software-Design/blob/Assignment3/docs/visual/diagram.pdf)
 
