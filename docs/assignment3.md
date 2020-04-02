@@ -287,41 +287,73 @@ Package Engine:<br>
  
  Package input:commands:DoExamine:
  
+ 
  Package input:commands:DoExit:
+ *+ doExit (actionEvent : ActionEvent) : void*<br>
  
  Package input:commands:DoGetDirections:
+ *+ doGetDirections() : void*<br>
  
  Package input:commands:DoGetInventory:
+ *+ doInventoryLookUp() : void*<br>
  
  Package input:commands:DoGiveItemToNPC:
+ *+ doGiveItemToNPC(item : Item, npc : NPC) : void*<br>
  
  Package input:commands:DoGoToMenu:
+ *+ doGoToMenu(actionEvent : ActionEvent) : void*<br> 
  
  Package input:commands:DoHelp:
+ *+ doHelp() : void*<br>
  
  Package input:commands:DoListen:
+ *+ doListen() : void*<br>
+ *+ doListenTo(item : Item) : void*<br>
+ *+ doListenTo(npc : NPC) : void*<br>
+ *+ doListenToNPCWithItem(npc : NPC, item : Item) : void*<br>
+ *+ doListenToItemWithItem(itemToListenTo : Item, itemToListenWith : Item) : void*<br>
  
  Package input:commands:DoLoad:
+ *+ doLoad(actionEvent : ActionEvent)*<br>
  
  Package input:commands:DoLook:
+ *+ doLook() : void*<br>
  
  Package input:commands:DoMove:
+ *+ doMove (location : Location) : void*<br>
  
  Package input:commands:DoOpen:
+ *+ doOpen (item : Item) : void*<br>
+ *+ doOpen (npc : NPC) : void*<br>
+ *+ doOpenItemWithItem (itemToOpen : Item, itemToOpenWith : Item) : void*<br>
  
  Package input:commands:DoPickUp:
+ *+ doPickUp(item : Item) : void*<br>
  
  Package input:commands:DoPull:
+ *+ doPull (item : Item) : void*<br>
+ *+ doPull (npc : NPC) : void*<br>
  
  Package input:commands:DoPush:
+ *+ doPush(item : Item) : void*<br>
+ *+ doPush(npc : NPC) : void*<br>
  
  Package input:commands:DoRead:
+ *+ doRead(item : Item) : void*<br>
  
  Package input:commands:DoSave:
+ *+ doSave : void*<br>
+ *+ doAutoSave : void*<br>
+ *- saveLogic(jsonFileName : String) : void*<br>
  
  Package input:commands:DoSmell:
+ *+ doSmell() : void*<br>
+ *+ doSmell(item : Item) : void*<br>
+ *+ doSmell(npc : NPC)*<br>
  
  Package input:commands:DoTalkWith:
+ *+ doTalkWith(npc : NPC) : void*<br>
+ *+ doTalkWith(item : Item) : void*<br>
  
  Package input:commands:DoUnlock:
  *+ doUnlockItemWithItem (itemToUnlock : Item, itemToUnlockWith : Item) : void*<br>
