@@ -59,8 +59,6 @@ public class Engine {
         UserInputPrinter.printUserInput(input);
 
 
-        //debug
-        InteractionPrinter.print(Integer.toString(InitOfClassesThroughSaveFile.getPlayerStats().getPuzzlesSolvedCount()));
 
         if (!PlayerHealthProgression.isDead()) {
             /*
