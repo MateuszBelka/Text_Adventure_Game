@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox minHeight="220.0" minWidth="200.0" prefHeight="720.0" prefWidth="960.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ui.controllers.NewGame">
+    <children>
+        <Region VBox.vgrow="ALWAYS" />
+        <HBox>
+            <children>
+                <Region HBox.hgrow="ALWAYS" />
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="DevDemo">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" VBox.vgrow="ALWAYS" />
+        <HBox minHeight="-Infinity" minWidth="-Infinity">
+            <children>
+                <Region HBox.hgrow="ALWAYS" />
+                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectExistingGameButtonClicked" prefHeight="60.0" prefWidth="220.0" text="MeowManor">
+                      <font>
+                          <Font size="30.0" />
+                      </font>
+                  </Button>
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <Region maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="120.0" VBox.vgrow="ALWAYS" />
+        <HBox>
+            <children>
+                <Region HBox.hgrow="ALWAYS" />
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="60.0" prefWidth="220.0" text="Back">
+                    <font>
+                        <Font size="30.0" />
+                    </font>
+                </Button>
+                <Region HBox.hgrow="ALWAYS" />
+            </children>
+        </HBox>
+        <Region VBox.vgrow="ALWAYS" />
+    </children>
+</VBox>

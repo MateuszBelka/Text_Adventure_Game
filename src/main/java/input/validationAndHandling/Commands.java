@@ -1,0 +1,31 @@
+package input.validationAndHandling;
+
+public enum Commands {
+    RUN, MOVE, GO, WALK,
+    QUIT, EXIT,
+    SAVE, LOAD,
+    INVENTORY,
+    LOOK,
+    EXAMINE, OBSERVE,
+    TAKE, PICK, PICKUP, GRAB, GET,
+    ATTACK, BATTLE,
+    DROP,
+    GIVE,
+    USE,
+    READ,
+    OPEN, CLOSE,
+    SMELL,
+    PULL,
+    PUSH,
+    CONSUME, EAT, DRINK,
+    TALK,
+    BREAK,
+    CUT,
+    LISTEN,
+    UNLOCK,
+    JUMP,
+    HELP,
+    BACK, BACKTRACK,
+    DIRECTIONS,
+    MENU
+}

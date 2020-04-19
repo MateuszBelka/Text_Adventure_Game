@@ -1,37 +1,18 @@
-import org.beryx.textio.TextIO;
-import org.beryx.textio.TextTerminal;
+import saveAndLoad.demoOne.CreateDemo;
+import saveAndLoad.meowManor.CreateGame;
+import ui.*;
 
-import java.util.Scanner;
+import java.net.URISyntaxException;
 
 public class Main {
-    public static void main (String[] args) {
-        Initialisation init = new Initialisation();
-        init.initializeEntireSystem();
-
-        Game game = init.getGames().get(0);
-        Player player = game.getPlayer();
-        InputValidator inputValidator = init.getInputValidators().get(0);
-        StoryTextOutput storyTextOutput = init.getStoryTextOutputs().get(0);
-        TextIO textIO = init.getTextIO();
-        TextTerminal terminal = init.getTerminal();
-
-        terminal.printf("(GAME DEMO) (tip: you can type 'exit' at any time)\n");
-        //main game loop
-        while (!game.isCompleted() && init.getExitSwitch().equals(false)) {
-            /* DEBUG MODE
-             * System.out.println("******INFO FOR TESTING:******");
-             * System.out.println("current room: " + player.getCurrentRoom());
-             * System.out.println("current room directions: " + player.getCurrentRoom().getListOfAvailableDirections());
-             * System.out.println("current room pickupable items: " + player.getCurrentRoom().getListOfPickupableItems());
-             * System.out.println("current room static items: " + player.getCurrentRoom().getListOfStaticItems());
-             * System.out.println("player inventory: " + player.getInventory().getItemsInInventory());
-             * System.out.println("******StoryText:******");
-             */
-            storyTextOutput.printStoryText(player, terminal);
-            String input = textIO.newStringInputReader().read("");
-            if (input.equals("exit")) { init.setExitSwitch(true); }
-            inputValidator.validateInput(input, player, terminal);
-        }
-        terminal.abort();
+    public static void main(String[] args) throws URISyntaxException {
+        CreateDemo.createDemo();
+        CreateGame.createGame();
+        /* DEV NOTE:
+         * Keep in mind that nothing after this line of code will be executed.
+         * If you'd like some code to run you will have to do that through
+         * UI controllers.
+         */
+        UI.run();
     }
 }
